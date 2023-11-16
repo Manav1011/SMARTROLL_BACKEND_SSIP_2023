@@ -19,7 +19,7 @@ class Profile(AbstractUser):
     name = models.CharField(max_length=255,null=True,blank=True)
     email = models.EmailField(_('email address'),unique=True)    
     email_verified = models.BooleanField(default=False)
-    ph_no = models.CharField(max_length=20, help_text="Enter your phone number")
+    ph_no = models.CharField(max_length=20)
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
 
     USERNAME_FIELD='email'

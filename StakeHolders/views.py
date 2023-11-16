@@ -16,7 +16,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         token = super().get_token(user)
         if user:
             token['email'] = user.email
-            token['name'] = user.name
+            token['name'] = user.name            
             token['role'] = user.role
             if user.role == 'admin':                
                 admin_obj = Admin.objects.get(profile=user)
