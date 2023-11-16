@@ -72,10 +72,13 @@ The WiFi-Based Classroom Attendance System is designed to automate the attendanc
     python manage.py runserver
     ```
 
-## Setting Up the Project on Windows
+## Setting Up the Project on Linux
 
 ### Prerequisites
-- Ensure that Python is installed on your system. If not, download and install Python from [python.org](https://www.python.org/).
+- Ensure that Python is installed on your system. If not, you can install it using your distribution's package manager. For example, on Ubuntu:
+  ```bash
+  sudo apt-get update  
+  ```
 
 ### Setting Up Virtual Environment
 
@@ -86,12 +89,12 @@ The WiFi-Based Classroom Attendance System is designed to automate the attendanc
 
 2. Create a new virtual environment:
     ```bash
-    python -m venv venv
+    python3 -m venv venv
     ```
 
 3. Activate the virtual environment:
     ```bash
-    .\venv\Scripts\activate
+    source venv/bin/activate
     ```
 
 ### Installing Dependencies and Running the Server
