@@ -22,12 +22,101 @@ The WiFi-Based Classroom Attendance System is designed to automate the attendanc
   
 - **Mobile App:** Flutter for cross-platform mobile app development.
 
-## To setup the project
-- To make sure virtualenv is installed or not run  - pip install virtualenv
-- Create a new virtualenv using - python -m venv venv
-- Activate newely created environment - source venv/bin/activate
-- Install django in the environment - pip install django
-- Clone the repo - https://github.com/Manav1011/SMARTROLL_BACKEND_SSIP_2023
-- cd into the project - cd SMARTROLL_BACKEND_SSIP_2023
-- install the dependencies - pip install -r requirements.txt
-- try and run the server - python manage.py runserver
+
+## Setting Up the Project on Windows
+
+### Prerequisites
+- Ensure that Python is installed on your system. If not, download and install Python from [python.org](https://www.python.org/).
+
+### Setting Up Virtual Environment
+
+1. Install virtualenv:
+    ```bash
+    pip install virtualenv
+    ```
+
+2. Create a new virtual environment:
+    ```bash
+    python -m venv venv
+    ```
+
+3. Activate the virtual environment:
+    ```bash
+    .\venv\Scripts\activate
+    ```
+
+### Installing Dependencies and Running the Server
+
+4. Install Django in the virtual environment:
+    ```bash
+    pip install django
+    ```
+
+5. Clone the repository:
+    ```bash
+    git clone https://github.com/Manav1011/SMARTROLL_BACKEND_SSIP_2023
+    ```
+
+6. Navigate to the project directory:
+    ```bash
+    cd SMARTROLL_BACKEND_SSIP_2023
+    ```
+
+7. Install project dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+8. Try running the server:
+    ```bash
+    python manage.py runserver
+    ```
+
+## Setting Up the Project on Windows
+
+### Prerequisites
+- Ensure that Python is installed on your system. If not, download and install Python from [python.org](https://www.python.org/).
+
+### Setting Up Virtual Environment
+
+1. Install virtualenv:
+    ```bash
+    pip install virtualenv
+    ```
+
+2. Create a new virtual environment:
+    ```bash
+    python -m venv venv
+    ```
+
+3. Activate the virtual environment:
+    ```bash
+    .\venv\Scripts\activate
+    ```
+
+### Installing Dependencies and Running the Server
+
+4. Install Django in the virtual environment:
+    ```bash
+    pip install django
+    ```
+
+5. Clone the repository:
+    ```bash
+    git clone https://github.com/Manav1011/SMARTROLL_BACKEND_SSIP_2023
+    ```
+
+6. Navigate to the project directory:
+    ```bash
+    cd SMARTROLL_BACKEND_SSIP_2023
+    ```
+
+7. Install project dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+8. Try running the server:
+    ```bash
+    python manage.py runserver
+    ```
