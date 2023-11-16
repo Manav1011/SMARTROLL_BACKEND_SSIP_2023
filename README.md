@@ -21,3 +21,13 @@ The WiFi-Based Classroom Attendance System is designed to automate the attendanc
 - **Backend:** Django (Python web framework) for server-side development.
   
 - **Mobile App:** Flutter for cross-platform mobile app development.
+
+## To setup the project
+- To make sure virtualenv is installed or not run  - pip install virtualenv
+- Create a new virtualenv using - python -m venv venv
+- Activate newely created environment - source venv/bin/activate
+- Install django in the environment - pip install django
+- Clone the repo - https://github.com/Manav1011/SMARTROLL_BACKEND_SSIP_2023
+- cd into the project - cd SMARTROLL_BACKEND_SSIP_2023
+- install the dependencies - pip install -r requirements.txt
+- try and run the server - python manage.py runserver
