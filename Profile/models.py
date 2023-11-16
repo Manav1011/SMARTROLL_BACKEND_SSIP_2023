@@ -16,6 +16,7 @@ class Profile(AbstractUser):
         ('technician', 'Technician'),
     ]
     username = None
+    name = models.CharField(max_length=255,null=True,blank=True)
     email = models.EmailField(_('email address'),unique=True)    
     email_verified = models.BooleanField(default=False)
     ph_no = models.CharField(max_length=20, help_text="Enter your phone number")
