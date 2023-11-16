@@ -6,7 +6,8 @@ from django.http import JsonResponse
 from StakeHolders.models import Admin
 from .serializers import BatchSerializer,SemesterSerializer
 from rest_framework.views import APIView
-from Manage.models import Batch
+from Manage.models import Batch,Semester
+from datetime import datetime
 # Create your views here.
 
 @api_view(['GET'])
@@ -64,29 +65,33 @@ def get_batches(request):
 
     ---
     '''
-    if request.user.role == 'admin':
-        admin_obj = Admin.objects.get(profile=request.user)
-        batches = admin_obj.branch.batches        
-        if batches.exists():            
-            batch_serialized_obj = BatchSerializer(batches,many=True)
-            data = {'data':batch_serialized_obj.data}
-            return JsonResponse(data,status=200)
+    try:
+        if request.user.role == 'admin':
+            admin_obj = Admin.objects.get(profile=request.user)
+            batches = admin_obj.branch.batches        
+            if batches.exists():            
+                batch_serialized_obj = BatchSerializer(batches,many=True)
+                data = {'data':batch_serialized_obj.data}
+                return JsonResponse(data,status=200)
+            else:
+                data = {"data":"Currently there are no active batches"}
+                return JsonResponse(data,status=204)
         else:
-            data = {"data":"Currently there are no active batches"}
-            return JsonResponse(data,status=204)
-    else:
-        data = {"data":"You're not allowed to perform this action"}
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
         return JsonResponse(data,status=401)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_batches(request):
     '''    
-    ### Add Batches
+    ### Add Batch
 
     **Description:** Add a new batch to admin's branch.
 
-    **Endpoint:** `/add_batches`
+    **Endpoint:** `/add_batch`
 
     **Method:** `POST`
 
@@ -122,20 +127,24 @@ def add_batches(request):
         "data": "You're not allowed to perform this action"
     }
     '''
-    if request.user.role == 'admin':
-        body = request.data
-        admin_obj = Admin.objects.get(profile=request.user)
-        if body.get('batch_name') and len(body['batch_name']) > 0:
-            batch_obj = Batch.objects.create(batch_name=body['batch_name'])            
-            admin_obj.branch.batches.add(batch_obj)            
-            batch_serialized_obj = BatchSerializer(batch_obj,many=False)            
-            data = {'data':batch_serialized_obj.data}
-            return JsonResponse(data,status=200)
+    try:
+        if request.user.role == 'admin':
+            body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)
+            if body.get('batch_name') and len(body['batch_name']) > 0:
+                batch_obj = Batch.objects.create(batch_name=body['batch_name'])            
+                admin_obj.branch.batches.add(batch_obj)            
+                batch_serialized_obj = BatchSerializer(batch_obj,many=False)            
+                data = {'data':batch_serialized_obj.data}
+                return JsonResponse(data,status=200)
+            else:
+                data = {'data':'parameters missing'}
+                return JsonResponse(data,status=422)            
         else:
-            data = {'data':'parameters missing'}
-            return JsonResponse(data,status=422)            
-    else:
-        data = {"data":"You're not allowed to perform this action"}
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
         return JsonResponse(data,status=401)
     
 
@@ -159,7 +168,7 @@ def get_semesters(request):
 
     ### Query Parameters
 
-    - `batch_id` (integer, required): ID of the batch for which semesters are to be retrieved.
+    - `batch_slug` (string, required): Slug of the batch for which semesters are to be retrieved.
 
     ## Response
 
@@ -226,8 +235,8 @@ def get_semesters(request):
         if request.user.role == 'admin':
             body = request.data
             admin_obj = Admin.objects.get(profile=request.user)
-            if body.get('batch_id') and int(body['batch_id']) > 0:
-                batch_obj = admin_obj.branch.batches.get(id=body['batch_id'])        
+            if body.get('batch_slug') and len(body['batch_slug']) > 0:
+                batch_obj = admin_obj.branch.batches.get(slug=body['batch_slug'])        
                 if batch_obj:
                     semesters = batch_obj.semesters
                     if semesters.exists():
@@ -248,3 +257,86 @@ def get_semesters(request):
     except Exception as e:
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_semester(request):
+    '''
+    # Add Semester
+
+    **Description:** Add a new semester to a batch.
+
+    **Endpoint:** `/add_semester`
+
+    **Method:** `POST`
+
+    **Permissions:** `IsAuthenticated`
+
+    **Request:**
+
+    - Body:
+    - `batch_slug` (string, required): Slug of the batch to which the semester will be added.
+    - `semester_number` (integer, required): Semester number.
+    - `start_date` (string, required): Start date of the semester in the format 'YYYY-MM-DD'.
+    - `end_date` (string, required): End date of the semester in the format 'YYYY-MM-DD'.
+
+    **Response:**
+
+    - `200 OK`: Successfully added a new semester.
+    ```json
+    {
+        "data": {
+            "id": 1,
+            "no": 1,
+            "start_date": "2023-01-01",
+            "end_date": "2023-05-31"
+        }
+    }
+    ```
+
+    - `422 Unprocessable Entity`: Parameters missing or invalid.
+    ```json
+    {
+        "data": "parameters missing"
+    }
+    ```
+
+    - `401 Unauthorized`: User does not have permission.
+    ```json
+    {
+        "data": "You're not allowed to perform this action"
+    }
+    ```
+
+    - `500 Internal Server Error`: An unexpected error occurred.
+    ```json
+    {
+        "data": "Error message"
+    }
+    ```
+    '''
+    try:
+        if request.user.role == 'admin':
+            body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)
+            if body.get('batch_slug') and len(body['batch_slug']) > 0 and body.get('semester_number') and body['semester_number'] > 0 and body.get('start_date') and body.get('end_date'):
+                batch_obj = Batch.objects.get(slug = body['batch_slug'])
+                if batch_obj:
+                    start = datetime.strptime(body.get('start_date'), '%Y-%m-%d').date()
+                    end = datetime.strptime(body.get('end_date'), '%Y-%m-%d').date()
+                    semester_obj = Semester.objects.create(no=body['semester_number'],start_date=start,end_date=end)
+                    batch_obj.semesters.add(semester_obj)
+                    semester_serialized_obj = SemesterSerializer(semester_obj,many=False)            
+                    data = {'data':semester_serialized_obj.data}
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('batch not found')                    
+            else:
+                data = {'data':'parameters missing'}
+                return JsonResponse(data,status=422)            
+        else:
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
+        return JsonResponse(data,status=401)

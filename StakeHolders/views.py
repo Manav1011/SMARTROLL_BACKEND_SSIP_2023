@@ -38,8 +38,8 @@ class CustomTokenObtainPairView(TokenObtainPairView):
     
     `if user does not exists`
     - Response status code will be another than 200.
-    """
-    serializer_class = CustomTokenObtainPairSerializer
+    """    
+    serializer_class = CustomTokenObtainPairSerializer    
 
 class CustomTokenRefreshView(TokenRefreshView):
     """    
@@ -50,4 +50,4 @@ class CustomTokenRefreshView(TokenRefreshView):
     #### Output:
     - `If refresh token is valid `: new access token, new refresh token.
     - `If refresh token is not valid`: Response status code will be another than 200.
-    """    
+    """        
