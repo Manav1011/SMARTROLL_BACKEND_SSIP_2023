@@ -4,15 +4,16 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from StakeHolders.models import Admin
-from .serializers import BatchSerializer,SemesterSerializer
+from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer
 from rest_framework.views import APIView
-from Manage.models import Batch,Semester
+from Manage.models import Batch,Semester,Subject
 from datetime import datetime
 # Create your views here.
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_batches(request):
+    print(request.META.get('REMOTE_ADDR'))
     ''' 
     ### Get Batches
 
@@ -334,6 +335,241 @@ def add_semester(request):
             else:
                 data = {'data':'parameters missing'}
                 return JsonResponse(data,status=422)            
+        else:
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
+        return JsonResponse(data,status=401)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_subjects(request):
+    '''
+    # Get Subjects API
+
+    ## Description
+
+    Retrieve a list of subjects associated with a specific semester.
+
+    ## Endpoint
+
+    `GET /get_subjects`
+
+    ## Method
+
+    `GET`
+
+    ## Permissions
+
+    - `IsAuthenticated`
+
+    ## Request
+
+    No request parameters are required.
+
+    ## Response
+
+    - `200 OK`: Successfully retrieved subjects.
+    ```json
+    {
+        "data": [
+            {
+                "id": 1,
+                "name": "Subject A",
+                "code": "SUBA101",
+                "credit": 3
+            },
+            {
+                "id": 2,
+                "name": "Subject B",
+                "code": "SUBB201",
+                "credit": 4
+            }
+            // ... other subjects
+        ]
+    }
+    ```
+
+    - `204 No Content`: No active subjects found.
+    ```json
+    {
+        "data": "Currently there are no active subjects in this semester"
+    }
+    ```
+
+    - `401 Unauthorized`: User does not have permission.
+    ```json
+    {
+        "data": "You're not allowed to perform this action"
+    }
+    ```
+
+    - `422 Unprocessable Entity`: Parameters missing or invalid.
+    ```json
+    {
+        "data": "parameters missing"
+    }
+    ```
+
+    - `500 Internal Server Error`: Exception occurred.
+    ```json
+    {
+        "data": "Error message here"
+    }
+    ```
+    '''
+    try:
+        if request.user.role == 'admin':
+            body = request.data            
+            if body.get('semester_slug') and len(body['semester_slug']) > 0:
+                semester_obj = Semester.objects.get(slug=body.get('semester_slug'))
+                if semester_obj:
+                    subjects = semester_obj.subjects
+                    if subjects.exists():
+                        subjects_serialized = SubjectSerializer(subjects,many=True)
+                        data = {'data':subjects_serialized.data}
+                        return JsonResponse(data,status=200)
+                    else:
+                        data = {"data":"Currently there are no active subjects in this semester"}
+                        return JsonResponse(data,status=204)               
+                else:
+                    raise Exception('Semester does not found')
+            else:
+                data = {'data':'parameters missing'}
+                return JsonResponse(data,status=422)            
+        else:
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_subjects(request):
+    '''
+    ### Add Subjects to Semester
+
+    Endpoint to add subjects to a semester. Only accessible by administrators.
+
+    - **URL:** `/api/add-subjects/`
+
+    - **Method:** `POST`
+
+    - **Authentication:** Required (Token-based authentication)
+
+    #### Request Parameters
+
+    | Parameter      | Type   | Description                                  |
+    | -------------- | ------ | -------------------------------------------- |
+    | `semester_slug`| String | (Required) Slug of the target semester.       |
+    | `subject_arr`  | Array  | (Required) Array of subjects to be added.     |
+
+    Example of the `subject_arr` array:
+
+    ```json
+    "subject_arr": [
+    {
+        "subject_name": "Mathematics",
+        "subject_code": "MAT101",
+        "subject_credit": 3
+    },
+    {
+        "subject_name": "Physics",
+        "subject_code": "PHY101",
+        "subject_credit": 4
+    }
+    ]
+    ```
+
+    #### Response
+
+    - **Success Response:**
+
+    - **Status Code:** `200 OK`
+
+    - **Data Format:**
+        ```json
+        {
+        "added_semesters": [
+            {
+            "id": 1,
+            "subject_name": "Mathematics",
+            "code": "MAT101",
+            "credit": 3
+            },
+            {
+            "id": 2,
+            "subject_name": "Physics",
+            "code": "PHY101",
+            "credit": 4
+            }
+        ]
+        }
+        ```
+
+    - **Error Response:**
+
+    - **Status Code:** `401 Unauthorized`
+
+    - **Data Format:**
+        ```json
+        {
+        "data": "You're not allowed to perform this action"
+        }
+        ```
+
+    OR
+
+    - **Status Code:** `401 Unauthorized`
+
+    - **Data Format:**
+        ```json
+        {
+        "data": "Provide a valid subject array"
+        }
+        ```
+
+    OR
+
+    - **Status Code:** `401 Unauthorized`
+
+    - **Data Format:**
+        ```json
+        {
+        "data": "Semester does not found"
+        }
+        ```
+
+    OR (other exceptions)
+
+        - **Status Code:** `401 Unauthorized`
+
+        - **Data Format:**
+        ```json
+        {
+            "data": "Exception message"
+        }
+        ```
+    '''
+    try:
+        if request.user.role == 'admin':
+            body = request.data
+            semester_slug = body['semester_slug']
+            semester_obj = Semester.objects.get(slug = semester_slug)
+            if semester_obj:
+                if not body.get('subject_arr'):
+                    raise Exception('Provide a valid subject array')
+                subject_arr = body['subject_arr']                                    
+                for i in subject_arr:
+                    subject_obj = Subject.objects.create(subject_name = i['subject_name'],code=i['subject_code'],credit=i['subject_credit'])
+                    semester_obj.subjects.add(subject_obj)
+                added_semesters = SubjectSerializer(semester_obj.subjects.all(),many=True)
+                data = {'added_semesters':added_semesters.data}
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception('Semester does not found')
         else:
             data = {"data":"You're not allowed to perform this action"}
             return JsonResponse(data,status=401)
