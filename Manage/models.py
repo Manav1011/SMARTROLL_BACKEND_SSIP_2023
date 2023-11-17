@@ -1,6 +1,7 @@
 from django.db import models
 import time
 import uuid
+from datetime import datetime
 
 # Create your models here.
 
@@ -22,7 +23,7 @@ class TimeTable(models.Model):
 
 class Subject(models.Model):
     subject_name = models.CharField(max_length=255)
-    code = models.IntegerField()
+    code = models.IntegerField(unique=True)
     credit = models.IntegerField()
     slug = models.SlugField(unique=True,null=True,blank=True)
 
@@ -47,6 +48,13 @@ class Semester(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
+            super(Semester, self).save(*args, **kwargs)
+        today = datetime.today().date()
+        if today < self.start_date or today > self.end_date:            
+            self.status = False
+            super(Semester, self).save(*args, **kwargs)
+        else:
+            self.status = True
             super(Semester, self).save(*args, **kwargs)
         
     def __str__(self) -> str:

@@ -6,7 +6,6 @@ from rest_framework_simplejwt.views import (
 )
 from .models import Admin,Teacher
 from .serializers import AdminSerializer
-import json
 
 # Create your views here.
 

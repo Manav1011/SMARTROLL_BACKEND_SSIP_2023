@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.10','f3cf-2405-201-2024-b862-44cf-1f5c-2834-e4e9.ngrok-free.app','192.168.29.18','smartroll.ssip.in']
+ALLOWED_HOSTS = ['127.0.0.10','6875-2405-201-2024-b862-5e4c-99ed-566a-aa8c.ngrok-free.app','192.168.29.18','smartroll.ssip.in']
 
 
 # Application definition
