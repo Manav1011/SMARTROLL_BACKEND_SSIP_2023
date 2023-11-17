@@ -26,12 +26,13 @@ SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','f3cf-2405-201-2024-b862-44cf-1f5c-2834-e4e9.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.10','f3cf-2405-201-2024-b862-44cf-1f5c-2834-e4e9.ngrok-free.app','192.168.29.18','smartroll.ssip.in']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,7 +98,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'SMARTROLL.wsgi.application'
-
+ASGI_APPLICATION = "SMARTROLL.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
