@@ -771,3 +771,108 @@ def add_teacher(request):
     except Exception as e:
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
+    
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+def add_subjects_to_teacher(request):
+    '''
+    # Add Subjects to Teacher
+
+    Updates the list of subjects assigned to a teacher.
+
+    - Method: `PUT`
+    - Authentication: Required (`IsAuthenticated`)
+
+    ### Request
+
+    - Endpoint: `/api/add_subjects_to_teacher`
+    - Headers:
+    - `Authorization`: Bearer Token
+
+    #### Input Parameters
+
+    1. `teacher_id` (integer, required): Unique identifier of the teacher.
+    2. `selected_subjects` (array of strings, required): Array of subject slugs to be assigned to the teacher.
+
+    #### Sample Request Body
+
+    ```json
+    {
+        "teacher_id": 1,
+        "selected_subjects": ["551162_1700243634", "223792_1700243634", "173253_1700242491"]
+    }
+    ```
+
+    ### Response
+
+    #### Successful Response (Status Code: 200)
+
+    ```json
+    {
+        "teacher": {
+            "profile": {
+                "name": "Kishan Noorani",
+                "email": "kishan@gmail.com",
+                "ph_no": "9925717005"
+            },
+            "subjects": [
+                {
+                    "subject_name": "Software Engineering",
+                    "code": 3150711,
+                    "credit": 5,
+                    "slug": "173253_1700242491"
+                },
+                {
+                    "subject_name": "Analysis And Design Of Algorithms",
+                    "code": 3150703,
+                    "credit": 5,
+                    "slug": "223792_1700243634"
+                },
+                {
+                    "subject_name": "Computer Networks",
+                    "code": 3150710,
+                    "credit": 5,
+                    "slug": "551162_1700243634"
+                }
+            ]
+        }
+    }
+    ```
+
+    #### Error Responses
+
+    - Status Code: 401
+    ```json
+    {"data": "You're not allowed to perform this action"}
+    ```
+
+    - Status Code: 500
+    ```json
+    {"data": "Error message"}
+    ```
+    '''
+    try:
+        if request.user.role == 'admin':            
+            body = request.data
+            if 'teacher_id' not in body or not body['teacher_id']:
+                raise serializers.ValidationError("Please pass unique id of the teacher")
+            
+            if 'selected_subjects' not in body or not body['selected_subjects'] or len(body['selected_subjects']) == 0:
+                raise serializers.ValidationError("Pleae pass a valid subjects array")
+
+            teacher_obj = Teacher.objects.get(id=body['teacher_id'])                        
+            with transaction.atomic():
+                for i in body['selected_subjects']:                    
+                    subject_obj = Subject.objects.get(slug=i)                    
+                    teacher_obj.subjects.add(subject_obj)
+            teachers_serialized = TeacherSerializer(teacher_obj,many=False)
+            data = {'teacher':teachers_serialized.data}
+            return JsonResponse(data,status=200)
+        else:
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)
+    
