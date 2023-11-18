@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.10','6875-2405-201-2024-b862-5e4c-99ed-566a-aa8c.ngrok-free.app','192.168.29.18','smartroll.ssip.in']
+ALLOWED_HOSTS = ['127.0.0.10','c645-2405-201-2024-b862-2c20-b64d-d69b-eba.ngrok-free.app','192.168.29.18','smartroll.ssip.in']
 
 
 # Application definition
@@ -79,8 +79,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-CORS_ALLOW_ALL_ORIGINS = True
 
+CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = [
+    'Access-Control-Allow-Headers',
+    'ngrok-skip-browser-warning',  # Add your custom header here
+    'Content-Type',
+    'Accept',
+    'Authorization',
+    # Add other headers your application uses
+]
 ROOT_URLCONF = 'SMARTROLL.urls'
 
 TEMPLATES = [
