@@ -80,7 +80,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = [
     'Access-Control-Allow-Headers',
     'ngrok-skip-browser-warning',  # Add your custom header here
@@ -89,6 +88,7 @@ CORS_ALLOW_HEADERS = [
     'Authorization',    
 ]
 CORS_ALLOW_CREDENTIALS=True
+
 ROOT_URLCONF = 'SMARTROLL.urls'
 
 TEMPLATES = [
