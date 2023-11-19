@@ -13,10 +13,118 @@ from django.db import transaction
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 # Create your views here.
+
 User = get_user_model()
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_batches(request):    
+def get_object_counts(request):
+    '''
+    # Get Object Counts API
+
+    **Endpoint:** `/api/get_object_counts/`
+
+    **HTTP Method:** `GET`
+
+    **Authorization:** Token-based authentication (Authorization header required)
+
+    ## Description
+    This API retrieves counts of various objects based on the user's role.
+
+    ## Authentication
+    - **Token:** This endpoint requires a valid user token. Include the token in the "Authorization" header of the request.
+
+    ## Request
+
+    ### Headers
+    - **Authorization:** `Token YOUR_TOKEN`
+
+    ## Response
+
+    ### Success Response (200 OK)
+
+    ```json
+    {
+    "batches": 3,
+    "teachers": 10,
+    "semesters": 15,
+    "subjects": 40
+    }
+    ```
+
+    ### Error Response (401 Unauthorized)
+
+    ```json
+    {
+    "data": "You're not allowed to perform this action"
+    }
+    ```
+
+    ### Error Response (401 Unauthorized - Token not provided)
+
+    ```json
+    {
+    "detail": "Authentication credentials were not provided."
+    }
+    ```
+
+    ### Error Response (401 Unauthorized - Token is invalid or expired)
+
+    ```json
+    {
+    "detail": "Invalid token."
+    }
+    ```
+
+    ### Error Response (500 Internal Server Error)
+
+    ```json
+    {
+    "data": "Internal server error occurred."
+    }
+    ```
+
+    ## Notes
+    - Only users with the "admin" role are allowed to access this API.
+    '''
+    try:        
+        if request.user.role == 'admin':
+            admin_obj = Admin.objects.get(profile=request.user)
+            # Admin exclusive fields will be here
+            branch_obj = admin_obj.branch
+            # Count the batches in particular branch - from branch
+            batch_obj = branch_obj.batches.all()
+            batches_count = batch_obj.count()
+            # Count semesters in each batches - from batches
+            semesters = []
+            for i in batch_obj:
+                semesters_obj = i.semesters.all()
+                for j in semesters_obj:
+                    semesters.append(j)
+            semesters_count = len(semesters)
+            # Count Subjects in each semesters - from semester
+            subjects = []
+            for i in semesters:
+                subjects_obj = i.subjects.all()
+                for j in subjects_obj:
+                    subjects.append(j)
+            subjects_count = len(subjects)
+            # Count teachers in the branch - from reverse query on branch
+            teachers = Teacher.objects.filter(branch=branch_obj)
+            teachers_count = teachers.count()            
+            data = {'batches':batches_count,'teachers':teachers_count,'semesters':semesters_count,'subjects':subjects_count}
+            return JsonResponse(data,status=200)
+        else:
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
+        return JsonResponse(data,status=401)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_batches(request):     
     ''' 
     ### Get Batches
 
@@ -238,7 +346,7 @@ def get_semesters(request):
     '''
     try:
         if request.user.role == 'admin':
-            body = request.data
+            body = request.GET
             admin_obj = Admin.objects.get(profile=request.user)
             if body.get('batch_slug') and len(body['batch_slug']) > 0:
                 batch_obj = admin_obj.branch.batches.get(slug=body['batch_slug'])        
@@ -323,12 +431,15 @@ def add_semester(request):
     try:
         if request.user.role == 'admin':
             body = request.data            
-            if body.get('batch_slug') and len(body['batch_slug']) > 0 and body.get('semester_number') and body['semester_number'] > 0 and body.get('start_date') and body.get('end_date'):
+            if body.get('batch_slug') and len(body['batch_slug']) > 0 and body.get('semester_number') and int(body['semester_number']) > 0 and body.get('start_date') and body.get('end_date'):
                 batch_obj = Batch.objects.get(slug = body['batch_slug'])
                 if batch_obj:
+                    if batch_obj.semesters.filter(no=body['semester_number']):
+                        raise Exception('Please add a unique semester')
                     start = datetime.strptime(body.get('start_date'), '%Y-%m-%d').date()
                     end = datetime.strptime(body.get('end_date'), '%Y-%m-%d').date()
-                    semester_obj = Semester.objects.create(no=body['semester_number'],start_date=start,end_date=end)
+                    semester_obj = Semester(no=body['semester_number'],start_date=start,end_date=end)
+                    semester_obj.save()
                     batch_obj.semesters.add(semester_obj)
                     semester_serialized_obj = SemesterSerializer(semester_obj,many=False)            
                     data = {'data':semester_serialized_obj.data}

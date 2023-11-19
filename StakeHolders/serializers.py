@@ -29,4 +29,4 @@ class TeacherSerializer(serializers.ModelSerializer):
     subjects = SubjectSerializer(many=True)
     class Meta:
         model = Teacher
-        fields = ['profile','subjects']
+        fields = ['id','profile','subjects']

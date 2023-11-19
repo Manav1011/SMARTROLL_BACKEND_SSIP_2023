@@ -2,6 +2,7 @@ from django.db import models
 import time
 import uuid
 from datetime import datetime
+from TimeTable.models import Timetable
 
 # Create your models here.
 
@@ -11,16 +12,7 @@ def generate_unique_hash():
     unique_hash = f"{random_hash}_{timestamp}"
     return unique_hash
 
-class TimeTable(models.Model):
-    schedules = models.CharField(max_length=255,default='Not Set Yet')
-    slug = models.SlugField(unique=True,null=True,blank=True)
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = generate_unique_hash()
-            super(TimeTable, self).save(*args, **kwargs)
     
-
 class Subject(models.Model):
     subject_name = models.CharField(max_length=255)
     code = models.IntegerField(unique=True)
@@ -31,6 +23,9 @@ class Subject(models.Model):
         if not self.slug:
             self.slug = generate_unique_hash()
             super(Subject, self).save(*args, **kwargs)
+        else:
+            self.status = True
+            super(Subject, self).save(*args, **kwargs)
     
 
     def __str__(self) -> str:
@@ -40,7 +35,7 @@ class Semester(models.Model):
     no = models.IntegerField()
     subjects = models.ManyToManyField(Subject,blank=True)
     status = models.BooleanField(default=True)
-    time_table = models.ManyToManyField(TimeTable,blank=True)
+    time_table = models.ManyToManyField(Timetable,blank=True)
     start_date = models.DateField()
     end_date = models.DateField()    
     slug = models.SlugField(unique=True,null=True,blank=True)
@@ -68,7 +63,9 @@ class Batch(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
-            super(Batch, self).save(*args, **kwargs)   
+            super(Batch, self).save(*args, **kwargs) 
+        else:
+            super(Batch, self).save(*args, **kwargs)  
 
     def __str__(self) -> str:
         return self.batch_name
@@ -77,10 +74,13 @@ class Branch(models.Model):
     branch_name = models.CharField(max_length=255)
     batches = models.ManyToManyField(Batch,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
+    branch_code = models.IntegerField(unique=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
+            super(Branch, self).save(*args, **kwargs)
+        else:
             super(Branch, self).save(*args, **kwargs)
 
     def __str__(self) -> str:
@@ -95,6 +95,9 @@ class College(models.Model):
         if not self.slug:
             self.slug = generate_unique_hash()
             super(College, self).save(*args, **kwargs)
+        else:
+            super(College, self).save(*args, **kwargs)
+            
     
 
     def __str__(self) -> str:
