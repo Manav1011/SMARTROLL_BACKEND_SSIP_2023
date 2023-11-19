@@ -57,7 +57,10 @@ class Semester(models.Model):
 
 class Batch(models.Model):
     batch_name = models.CharField(max_length=255)
+    start_year = models.CharField(max_length=4,blank=True,null=True)
+    end_year = models.CharField(max_length=4,blank=True,null=True)
     semesters = models.ManyToManyField(Semester,blank=True) 
+    active = models.BooleanField(default=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
 
     def save(self, *args, **kwargs):
@@ -65,7 +68,7 @@ class Batch(models.Model):
             self.slug = generate_unique_hash()
             super(Batch, self).save(*args, **kwargs) 
         else:
-            super(Batch, self).save(*args, **kwargs)  
+            super(Batch, self).save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.batch_name

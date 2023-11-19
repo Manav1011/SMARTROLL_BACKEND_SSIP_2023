@@ -4,7 +4,7 @@ from rest_framework import serializers
 class BatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Batch
-        fields = ['slug','batch_name']
+        fields = ['slug','batch_name','active']
 
 
 class SubjectSerializer(serializers.ModelSerializer):

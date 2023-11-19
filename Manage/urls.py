@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import get_batches,add_batches,get_semesters,add_semester,get_subjects,add_subjects,get_teachers,add_teacher,add_subjects_to_teacher,get_object_counts
+from .views import get_batches,add_batches,get_semesters,add_semester,get_subjects,add_subjects,get_teachers,add_teacher,add_subjects_to_teacher,get_object_counts,get_subjects_of_current_batch
 urlpatterns = [
     path('get_batches',get_batches,name='get_batches'),
     path('add_batch',add_batches,name='add_batch'),
@@ -11,4 +11,5 @@ urlpatterns = [
     path('add_teacher',add_teacher,name='add_teacher'),
     path('add_subjects_to_teacher',add_subjects_to_teacher,name='add_subjects_to_teacher'),
     path('get_object_counts',get_object_counts,name='get_object_counts'),
+    path('get_subjects_of_current_batch',get_subjects_of_current_batch,name='get_subjects_of_current_batch'),
 ]

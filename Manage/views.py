@@ -119,7 +119,7 @@ def get_object_counts(request):
             return JsonResponse(data,status=401)
     except Exception as e:
         data = {"data":str(e)}
-        return JsonResponse(data,status=401)
+        return JsonResponse(data,status=500)
 
 
 @api_view(['GET'])
@@ -179,6 +179,14 @@ def get_batches(request):
     '''
     try:        
         if request.user.role == 'admin':
+            # If batch is not from current year deactivate it
+            batch_objects = Batch.objects.all()
+            current_year = datetime.now().year
+            for i in batch_objects:
+                end_year = datetime.strptime(i.end_year, '%Y').year            
+                if(current_year != end_year):                
+                    i.active = False
+                    i.save()
             admin_obj = Admin.objects.get(profile=request.user)
             branch_obj = admin_obj.branch
             batches = branch_obj.batches.all()            
@@ -194,7 +202,7 @@ def get_batches(request):
             return JsonResponse(data,status=401)
     except Exception as e:
         data = {"data":str(e)}
-        return JsonResponse(data,status=401)
+        return JsonResponse(data,status=500)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -245,7 +253,11 @@ def add_batches(request):
             body = request.data
             admin_obj = Admin.objects.get(profile=request.user)
             if body.get('batch_name') and len(body['batch_name']) > 0:
-                batch_obj = Batch.objects.create(batch_name=body['batch_name'])            
+                if admin_obj.branch.batches.filter(batch_name=body['batch_name']):
+                        raise Exception('Batch already exists!')
+                start_year, end_year = body['batch_name'].split('-')
+                batch_obj = Batch(batch_name=body['batch_name'],start_year=start_year,end_year=end_year)
+                batch_obj.save()
                 admin_obj.branch.batches.add(batch_obj)            
                 batch_serialized_obj = BatchSerializer(batch_obj,many=False)            
                 data = {'data':batch_serialized_obj.data}
@@ -258,7 +270,7 @@ def add_batches(request):
             return JsonResponse(data,status=401)
     except Exception as e:
         data = {"data":str(e)}
-        return JsonResponse(data,status=401)
+        return JsonResponse(data,status=500)
     
 
 @api_view(['GET'])
@@ -454,7 +466,7 @@ def add_semester(request):
             return JsonResponse(data,status=401)
     except Exception as e:
         data = {"data":str(e)}
-        return JsonResponse(data,status=401)
+        return JsonResponse(data,status=500)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -629,8 +641,16 @@ def add_subjects(request):
     {
     "data": "You're not allowed to perform this action"
     }
-    ```
+    ```     
+    - **Status Code:** `500 Internal Server error`
+    - **Data Format:** JSON
 
+    ```json
+    {
+    "data": "You're not allowed to perform this action"
+    }
+    ```
+    
     ```json
     {
     "data": "Semester does not found"
@@ -681,7 +701,7 @@ def add_subjects(request):
             return JsonResponse(data,status=401)
     except Exception as e:        
         data = {"data":str(e)}
-        return JsonResponse(data,status=401)
+        return JsonResponse(data,status=500)
     
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -691,7 +711,7 @@ def get_teachers(request):
 
     Retrieve a list of teachers associated with the admin's branch.
 
-    - **URL:** `/api/get_teachers/`
+    - **URL:** `/manage/get_teachers`
     - **Method:** `GET`
     - **Authentication:** Required (Token-based authentication)
 
@@ -875,7 +895,7 @@ def add_teacher(request):
         return JsonResponse(data,status=500)
     
 
-@api_view(['PUT'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_subjects_to_teacher(request):
     '''
@@ -888,7 +908,7 @@ def add_subjects_to_teacher(request):
 
     ### Request
 
-    - Endpoint: `/api/add_subjects_to_teacher`
+    - Endpoint: `/manage/add_subjects_to_teacher`
     - Headers:
     - `Authorization`: Bearer Token
 
@@ -958,18 +978,19 @@ def add_subjects_to_teacher(request):
         if request.user.role == 'admin':            
             body = request.data
             if 'teacher_id' not in body or not body['teacher_id']:
-                raise serializers.ValidationError("Please pass unique id of the teacher")
-            
-            if 'selected_subjects' not in body or not body['selected_subjects'] or len(body['selected_subjects']) == 0:
-                raise serializers.ValidationError("Pleae pass a valid subjects array")
-
+                raise serializers.ValidationError("Please pass unique id of the teacher")            
+            if 'selected_subjects' not in body:
+                raise serializers.ValidationError("Pleae pass a valid subjects array")            
             teacher_obj = Teacher.objects.get(id=body['teacher_id'])                        
             with transaction.atomic():
-                for i in body['selected_subjects']:                    
-                    subject_obj = Subject.objects.get(slug=i)                    
-                    teacher_obj.subjects.add(subject_obj)
+                if len(body['selected_subjects']) <= 0:
+                    teacher_obj.subjects.clear()
+                else:
+                    for i in body['selected_subjects']:                    
+                        subject_obj = Subject.objects.get(slug=i)                    
+                        teacher_obj.subjects.add(subject_obj)
             teachers_serialized = TeacherSerializer(teacher_obj,many=False)
-            data = {'teacher':teachers_serialized.data}
+            data = {'teacher':teachers_serialized.data}            
             return JsonResponse(data,status=200)
         else:
             data = {"data":"You're not allowed to perform this action"}
@@ -978,3 +999,127 @@ def add_subjects_to_teacher(request):
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
     
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_subjects_of_current_batch(request):
+    '''
+    ## Get Subjects of Current Batch
+
+    Retrieve a list of subjects for the current batch.
+
+    - **URL:** `/api/get_subjects_of_current_batch/`
+
+    - **Method:** `GET`
+
+    ### Request
+
+    #### Headers
+
+    - `Authorization`: Token \<your_access_token>
+
+    #### Parameters
+
+    - `batch_slug` (required): Slug of the batch for which subjects are requested.
+
+    ### Response
+
+    #### Success Response (Status Code: 200)
+
+    ```json
+    {
+    "data": [
+        {
+        "id": 1,
+        "subject_name": "Subject 1",
+        "code": "S1",
+        "credit": 3
+        },
+        {
+        "id": 2,
+        "subject_name": "Subject 2",
+        "code": "S2",
+        "credit": 4
+        },
+        ...
+    ]
+    }
+    ```
+
+    #### No Subjects Found (Status Code: 302)
+
+    ```json
+    {
+    "data": "No subjects are there...Please add some"
+    }
+    ```
+
+    #### Parameters Missing (Status Code: 422)
+
+    ```json
+    {
+    "data": "Parameters missing"
+    }
+    ```
+
+    #### Unauthorized (Status Code: 401)
+
+    ```json
+    {
+    "data": "You're not allowed to perform this action"
+    }
+    ```
+
+    #### Internal Server Error (Status Code: 500)
+
+    ```json
+    {
+    "data": "Internal server error message"
+    }
+    ```
+
+    ### Permissions
+
+    - User must be authenticated.
+
+    ### Notes
+
+    - Make sure to include the `Authorization` header with a valid access token in the request.
+    - The `batch_slug` parameter is required and should be a non-empty string.
+    - Subjects will be returned as a list if available, and appropriate status codes will be provided based on the response.
+    '''
+    try:
+        if request.user.role == 'admin':
+            body = request.GET                        
+            if body.get('batch_slug') and len(body['batch_slug']) > 0 and body.get('teacher_id'):
+                batch_obj = Batch.objects.get(slug=body.get('batch_slug'))
+                teacher_obj = Teacher.objects.get(id=body.get('teacher_id'))
+                teachers_subjects = teacher_obj.subjects.all()                
+                if batch_obj:
+                    semesters = batch_obj.semesters.all()                    
+                    subjects = []                    
+                    for i in semesters:                        
+                        subject_queryset = i.subjects.values()                        
+                        if subject_queryset.exists():
+                            for i in list(subject_queryset):
+                                if teachers_subjects.filter(slug=i['slug']).first():
+                                    i['selected'] = True
+                                else:
+                                    i['selected'] = False
+                                subjects.append(i)
+                    if(len(subjects) == 0):
+                        data = {'data':'No subjects are there...Please add some'}
+                        return JsonResponse(data,status=302)                    
+                    data = {'data':subjects}
+                    return JsonResponse(data,status=200)            
+                else:
+                    raise Exception('Batch does not found')
+            else:
+                data = {'data':'parameters missing'}
+                return JsonResponse(data,status=422)            
+        else:
+            data = {"data":"You're not allowed to perform this action"}
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)
