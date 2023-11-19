@@ -480,7 +480,9 @@ def get_subjects(request):
 
     ## Request
 
-    No request parameters are required.
+    | Parameter      | Type   | Description                                  |
+    | -------------- | ------ | -------------------------------------------- |
+    | `semester_slug`| String | (Required) Slug of the target semester.       |    
 
     ## Response
 
@@ -535,7 +537,7 @@ def get_subjects(request):
     '''
     try:
         if request.user.role == 'admin':
-            body = request.data            
+            body = request.GET            
             if body.get('semester_slug') and len(body['semester_slug']) > 0:
                 semester_obj = Semester.objects.get(slug=body.get('semester_slug'))
                 if semester_obj:
@@ -563,109 +565,97 @@ def get_subjects(request):
 @permission_classes([IsAuthenticated])
 def add_subjects(request):
     '''
-    ### Add Subjects to Semester
+    # Add Subject to Semester API
 
-    Endpoint to add subjects to a semester. Only accessible by administrators.
+    **Endpoint:** `/api/add_subject_to_semester/`
 
-    - **URL:** `/api/add-subjects/`
+    ### Description
+
+    This API allows an admin to add a new subject to a specific semester.
+
+    ### Warning
+
+    - Ensure that the semester exists before attempting to add a subject.
+    - Verify that the subject with the given code is not already added to the semester.
+
+    ### Request
 
     - **Method:** `POST`
+    - **Authentication:** Required (Admin)
 
-    - **Authentication:** Required (Token-based authentication)
+    ### Parameters
 
-    #### Request Parameters
+    | Parameter        | Type     | Description                                     |
+    |------------------|----------|-------------------------------------------------|
+    | `semester_slug`  | String   | (Required) Slug of the target semester.         |
+    | `subject_name`   | String   | (Required) Name of the new subject.             |
+    | `subject_code`   | String   | (Required) Code of the new subject.             |
+    | `subject_credit` | Integer  | (Required) Credit hours for the new subject.    |
 
-    | Parameter      | Type   | Description                                  |
-    | -------------- | ------ | -------------------------------------------- |
-    | `semester_slug`| String | (Required) Slug of the target semester.       |
-    | `subject_arr`  | Array  | (Required) Array of subjects to be added.     |
-
-    Example of the `subject_arr` array:
+    ### Example Request
 
     ```json
-    "subject_arr": [
     {
-        "subject_name": "Mathematics",
-        "subject_code": "MAT101",
-        "subject_credit": 3
-    },
-    {
-        "subject_name": "Physics",
-        "subject_code": "PHY101",
-        "subject_credit": 4
+    "semester_slug": "your-semester-slug",
+    "subject_name": "New Subject",
+    "subject_code": "NS101",
+    "subject_credit": 3
     }
-    ]
     ```
 
-    #### Response
-
-    - **Success Response:**
+    ### Response
 
     - **Status Code:** `200 OK`
+    - **Data Format:** JSON
 
-    - **Data Format:**
-        ```json
-        {
-        "added_semesters": [
-            {
-            "id": 1,
-            "subject_name": "Mathematics",
-            "code": "MAT101",
-            "credit": 3
-            },
-            {
-            "id": 2,
-            "subject_name": "Physics",
-            "code": "PHY101",
-            "credit": 4
-            }
-        ]
-        }
-        ```
+    ```json
+    {
+    "subject": {
+        "id": 1,
+        "subject_name": "New Subject",
+        "code": "NS101",
+        "credit": 3
+        // ... (other subject fields)
+    }
+    }
+    ```
 
-    - **Error Response:**
+    ### Possible Errors
 
     - **Status Code:** `401 Unauthorized`
+    - **Data Format:** JSON
 
-    - **Data Format:**
-        ```json
-        {
-        "data": "You're not allowed to perform this action"
-        }
-        ```
+    ```json
+    {
+    "data": "You're not allowed to perform this action"
+    }
+    ```
 
-    OR
+    ```json
+    {
+    "data": "Semester does not found"
+    }
+    ```
 
-    - **Status Code:** `401 Unauthorized`
+    ```json
+    {
+    "data": "Subject is already added to the semester"
+    }
+    ```
 
-    - **Data Format:**
-        ```json
-        {
-        "data": "Provide a valid subject array"
-        }
-        ```
+    ```json
+    {
+    "data": "Provide all parameters"
+    }
+    ```
 
-    OR
+    ```json
+    {
+    "data": "Internal Server Error"
+    }
+    ```
 
-    - **Status Code:** `401 Unauthorized`
-
-    - **Data Format:**
-        ```json
-        {
-        "data": "Semester does not found"
-        }
-        ```
-
-    OR (other exceptions)
-
-        - **Status Code:** `401 Unauthorized`
-
-        - **Data Format:**
-        ```json
-        {
-            "data": "Exception message"
-        }
-        ```
+    **Note:** Replace the placeholder values in the example request with actual data.
     '''
     try:
         if request.user.role == 'admin':
@@ -673,22 +663,23 @@ def add_subjects(request):
             semester_slug = body['semester_slug']
             semester_obj = Semester.objects.get(slug = semester_slug)
             if semester_obj:
-                if not body.get('subject_arr'):
-                    raise Exception('Provide a valid subject array')
-                subject_arr = body['subject_arr']                
-                with transaction.atomic():
-                    for i in subject_arr:                        
-                        subject_obj = Subject.objects.create(subject_name = i['subject_name'],code=i['subject_code'],credit=i['subject_credit'])
-                        semester_obj.subjects.add(subject_obj)
-                added_semesters = SubjectSerializer(semester_obj.subjects.all(),many=True)
-                data = {'semesters':added_semesters.data}
+                if semester_obj.subjects.filter(code=body.get('subject_code')):
+                        raise Exception('Subject is already added to the semester')
+                if not body.get('subject_name') or not body.get('subject_code') or not body.get('subject_credit'):
+                    raise Exception('Provide all parameters')
+                with transaction.atomic():                               
+                    subject_obj = Subject(subject_name = body.get('subject_name'),code= body.get('subject_code'),credit=body.get('subject_credit'))
+                    subject_obj.save()
+                    semester_obj.subjects.add(subject_obj)
+                added_subject = SubjectSerializer(subject_obj,many=False)
+                data = {'subject':added_subject.data}
                 return JsonResponse(data,status=200)
             else:
                 raise Exception('Semester does not found')
         else:
             data = {"data":"You're not allowed to perform this action"}
             return JsonResponse(data,status=401)
-    except Exception as e:
+    except Exception as e:        
         data = {"data":str(e)}
         return JsonResponse(data,status=401)
     
