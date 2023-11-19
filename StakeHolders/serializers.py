@@ -27,6 +27,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 class TeacherSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()
     subjects = SubjectSerializer(many=True)
+    branch = BranchOfTheAdmin()
     class Meta:
         model = Teacher
-        fields = ['id','profile','subjects']
+        fields = ['id','profile','subjects','branch']
