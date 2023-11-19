@@ -4,8 +4,12 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,    
     TokenRefreshView,
 )
+from rest_framework.decorators import api_view
 from .models import Admin,Teacher
 from .serializers import AdminSerializer
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -14,40 +18,60 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls, user):        
         token = super().get_token(user)
         if user:
-            token['email'] = user.email
-            token['name'] = user.name            
-            token['role'] = user.role
+            token['profile'] = {
+                'email':user.email,
+                'name':user.name,
+                'role':user.role
+            }                   
             if user.role == 'admin':                
                 admin_obj = Admin.objects.get(profile=user)
                 admin_serializer = AdminSerializer(admin_obj,many=False)
-                # Admin exclusive fields will be here
-                branch_obj = admin_obj.branch
-                # Count the batches in particular branch - from branch
-                batch_obj = branch_obj.batches.all()
-                batches_count = batch_obj.count()
-                # Count semesters in each batches - from batches
-                semesters = []
-                for i in batch_obj:
-                    semesters_obj = i.semesters.all()
-                    for j in semesters_obj:
-                        semesters.append(j)
-                semesters_count = len(semesters)
-                # Count Subjects in each semesters - from semester
-                subjects = []
-                for i in semesters:
-                    subjects_obj = i.subjects.all()
-                    for j in subjects_obj:
-                        subjects.append(j)
-                subjects_count = len(subjects)
-                # Count teachers in the branch - from reverse query on branch
-                teachers = Teacher.objects.filter(branch=branch_obj)
-                teachers_count = teachers.count()
-                token['batches'] = batches_count
-                token['semesters'] = semesters_count
-                token['subjects'] = subjects_count
-                token['teachers'] = teachers_count
                 token['admin_obj'] = admin_serializer.data        
         return token
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def check_token_authenticity(request):
+    '''
+    ## Check Token Authenticity
+
+    **Path:** `/auth/api/check_token_authenticity`
+
+    **Method:** `GET`
+
+    **Authorization:** Token-based (Authentication required)
+
+    ### Description
+    Check the authenticity of the authentication token.
+
+    ### Permissions
+    - Requires user to be authenticated.
+
+    ### Response
+    - **Status Code:** 200 OK
+    - **Content:**
+    ```json
+    {
+        "data": true
+    }
+    ```
+    Indicates that the token is authentic.
+
+    ### Error Response
+    - **Status Code:** 401 Unauthorized
+    ```json
+    {
+        "detail": "Authentication credentials were not provided."
+    }
+    ```
+    Indicates that the request lacks proper authentication credentials.
+
+    ---
+
+    *Note: Make sure to include the authentication token in the request header when accessing this endpoint.*
+    '''
+    return JsonResponse({'data':True},status=200)
+
     
 class CustomTokenObtainPairView(TokenObtainPairView):
     """    
