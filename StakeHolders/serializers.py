@@ -31,3 +31,9 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields = ['id','profile','subjects','branch']
+
+class TeacherProfileSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()    
+    class Meta:
+        model = Teacher
+        fields = ['id','profile']

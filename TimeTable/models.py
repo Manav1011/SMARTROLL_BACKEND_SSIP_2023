@@ -41,10 +41,11 @@ class Classroom(models.Model):
         return self.class_name
 
 class Lecture(models.Model):
-    subject = models.ForeignKey('Manage.Subject', on_delete=models.DO_NOTHING)
-    classroom = models.ForeignKey(Classroom, on_delete=models.DO_NOTHING)
-    start_time = models.TimeField()
-    end_time = models.TimeField()
+    subject = models.ForeignKey('Manage.Subject', on_delete=models.DO_NOTHING,blank=True,null=True)
+    teacher = models.ForeignKey('StakeHolders.Teacher',on_delete=models.DO_NOTHING,blank=True,null=True)
+    classroom = models.ForeignKey(Classroom, on_delete=models.DO_NOTHING,blank=True,null=True)
+    start_time = models.TimeField(blank=True,null=True)
+    end_time = models.TimeField(blank=True,null=True)
     session = models.CharField(max_length=255, null=True, blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
 
@@ -56,8 +57,8 @@ class Lecture(models.Model):
             super(Lecture, self).save(*args, **kwargs)
 
 class Schedule(models.Model):
-    day = models.DateField()
-    lecutres = models.ManyToManyField(Lecture, blank=True)
+    day = models.CharField(max_length=10,null=True,blank=True)
+    lectures = models.ManyToManyField(Lecture, blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
 
     def save(self, *args, **kwargs):
@@ -66,6 +67,8 @@ class Schedule(models.Model):
             super(Schedule, self).save(*args, **kwargs)
         else:
             super(Schedule, self).save(*args, **kwargs)
+    def __str__(self) -> str:
+        return self.day
 
     
 class Timetable(models.Model):
@@ -78,3 +81,6 @@ class Timetable(models.Model):
             super(Timetable, self).save(*args, **kwargs)
         else:
             super(Timetable, self).save(*args, **kwargs)
+    
+    def __str__(self) -> str:        
+        return self.slug

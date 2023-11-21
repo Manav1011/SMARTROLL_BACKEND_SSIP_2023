@@ -1,6 +1,10 @@
-from .models import Batch,Semester,Subject
+from .models import Batch,Semester,Subject,Branch
 from rest_framework import serializers
 
+class BranchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Branch
+        fields = []
 class BatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Batch
