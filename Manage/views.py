@@ -110,9 +110,9 @@ def get_object_counts(request):
                     subjects.append(j)
             subjects_count = len(subjects)
             # Count teachers in the branch - from reverse query on branch
-            teachers = Teacher.objects.filter(branch=branch_obj)
+            teachers = Teacher.objects.filter(branch=branch_obj)            
             teachers_count = teachers.count()            
-            data = {'batches':batches_count,'teachers':teachers_count,'semesters':semesters_count,'subjects':subjects_count}
+            data = {'branch':branch_obj.branch_name,'batches':batches_count,'teachers':teachers_count,'semesters':semesters_count,'subjects':subjects_count}
             return JsonResponse(data,status=200)
         else:
             data = {"data":"You're not allowed to perform this action"}
@@ -181,12 +181,6 @@ def get_batches(request):
         if request.user.role == 'admin':
             # If batch is not from current year deactivate it
             batch_objects = Batch.objects.all()
-            current_year = datetime.now().year
-            for i in batch_objects:
-                end_year = datetime.strptime(i.end_year, '%Y').year            
-                if(current_year != end_year):                
-                    i.active = False
-                    i.save()
             admin_obj = Admin.objects.get(profile=request.user)
             branch_obj = admin_obj.branch
             batches = branch_obj.batches.all()            

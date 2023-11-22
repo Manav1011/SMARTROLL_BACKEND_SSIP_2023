@@ -12,9 +12,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+SSL_CERTIFICATE_PATH = os.path.join(BASE_DIR, "localhost.crt")
+SSL_KEY_PATH = os.path.join(BASE_DIR, "localhost.key")
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +31,9 @@ SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ["https://c645-2405-201-2024-b862-2c20-b64d-d69b-eba.ngrok-free.app"]
+CSRF_COOKIE_SECURE = False
+CSRF_USE_SESSIONS = False
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://425b-2405-201-2024-b862-d79a-575-3f0a-75dd.ngrok-free.app"]
 
 
 # Application definition
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sslserver',
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
@@ -51,6 +58,8 @@ INSTALLED_APPS = [
     'TimeTable',
     'Manage',
 ]
+SSL_CERTIFICATE = SSL_CERTIFICATE_PATH
+SSL_KEY = SSL_KEY_PATH
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -76,7 +85,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
@@ -96,7 +105,7 @@ ROOT_URLCONF = 'SMARTROLL.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -167,11 +176,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 INTERNAL_IPS = [  
     '127.0.0.1',
     '127.0.0.10', 
     '192.168.29.18'       
 ]
+MEDIA_URL = '/media/'
+
+# Path where media is stored'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'Profile.Profile'
 # Default primary key field type

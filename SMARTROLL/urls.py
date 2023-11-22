@@ -19,6 +19,8 @@ from django.urls import path,include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
+from .views import check_server_avaibility,check_token_authenticity,student_registration,studet_registration_response
+from django.views.generic import TemplateView
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -34,8 +36,13 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('__debug__/', include('debug_toolbar.urls')),
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    # path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
+    path('student_registration/', student_registration,name='student_registration'),
+    path('student_registration_response/', studet_registration_response,name='student_registration'),
+    path('check_server_avaibility/', check_server_avaibility,name='check_server_avaibility'),
+    path('check_token_authenticity/', check_token_authenticity,name='check_token_authenticity'),
     path('auth/',include('StakeHolders.urls')),
     path('manage/',include('Manage.urls')),    
     path('api_endpoints/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

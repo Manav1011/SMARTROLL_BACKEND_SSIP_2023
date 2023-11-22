@@ -66,6 +66,13 @@ class Batch(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
+            start_year = datetime.strptime(self.start_year, '%Y').year            
+            end_year = datetime.strptime(self.end_year, '%Y').year
+            current_year = datetime.now().year
+            if current_year != start_year and end_year != current_year + 1:                
+                self.active = False                
+            else:
+                self.active == True                
             super(Batch, self).save(*args, **kwargs) 
         else:
             super(Batch, self).save(*args, **kwargs)

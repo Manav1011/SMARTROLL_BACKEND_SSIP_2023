@@ -1,0 +1,2 @@
+APIs added - set_lecture_attributes, get_objects_for_lecture, get_timetable
+Models Updated - Timetable, Schedule, Lecture
