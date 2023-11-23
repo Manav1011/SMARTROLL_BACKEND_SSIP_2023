@@ -1,6 +1,6 @@
 from django.db import models
 from Profile.models import Profile
-from Manage.models import Subject,Branch
+from Manage.models import Subject,Branch,Semester
 import uuid
 import time
 
@@ -32,6 +32,7 @@ class Student(models.Model):
     display_picture = models.URLField(null=True,blank=True)
     subjects = models.ManyToManyField(Subject,blank=True)
     branch = models.ForeignKey(Branch,on_delete=models.DO_NOTHING,null=True,blank=True)
+    semester = models.ForeignKey(Semester,on_delete=models.DO_NOTHING,null=True,blank=True)
     thank_you_response = models.TextField(null=True,blank=True)
     steps = models.IntegerField(null=True,blank=True,default=1)
     slug = models.SlugField(unique=True, null=True, blank=True)

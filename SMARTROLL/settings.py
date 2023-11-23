@@ -33,7 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://425b-2405-201-2024-b862-d79a-575-3f0a-75dd.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://fd0c-2405-201-2024-b862-243e-7e43-8af7-e2ee.ngrok-free.app"]
 
 
 # Application definition

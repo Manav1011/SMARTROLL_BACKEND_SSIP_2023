@@ -6,8 +6,8 @@ from rest_framework_simplejwt.views import (
 )
 from rest_framework.decorators import api_view
 from .models import Admin,Teacher,Student
-from Manage.models import Branch,Batch
-from Manage.serializers import BranchSerializer,SemesterSerializer
+from Manage.models import Branch,Batch,Semester,Subject
+from Manage.serializers import BranchSerializer,SemesterSerializer,SubjectSerializer
 from .serializers import AdminSerializer
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -36,17 +36,46 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 @api_view(['POST'])    
 def SetStudentCreds1(request):
     try:
-        data = request.data
-        if 'enrollment' not in data:
+        body = request.data
+        if 'enrollment' not in body:
             raise Exception('Provide all the parameters')
-        student_obj = Student.objects.get(enrollment=data['enrollment'])
-        if student_obj.steps == 1:
-            student_obj.steps = 2
-            student_obj.save()
-        branches = Branch.objects.all()
-        branches_serialized = BranchSerializer(branches,many=True)    
-        data = {"data":True,"steps":student_obj.steps,'branches':branches_serialized.data,'student_slug':student_obj.slug}
-        return JsonResponse(data,status=200)
+        student_obj = Student.objects.get(enrollment=body['enrollment'])        
+        if student_obj.steps == 1 or student_obj.steps == 2:
+            if student_obj.steps == 1:
+                student_obj.steps = 2
+                student_obj.save()
+            branches = Branch.objects.all()
+            branches_serialized = BranchSerializer(branches,many=True)    
+            data = {"data":True,"steps":student_obj.steps,'branches':branches_serialized.data,'student_slug':student_obj.slug}
+            return JsonResponse(data,status=200)        
+        elif student_obj.steps == 3:
+            branch_obj = student_obj.branch            
+            branches_serialized = BranchSerializer(branch_obj)
+            batch = branch_obj.batches.all().filter(active=True).first()
+            semesters = batch.semesters.all().filter(status=True)        
+            semesters_serialized = SemesterSerializer(semesters,many=True)
+            data = {"data":True,"steps":student_obj.steps,'branch':branches_serialized.data,'student_slug':student_obj.slug,'semesters':semesters_serialized.data}
+            return JsonResponse(data,status=200)
+        elif student_obj.steps == 4:
+            branch_obj = student_obj.branch
+            branches_serialized = BranchSerializer(branch_obj)
+            semester_obj = student_obj.semester   
+            semesters_serialized = SemesterSerializer(semester_obj) 
+            subjects = semester_obj.subjects.all()
+            subjects_serialized = SubjectSerializer(subjects,many=True)
+            data = {"data":True,"steps":student_obj.steps,'branch':branches_serialized.data,'student_slug':student_obj.slug,'semester':semesters_serialized.data,'subjects':subjects_serialized.data}
+            return JsonResponse(data,status=200)
+    
+        elif student_obj.steps == 5:
+            branch_obj = student_obj.branch
+            branches_serialized = BranchSerializer(branch_obj)
+            semester_obj = student_obj.semester   
+            semesters_serialized = SemesterSerializer(semester_obj) 
+            subjects = student_obj.subjects.all()
+            subjects_serialized = SubjectSerializer(subjects,many=True)
+            data = {"data":True,"steps":student_obj.steps,'branch':branches_serialized.data,'student_slug':student_obj.slug,'semester':semesters_serialized.data,'subjects':subjects_serialized.data}
+            return JsonResponse(data,status=200)            
+        
     except Exception as e:        
         data = {"data":str(e)}
         return JsonResponse(data,status=500)    
@@ -67,6 +96,45 @@ def SetStudentCreds2(request):
         semesters = batch.semesters.all().filter(status=True)        
         semesters_serialized = SemesterSerializer(semesters,many=True)
         data = {"data":True,"steps":student_obj.steps,'semesters':semesters_serialized.data}
+        return JsonResponse(data,status=200)
+    except Exception as e:        
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)    
+
+@api_view(['POST'])    
+def SetStudentCreds3(request):
+    try:
+        body = request.data
+        if 'semester_slug' not in body and 'student_slug' not in body:
+            raise Exception('Provide all the parameters')
+        student_obj = Student.objects.get(slug=body['student_slug'])
+        semester_obj = Semester.objects.get(slug=body['semester_slug'])
+        student_obj.semester = semester_obj
+        student_obj.steps = 4
+        student_obj.save()
+        # Now get the subjects of current semester        
+        subjects = semester_obj.subjects.all()
+        subjects_serialized = SubjectSerializer(subjects,many=True)
+        data = {"data":True,"steps":student_obj.steps,'subjects':subjects_serialized.data}
+        return JsonResponse(data,status=200)
+    except Exception as e:        
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)    
+
+@api_view(['POST'])    
+def SetStudentCreds4(request):
+    try:
+        body = request.data
+        if 'subject_arr' not in body and 'student_slug' not in body:
+            raise Exception('Provide all the parameters')
+        student_obj = Student.objects.get(slug=body['student_slug'])        
+        for i in body['subject_arr']:
+            subject_obj = Subject.objects.get(slug=i)
+            student_obj.subjects.add(subject_obj)
+        student_obj.steps = 5
+        student_obj.save()
+        # Now get the subjects of current semester                
+        data = {"data":True,"steps":student_obj.steps}
         return JsonResponse(data,status=200)
     except Exception as e:        
         data = {"data":str(e)}
