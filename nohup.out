@@ -1,0 +1,21 @@
+Watching for file changes with StatReloader
+System check identified some issues:
+
+WARNINGS:
+?: (debug_toolbar.W001) debug_toolbar.middleware.DebugToolbarMiddleware is missing from MIDDLEWARE.
+	HINT: Add debug_toolbar.middleware.DebugToolbarMiddleware to MIDDLEWARE.
+
+System check identified 1 issue (0 silenced).
+HTTP GET /student_registration/ 200 [0.01, 127.0.0.1:45532]
+HTTP GET /static/jot/form-common.css 200 [0.00, 127.0.0.1:45532]
+HTTP GET /static/jot/5e6b428acc8c4e222d1beb91.css 200 [0.00, 127.0.0.1:45542]
+HTTP GET /static/jot/prototype.forms.js 200 [0.01, 127.0.0.1:45532]
+HTTP GET /static/jot/punycode-1.4.1.min.js 200 [0.01, 127.0.0.1:45552]
+HTTP GET /static/jot/math-processor.js 200 [0.01, 127.0.0.1:45568]
+HTTP GET /static/jot/validategateways.js 200 [0.01, 127.0.0.1:45570]
+HTTP GET /static/jot/jotform.forms.js 200 [0.01, 127.0.0.1:45566]
+HTTP GET /static/jot/LOGOFINALFINAL.655e0049d55762.65188587.png 200 [0.00, 127.0.0.1:45594]
+HTTP GET /static/jot/smoothscroll.min.js 200 [0.00, 127.0.0.1:45604]
+HTTP GET /static/jot/errorNavigation.js 200 [0.00, 127.0.0.1:45552]
+Not Found: /student_registration/saved_resource
+HTTP GET /student_registration/saved_resource 404 [0.02, 127.0.0.1:45542]

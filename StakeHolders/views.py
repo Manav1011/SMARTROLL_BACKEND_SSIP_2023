@@ -12,6 +12,11 @@ from .serializers import AdminSerializer
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
+from PIL import Image
+from django.core.files.storage import FileSystemStorage
+from django.core.files.base import ContentFile
+import io
+import base64
 
 # Create your views here.
 
@@ -74,9 +79,20 @@ def SetStudentCreds1(request):
             subjects = student_obj.subjects.all()
             subjects_serialized = SubjectSerializer(subjects,many=True)
             data = {"data":True,"steps":student_obj.steps,'branch':branches_serialized.data,'student_slug':student_obj.slug,'semester':semesters_serialized.data,'subjects':subjects_serialized.data}
+            return JsonResponse(data,status=200)   
+        elif student_obj.steps == 6:
+            branch_obj = student_obj.branch
+            branches_serialized = BranchSerializer(branch_obj)
+            semester_obj = student_obj.semester   
+            semesters_serialized = SemesterSerializer(semester_obj) 
+            subjects = student_obj.subjects.all()
+            subjects_serialized = SubjectSerializer(subjects,many=True)
+            signature = student_obj.signature_link
+            data = {"data":True,"steps":student_obj.steps,'branch':branches_serialized.data,'student_slug':student_obj.slug,'semester':semesters_serialized.data,'subjects':subjects_serialized.data,'signature':signature}
             return JsonResponse(data,status=200)            
         
-    except Exception as e:        
+    except Exception as e:     
+        print(e)      
         data = {"data":str(e)}
         return JsonResponse(data,status=500)    
     
@@ -88,16 +104,23 @@ def SetStudentCreds2(request):
             raise Exception('Provide all the parameters')
         student_obj = Student.objects.get(slug=body['student_slug'])
         branch_obj = Branch.objects.get(slug=body['branch_slug'])
+        # Now get the semester of active batches
+        batch = branch_obj.batches.all().filter(active=True).first()
+        print(batch)
+        if not batch:
+            raise Exception('There are no active batches in this branch')
+        semesters = batch.semesters.all().filter(status=True)
+        print(semesters)
+        if not semesters:
+            raise Exception('There are no active semesters in this batch')
         student_obj.branch = branch_obj
         student_obj.steps = 3
         student_obj.save()
-        # Now get the semester of active batches
-        batch = branch_obj.batches.all().filter(active=True).first()
-        semesters = batch.semesters.all().filter(status=True)        
         semesters_serialized = SemesterSerializer(semesters,many=True)
         data = {"data":True,"steps":student_obj.steps,'semesters':semesters_serialized.data}
         return JsonResponse(data,status=200)
-    except Exception as e:        
+    except Exception as e:  
+        print(e)         
         data = {"data":str(e)}
         return JsonResponse(data,status=500)    
 
@@ -117,7 +140,8 @@ def SetStudentCreds3(request):
         subjects_serialized = SubjectSerializer(subjects,many=True)
         data = {"data":True,"steps":student_obj.steps,'subjects':subjects_serialized.data}
         return JsonResponse(data,status=200)
-    except Exception as e:        
+    except Exception as e:     
+        print(e)   
         data = {"data":str(e)}
         return JsonResponse(data,status=500)    
 
@@ -136,11 +160,52 @@ def SetStudentCreds4(request):
         # Now get the subjects of current semester                
         data = {"data":True,"steps":student_obj.steps}
         return JsonResponse(data,status=200)
-    except Exception as e:        
+    except Exception as e:    
+        print(e)       
         data = {"data":str(e)}
         return JsonResponse(data,status=500)    
 
-    
+def base64_to_grayscale(b64_image_url,student_slug):
+    # Decode the Base64 string
+    image_data = base64.b64decode(b64_image_url.split(',')[1])
+
+    # Load the image using Pillow
+    original_image = Image.open(io.BytesIO(image_data))
+
+    # Convert the image to grayscale
+    grayscale_image = original_image.convert('L')
+
+    grayscale_image_io = io.BytesIO()
+    grayscale_image.save(grayscale_image_io, format='PNG')
+    file_storage_obj = FileSystemStorage()
+    saved_file = file_storage_obj.save(f"{student_slug}.png", ContentFile(grayscale_image_io.getvalue()))
+    file_url = file_storage_obj.url(saved_file)
+    return file_url
+
+@api_view(['POST'])    
+def SetStudentCreds5(request):
+    try:
+        body = request.data
+        if 'signatureb64' not in body and 'password' not in body and 'student_slug' not in body:
+            raise Exception('Provide all the parameters')
+        student_obj = Student.objects.get(slug=body['student_slug'])
+        student_obj.steps = 6
+        # Convert the signature to png and store it
+        profile_obj = student_obj.profile
+        signature_url = base64_to_grayscale(body['signatureb64'],body['student_slug'])
+        student_obj.signature_link = signature_url
+        student_obj.save()
+        profile_obj.set_password(body['password'])
+        profile_obj.save()
+        # Now get the subjects of current semester                
+        data = {"data":True,"steps":student_obj.steps,'signature':student_obj.signature_link}
+        return JsonResponse(data,status=200)
+    except Exception as e:  
+        print(e)         
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)    
+
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def check_token_authenticity(request):

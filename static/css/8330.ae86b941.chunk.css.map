@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/8330.ae86b941.chunk.css","mappings":"AAAA,aACI,sBAAsB,CACtB,cACJ","sources":["views/pages/students/canvasstyle.css"],"sourcesContent":[".canvasstyle{\n    border:'1px solid red';\n    height:'100vh';\n}"],"names":[],"sourceRoot":""}

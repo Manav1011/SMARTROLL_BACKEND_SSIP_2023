@@ -381,7 +381,7 @@ def get_timetable(request):
                         time_table_obj = Timetable()
                         time_table_obj.save()  # Save the Timetable instance
                         # Make 7 new schedule objects
-                        days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+                        days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday']
                         for i in days:
                             schedule_obj = Schedule(day=i)
                             schedule_obj.save()
@@ -399,6 +399,7 @@ def get_timetable(request):
             data = {"data":"You're not allowed to perform this action"}
             return JsonResponse(data,status=401)
     except Exception as e:
+        print(e)
         data = {"data":str(e)}
         return JsonResponse(data,status=500)    
     

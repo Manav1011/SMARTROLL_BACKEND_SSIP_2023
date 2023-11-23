@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CustomTokenObtainPairView,CustomTokenRefreshView,check_token_authenticity,SetStudentCreds1,SetStudentCreds2,SetStudentCreds3,SetStudentCreds4
+from .views import CustomTokenObtainPairView,CustomTokenRefreshView,check_token_authenticity,SetStudentCreds1,SetStudentCreds2,SetStudentCreds3,SetStudentCreds4,SetStudentCreds5
 
 urlpatterns = [    
     path('api/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/set_student_creds_2', SetStudentCreds2, name='SetStudentCreds1'),
     path('api/set_student_creds_3', SetStudentCreds3, name='SetStudentCreds3'),
     path('api/set_student_creds_4', SetStudentCreds4, name='SetStudentCreds4'),    
+    path('api/set_student_creds_5', SetStudentCreds5, name='SetStudentCreds5'),
 ]

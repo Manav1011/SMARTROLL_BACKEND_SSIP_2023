@@ -33,7 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://fd0c-2405-201-2024-b862-243e-7e43-8af7-e2ee.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://356f-49-36-66-75.ngrok-free.app"]
 
 
 # Application definition
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'StakeHolders',
     'TimeTable',
     'Manage',
+    'Student'
 ]
 SSL_CERTIFICATE = SSL_CERTIFICATE_PATH
 SSL_KEY = SSL_KEY_PATH

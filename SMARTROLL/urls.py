@@ -21,6 +21,8 @@ from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 from .views import check_server_avaibility,check_token_authenticity,student_registration,studet_registration_response
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -45,5 +47,6 @@ urlpatterns = [
     path('check_token_authenticity/', check_token_authenticity,name='check_token_authenticity'),
     path('auth/',include('StakeHolders.urls')),
     path('manage/',include('Manage.urls')),    
+    path('student/',include('Student.urls')),    
     path('api_endpoints/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-]
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
