@@ -24,12 +24,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):        
         token = super().get_token(user)
-        if user:
-            token['profile'] = {
-                'email':user.email,
-                'name':user.name,
-                'role':user.role
-            }                   
+        if user:            
             if user.role == 'admin':                
                 admin_obj = Admin.objects.get(profile=user)
                 admin_serializer = AdminSerializer(admin_obj,many=False)
