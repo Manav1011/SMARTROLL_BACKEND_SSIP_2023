@@ -28,6 +28,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             if user.role == 'admin':                
                 admin_obj = Admin.objects.get(profile=user)
                 admin_serializer = AdminSerializer(admin_obj,many=False)
+                print(admin_serializer.data)
                 token['admin_obj'] = admin_serializer.data        
             if user.role == 'student':                
                 student_obj = Student.objects.get(profile=user)                
