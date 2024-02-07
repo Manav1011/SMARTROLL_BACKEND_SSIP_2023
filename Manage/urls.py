@@ -11,6 +11,5 @@ urlpatterns = [
     path('add_teacher',add_teacher,name='add_teacher'),
     path('add_subjects_to_teacher',add_subjects_to_teacher,name='add_subjects_to_teacher'),
     path('get_object_counts',get_object_counts,name='get_object_counts'),
-    path('get_subjects_of_current_batch',get_subjects_of_current_batch,name='get_subjects_of_current_batch'),
-    path('timetable/',include('TimeTable.urls'),name='manage/timetable')
+    path('get_subjects_of_current_batch',get_subjects_of_current_batch,name='get_subjects_of_current_batch'),    
 ]

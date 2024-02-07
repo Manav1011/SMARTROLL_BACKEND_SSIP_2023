@@ -38,7 +38,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+    # path('', TemplateView.as_view(template_name='index.html'), name='home'),
     # path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('student_registration/', student_registration,name='student_registration'),
@@ -46,7 +46,6 @@ urlpatterns = [
     path('check_server_avaibility/', check_server_avaibility,name='check_server_avaibility'),
     path('check_token_authenticity/', check_token_authenticity,name='check_token_authenticity'),
     path('auth/',include('StakeHolders.urls')),
-    path('manage/',include('Manage.urls')),    
-    path('student/',include('Student.urls')),    
+    path('manage/',include('Manage.urls')),        
     path('api_endpoints/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

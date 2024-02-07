@@ -49,15 +49,13 @@ INSTALLED_APPS = [
     'sslserver',
     'rest_framework',
     'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
-    'debug_toolbar',
+    'rest_framework_simplejwt.token_blacklist',    
     'corsheaders',
+    'django_extensions',
     'drf_yasg',
     'Profile',
-    'StakeHolders',
-    'TimeTable',
-    'Manage',
-    'Student'
+    'StakeHolders',    
+    'Manage',    
 ]
 SSL_CERTIFICATE = SSL_CERTIFICATE_PATH
 SSL_KEY = SSL_KEY_PATH
@@ -119,7 +117,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'SMARTROLL.wsgi.application'
+WSGI_APPLICATION = 'SMARTROLL.wsgi.application' 
 ASGI_APPLICATION = "SMARTROLL.asgi.application"
 
 # Database

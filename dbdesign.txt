@@ -1,0 +1,104 @@
+
+Profile {
+	id integer pk increments
+	name integer
+	email integer
+	ph_no integer
+	role integer
+}
+
+Admin {
+	id integer pk increments
+	branch integer
+	profile integer > Profile.id
+}
+
+Teacher {
+	id integer pk increments
+	profile integer > Profile.id
+	subjects integer
+}
+
+Student {
+	id integer pk increments
+	enrollment integer
+	new_field integer
+	profile integer > Profile.id
+	batch integer > Batch.id
+}
+
+College {
+	id integer pk increments
+	college_name integer
+	branches integer
+}
+
+Branch {
+	id integer pk increments
+	branch_name integer
+	branch_code integer
+	college integer > College.id
+}
+
+Semester {
+	id integer pk increments
+	no integer
+	status integer
+	start_year integer
+	end_year integer
+	branch integer > Branch.id
+}
+
+Subject {
+	id integer pk increments
+	subject_name integer
+	code integer
+	credit integer
+}
+
+Division {
+	id integer pk increments
+	name integer
+	semester integer > Semester.id
+	time_table integer > Timetable.id
+}
+
+Batch {
+	id integer pk increments
+	name integer
+	division integer > Division.id
+}
+
+Lecture {
+	id integer pk increments
+	start_time integer
+	end_time integer
+	type integer
+	subject integer > Subject.id
+	teacher integer > Teacher.id
+	classroom integer > Classroom.id
+	batches integer >* Batch.id
+}
+
+Classroom {
+	id integer pk increments
+	class_name integer
+	routers integer > Router.id
+}
+
+Router {
+	id integer pk increments
+	network_address integer
+	new_field integer
+}
+
+Schedule {
+	id integer pk increments
+	day integer
+	lectures integer >* Lecture.id
+}
+
+Timetable {
+	id integer pk increments
+	schedules integer >* Schedule.id
+}
