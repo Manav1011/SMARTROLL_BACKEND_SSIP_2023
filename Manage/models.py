@@ -38,9 +38,7 @@ class College(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
-            super(College, self).save(*args, **kwargs)
-        else:
-            super(College, self).save(*args, **kwargs)
+        super(College, self).save(*args, **kwargs)                    
             
     
 
@@ -120,21 +118,10 @@ class TimeTable(models.Model):
         return f"Division - {self.slug}"
     
 
-class Schedule(models.Model):
-    day = models.CharField(max_length=10,null=True,blank=True)    
-    slug = models.SlugField(unique=True, null=True, blank=True)
-    timetable = models.ForeignKey(TimeTable,on_delete=models.CASCADE)
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = generate_unique_hash()            
-        super(Schedule, self).save(*args, **kwargs)
-    
-    def __str__(self) -> str:
-        return self.day
     
 class Router(models.Model):
     network_add = models.GenericIPAddressField()
+    slug = models.SlugField(unique=True,null=True,blank=True)
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -147,6 +134,7 @@ class Router(models.Model):
 class Classroom(models.Model):
     class_name = models.CharField(max_length = 20)
     routers = models.ForeignKey(Router,on_delete=models.DO_NOTHING)
+    slug = models.SlugField(unique=True,null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -161,6 +149,20 @@ LECTURE_TYPE = [
         ('lab', 'Lab'),
         ('theory', 'Theory'),        
 ]
+
+class Schedule(models.Model):
+    day = models.CharField(max_length=10,null=True,blank=True)    
+    slug = models.SlugField(unique=True, null=True, blank=True)
+    timetable = models.ForeignKey(TimeTable,on_delete=models.CASCADE)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()            
+        super(Schedule, self).save(*args, **kwargs)
+    
+    def __str__(self) -> str:
+        return self.day
+
 class Lecture(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
@@ -169,6 +171,8 @@ class Lecture(models.Model):
     teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
     classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE)
     batches = models.ManyToManyField(Batch)
+    schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
+    slug = models.SlugField(unique=True,null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -177,6 +181,3 @@ class Lecture(models.Model):
     
     def __str__(self) -> str:
         return f"{self.type} - {self.subject.subject_name}"
-
-
-

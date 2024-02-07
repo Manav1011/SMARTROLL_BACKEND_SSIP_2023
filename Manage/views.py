@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
@@ -6,7 +5,6 @@ from django.http import JsonResponse
 from StakeHolders.models import Admin,Teacher
 from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer
 from StakeHolders.serializers import TeacherSerializer
-from rest_framework.views import APIView
 from Manage.models import Batch,Semester,Subject
 from datetime import datetime
 from django.db import transaction
@@ -19,74 +17,6 @@ User = get_user_model()
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_object_counts(request):
-    '''
-    # Get Object Counts API
-
-    **Endpoint:** `/api/get_object_counts/`
-
-    **HTTP Method:** `GET`
-
-    **Authorization:** Token-based authentication (Authorization header required)
-
-    ## Description
-    This API retrieves counts of various objects based on the user's role.
-
-    ## Authentication
-    - **Token:** This endpoint requires a valid user token. Include the token in the "Authorization" header of the request.
-
-    ## Request
-
-    ### Headers
-    - **Authorization:** `Token YOUR_TOKEN`
-
-    ## Response
-
-    ### Success Response (200 OK)
-
-    ```json
-    {
-    "batches": 3,
-    "teachers": 10,
-    "semesters": 15,
-    "subjects": 40
-    }
-    ```
-
-    ### Error Response (401 Unauthorized)
-
-    ```json
-    {
-    "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    ### Error Response (401 Unauthorized - Token not provided)
-
-    ```json
-    {
-    "detail": "Authentication credentials were not provided."
-    }
-    ```
-
-    ### Error Response (401 Unauthorized - Token is invalid or expired)
-
-    ```json
-    {
-    "detail": "Invalid token."
-    }
-    ```
-
-    ### Error Response (500 Internal Server Error)
-
-    ```json
-    {
-    "data": "Internal server error occurred."
-    }
-    ```
-
-    ## Notes
-    - Only users with the "admin" role are allowed to access this API.
-    '''
     try:        
         if request.user.role == 'admin':
             admin_obj = Admin.objects.get(profile=request.user)
@@ -125,58 +55,6 @@ def get_object_counts(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_batches(request):     
-    ''' 
-    ### Get Batches
-
-    **Description:** Retrieve a list of batches associated with the admin's branch.
-
-    **Endpoint:** `/get_batches`
-
-    **Method:** `GET`
-
-    **Permissions:** `IsAuthenticated`
-
-    **Request:**
-
-    No request parameters are required.
-
-    **Response:**
-
-    - `200 OK`: Successfully retrieved batches.
-    ```json
-    {
-        "batches": [
-        {
-            "id": 1,
-            "batch_name": "Batch A",
-            "semesters": [1, 2]
-        },
-        {
-            "id": 2,
-            "batch_name": "Batch B",
-            "semesters": [3, 4]
-        }
-        // ... other batches
-        ]
-    }
-    ```
-
-    - `204 No Content`: No active batches found.
-    ```json
-    {
-        "data": "Currently there are no active batches"
-    }
-    ```
-
-    - `401 Unauthorized`: User does not have permission.
-    ```json
-    {
-        "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    ---
-    '''
     try:        
         if request.user.role == 'admin':
             # If batch is not from current year deactivate it
@@ -201,47 +79,6 @@ def get_batches(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_batches(request):
-    '''    
-    ### Add Batch
-
-    **Description:** Add a new batch to admin's branch.
-
-    **Endpoint:** `/add_batch`
-
-    **Method:** `POST`
-
-    **Permissions:** `IsAuthenticated`
-
-    **Request:**
-
-    - Body:
-    - `batch_name` (string, required): Name of the new batch.
-
-    **Response:**
-
-    - `200 OK`: Successfully added a new batch.
-    ```json
-    {
-        "data": {
-        "id": 3,
-        "batch_name": "New Batch"    
-        }
-    }
-    ```
-
-    - `422 Unprocessable Entity`: Parameters missing or invalid.
-    ```json
-    {
-        "data": "parameters missing"
-    }
-    ```
-
-    - `401 Unauthorized`: User does not have permission.
-    ```json
-    {
-        "data": "You're not allowed to perform this action"
-    }
-    '''
     try:
         if request.user.role == 'admin':
             body = request.data
@@ -270,86 +107,6 @@ def add_batches(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_semesters(request):
-    '''
-    # Get Semesters API
-
-    **Endpoint:** `/get_semesters`
-
-    **Method:** `GET`
-
-    **Permissions:** `IsAuthenticated`
-
-    ## Description
-
-    Retrieve a list of semesters associated with a specific batch.
-
-    ## Request
-
-    ### Query Parameters
-
-    - `batch_slug` (string, required): Slug of the batch for which semesters are to be retrieved.
-
-    ## Response
-
-    - `200 OK`: Successfully retrieved semesters.
-
-    ```json
-    {
-        "data": [
-        {
-            "id": 1,
-            "no": 1,
-            "subjects": [],
-            "timetable":[],
-            "status": 1,
-            "start_date": "2023-01-01",
-            "end_date": "2023-06-30"
-        },
-        {
-            "id": 2,
-            "no": 2,
-            "subjects": [],
-            "timetable":[],
-            "status": 1,
-            "start_date": "2023-07-01",
-            "end_date": "2023-12-31"
-        }      
-        ]
-    }
-    ```
-
-    - `204 No Content`: No active semesters found.
-
-    ```json
-    {
-        "data": "Currently there are no active semesters in this batch"
-    }
-    ```
-
-    - `401 Unauthorized`: User does not have permission.
-
-    ```json
-    {
-        "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    - `422 Unprocessable Entity`: Invalid or missing parameters.
-
-    ```json
-    {
-        "data": "Invalid or missing batch_id parameter"
-    }
-    ```
-
-    - `500 Internal Server Error`: Server error occurred.
-
-    ```json
-    {
-        "data": "Internal Server Error: <error_message>"
-    }
-    ```
-    '''
     try:
         if request.user.role == 'admin':
             body = request.GET
@@ -380,60 +137,6 @@ def get_semesters(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_semester(request):
-    '''
-    # Add Semester
-
-    **Description:** Add a new semester to a batch.
-
-    **Endpoint:** `/add_semester`
-
-    **Method:** `POST`
-
-    **Permissions:** `IsAuthenticated`
-
-    **Request:**
-
-    - Body:
-    - `batch_slug` (string, required): Slug of the batch to which the semester will be added.
-    - `semester_number` (integer, required): Semester number.
-    - `start_date` (string, required): Start date of the semester in the format 'YYYY-MM-DD'.
-    - `end_date` (string, required): End date of the semester in the format 'YYYY-MM-DD'.
-
-    **Response:**
-
-    - `200 OK`: Successfully added a new semester.
-    ```json
-    {
-        "data": {
-            "id": 1,
-            "no": 1,
-            "start_date": "2023-01-01",
-            "end_date": "2023-05-31"
-        }
-    }
-    ```
-
-    - `422 Unprocessable Entity`: Parameters missing or invalid.
-    ```json
-    {
-        "data": "parameters missing"
-    }
-    ```
-
-    - `401 Unauthorized`: User does not have permission.
-    ```json
-    {
-        "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    - `500 Internal Server Error`: An unexpected error occurred.
-    ```json
-    {
-        "data": "Error message"
-    }
-    ```
-    '''
     try:
         if request.user.role == 'admin':
             body = request.data            
@@ -465,82 +168,6 @@ def add_semester(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_subjects(request):
-    '''
-    # Get Subjects API
-
-    ## Description
-
-    Retrieve a list of subjects associated with a specific semester.
-
-    ## Endpoint
-
-    `GET /get_subjects`
-
-    ## Method
-
-    `GET`
-
-    ## Permissions
-
-    - `IsAuthenticated`
-
-    ## Request
-
-    | Parameter      | Type   | Description                                  |
-    | -------------- | ------ | -------------------------------------------- |
-    | `semester_slug`| String | (Required) Slug of the target semester.       |    
-
-    ## Response
-
-    - `200 OK`: Successfully retrieved subjects.
-    ```json
-    {
-        "data": [
-            {
-                "id": 1,
-                "name": "Subject A",
-                "code": "SUBA101",
-                "credit": 3
-            },
-            {
-                "id": 2,
-                "name": "Subject B",
-                "code": "SUBB201",
-                "credit": 4
-            }
-            // ... other subjects
-        ]
-    }
-    ```
-
-    - `204 No Content`: No active subjects found.
-    ```json
-    {
-        "data": "Currently there are no active subjects in this semester"
-    }
-    ```
-
-    - `401 Unauthorized`: User does not have permission.
-    ```json
-    {
-        "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    - `422 Unprocessable Entity`: Parameters missing or invalid.
-    ```json
-    {
-        "data": "parameters missing"
-    }
-    ```
-
-    - `500 Internal Server Error`: Exception occurred.
-    ```json
-    {
-        "data": "Error message here"
-    }
-    ```
-    '''
     try:
         if request.user.role == 'admin':
             body = request.GET            
@@ -570,107 +197,6 @@ def get_subjects(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_subjects(request):
-    '''
-    # Add Subject to Semester API
-
-    **Endpoint:** `/api/add_subject_to_semester/`
-
-    ### Description
-
-    This API allows an admin to add a new subject to a specific semester.
-
-    ### Warning
-
-    - Ensure that the semester exists before attempting to add a subject.
-    - Verify that the subject with the given code is not already added to the semester.
-
-    ### Request
-
-    - **Method:** `POST`
-    - **Authentication:** Required (Admin)
-
-    ### Parameters
-
-    | Parameter        | Type     | Description                                     |
-    |------------------|----------|-------------------------------------------------|
-    | `semester_slug`  | String   | (Required) Slug of the target semester.         |
-    | `subject_name`   | String   | (Required) Name of the new subject.             |
-    | `subject_code`   | String   | (Required) Code of the new subject.             |
-    | `subject_credit` | Integer  | (Required) Credit hours for the new subject.    |
-
-    ### Example Request
-
-    ```json
-    {
-    "semester_slug": "your-semester-slug",
-    "subject_name": "New Subject",
-    "subject_code": "NS101",
-    "subject_credit": 3
-    }
-    ```
-
-    ### Response
-
-    - **Status Code:** `200 OK`
-    - **Data Format:** JSON
-
-    ```json
-    {
-    "subject": {
-        "id": 1,
-        "subject_name": "New Subject",
-        "code": "NS101",
-        "credit": 3
-        // ... (other subject fields)
-    }
-    }
-    ```
-
-    ### Possible Errors
-
-    - **Status Code:** `401 Unauthorized`
-    - **Data Format:** JSON
-
-    ```json
-    {
-    "data": "You're not allowed to perform this action"
-    }
-    ```     
-    - **Status Code:** `500 Internal Server error`
-    - **Data Format:** JSON
-
-    ```json
-    {
-    "data": "You're not allowed to perform this action"
-    }
-    ```
-    
-    ```json
-    {
-    "data": "Semester does not found"
-    }
-    ```
-
-    ```json
-    {
-    "data": "Subject is already added to the semester"
-    }
-    ```
-
-    ```json
-    {
-    "data": "Provide all parameters"
-    }
-    ```
-
-    ```json
-    {
-    "data": "Internal Server Error"
-    }
-    ```
-
-    **Note:** Replace the placeholder values in the example request with actual data.
-    '''
     try:
         if request.user.role == 'admin':
             body = request.data
@@ -700,82 +226,6 @@ def add_subjects(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_teachers(request):
-    '''
-    ### Get Teachers
-
-    Retrieve a list of teachers associated with the admin's branch.
-
-    - **URL:** `/manage/get_teachers`
-    - **Method:** `GET`
-    - **Authentication:** Required (Token-based authentication)
-
-    #### Request Parameters:
-
-    | Parameter  | Type   | Description                             |
-    |------------|--------|-----------------------------------------|
-    | None       |        | No additional parameters are required.   |
-
-    #### Response:
-
-    - **Status Code:** 200 OK
-    ```json
-    {
-        "teachers": [
-            {
-                "profile": {
-                    "name": "Kishan Noorani",
-                    "email": "kishan@gmail.com",
-                    "ph_no": "9925717005"
-                },
-                "subjects": [
-                    {
-                        "subject_name": "Computer Networks ",
-                        "code": 3150710,
-                        "credit": 5,
-                        "slug": "551162_1700243634"
-                    }
-                ]
-            },
-            {
-                "profile": {
-                    "name": "Shraddha Modi",
-                    "email": "shraddhamodi@gmail.com",
-                    "ph_no": "+919925717005"
-                },
-                "subjects": [
-                    {
-                        "subject_name": "Analysis And Design Of Algorithms",
-                        "code": 3150703,
-                        "credit": 5,
-                        "slug": "223792_1700243634"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
-
-    - **Status Code:** 500 Internal Server Error
-    ```json
-    {
-        "data": "Currently there are no active teachers"
-    }
-    ```
-
-    - **Status Code:** 401 Unauthorized
-    ```json
-    {
-        "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    - **Status Code:** 500 Internal Server Error
-    ```json
-    {
-        "data": "Internal Server Error: [error details]"
-    }
-    ```
-    '''
     try:
         if request.user.role == 'admin':
             admin_obj = Admin.objects.get(profile=request.user)
@@ -798,63 +248,6 @@ def get_teachers(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_teacher(request):
-    '''
-    ## Add Teacher
-
-    Endpoint to add a new teacher.
-
-    - **URL:** `/add_teacher`
-    - **Method:** `POST`
-    - **Authentication:** Required (Token-based authentication)
-
-    ### Request Parameters
-
-    | Parameter | Type   | Description                               |
-    |-----------|--------|-------------------------------------------|
-    | email     | String | Email of the teacher (required, non-empty) |
-    | password  | String | Password for the teacher (required, non-empty, at least 8 characters) |
-    | name      | String | Name of the teacher (required, non-empty)  |
-    | ph_no     | String | Phone number of the teacher (required, non-empty) |
-
-    ### Response
-
-    - **Success Response:**
-    - **Status Code:** 200 OK
-    - **Content:**
-        ```json
-        {
-            "teacher": {
-                "profile": {
-                    "name": "Pragnesh Patel",
-                    "email": "pragneshpatel@gmail.com",
-                    "ph_no": "+919925717005"
-                },
-                "subjects": []
-            }
-        }
-        ```
-
-    - **Error Response:**
-    - **Status Code:** 401 Unauthorized
-        - **Content:**
-        ```json
-        {
-            "data": "You're not allowed to perform this action"
-        }
-        ```
-    - **Status Code:** 500 Internal Server Error
-        - **Content:**
-        ```json
-        {
-            "data": "An error occurred while processing your request."
-        }
-        ```
-
-    ### Notes
-
-    - The password must be at least 8 characters long.
-    - The API requires token-based authentication. Ensure the user making the request has the necessary permissions.
-    '''
     try:
         if request.user.role == 'admin':
             admin_obj = Admin.objects.get(profile=request.user)
@@ -892,82 +285,6 @@ def add_teacher(request):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_subjects_to_teacher(request):
-    '''
-    # Add Subjects to Teacher
-
-    Updates the list of subjects assigned to a teacher.
-
-    - Method: `PUT`
-    - Authentication: Required (`IsAuthenticated`)
-
-    ### Request
-
-    - Endpoint: `/manage/add_subjects_to_teacher`
-    - Headers:
-    - `Authorization`: Bearer Token
-
-    #### Input Parameters
-
-    1. `teacher_id` (integer, required): Unique identifier of the teacher.
-    2. `selected_subjects` (array of strings, required): Array of subject slugs to be assigned to the teacher.
-
-    #### Sample Request Body
-
-    ```json
-    {
-        "teacher_id": 1,
-        "selected_subjects": ["551162_1700243634", "223792_1700243634", "173253_1700242491"]
-    }
-    ```
-
-    ### Response
-
-    #### Successful Response (Status Code: 200)
-
-    ```json
-    {
-        "teacher": {
-            "profile": {
-                "name": "Kishan Noorani",
-                "email": "kishan@gmail.com",
-                "ph_no": "9925717005"
-            },
-            "subjects": [
-                {
-                    "subject_name": "Software Engineering",
-                    "code": 3150711,
-                    "credit": 5,
-                    "slug": "173253_1700242491"
-                },
-                {
-                    "subject_name": "Analysis And Design Of Algorithms",
-                    "code": 3150703,
-                    "credit": 5,
-                    "slug": "223792_1700243634"
-                },
-                {
-                    "subject_name": "Computer Networks",
-                    "code": 3150710,
-                    "credit": 5,
-                    "slug": "551162_1700243634"
-                }
-            ]
-        }
-    }
-    ```
-
-    #### Error Responses
-
-    - Status Code: 401
-    ```json
-    {"data": "You're not allowed to perform this action"}
-    ```
-
-    - Status Code: 500
-    ```json
-    {"data": "Error message"}
-    ```
-    '''
     try:
         if request.user.role == 'admin':            
             body = request.data
@@ -997,91 +314,6 @@ def add_subjects_to_teacher(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_subjects_of_current_batch(request):
-    '''
-    ## Get Subjects of Current Batch
-
-    Retrieve a list of subjects for the current batch.
-
-    - **URL:** `/api/get_subjects_of_current_batch/`
-
-    - **Method:** `GET`
-
-    ### Request
-
-    #### Headers
-
-    - `Authorization`: Token \<your_access_token>
-
-    #### Parameters
-
-    - `batch_slug` (required): Slug of the batch for which subjects are requested.
-
-    ### Response
-
-    #### Success Response (Status Code: 200)
-
-    ```json
-    {
-    "data": [
-        {
-        "id": 1,
-        "subject_name": "Subject 1",
-        "code": "S1",
-        "credit": 3
-        },
-        {
-        "id": 2,
-        "subject_name": "Subject 2",
-        "code": "S2",
-        "credit": 4
-        },
-        ...
-    ]
-    }
-    ```
-
-    #### No Subjects Found (Status Code: 302)
-
-    ```json
-    {
-    "data": "No subjects are there...Please add some"
-    }
-    ```
-
-    #### Parameters Missing (Status Code: 422)
-
-    ```json
-    {
-    "data": "Parameters missing"
-    }
-    ```
-
-    #### Unauthorized (Status Code: 401)
-
-    ```json
-    {
-    "data": "You're not allowed to perform this action"
-    }
-    ```
-
-    #### Internal Server Error (Status Code: 500)
-
-    ```json
-    {
-    "data": "Internal server error message"
-    }
-    ```
-
-    ### Permissions
-
-    - User must be authenticated.
-
-    ### Notes
-
-    - Make sure to include the `Authorization` header with a valid access token in the request.
-    - The `batch_slug` parameter is required and should be a non-empty string.
-    - Subjects will be returned as a list if available, and appropriate status codes will be provided based on the response.
-    '''
     try:
         if request.user.role == 'admin':
             body = request.GET                        
