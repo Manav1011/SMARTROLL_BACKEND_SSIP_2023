@@ -1,10 +1,16 @@
-from .models import Batch,Semester,Subject,Branch
+from .models import Batch,Semester,Subject,Branch,College
 from rest_framework import serializers
 
+class CollegeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = College
+        fields = ['college_name','slug']
+
 class BranchSerializer(serializers.ModelSerializer):
+    college = CollegeSerializer()
     class Meta:
         model = Branch
-        fields = ['branch_name','slug']
+        fields = ['branch_name','branch_code','slug','college']
 
 class BatchSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,29 +32,6 @@ class SubjectSerializer(serializers.ModelSerializer):
         # Assuming a subject can be associated with multiple semesters, you might want to handle this accordingly
         # For simplicity, this example assumes a single semester association
         return semester.no
-        
-        
-# class SubjectSerializer(serializers.ModelSerializer):
-#     semester = serializers.SerializerMethodField()
-
-#     class Meta:
-#         model = Subject
-#         fields = ['slug', 'subject_name', 'code', 'credit', 'semester']
-
-#     def get_semester(self, subject):
-#         semester = subject.semester_set.first()
-#         if semester:
-#             return {
-#                 'slug': semester.slug,
-#                 'no': semester.no,
-#                 'status': semester.status,
-#                 'start_date': semester.start_date,
-#                 'end_date': semester.end_date,
-#                 'time_table': list(semester.time_table.values()),  # Adjust based on your TimeTable model
-#             }
-#         else:
-#             return None
-
         
 class SemesterSerializer(serializers.ModelSerializer):
     subjects = SubjectSerializer(many=True)

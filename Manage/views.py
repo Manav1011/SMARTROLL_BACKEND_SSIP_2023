@@ -3,12 +3,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from StakeHolders.models import Admin,Teacher
-from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer
-from StakeHolders.serializers import TeacherSerializer
-from Manage.models import Batch,Semester,Subject
-from datetime import datetime
-from django.db import transaction
-from rest_framework import serializers
+# from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer
+# from StakeHolders.serializers import TeacherSerializer
+# from Manage.models import Batch,Semester,Subject
+# from datetime import datetime
+# from django.db import transaction
+# from rest_framework import serializers
 from django.contrib.auth import get_user_model
 # Create your views here.
 
@@ -19,30 +19,25 @@ User = get_user_model()
 def get_object_counts(request):
     try:        
         if request.user.role == 'admin':
+            data = {'semesters':0,'divisons':0,'batches':0}
             admin_obj = Admin.objects.get(profile=request.user)
-            # Admin exclusive fields will be here
-            branch_obj = admin_obj.branch
-            # Count the batches in particular branch - from branch
-            batch_obj = branch_obj.batches.all()
-            batches_count = batch_obj.count()
-            # Count semesters in each batches - from batches
-            semesters = []            
-            for i in batch_obj:
-                semesters_obj = i.semesters.all()
-                for j in semesters_obj:
-                    semesters.append(j)
-            semesters_count = len(semesters)
-            # Count Subjects in each semesters - from semester
-            subjects = []
+            # We'll have to get the counts of semester, divisions, batches
+            branch = admin_obj.branch_set.first()
+            semesters = branch.semester_set.all()
+            semester_count = len(semesters)
+            divisions = []
             for i in semesters:
-                subjects_obj = i.subjects.all()
-                for j in subjects_obj:
-                    subjects.append(j)
-            subjects_count = len(subjects)
-            # Count teachers in the branch - from reverse query on branch
-            teachers = Teacher.objects.filter(branch=branch_obj)            
-            teachers_count = teachers.count()            
-            data = {'branch':branch_obj.branch_name,'batches':batches_count,'teachers':teachers_count,'semesters':semesters_count,'subjects':subjects_count}
+                sem_divs = i.division_set.all()
+                divisions.extend(sem_divs)
+            division_count = len(divisions)
+            batches = []
+            for i in divisions:
+                div_batches = i.batch_set.all()
+                batches.extend(div_batches)
+            batch_count = len(batches)            
+            data['semesters'] = semester_count
+            data['divisons'] = division_count
+            data['batches'] = batch_count
             return JsonResponse(data,status=200)
         else:
             data = {"data":"You're not allowed to perform this action"}

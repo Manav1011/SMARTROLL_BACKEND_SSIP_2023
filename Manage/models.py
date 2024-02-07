@@ -94,7 +94,7 @@ class Batch(models.Model):
     batch_name = models.CharField(max_length=10)
     slug = models.SlugField(unique=True,null=True,blank=True)
     division = models.ForeignKey(Division,on_delete=models.CASCADE)
-    students = models.ManyToManyField(Student)
+    students = models.ManyToManyField(Student,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -102,7 +102,7 @@ class Batch(models.Model):
         super(Batch, self).save(*args, **kwargs)
         
     def __str__(self) -> str:
-        return f"Division - {self.batch_name}"
+        return f"Division - {self.division.division_name} | {self.batch_name}"
     
 
 class TimeTable(models.Model):
