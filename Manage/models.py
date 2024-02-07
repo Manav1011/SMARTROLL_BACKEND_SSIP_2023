@@ -18,8 +18,7 @@ class Subject(models.Model):
     subject_name = models.CharField(max_length=255)
     code = models.IntegerField(unique=True)
     credit = models.IntegerField()
-    slug = models.SlugField(unique=True,null=True,blank=True)
-    teachers = models.ManyToManyField(Teacher)
+    slug = models.SlugField(unique=True,null=True,blank=True)    
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -65,6 +64,7 @@ class Semester(models.Model):
     no = models.IntegerField()    
     status = models.BooleanField(default=True)
     start_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)])
+    end_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)])
     slug = models.SlugField(unique=True,null=True,blank=True)
     branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
 

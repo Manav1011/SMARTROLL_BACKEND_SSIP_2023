@@ -13,7 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -130,6 +132,7 @@ DATABASES = {
     }
 }
 
+import dj_database_url
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -140,7 +143,7 @@ DATABASES = {
 #         'PORT': '5432',
 #     }
 # }
-# Password validation
+# DATABASES['default'] = dj_database_url.parse(os.environ['POSTGRES_INTERNAL_URL'])
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [

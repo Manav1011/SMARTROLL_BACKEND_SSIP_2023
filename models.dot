@@ -1,6 +1,6 @@
 digraph model_graph {
   // Dotfile by Django-Extensions graph_models
-  // Created: 2024-02-07 06:28
+  // Created: 2024-02-07 17:09
   // Cli Options: -a -o models.dot
 
   fontname = "Roboto"
@@ -995,6 +995,82 @@ digraph model_graph {
     </TABLE>
     >]
 
+  Manage_models_Router [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
+    Router
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto">network_add</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto">GenericIPAddressField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">slug</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">SlugField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
+  Manage_models_Classroom [label=<
+    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
+    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
+    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
+    Classroom
+    </B></FONT></TD></TR>
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>id</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>BigAutoField</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>routers</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto">class_name</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto">CharField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">slug</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">SlugField</FONT>
+    </TD></TR>
+  
+  
+    </TABLE>
+    >]
+
   Manage_models_Schedule [label=<
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
@@ -1037,66 +1113,6 @@ digraph model_graph {
     </TABLE>
     >]
 
-  Manage_models_Router [label=<
-    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
-    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
-    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Router
-    </B></FONT></TD></TR>
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><B>id</B></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><B>BigAutoField</B></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto">network_add</FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto">GenericIPAddressField</FONT>
-    </TD></TR>
-  
-  
-    </TABLE>
-    >]
-
-  Manage_models_Classroom [label=<
-    <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
-    <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
-    <FONT FACE="Roboto" COLOR="white" POINT-SIZE="10"><B>
-    Classroom
-    </B></FONT></TD></TR>
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><B>id</B></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><B>BigAutoField</B></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto"><B>routers</B></FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto"><B>ForeignKey (id)</B></FONT>
-    </TD></TR>
-  
-  
-  
-    <TR><TD ALIGN="LEFT" BORDER="0">
-    <FONT FACE="Roboto">class_name</FONT>
-    </TD><TD ALIGN="LEFT">
-    <FONT FACE="Roboto">CharField</FONT>
-    </TD></TR>
-  
-  
-    </TABLE>
-    >]
-
   Manage_models_Lecture [label=<
     <TABLE BGCOLOR="white" BORDER="1" CELLBORDER="0" CELLSPACING="0">
     <TR><TD COLSPAN="2" CELLPADDING="5" ALIGN="CENTER" BGCOLOR="#1b563f">
@@ -1115,6 +1131,14 @@ digraph model_graph {
   
     <TR><TD ALIGN="LEFT" BORDER="0">
     <FONT FACE="Roboto"><B>classroom</B></FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT FACE="Roboto"><B>ForeignKey (id)</B></FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT FACE="Roboto"><B>schedule</B></FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto"><B>ForeignKey (id)</B></FONT>
     </TD></TR>
@@ -1141,6 +1165,14 @@ digraph model_graph {
     <FONT FACE="Roboto">end_time</FONT>
     </TD><TD ALIGN="LEFT">
     <FONT FACE="Roboto">TimeField</FONT>
+    </TD></TR>
+  
+  
+  
+    <TR><TD ALIGN="LEFT" BORDER="0">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">slug</FONT>
+    </TD><TD ALIGN="LEFT">
+    <FONT COLOR="#7B7B7B" FACE="Roboto">SlugField</FONT>
     </TD></TR>
   
   
@@ -1232,9 +1264,6 @@ digraph model_graph {
   [label=" profile (student)"] [arrowhead=none, arrowtail=dot, dir=both];
 
 
-  Manage_models_Subject -> StakeHolders_models_Teacher
-  [label=" teachers (subject)"] [arrowhead=dot arrowtail=dot, dir=both];
-
   Manage_models_Branch -> Manage_models_College
   [label=" college (branch)"] [arrowhead=none, arrowtail=dot, dir=both];
 
@@ -1256,11 +1285,11 @@ digraph model_graph {
   Manage_models_TimeTable -> Manage_models_Division
   [label=" division (timetable)"] [arrowhead=none, arrowtail=dot, dir=both];
 
-  Manage_models_Schedule -> Manage_models_TimeTable
-  [label=" timetable (schedule)"] [arrowhead=none, arrowtail=dot, dir=both];
-
   Manage_models_Classroom -> Manage_models_Router
   [label=" routers (classroom)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  Manage_models_Schedule -> Manage_models_TimeTable
+  [label=" timetable (schedule)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   Manage_models_Lecture -> Manage_models_Subject
   [label=" subject (lecture)"] [arrowhead=none, arrowtail=dot, dir=both];
@@ -1270,6 +1299,9 @@ digraph model_graph {
 
   Manage_models_Lecture -> Manage_models_Classroom
   [label=" classroom (lecture)"] [arrowhead=none, arrowtail=dot, dir=both];
+
+  Manage_models_Lecture -> Manage_models_Schedule
+  [label=" schedule (lecture)"] [arrowhead=none, arrowtail=dot, dir=both];
 
   Manage_models_Lecture -> Manage_models_Batch
   [label=" batches (lecture)"] [arrowhead=dot arrowtail=dot, dir=both];
