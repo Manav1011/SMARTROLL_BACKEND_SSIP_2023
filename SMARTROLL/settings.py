@@ -93,7 +93,8 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = [
-    'Access-Control-Allow-Headers',    
+    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Origin',
     'ngrok-skip-browser-warning',  # Add your custom header here
     'Content-Type',
     'Accept',

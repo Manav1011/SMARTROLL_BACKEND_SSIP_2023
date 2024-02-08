@@ -137,6 +137,7 @@ class Classroom(models.Model):
     class_name = models.CharField(max_length = 20)
     routers = models.ForeignKey(Router,on_delete=models.DO_NOTHING)
     slug = models.SlugField(unique=True,null=True,blank=True)
+    branch = models.ForeignKey(Branch,null=True,blank=True,on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -153,7 +154,7 @@ LECTURE_TYPE = [
 ]
 
 class Schedule(models.Model):
-    day = models.CharField(max_length=10,null=True,blank=True)    
+    day = models.CharField(max_length=10,null=True,blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
     timetable = models.ForeignKey(TimeTable,on_delete=models.CASCADE)
 
@@ -178,7 +179,7 @@ class Lecture(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = generate_unique_hash()            
+            self.slug = generate_unique_hash()
         super(Lecture, self).save(*args, **kwargs)
     
     def __str__(self) -> str:
