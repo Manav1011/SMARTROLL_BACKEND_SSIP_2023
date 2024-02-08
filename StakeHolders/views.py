@@ -6,17 +6,10 @@ from rest_framework_simplejwt.views import (
 )
 from rest_framework.decorators import api_view
 from .models import Admin,Teacher,Student
-from Manage.models import Branch,Subject
-from Manage.serializers import BranchSerializer,SemesterSerializer,SubjectSerializer
 from .serializers import AdminSerializer
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
-from PIL import Image
-from django.core.files.storage import FileSystemStorage
-from django.core.files.base import ContentFile
-import io
-import base64
 
 # Create your views here.
 

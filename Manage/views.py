@@ -2,15 +2,13 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from Manage.models import Branch, Division, Semester,Batch
+from Manage.models import Division, Semester,Batch
 from StakeHolders.models import Admin,Teacher
+from Profile.models import Profile
 from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer
-# from StakeHolders.serializers import TeacherSerializer
-from Manage.models import Semester,Branch
-# from datetime import datetime
-# from django.db import transaction
-# from rest_framework import serializers
+from Manage.models import Semester
 from django.contrib.auth import get_user_model
+from StakeHolders.serializers import TeacherSerializer
 # Create your views here.
 
 User = get_user_model()
@@ -216,4 +214,30 @@ def get_divisions(request):
     except Exception as e:
         data['message'] = str(e)
         data['error'] = True
-        return JsonResponse(data,status=500)    
+        return JsonResponse(data,status=500)
+    
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_teacher(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.data
+            if 'name' in body and 'email' in body and 'ph_no' in body:
+                profile_obj,created = Profile.objects.get_or_create(name=body['name'],email=body['email'],ph_no=body['ph_no'])
+                if created:
+                    teacher_obj = Teacher.objects.create(profile=profile_obj)
+                    teacher_serialized = TeacherSerializer(teacher_obj)
+                    data['data'] = teacher_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Teacher already exists')
+            else:
+                raise Exception('Credentials not provided')
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
