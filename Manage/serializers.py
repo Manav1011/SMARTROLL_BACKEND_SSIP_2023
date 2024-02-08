@@ -25,19 +25,9 @@ class BatchSerializer(serializers.ModelSerializer):
 
 
 class SubjectSerializer(serializers.ModelSerializer):
-    semester_number = serializers.SerializerMethodField()
-
     class Meta:
         model = Subject
-        fields = ['slug', 'subject_name', 'code', 'credit', 'semester_number']
-
-    def get_semester_number(self, subject):
-        # Assuming you have a reverse relation from Subject to Semester named 'semesters'
-        semester = subject.semester_set.get()  # Adjust this based on your actual reverse relation name
-
-        # Assuming a subject can be associated with multiple semesters, you might want to handle this accordingly
-        # For simplicity, this example assumes a single semester association
-        return semester.no
+        fields = ['slug', 'subject_name', 'code', 'credit']
         
 class SemesterSerializer(serializers.ModelSerializer):    
     class Meta:
