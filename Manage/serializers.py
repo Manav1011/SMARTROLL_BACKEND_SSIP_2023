@@ -33,11 +33,10 @@ class SubjectSerializer(serializers.ModelSerializer):
         # For simplicity, this example assumes a single semester association
         return semester.no
         
-class SemesterSerializer(serializers.ModelSerializer):
-    subjects = SubjectSerializer(many=True)
+class SemesterSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Semester
-        fields = ['slug','no','status','subjects','time_table']
+        fields = ['slug','no','status','start_year','end_year']
 
 class SemesterSerializerStudentCred(serializers.ModelSerializer):
     subjects = SubjectSerializer(many=True)
