@@ -104,7 +104,7 @@ def get_semesters(request):
     finally:
         return JsonResponse(data,status=500)
     
-@api_view(['POSt'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_division(request):
     try:    
@@ -135,4 +135,31 @@ def add_division(request):
         return JsonResponse(data,status=500)
     
 
-
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_divisions(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.query_params
+            admin_obj = Admin.objects.get(profile=request.user)
+            # We'll have to get the counts of semester, divisions, batches
+            if 'semester_slug' in body:
+                semester_obj = Semester.objects.filter(slug=request.query_params.get('semester_slug')).first()
+                if semester_obj and semester_obj.branch.admins.contains(admin_obj):
+                    divisions = semester_obj.division_set.all()
+                    division_serialized = DivisionSerializer(divisions, many=True)
+                    data['data'] = division_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception("This Semester does not exist")
+            else:
+                raise Exception("Choose the correct semester to get the divisions")            
+            
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True
+    finally:
+        return JsonResponse(data,status=500)
