@@ -17,10 +17,11 @@ class DivisionSerializer(serializers.ModelSerializer):
         model = Division
         fields = ['division_name','slug']
 
+
 class BatchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Batch
-        fields = ['slug','batch_name','active']
+        fields = ['slug','batch_name']
 
 
 class SubjectSerializer(serializers.ModelSerializer):

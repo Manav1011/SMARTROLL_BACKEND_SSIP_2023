@@ -35,7 +35,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://356f-49-36-66-75.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://8be7-14-139-110-146.ngrok-free.app"]
 
 
 # Application definition
@@ -93,7 +93,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = [
-    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Headers',    
     'ngrok-skip-browser-warning',  # Add your custom header here
     'Content-Type',
     'Accept',

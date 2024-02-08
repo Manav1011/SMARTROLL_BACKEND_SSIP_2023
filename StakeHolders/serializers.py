@@ -26,10 +26,4 @@ class TeacherSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()    
     class Meta:
         model = Teacher
-        fields = ['id','profile']
-
-class TeacherProfileSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer()    
-    class Meta:
-        model = Teacher
-        fields = ['id','profile']
+        fields = ['slug','profile']

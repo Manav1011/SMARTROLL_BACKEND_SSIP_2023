@@ -2,15 +2,17 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from Manage.models import Branch, Division, Semester
+from Manage.models import Division, Semester,Batch
 from StakeHolders.models import Admin,Teacher
-from .serializers import SemesterSerializer,DivisionSerializer,SubjectSerializer
 # from StakeHolders.serializers import TeacherSerializer
-from Manage.models import Semester,Branch,Subject
 # from datetime import datetime
 # from django.db import transaction
 # from rest_framework import serializers
+from Profile.models import Profile
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer
+from Manage.models import Semester,Branch,Subject
 from django.contrib.auth import get_user_model
+from StakeHolders.serializers import TeacherSerializer
 # Create your views here.
 
 User = get_user_model()
@@ -94,16 +96,16 @@ def get_semesters(request):
             if semesters.exists():
                 semesters_serialized = SemesterSerializer(semesters,many=True)
                 data['data'] = semesters_serialized.data
+                return JsonResponse(data,status=200)
             else:
                 raise Exception('Semester Does Not Exists')
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['error'] = True
-        data['message'] = str(e)
-    finally:
-        return JsonResponse(data,status=500)
+        data['message'] = str(e)    
     
+@api_view(['POST'])
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_division(request):
@@ -134,7 +136,62 @@ def add_division(request):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
-
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_batch(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)            
+            if 'batch_name' in body and 'division_slug' in body :
+                division_obj = Division.objects.filter(slug=body['division_slug']).first()                
+                if division_obj and division_obj.semester.branch.admins.contains(admin_obj):
+                    batch_obj,created = Batch.objects.get_or_create(batch_name = body['batch_name'],division=division_obj)
+                    if created:
+                        batch_serialized = BatchSerializer(batch_obj)
+                        data['data'] = batch_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('division already added')
+                else:
+                    raise Exception("This Semester does not exist")
+            else:
+                raise Exception("Credentials not provided")
+            
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_batches(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.query_params
+            admin_obj = Admin.objects.get(profile=request.user)
+            if 'division_slug' in body :
+                division_obj = Division.objects.filter(slug=body['division_slug']).first()
+                if division_obj and division_obj.semester.branch.admins.contains(admin_obj):
+                   batches = division_obj.batch_set.all()
+                   batches_serialized = BatchSerializer(batches,many=True)
+                   data['data'] = batches_serialized.data
+                   return JsonResponse(data,status=200)
+                else:
+                   raise Exception('Divison does not exist')
+            else:
+                raise Exception("Credentials not provided")
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+        
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_divisions(request):
@@ -162,7 +219,6 @@ def get_divisions(request):
         data['message'] = str(e)
         data['error'] = True
         return JsonResponse(data,status=500)
-
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -194,8 +250,6 @@ def add_subject(request):
         data['error'] = True
         return JsonResponse(data,status=500)    
     
-    
-    
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_subjects(request):
@@ -222,4 +276,30 @@ def get_subjects(request):
     except Exception as e:
         data['message'] = str(e)
         data['error'] = True
+        return JsonResponse(data,status=500)
+    
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_teacher(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.data
+            if 'name' in body and 'email' in body and 'ph_no' in body:
+                profile_obj,created = Profile.objects.get_or_create(name=body['name'],email=body['email'],ph_no=body['ph_no'])
+                if created:
+                    teacher_obj = Teacher.objects.create(profile=profile_obj)
+                    teacher_serialized = TeacherSerializer(teacher_obj)
+                    data['data'] = teacher_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Teacher already exists')
+            else:
+                raise Exception('Credentials not provided')
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
         return JsonResponse(data,status=500)
