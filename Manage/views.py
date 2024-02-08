@@ -2,9 +2,9 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from Manage.models import Branch, Division, Semester
+from Manage.models import Branch, Division, Semester,Batch
 from StakeHolders.models import Admin,Teacher
-from .serializers import SemesterSerializer,DivisionSerializer
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer
 # from StakeHolders.serializers import TeacherSerializer
 from Manage.models import Semester,Branch
 # from datetime import datetime
@@ -94,16 +94,16 @@ def get_semesters(request):
             if semesters.exists():
                 semesters_serialized = SemesterSerializer(semesters,many=True)
                 data['data'] = semesters_serialized.data
+                return JsonResponse(data,status=200)
             else:
                 raise Exception('Semester Does Not Exists')
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['error'] = True
-        data['message'] = str(e)
-    finally:
-        return JsonResponse(data,status=500)
+        data['message'] = str(e)    
     
+@api_view(['POST'])
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_division(request):
@@ -134,7 +134,62 @@ def add_division(request):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
-
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_batch(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)            
+            if 'batch_name' in body and 'division_slug' in body :
+                division_obj = Division.objects.filter(slug=body['division_slug']).first()                
+                if division_obj and division_obj.semester.branch.admins.contains(admin_obj):
+                    batch_obj,created = Batch.objects.get_or_create(batch_name = body['batch_name'],division=division_obj)
+                    if created:
+                        batch_serialized = BatchSerializer(batch_obj)
+                        data['data'] = batch_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('division already added')
+                else:
+                    raise Exception("This Semester does not exist")
+            else:
+                raise Exception("Credentials not provided")
+            
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_batches(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.query_params
+            admin_obj = Admin.objects.get(profile=request.user)
+            if 'division_slug' in body :
+                division_obj = Division.objects.filter(slug=body['division_slug']).first()
+                if division_obj and division_obj.semester.branch.admins.contains(admin_obj):
+                   batches = division_obj.batch_set.all()
+                   batches_serialized = BatchSerializer(batches,many=True)
+                   data['data'] = batches_serialized.data
+                   return JsonResponse(data,status=200)
+                else:
+                   raise Exception('Divison does not exist')
+            else:
+                raise Exception("Credentials not provided")
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+        
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_divisions(request):
@@ -161,5 +216,4 @@ def get_divisions(request):
     except Exception as e:
         data['message'] = str(e)
         data['error'] = True
-    finally:
-        return JsonResponse(data,status=500)
+        return JsonResponse(data,status=500)    
