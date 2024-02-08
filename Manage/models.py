@@ -13,22 +13,6 @@ def generate_unique_hash():
     unique_hash = f"{random_hash}_{timestamp}"
     return unique_hash
 
-    
-class Subject(models.Model):
-    subject_name = models.CharField(max_length=255)
-    code = models.IntegerField(unique=True)
-    credit = models.IntegerField()
-    slug = models.SlugField(unique=True,null=True,blank=True)    
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = generate_unique_hash()                                
-        super(Subject, self).save(*args, **kwargs)
-    
-
-    def __str__(self) -> str:
-        return self.subject_name
-
 
 class College(models.Model):
     college_name = models.CharField(max_length=255)    
@@ -75,6 +59,22 @@ class Semester(models.Model):
         
     def __str__(self) -> str:
         return f"Semester - {self.no}"
+    
+class Subject(models.Model):
+    subject_name = models.CharField(max_length=255)
+    code = models.IntegerField(unique=True)
+    credit = models.IntegerField()
+    slug = models.SlugField(unique=True,null=True,blank=True)    
+    semester = models.ForeignKey(Semester,on_delete=models.CASCADE,blank=True,null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()                                
+        super(Subject, self).save(*args, **kwargs)
+    
+
+    def __str__(self) -> str:
+        return self.subject_name
     
 class Division(models.Model):
     division_name = models.CharField(max_length=2)
