@@ -1,5 +1,3 @@
-from asyncio import Semaphore
-from sqlite3 import DataError
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
@@ -43,8 +41,7 @@ def get_object_counts(request):
             data['batches'] = batch_count
             return JsonResponse(data,status=200)
         else:
-            data = {"data":"You're not allowed to perform this action"}
-            return JsonResponse(data,status=401)
+            raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
@@ -77,8 +74,7 @@ def add_semester(request):
             else:
                 raise Exception('Provide all the parameters')                        
         else:
-            data['error'] = True
-            data['message'] = "You're not allowed to perform this action"            
+            raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['error'] = True
         data['message'] = str(e)
@@ -101,8 +97,7 @@ def get_semesters(request):
             else:
                 raise Exception('Semester Does Not Exists')
         else:
-            data['error'] = True
-            data['message'] = "You're not allowed to perform this action"            
+            raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['error'] = True
         data['message'] = str(e)
@@ -111,17 +106,14 @@ def get_semesters(request):
     
 @api_view(['POSt'])
 @permission_classes([IsAuthenticated])
-def add_divisions(request):
+def add_division(request):
     try:    
         data = {'data':None,'error':False,'message':None}    
         if request.user.role == 'admin':
             body = request.data
-            admin_obj = Admin.objects.get(profile=request.user)
-            # We'll have to get the counts of semester, divisions, batches
-            # branch_obj = admin_obj.branch_set.first()
-            # branch_obj = Branch.objects
-            if 'division_name' in body and 'semester' in body and 'semester_slug' in body :
-                semester_obj = Semester.objects.filter(slug=body['semester_slug']).first()
+            admin_obj = Admin.objects.get(profile=request.user)            
+            if 'division_name' in body and 'semester_slug' in body :
+                semester_obj = Semester.objects.filter(slug=body['semester_slug']).first()                
                 if semester_obj and semester_obj.branch.admins.contains(admin_obj):
                     division_obj,created = Division.objects.get_or_create(division_name = body['division_name'],semester=semester_obj)
                     if created:
@@ -133,14 +125,14 @@ def add_divisions(request):
                 else:
                     raise Exception("This Semester does not exist")
             else:
-                raise Exception("Add all the credentials")            
+                raise Exception("Credentials not provided")
             
         else:
-            data['message'] = "You're not allowed to perform this action"
-            data['error'] = True
-            return JsonResponse(data,status=401)
+            raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['message'] = str(e)
-        data['error'] = True
-        print(e)
+        data['error'] = True        
         return JsonResponse(data,status=500)
+    
+
+
