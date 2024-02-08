@@ -6,9 +6,9 @@ from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from Manage.models import Branch, Division, Semester
 from StakeHolders.models import Admin,Teacher
-from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer,DivisionSerializer
+from .serializers import SemesterSerializer,DivisionSerializer
 # from StakeHolders.serializers import TeacherSerializer
-# from Manage.models import Batch,Semester,Subject
+from Manage.models import Semester,Branch
 # from datetime import datetime
 # from django.db import transaction
 # from rest_framework import serializers
@@ -49,7 +49,66 @@ def get_object_counts(request):
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
     
-     
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_semester(request):
+    try:        
+        data = {'data':None,'error':False,'message':None}
+        if request.user.role == 'admin':  
+            body = request.data
+            if 'no' in body and 'start_year' in body and 'end_year' in body:
+                admin_obj = Admin.objects.get(profile=request.user)
+                # We'll have to get the counts of semester, divisions, batches
+                branch_obj = admin_obj.branch_set.first()
+                if branch_obj:
+                    semester_obj,created = Semester.objects.get_or_create(no=body['no'],branch=branch_obj)
+                    if created:
+                        semester_obj.start_year =body['start_year']
+                        semester_obj.end_year = body['end_year']
+                        semester_obj.save()
+                        semester_serialized = SemesterSerializer(semester_obj)
+                        data['data'] = semester_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('Semester already added')
+                else:
+                    raise Exception('No branch found')
+            else:
+                raise Exception('Provide all the parameters')                        
+        else:
+            data['error'] = True
+            data['message'] = "You're not allowed to perform this action"            
+    except Exception as e:
+        data['error'] = True
+        data['message'] = str(e)
+        return JsonResponse(data,status=500)    
+        
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_semesters(request):
+    try:        
+        data = {'data':None,'error':False,'message':None}
+        if request.user.role == 'admin':              
+            admin_obj = Admin.objects.get(profile=request.user)
+            # We'll have to get the counts of semester, divisions, batches
+            branch_obj = admin_obj.branch_set.first()
+            semesters = branch_obj.semester_set.all().filter(status=True)
+            if semesters.exists():
+                semesters_serialized = SemesterSerializer(semesters,many=True)
+                data['data'] = semesters_serialized.data
+            else:
+                raise Exception('Semester Does Not Exists')
+        else:
+            data['error'] = True
+            data['message'] = "You're not allowed to perform this action"            
+    except Exception as e:
+        data['error'] = True
+        data['message'] = str(e)
+    finally:
+        return JsonResponse(data,status=500)
+    
 @api_view(['POSt'])
 @permission_classes([IsAuthenticated])
 def add_divisions(request):

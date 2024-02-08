@@ -43,7 +43,7 @@ class College(models.Model):
 
     def __str__(self) -> str:
         return self.college_name
-
+    
 class Branch(models.Model):
     branch_name = models.CharField(max_length=255)    
     branch_code = models.IntegerField(unique=True)
@@ -63,10 +63,10 @@ class Branch(models.Model):
 class Semester(models.Model):
     no = models.IntegerField()    
     status = models.BooleanField(default=True)
-    start_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)])
-    end_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)])
+    start_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
+    end_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
-    branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
+    branch = models.ForeignKey(Branch,on_delete=models.CASCADE,blank=True,null=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
