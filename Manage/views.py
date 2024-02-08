@@ -145,7 +145,7 @@ def get_divisions(request):
             admin_obj = Admin.objects.get(profile=request.user)
             # We'll have to get the counts of semester, divisions, batches
             if 'semester_slug' in body:
-                semester_obj = Semester.objects.filter(slug=request.query_params.get('semester_slug')).first()
+                semester_obj = Semester.objects.filter(slug=body.get('semester_slug')).first()
                 if semester_obj and semester_obj.branch.admins.contains(admin_obj):
                     divisions = semester_obj.division_set.all()
                     division_serialized = DivisionSerializer(divisions, many=True)
