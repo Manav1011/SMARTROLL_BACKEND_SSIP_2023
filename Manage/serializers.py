@@ -1,4 +1,4 @@
-from .models import Batch,Semester,Subject,Branch,College
+from .models import Batch, Division,Semester,Subject,Branch,College
 from rest_framework import serializers
 
 class CollegeSerializer(serializers.ModelSerializer):
@@ -11,6 +11,11 @@ class BranchSerializer(serializers.ModelSerializer):
     class Meta:
         model = Branch
         fields = ['branch_name','branch_code','slug','college']
+
+class DivisionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Division
+        fields = ['division_name','slug']
 
 class BatchSerializer(serializers.ModelSerializer):
     class Meta:

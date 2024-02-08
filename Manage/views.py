@@ -1,9 +1,12 @@
+from asyncio import Semaphore
+from sqlite3 import DataError
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
+from Manage.models import Branch, Division, Semester
 from StakeHolders.models import Admin,Teacher
-# from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer
+from .serializers import BatchSerializer,SemesterSerializer,SubjectSerializer,DivisionSerializer
 # from StakeHolders.serializers import TeacherSerializer
 # from Manage.models import Batch,Semester,Subject
 # from datetime import datetime
@@ -44,4 +47,41 @@ def get_object_counts(request):
             return JsonResponse(data,status=401)
     except Exception as e:
         data = {"data":str(e)}
+        return JsonResponse(data,status=500)
+    
+     
+@api_view(['POSt'])
+@permission_classes([IsAuthenticated])
+def add_divisions(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':
+            body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)
+            # We'll have to get the counts of semester, divisions, batches
+            # branch_obj = admin_obj.branch_set.first()
+            # branch_obj = Branch.objects
+            if 'division_name' in body and 'semester' in body and 'semester_slug' in body :
+                semester_obj = Semester.objects.filter(slug=body['semester_slug']).first()
+                if semester_obj and semester_obj.branch.admins.contains(admin_obj):
+                    division_obj,created = Division.objects.get_or_create(division_name = body['division_name'],semester=semester_obj)
+                    if created:
+                        division_serialized = DivisionSerializer(division_obj)
+                        data['data'] = division_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('division already added')
+                else:
+                    raise Exception("This Semester does not exist")
+            else:
+                raise Exception("Add all the credentials")            
+            
+        else:
+            data['message'] = "You're not allowed to perform this action"
+            data['error'] = True
+            return JsonResponse(data,status=401)
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True
+        print(e)
         return JsonResponse(data,status=500)
