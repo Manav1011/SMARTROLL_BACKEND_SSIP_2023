@@ -33,7 +33,9 @@ class Branch(models.Model):
     branch_code = models.IntegerField(unique=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
     college = models.ForeignKey(College,on_delete=models.CASCADE)
-    admins = models.ManyToManyField(Admin)
+    admins = models.ManyToManyField(Admin,blank=True)
+    teachers = models.ManyToManyField(Teacher,blank=True)
+    students = models.ManyToManyField(Student,blank=True)
 
 
     def save(self, *args, **kwargs):

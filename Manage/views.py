@@ -106,7 +106,6 @@ def get_semesters(request):
         data['message'] = str(e)    
     
 @api_view(['POST'])
-@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_division(request):
     try:    
@@ -286,10 +285,13 @@ def add_teacher(request):
         data = {'data':None,'error':False,'message':None}    
         if request.user.role == 'admin':
             body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)            
+            branch_obj = admin_obj.branch_set.first()
             if 'name' in body and 'email' in body and 'ph_no' in body:
-                profile_obj,created = Profile.objects.get_or_create(name=body['name'],email=body['email'],ph_no=body['ph_no'])
+                profile_obj,created = Profile.objects.get_or_create(name=body['name'],email=body['email'],ph_no=body['ph_no'],role='teacher')
                 if created:
                     teacher_obj = Teacher.objects.create(profile=profile_obj)
+                    branch_obj.teachers.add(teacher_obj)
                     teacher_serialized = TeacherSerializer(teacher_obj)
                     data['data'] = teacher_serialized.data
                     return JsonResponse(data,status=200)
@@ -297,6 +299,25 @@ def add_teacher(request):
                     raise Exception('Teacher already exists')
             else:
                 raise Exception('Credentials not provided')
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_teachers(request):
+    try:    
+        data = {'data':None,'error':False,'message':None}    
+        if request.user.role == 'admin':            
+            admin_obj = Admin.objects.get(profile=request.user)            
+            branch_obj = admin_obj.branch_set.first()
+            teachers = branch_obj.teachers.all()
+            teacher_serialized = TeacherSerializer(teachers,many=True)
+            data['data'] = teacher_serialized.data
+            return JsonResponse(data,status=200)
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
