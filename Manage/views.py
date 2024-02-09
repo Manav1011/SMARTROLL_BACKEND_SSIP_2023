@@ -326,10 +326,13 @@ def get_timetable(request):
             body = request.query_params
             if 'division_slug' in body:
                 division_obj = Division.objects.filter(slug=body['division_slug']).first()
-                timetable_obj = TimeTable.objects.get(division=division_obj)
-                timetable_serialized = TimeTableSerializer(timetable_obj)
-                data['data'] = timetable_serialized.data
-                return JsonResponse(data,status=200)
+                timetable_obj = TimeTable.objects.filter(division=division_obj).first()
+                if timetable_obj:
+                    timetable_serialized = TimeTableSerializer(timetable_obj)
+                    data['data'] = timetable_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('No timetable exists for this division')
             else:
                 raise Exception('Credentials not provided')
         else:
@@ -345,22 +348,32 @@ def get_lecture_configs(request):
     try:
         data = {'data':None,'error':False,'message':None}
         if request.user.role == 'admin':
+            body = request.query_params
             admin_obj = Admin.objects.get(profile=request.user)
             branch_obj = admin_obj.branch_set.first()
-            teachers = branch_obj.teachers.all()
-            classrooms = branch_obj.classroom_set.all()
-            batches = Batch.objects.filter(division__semester__branch=branch_obj)
-            subjects = Subject.objects.filter(semester__branch=branch_obj)
-            teachers_serialized = TeacherSerializer(teachers,many=True)
-            classrooms_serialized = ClassRoomSerializer(classrooms,many=True)
-            batches_serialized = BatchSerializer(batches,many=True)        
-            subjects_serialized = SubjectSerializer(subjects,many=True)
-            data['data'] = {}
-            data['data']['teachers'] = teachers_serialized.data
-            data['data']['classrooms'] = classrooms_serialized.data
-            data['data']['batches'] = batches_serialized.data
-            data['data']['subjects'] = subjects_serialized.data
-            return JsonResponse(data,status=200)
+            if 'schedule_slug' in body:
+                schedule_obj = Schedule.objects.filter(slug=body['schedule_slug']).first()
+                division_obj = Division.objects.filter(timetable__schedule = schedule_obj).first()
+                semester_obj = division_obj.semester
+                if division_obj and semester_obj and schedule_obj: 
+                    teachers = branch_obj.teachers.all()
+                    classrooms = branch_obj.classroom_set.all()
+                    batches = Batch.objects.filter(division=division_obj)
+                    subjects = Subject.objects.filter(semester = semester_obj)
+                    teachers_serialized = TeacherSerializer(teachers,many=True)
+                    classrooms_serialized = ClassRoomSerializer(classrooms,many=True)
+                    batches_serialized = BatchSerializer(batches,many=True)        
+                    subjects_serialized = SubjectSerializer(subjects,many=True)
+                    data['data'] = {}
+                    data['data']['teachers'] = teachers_serialized.data
+                    data['data']['classrooms'] = classrooms_serialized.data
+                    data['data']['batches'] = batches_serialized.data
+                    data['data']['subjects'] = subjects_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Object Not Found')
+            else:
+                raise Exception('Parameters missing')
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
