@@ -170,11 +170,11 @@ class Lecture(models.Model):
     start_time = models.TimeField()
     end_time = models.TimeField()
     type = models.CharField(max_length=6,choices=LECTURE_TYPE)
-    subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
-    teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
-    classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE)
-    batches = models.ManyToManyField(Batch)
-    schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
+    subject = models.ForeignKey(Subject,on_delete=models.CASCADE, null=True,blank=True)
+    teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE, null=True,blank=True)
+    classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE, null=True,blank=True)
+    batches = models.ManyToManyField(Batch, blank=True)
+    schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING, null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
 
     def save(self, *args, **kwargs):

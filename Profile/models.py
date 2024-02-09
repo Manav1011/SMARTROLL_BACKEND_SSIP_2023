@@ -15,11 +15,16 @@ class Profile(AbstractUser):
         ('student', 'Student'),
         ('technician', 'Technician'),
     ]
+    GENDER_CHOICES = [
+        ('M', 'Male'),
+        ('F', 'Female'),                
+    ]
     username = None
     name = models.CharField(max_length=255,null=True,blank=True)
-    email = models.EmailField(_('email address'),unique=True)
-    ph_no = models.CharField(max_length=20)
+    email = models.EmailField(_('email address'),unique=True,null=True,blank=True)
+    ph_no = models.CharField(max_length=20,null=True,blank=True)
     role = models.CharField(max_length=10, choices=ROLE_CHOICES)
+    gender = models.CharField(max_length=1,choices=GENDER_CHOICES,null=True,blank=True)
 
     USERNAME_FIELD='email'
     REQUIRED_FIELDS = []
@@ -27,4 +32,4 @@ class Profile(AbstractUser):
     objects = CustomUserManager()
 
     def __str__(self):
-        return self.email
+        return self.email if self.email else self.name

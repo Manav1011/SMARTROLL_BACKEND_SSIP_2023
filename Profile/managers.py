@@ -34,3 +34,12 @@ class CustomUserManager(BaseUserManager):
             user = self.create_user(email, password, **extra_fields)
             created = True
         return user, created
+    
+    def get_or_create_by_name(self, name=None,role=None, **extra_fields):
+        try:
+            user = self.get(name=name,role=role)
+            created = False
+        except self.model.DoesNotExist:
+            user = self.create(name=name, role=role, is_active=False,**extra_fields)
+            created = True
+        return user, created

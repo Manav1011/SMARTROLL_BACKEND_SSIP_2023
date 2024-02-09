@@ -3,10 +3,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture
-from StakeHolders.models import Admin,Teacher
+from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer
-from Manage.models import Semester,Branch,Subject
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer
+from Manage.models import Semester,Subject
+import pandas as pd
 from django.contrib.auth import get_user_model
 from StakeHolders.serializers import TeacherSerializer
 import datetime
@@ -386,23 +387,87 @@ def get_lecture_configs(request):
 def add_lecture_to_schedule(request):
     try:
         data = {'data':None,'error':False,'message':None}
-        if request.user.role == 'admin':
-            admin_obj = Admin.objects.get(profile=request.user)
+        if request.user.role == 'admin':            
             body = request.data
-            if "schedule_slug" in body and "start_time" in body and "end_time" in body and "type" in body and "subject_slug" in body and "teacher" in body and "classroom" in body and "batches" in body and "schedule" in body:
-                start_time  = datetime.strptime(body['start_time'], "%H:%M").time()
-                end_time  = datetime.strptime(body['end_time'], "%H:%M").time()
-                subject = Subject.objects.get(slug=body['subject_slug'])
-                teacher = Teacher.objects.get(slug=body['teacher_slug'])
-                classroom = Classroom.objects.get(slug=body['classroom_slug'])
+            if "schedule_slug" in body and "start_time" in body and "end_time" in body and "type" in body and "subject" in body and "teacher" in body and "classroom" in body and "batches" in body:
                 schedule = Schedule.objects.get(slug=body['schedule_slug'])
-                lecture_obj = Lecture(start_time=start_time,end_time=end_time,type=body['type'],subject=subject,teacher=teacher,classroom=classroom,schedule=schedule)
+                start_time  = datetime.datetime.strptime(body['start_time'], "%H:%M").time()
+                end_time  = datetime.datetime.strptime(body['end_time'], "%H:%M").time()
+                subject = Subject.objects.get(slug=body['subject'])
+                teacher = Teacher.objects.get(slug=body['teacher'])
+                classroom = Classroom.objects.get(slug=body['classroom'])
+                lecture_obj,created = Lecture.objects.get_or_create(start_time=start_time,end_time=end_time,schedule=schedule)
+                if created:
+                    lecture_obj.type=body['type']
+                    lecture_obj.subject=subject
+                    lecture_obj.teacher=teacher
+                    lecture_obj.classroom=classroom
+                    lecture_obj.save()
+                    batches = Batch.objects.filter(slug__in=body['batches'])
+                    lecture_obj.batches.add(*batches)
+                    lecture_obj_serialized = LectureSerializer(lecture_obj)
+                    data['data'] = lecture_obj_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Lecture already exists for this timeslot')
             else:
-                raise Exception('Credentials Missing')   
-            return JsonResponse(data,status=200)
+                raise Exception('Credentials Missing')               
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def upload_students_data(request):
+    try:
+        data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
+        if request.user.role == 'admin':                        
+            body = request.data                        
+            if 'sheet_name' in body and 'division_slug' in body and 'students.xlsc' in body:
+                divison_obj = Division.objects.filter(slug=body['division_slug']).first()
+                if divison_obj:
+                    df = pd.read_excel(body['students.xlsc'],sheet_name=body['sheet_name'])
+                    df = df.drop(index=range(3))
+                    current_batch = None                         
+                    for index,row in df.iterrows():    
+                        try:
+                            if not pd.isna(row[0]):
+                                serial_no = row[0]
+                                batch = row[1] if not pd.isna(row[1]) else current_batch
+                                current_batch = batch
+                                enrollment = row[2]
+                                name = row[3]
+                                gender = row[4]              
+                                batch_obj = Batch.objects.filter(batch_name=batch[1:]).first()
+                                if batch_obj and batch_obj.division == divison_obj:
+                                    profile_obj,created = Profile.objects.get_or_create_by_name(name=name,gender=gender,role='student')
+                                    if created:                            
+                                        student_obj,student_created = Student.objects.get_or_create(profile=profile_obj,sr_no=serial_no,enrollment=enrollment)
+                                        if student_created:
+                                            batch_obj.students.add(student_obj)
+                                            data['data']['register_count'] += 1
+                                            data['data']['logs'][serial_no] = f"Student Created - {serial_no} - {batch[1:]} - {enrollment} - {name} - {gender}"
+                                        else:
+                                            raise Exception('Student already exists')
+                                    else:
+                                        raise Exception('Student already exists')
+                                else:
+                                    raise Exception(f"Batch/Division does not exist for {serial_no} - {batch[1:]} - {enrollment} - {name} - {gender}")                        
+                        except Exception as e:
+                            data['data']['error_count'] += 1
+                            data['data']['logs'][row[0]] = f"{str(e)} - {serial_no} - {batch[1:]} - {enrollment} - {name} - {gender}"
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Division not found')
+            else:
+                raise Exception('Parameters missing')
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    

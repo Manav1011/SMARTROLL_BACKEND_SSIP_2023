@@ -32,12 +32,13 @@ class Teacher(models.Model):
         super(Teacher, self).save(*args, **kwargs)
         
     def __str__(self) -> str:
-        return self.profile.email
+        return self.profile.email if self.profile.email else self.profile.name
     
 class Student(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     enrollment  = models.CharField(max_length=12,unique=True)    
     slug = models.SlugField(unique=True, null=True, blank=True)
+    sr_no = models.PositiveIntegerField(unique=True,null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -46,4 +47,4 @@ class Student(models.Model):
     
     
     def __str__(self) -> str:
-        return self.profile.email
+        return self.profile.email if self.profile.email else self.profile.name
