@@ -2,10 +2,10 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture
+from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term
 from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer
 from Manage.models import Semester,Subject
 import pandas as pd
 from django.contrib.auth import get_user_model
@@ -20,11 +20,16 @@ User = get_user_model()
 def get_object_counts(request):
     try:        
         if request.user.role == 'admin':
-            data = {'semesters':0,'divisons':0,'batches':0}
+            data = {'temas':0,'semesters':0,'divisons':0,'batches':0}
             admin_obj = Admin.objects.get(profile=request.user)
             # We'll have to get the counts of semester, divisions, batches
             branch = admin_obj.branch_set.first()
-            semesters = branch.semester_set.all()
+            terms = branch.term_set.all()
+            term_count = len(terms)
+            semesters = []
+            for i in terms:
+                term_sems = i.semester_set.all()
+                semesters.extend(term_sems)
             semester_count = len(semesters)
             divisions = []
             for i in semesters:
@@ -35,7 +40,8 @@ def get_object_counts(request):
             for i in divisions:
                 div_batches = i.batch_set.all()
                 batches.extend(div_batches)
-            batch_count = len(batches)            
+            batch_count = len(batches)    
+            data['terms'] = term_count
             data['semesters'] = semester_count
             data['divisons'] = division_count
             data['batches'] = batch_count
@@ -45,25 +51,79 @@ def get_object_counts(request):
     except Exception as e:
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
-    
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_term(request):
+    try:        
+        data = {'data':None,'error':False,'message':None}
+        if request.user.role == 'admin':  
+            body = request.data
+            if 'start_year' in body and 'end_year' in body:
+                admin_obj = Admin.objects.get(profile=request.user)
+                # We'll have to get the counts of semester, divisions, batches
+                branch_obj = admin_obj.branch_set.first()
+                if branch_obj:
+                    term_obj,created = Term.objects.get_or_create(start_year=body['start_year'],end_year=body['end_year'],branch=branch_obj)
+                    if created:
+                        term_obj.start_year =body['start_year']
+                        term_obj.end_year = body['end_year']
+                        term_obj.save()
+                        term_serialized = TermSerializer(term_obj)
+                        data['data'] = term_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('Term already added')
+                else:
+                    raise Exception('No branch found')
+            else:
+                raise Exception('Provide all the parameters')                        
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['error'] = True
+        data['message'] = str(e)
+        return JsonResponse(data,status=500) 
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_terms(request):
+    try:        
+        data = {'data':None,'error':False,'message':None}
+        body = request.query_params
+        if request.user.role == 'admin':              
+            admin_obj = Admin.objects.get(profile=request.user)
+            # We'll have to get the counts of semester, divisions, batches
+            branch_obj = admin_obj.branch_set.first()
+            terms = branch_obj.term_set.all()
+            if terms.exists():
+                terms_serialized = TermSerializer(terms,many=True)
+                data['data'] = terms_serialized.data
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception('Semester Does Not Exists')
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        data['error'] = True
+        data['message'] = str(e)   
+        return JsonResponse(data,status=500)   
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_semester(request):
     try:        
         data = {'data':None,'error':False,'message':None}
-        if request.user.role == 'admin':  
+        if request.user.role == 'admin':
             body = request.data
-            if 'no' in body and 'start_year' in body and 'end_year' in body:
+            if 'no' in body and 'term_slug' in body:
                 admin_obj = Admin.objects.get(profile=request.user)
                 # We'll have to get the counts of semester, divisions, batches
-                branch_obj = admin_obj.branch_set.first()
-                if branch_obj:
-                    semester_obj,created = Semester.objects.get_or_create(no=body['no'],branch=branch_obj)
-                    if created:
-                        semester_obj.start_year =body['start_year']
-                        semester_obj.end_year = body['end_year']
-                        semester_obj.save()
+                term_obj = Term.objects.filter(slug=body['term_slug']).first()
+                if term_obj:
+                    semester_obj,created = Semester.objects.get_or_create(no=body['no'],term=term_obj)
+                    if created:                                                
                         semester_serialized = SemesterSerializer(semester_obj)
                         data['data'] = semester_serialized.data
                         return JsonResponse(data,status=200)
@@ -86,22 +146,30 @@ def add_semester(request):
 def get_semesters(request):
     try:        
         data = {'data':None,'error':False,'message':None}
-        if request.user.role == 'admin':              
+        body = request.query_params
+        if request.user.role == 'admin':
             admin_obj = Admin.objects.get(profile=request.user)
-            # We'll have to get the counts of semester, divisions, batches
-            branch_obj = admin_obj.branch_set.first()
-            semesters = branch_obj.semester_set.all().filter(status=True)
-            if semesters.exists():
-                semesters_serialized = SemesterSerializer(semesters,many=True)
-                data['data'] = semesters_serialized.data
-                return JsonResponse(data,status=200)
+            if 'term_slug' in body:
+                # We'll have to get the counts of semester, divisions, batches
+                term_obj = Term.objects.filter(slug=body['term_slug']).first()
+                if term_obj:
+                    semesters = term_obj.semester_set.all().filter(status=True)
+                    if semesters.exists():
+                        semesters_serialized = SemesterSerializer(semesters,many=True)
+                        data['data'] = semesters_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('Semester Does Not Exists')
+                else:
+                        raise Exception('Term Does Not Exists')
             else:
-                raise Exception('Semester Does Not Exists')
+                raise Exception('Parameters missing')
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
         data['error'] = True
-        data['message'] = str(e)    
+        data['message'] = str(e)   
+        return JsonResponse(data,status=500) 
     
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -147,7 +215,7 @@ def add_batch(request):
             admin_obj = Admin.objects.get(profile=request.user)            
             if 'batch_name' in body and 'division_slug' in body :
                 division_obj = Division.objects.filter(slug=body['division_slug']).first()                
-                if division_obj and division_obj.semester.branch.admins.contains(admin_obj):
+                if division_obj and division_obj.semester.term.branch.admins.contains(admin_obj):
                     batch_obj,created = Batch.objects.get_or_create(batch_name = body['batch_name'],division=division_obj)
                     if created:
                         batch_serialized = BatchSerializer(batch_obj)
@@ -177,7 +245,7 @@ def get_batches(request):
             admin_obj = Admin.objects.get(profile=request.user)
             if 'division_slug' in body :
                 division_obj = Division.objects.filter(slug=body['division_slug']).first()
-                if division_obj and division_obj.semester.branch.admins.contains(admin_obj):
+                if division_obj and division_obj.semester.branch.term.admins.contains(admin_obj):
                    batches = division_obj.batch_set.all()
                    batches_serialized = BatchSerializer(batches,many=True)
                    data['data'] = batches_serialized.data

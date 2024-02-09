@@ -1,4 +1,4 @@
-from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom
+from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom,Term
 from rest_framework import serializers
 
 class CollegeSerializer(serializers.ModelSerializer):
@@ -33,7 +33,12 @@ class SubjectSerializer(serializers.ModelSerializer):
 class SemesterSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Semester
-        fields = ['slug','no','status','start_year','end_year']
+        fields = ['slug','no','status']
+
+class TermSerializer(serializers.ModelSerializer):    
+    class Meta:
+        model = Term
+        fields = ['slug','start_year','end_year']
 
 class SemesterSerializerStudentCred(serializers.ModelSerializer):
     subjects = SubjectSerializer(many=True)

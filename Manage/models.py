@@ -46,13 +46,25 @@ class Branch(models.Model):
     def __str__(self) -> str:
         return self.branch_name
 
-class Semester(models.Model):
-    no = models.IntegerField()    
-    status = models.BooleanField(default=True)
+class Term(models.Model):
     start_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
     end_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
     branch = models.ForeignKey(Branch,on_delete=models.CASCADE,blank=True,null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()            
+        super(Term, self).save(*args, **kwargs)
+        
+    def __str__(self) -> str:
+        return f"Term - {self.start_year} | {self.end_year}"
+
+class Semester(models.Model):
+    no = models.IntegerField()    
+    status = models.BooleanField(default=True)
+    slug = models.SlugField(unique=True,null=True,blank=True)
+    term = models.ForeignKey(Term,on_delete=models.CASCADE,null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
