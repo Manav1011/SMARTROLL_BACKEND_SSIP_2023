@@ -6,7 +6,7 @@ from rest_framework_simplejwt.views import (
 )
 from rest_framework.decorators import api_view
 from .models import Admin,Teacher,Student
-from .serializers import AdminSerializer
+from .serializers import AdminSerializer, TeacherSerializer,StudentSerializer
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
@@ -21,10 +21,17 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
             if user.role == 'admin':                
                 admin_obj = Admin.objects.get(profile=user)
                 admin_serializer = AdminSerializer(admin_obj,many=False)
-                print(admin_serializer.data)
-                token['admin_obj'] = admin_serializer.data        
+                token['obj'] = admin_serializer.data  
+
+            if user.role == 'teacher':                
+                teacher_obj = Teacher.objects.get(profile=user)
+                teacher_serialized = TeacherSerializer(teacher_obj,many=False)
+                token['obj'] = teacher_serialized.data  
+
             if user.role == 'student':                
-                student_obj = Student.objects.get(profile=user)                
+                student_obj = Teacher.objects.get(profile=user)
+                student_serialized = StudentSerializer(student_obj,many=False)
+                token['obj'] = student_serialized.data  
         return token
 
 

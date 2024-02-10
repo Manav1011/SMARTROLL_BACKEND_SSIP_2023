@@ -1,4 +1,4 @@
-from .models import Admin,Teacher
+from .models import Admin,Teacher,Student
 from rest_framework import serializers
 from Manage.serializers import BranchSerializer
 from Profile.models import Profile
@@ -24,6 +24,26 @@ class AdminSerializer(serializers.ModelSerializer):
 
 class TeacherSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()    
+    branches = serializers.SerializerMethodField()
+
     class Meta:
         model = Teacher
-        fields = ['slug','profile']
+        fields = ['slug','profile','branches']
+    
+    def get_branches(self,obj):
+        branches = obj.branch_set.all()
+        branches_serialized = BranchSerializer(branches,many=True)
+        return branches_serialized.data
+    
+class StudentSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()    
+    branches = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Student
+        fields = ['slug','profile','branches']
+    
+    def get_branches(self,obj):
+        branches = obj.branch_set.all()
+        branches_serialized = BranchSerializer(branches,many=True)
+        return branches_serialized.data

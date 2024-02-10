@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term
 from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher
 from Manage.models import Semester,Subject
 import pandas as pd
 from django.contrib.auth import get_user_model
@@ -20,7 +20,7 @@ User = get_user_model()
 def get_object_counts(request):
     try:        
         if request.user.role == 'admin':
-            data = {'temas':0,'semesters':0,'divisons':0,'batches':0}
+            data = {'terms':0,'semesters':0,'divisons':0,'batches':0}
             admin_obj = Admin.objects.get(profile=request.user)
             # We'll have to get the counts of semester, divisions, batches
             branch = admin_obj.branch_set.first()
@@ -181,7 +181,7 @@ def add_division(request):
             admin_obj = Admin.objects.get(profile=request.user)            
             if 'division_name' in body and 'semester_slug' in body :
                 semester_obj = Semester.objects.filter(slug=body['semester_slug']).first()                
-                if semester_obj and semester_obj.branch.admins.contains(admin_obj):
+                if semester_obj and semester_obj.term.branch.admins.contains(admin_obj):
                     division_obj,created = Division.objects.get_or_create(division_name = body['division_name'],semester=semester_obj)
                     if created:
                         division_serialized = DivisionSerializer(division_obj)
@@ -245,7 +245,7 @@ def get_batches(request):
             admin_obj = Admin.objects.get(profile=request.user)
             if 'division_slug' in body :
                 division_obj = Division.objects.filter(slug=body['division_slug']).first()
-                if division_obj and division_obj.semester.branch.term.admins.contains(admin_obj):
+                if division_obj and division_obj.semester.term.branch.admins.contains(admin_obj):
                    batches = division_obj.batch_set.all()
                    batches_serialized = BatchSerializer(batches,many=True)
                    data['data'] = batches_serialized.data
@@ -272,7 +272,7 @@ def get_divisions(request):
             # We'll have to get the counts of semester, divisions, batches
             if 'semester_slug' in body:
                 semester_obj = Semester.objects.filter(slug=body.get('semester_slug')).first()
-                if semester_obj and semester_obj.branch.admins.contains(admin_obj):
+                if semester_obj and semester_obj.term.branch.admins.contains(admin_obj):
                     divisions = semester_obj.division_set.all()
                     division_serialized = DivisionSerializer(divisions, many=True)
                     data['data'] = division_serialized.data
@@ -385,7 +385,7 @@ def get_teachers(request):
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
-    
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_timetable(request):
@@ -492,7 +492,7 @@ def add_lecture_to_schedule(request):
 def upload_students_data(request):
     try:
         data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
-        if request.user.role == 'admin':                        
+        if request.user.role == 'admin':
             body = request.data                        
             if 'sheet_name' in body and 'division_slug' in body and 'students.xlsc' in body:
                 divison_obj = Division.objects.filter(slug=body['division_slug']).first()
@@ -539,3 +539,21 @@ def upload_students_data(request):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_timetable_for_teacher(request):
+    try:
+        data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.get(profile=request.user)
+            semesters = teacher_obj.branch_set.first().term_set.filter(status=True).first().semester_set.filter(status=True)
+            divisions = Division.objects.filter(semester__in=semesters)
+            timetables = TimeTable.objects.filter(division__in=divisions)            
+            timetable_serialized = TimeTableSerializerForTeacher(instance=timetables,teacher=teacher_obj,many=True)
+            data['data'] = timetable_serialized.data
+            return JsonResponse(data,status=200)
+
+    except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)

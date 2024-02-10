@@ -51,6 +51,7 @@ class Term(models.Model):
     end_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
     branch = models.ForeignKey(Branch,on_delete=models.CASCADE,blank=True,null=True)
+    status = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:

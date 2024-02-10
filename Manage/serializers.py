@@ -12,6 +12,7 @@ class BranchSerializer(serializers.ModelSerializer):
         model = Branch
         fields = ['branch_name','branch_code','slug','college']
 
+
 class DivisionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Division
@@ -35,6 +36,12 @@ class SemesterSerializer(serializers.ModelSerializer):
         model = Semester
         fields = ['slug','no','status']
 
+class DivisionSerializerForTeacher(serializers.ModelSerializer):
+    semester = SemesterSerializer()
+    class Meta:
+        model = Division
+        fields = ['division_name','slug','semester']
+
 class TermSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Term
@@ -50,6 +57,39 @@ class ClassRoomSerializer(serializers.ModelSerializer):
     class Meta:
         model = Classroom
         fields = ['class_name','slug']
+
+class ScheduleSerializerForTeacher(serializers.ModelSerializer):
+    lectures = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Schedule
+        fields = ['day','slug','lectures']
+    
+    def __init__(self, teacher=None, *args, **kwargs):
+        super(ScheduleSerializerForTeacher, self).__init__(*args, **kwargs)
+        self.teacher = teacher
+    
+    def get_lectures(self,obj):
+        lectures = obj.lecture_set.filter(teacher=self.teacher)
+        lectures_serialized = LectureSerializer(lectures,many=True)
+        return lectures_serialized.data
+
+class TimeTableSerializerForTeacher(serializers.ModelSerializer):
+    schedules = serializers.SerializerMethodField()
+    division = DivisionSerializerForTeacher()
+
+    class Meta:
+        model = TimeTable
+        fields = ['slug','division','schedules']
+    
+    def __init__(self, teacher, *args, **kwargs):
+        super(TimeTableSerializerForTeacher, self).__init__(*args, **kwargs)
+        self.teacher = teacher
+
+    def get_schedules(self,obj):
+        schedules = obj.schedule_set.all()
+        schedules_serialized = ScheduleSerializerForTeacher(instance=schedules,many=True,teacher=self.teacher)
+        return schedules_serialized.data    
     
 class LectureSerializer(serializers.ModelSerializer):
     subject = SubjectSerializer()
