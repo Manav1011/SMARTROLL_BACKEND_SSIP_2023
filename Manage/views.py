@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term
 from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent
 from Manage.models import Semester,Subject
 import pandas as pd
 from django.contrib.auth import get_user_model
@@ -545,15 +545,46 @@ def get_timetable_for_teacher(request):
     try:
         data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
         if request.user.role == 'teacher':
-            teacher_obj = Teacher.objects.get(profile=request.user)
-            semesters = teacher_obj.branch_set.first().term_set.filter(status=True).first().semester_set.filter(status=True)
-            divisions = Division.objects.filter(semester__in=semesters)
-            timetables = TimeTable.objects.filter(division__in=divisions)            
-            timetable_serialized = TimeTableSerializerForTeacher(instance=timetables,teacher=teacher_obj,many=True)
-            data['data'] = timetable_serialized.data
-            return JsonResponse(data,status=200)
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                semesters = teacher_obj.branch_set.first().term_set.filter(status=True).first().semester_set.filter(status=True)
+                divisions = Division.objects.filter(semester__in=semesters)
+                timetables = TimeTable.objects.filter(division__in=divisions)
+                timetable_serialized = TimeTableSerializerForTeacher(instance=timetables,teacher=teacher_obj,many=True)
+                data['data'] = timetable_serialized.data
+                return JsonResponse(data,status=200)
+            else: 
+                raise Exception('Teacher does not exist')
+        else:
+            raise Exception("You're not allowed to perform this action")
 
     except Exception as e:
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_timetable_for_student(request):
+    try:
+        data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
+        if request.user.role == 'student':
+            student_obj = Student.objects.filter(profile=request.user).first()
+            if student_obj:
+                batches = Batch.objects.filter(students=student_obj)
+                division = Division.objects.filter(batch__students=student_obj).first()
+                timetables = TimeTable.objects.filter(division=division)    
+                timetable_serialized = TimeTableSerializerForStudent(instance=timetables,batches=batches,many=True)
+                data['data'] = timetable_serialized.data
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception("Student does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)

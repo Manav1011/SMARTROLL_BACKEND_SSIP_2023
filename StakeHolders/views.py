@@ -31,7 +31,7 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
                 token['obj'] = teacher_serialized.data  
 
             if user.role == 'student':                
-                student_obj = Teacher.objects.get(profile=user)
+                student_obj = Student.objects.get(profile=user)
                 student_serialized = StudentSerializer(student_obj,many=False)
                 token['obj'] = student_serialized.data  
         return token
@@ -108,7 +108,6 @@ class CustomTokenRefreshView(TokenRefreshView):
     - `If refresh token is not valid`: Response status code will be another than 200.
     """        
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
 def student_register(request): 
     try:
         data = {'data':None,'error':False,'message':None}

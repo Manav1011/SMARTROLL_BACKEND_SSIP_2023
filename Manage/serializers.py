@@ -1,4 +1,5 @@
 from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom,Term
+from datetime import datetime
 from rest_framework import serializers
 
 class CollegeSerializer(serializers.ModelSerializer):
@@ -73,7 +74,43 @@ class ScheduleSerializerForTeacher(serializers.ModelSerializer):
         lectures = obj.lecture_set.filter(teacher=self.teacher)
         lectures_serialized = LectureSerializer(lectures,many=True)
         return lectures_serialized.data
+    
+class ScheduleSerializerForStudent(serializers.ModelSerializer):
+    lectures = serializers.SerializerMethodField()
 
+    class Meta:
+        model = Schedule
+        fields = ['day','slug','lectures']
+    
+    def __init__(self, batches=None, *args, **kwargs):
+        super(ScheduleSerializerForStudent, self).__init__(*args, **kwargs)
+        self.batches = batches
+    
+    def get_lectures(self,obj):        
+        lectures = obj.lecture_set.filter(batches__in=self.batches)
+        lectures_serialized = LectureSerializer(lectures,many=True)
+        return lectures_serialized.data        
+
+
+class TimeTableSerializerForStudent(serializers.ModelSerializer):
+    schedules = serializers.SerializerMethodField()
+    division = DivisionSerializerForTeacher()
+
+    class Meta:
+        model = TimeTable
+        fields = ['slug','division','schedules']
+    
+    def __init__(self, batches, *args, **kwargs):
+        super(TimeTableSerializerForStudent, self).__init__(*args, **kwargs)
+        self.batches = batches
+
+    def get_schedules(self,obj):
+        current_datetime = datetime.now()
+        current_day_name = current_datetime.strftime('%A')
+        schedules = obj.schedule_set.filter(day=current_day_name.lower())
+        schedules_serialized = ScheduleSerializerForStudent(instance=schedules,many=True,batches=self.batches)
+        return schedules_serialized.data    
+    
 class TimeTableSerializerForTeacher(serializers.ModelSerializer):
     schedules = serializers.SerializerMethodField()
     division = DivisionSerializerForTeacher()
