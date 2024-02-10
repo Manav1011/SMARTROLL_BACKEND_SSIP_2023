@@ -1,9 +1,11 @@
+from asyncio import exceptions
 from django.shortcuts import render
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,    
     TokenRefreshView,
 )
+from Profile.models import Profile
 from rest_framework.decorators import api_view
 from .models import Admin,Teacher,Student
 from .serializers import AdminSerializer, TeacherSerializer,StudentSerializer
@@ -105,3 +107,27 @@ class CustomTokenRefreshView(TokenRefreshView):
     - `If refresh token is valid `: new access token, new refresh token.
     - `If refresh token is not valid`: Response status code will be another than 200.
     """        
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def student_register(request): 
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.data
+        if 'email' in body and 'password' in body and 'enrollment' in body:
+            student_obj = Student.objects.filter(enrollment=body['enrollment']).first()
+            if student_obj:
+                profile_obj = student_obj.profile
+                profile_obj.email = body['email']
+                profile_obj.set_password(body['password'])
+                profile_obj.is_active = True
+                profile_obj.save()
+                data['data'] = {'status':True}
+                return JsonResponse(data, status=200)
+            else:
+                raise Exception('Student is not added')
+        else:
+            raise Exception('Credentials not provided')
+    except Exception as e:
+        data['error'] = True
+        data['message'] = str(e)
+        return JsonResponse(data, status=500)
