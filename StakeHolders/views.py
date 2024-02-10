@@ -116,16 +116,19 @@ def student_register(request):
             student_obj = Student.objects.filter(enrollment=body['enrollment']).first()
             if student_obj:
                 profile_obj = student_obj.profile
-                profile_obj.email = body['email']
-                profile_obj.set_password(body['password'])
-                profile_obj.is_active = True
-                profile_obj.save()
-                data['data'] = {'status':True}
-                return JsonResponse(data, status=200)
+                if profile_obj.is_active != True:
+                    profile_obj.email = body['email']
+                    profile_obj.set_password(body['password'])
+                    profile_obj.is_active = True
+                    profile_obj.save()
+                    data['data'] = {'status':True}
+                    return JsonResponse(data, status=200)
+                else:
+                    raise Exception("This student account is already active")
             else:
-                raise Exception('Student is not added')
+                raise Exception('This Student is not added')
         else:
-            raise Exception('Credentials not provided')
+            raise Exception('Credentials are not provided')
     except Exception as e:
         data['error'] = True
         data['message'] = str(e)
