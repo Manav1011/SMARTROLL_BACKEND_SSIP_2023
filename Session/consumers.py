@@ -6,19 +6,19 @@ from .models import Session
 from StakeHolders.models import Student,Teacher
 
 class AttendanceSessionConsumer(AsyncWebsocketConsumer):
-    async def connect(self):        
-        try:            
+    async def connect(self):
+        self.access_token = self.scope['query_string'].decode('utf-8')  
+        try:         
             self.session_id = self.scope["url_route"]["kwargs"]["session_id"]
-            self.room_group_name = f"attendance_session_{self.session_id}"
-            await self.channel_layer.group_add(self.room_group_name, self.channel_name)
-            authorization_bytes = next((header for header in self.scope.get('headers', []) if header[0] == b'authorization'), None)[1]
-            authToken = authorization_bytes.decode('utf-8')
-            self.decodedToken = jwt.decode(authToken, options={"verify_signature": False})
-            if await self.authenticate_user():
+            self.room_group_name = f"{self.session_id}"
+            await self.channel_layer.group_add(self.room_group_name, self.channel_name)            
+            self.decodedToken = jwt.decode(self.access_token, options={"verify_signature": False})            
+            if await self.authenticate_user():                
                 await self.accept()
-            else:
+            else:                
                 raise Exception(4401)
         except Exception as e:
+            print(e)
             await self.close(code=4401)
 
     @database_sync_to_async
@@ -29,25 +29,20 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
                 teacher_obj = Teacher.objects.filter(slug=self.decodedToken['obj']['slug']).first()                            
                 if session_obj.lecture.teacher == teacher_obj:
                     return True
-                else:
-                    return False            
-            else:
+                else:                    
+                    return False
+            else:                
                 return False
-        else:
+        else:            
             return False
         
-    async def disconnect(self, code):
-        if self.room_group_name:            
-            await self.channel_layer.group_discard(self.room_group_name, self.channel_name)        
+    async def disconnect(self, code):        
+        await self.channel_layer.group_discard(self.room_group_name, self.channel_name)       
 
     async def receive(self, text_data=None, bytes_data=None):
-        text_data_json = json.loads(text_data)
-        message = text_data_json["message"]        
-        await self.channel_layer.group_send(
-            self.room_group_name, {"type": "notify.all", "message": message,"channel_name":self.channel_name}
-        )
-    async def notify_all(self, event):
-        message = event["message"]    
-        exluded_channel = event['channel_name']
-        if exluded_channel != self.channel_name:
-            await self.send(text_data=json.dumps({"message": message}))
+        text_data_json = json.loads(text_data)        
+    
+    async def attendance_marked(self,event):
+        message = event['message']
+        data = {'action':'attendance_marked','data':message}
+        await self.send(text_data=json.dumps({"message": data}))

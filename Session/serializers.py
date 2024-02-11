@@ -11,7 +11,11 @@ class AttendanceSerializer(serializers.ModelSerializer):
 
 class SessionSerializer(serializers.ModelSerializer):
     lecture = LectureSerializer()
-    attendances = AttendanceSerializer(many=True)
+    student_count = serializers.SerializerMethodField()
+    # attendances = AttendanceSerializer(many=True)
     class Meta:
         model = Session
-        fields  = ['session_id','created_at','active','lecture','attendances']
+        fields  = ['session_id','created_at','active','lecture','student_count']
+    
+    def get_student_count(self,obj):
+        return len(obj.attendances.all())
