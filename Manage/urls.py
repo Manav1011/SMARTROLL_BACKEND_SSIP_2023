@@ -19,5 +19,6 @@ urlpatterns = [
     path('add_lecture_to_schedule/',add_lecture_to_schedule,name='add_lecture_to_schedule'),
     path('upload_students_data/',upload_students_data,name='upload_students_data'),
     path('get_timetable_for_teacher',get_timetable_for_teacher,name='get_timetable_for_teacher'),
-    path('get_timetable_for_student',get_timetable_for_student,name='get_timetable_for_student')
+    path('get_timetable_for_student',get_timetable_for_student,name='get_timetable_for_student'),
+    path('session/',include('Session.urls'),name='session_management')
 ]
