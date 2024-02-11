@@ -142,11 +142,21 @@ import dj_database_url
 #         'USER': 'postgres',
 #         'PASSWORD': 'Manav@1011',
 #         'HOST': 'localhost',
-#         'PORT': '5432',
+#         'PORT': '5432',   
 #     }
 # }
 # DATABASES['default'] = dj_database_url.parse(os.environ['POSTGRES_INTERNAL_URL'])
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            # Assuming Redis is running on localhost
+            'hosts': [('127.0.0.1', 6379)]            
+        },
+    },
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
