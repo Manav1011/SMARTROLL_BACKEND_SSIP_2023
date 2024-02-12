@@ -41,5 +41,3 @@ class Session(models.Model):
         if not self.session_id:
             self.session_id = generate_random_unique_hash()
         super(Session, self).save(*args, **kwargs)
-
-
