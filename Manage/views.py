@@ -455,7 +455,7 @@ def get_lecture_configs(request):
 def add_lecture_to_schedule(request):
     try:
         data = {'data':None,'error':False,'message':None}
-        if request.user.role == 'admin':            
+        if request.user.role == 'admin':
             body = request.data
             if "schedule_slug" in body and "start_time" in body and "end_time" in body and "type" in body and "subject" in body and "teacher" in body and "classroom" in body and "batches" in body:
                 schedule = Schedule.objects.get(slug=body['schedule_slug'])
@@ -493,7 +493,9 @@ def upload_students_data(request):
     try:
         data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
         if request.user.role == 'admin':
-            body = request.data                        
+            body = request.data
+            admin_obj = Admin.objects.get(profile=request.user)
+            branch_obj = admin_obj.branch_set.first()                 
             if 'sheet_name' in body and 'division_slug' in body and 'students.xlsc' in body:
                 divison_obj = Division.objects.filter(slug=body['division_slug']).first()
                 if divison_obj:
@@ -516,6 +518,7 @@ def upload_students_data(request):
                                         student_obj,student_created = Student.objects.get_or_create(profile=profile_obj,sr_no=serial_no,enrollment=enrollment)
                                         if student_created:
                                             batch_obj.students.add(student_obj)
+                                            branch_obj.students.add(student_obj)
                                             data['data']['register_count'] += 1
                                             data['data']['logs'][serial_no] = f"Student Created - {serial_no} - {batch[1:]} - {enrollment} - {name} - {gender}"
                                         else:

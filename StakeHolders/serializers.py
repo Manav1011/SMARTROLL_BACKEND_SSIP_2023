@@ -12,38 +12,38 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 class AdminSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer() 
-    branches = serializers.SerializerMethodField()
+    branch = serializers.SerializerMethodField()
     class Meta:
         model = Admin
-        fields = ['id','profile','branches']
+        fields = ['id','profile','branch']
     
-    def get_branches(self,obj):
-        branches = obj.branch_set.all()
-        branches_serialized = BranchSerializer(branches,many=True)
+    def get_branch(self,obj):
+        branch = obj.branch_set.first()
+        branches_serialized = BranchSerializer(branch)
         return branches_serialized.data
 
 class TeacherSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()    
-    branches = serializers.SerializerMethodField()
+    branch = serializers.SerializerMethodField()
 
     class Meta:
         model = Teacher
-        fields = ['slug','profile','branches']
+        fields = ['slug','profile','branch']
     
-    def get_branches(self,obj):
-        branches = obj.branch_set.all()
-        branches_serialized = BranchSerializer(branches,many=True)
+    def get_branch(self,obj):
+        branch = obj.branch_set.first()
+        branches_serialized = BranchSerializer(branch)
         return branches_serialized.data
     
 class StudentSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer()    
-    branches = serializers.SerializerMethodField()
+    branch = serializers.SerializerMethodField()
 
     class Meta:
         model = Student
-        fields = ['slug','profile','branches']
+        fields = ['slug','profile','branch','sr_no','enrollment']
     
-    def get_branches(self,obj):
-        branches = obj.branch_set.all()
-        branches_serialized = BranchSerializer(branches,many=True)
+    def get_branch(self,obj):
+        branch = obj.branch_set.first()
+        branches_serialized = BranchSerializer(branch)
         return branches_serialized.data
