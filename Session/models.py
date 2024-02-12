@@ -3,6 +3,8 @@ import hashlib
 import secrets
 from Manage.models import Lecture
 from StakeHolders.models import Student
+from django.db.models.signals import pre_delete
+from django.dispatch import receiver
 
 
 
@@ -29,15 +31,26 @@ class Attendance(models.Model):
     marking_ip = models.GenericIPAddressField(null=True,blank=True)
     # physically_present = models.BooleanField(default=False)
 
+SESSION_STATUS = [
+    ('pre','Pre'),
+    ('ongoing','Ongoing'),
+    ('post','Post')
+]
+
 
 class Session(models.Model):
+    day = models.DateField(null=True,blank=True)
     session_id = models.TextField(unique=True)
-    lecture = models.OneToOneField(Lecture,on_delete=models.CASCADE,null=True,blank=True,unique=True)    
+    lecture = models.ForeignKey(Lecture,on_delete=models.CASCADE,null=True,blank=True)
     attendances = models.ManyToManyField(Attendance,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
+    active = models.CharField(max_length=7,choices = SESSION_STATUS,null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.session_id:
             self.session_id = generate_random_unique_hash()
-        super(Session, self).save(*args, **kwargs)
+        super(Session, self).save(*args, **kwargs)    
+
+@receiver(pre_delete, sender=Session)
+def pre_delete_session(sender, instance, **kwargs):    
+    instance.attendances.all().delete()

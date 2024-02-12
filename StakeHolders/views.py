@@ -116,7 +116,7 @@ def student_register(request):
             student_obj = Student.objects.filter(enrollment=body['enrollment']).first()
             if student_obj:
                 profile_obj = student_obj.profile
-                if profile_obj.is_active != True:
+                if not profile_obj.is_active:
                     profile_obj.email = body['email']
                     profile_obj.set_password(body['password'])
                     profile_obj.is_active = True

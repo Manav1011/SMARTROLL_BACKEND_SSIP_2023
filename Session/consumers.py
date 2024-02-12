@@ -9,7 +9,7 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.access_token = self.scope['query_string'].decode('utf-8')  
         try:         
-            self.session_id = self.scope["url_route"]["kwargs"]["session_id"]
+            self.session_id = self.scope["url_route"]["kwargs"]["session_id"]            
             self.room_group_name = f"{self.session_id}"
             await self.channel_layer.group_add(self.room_group_name, self.channel_name)            
             self.decodedToken = jwt.decode(self.access_token, options={"verify_signature": False})            
@@ -40,8 +40,28 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_discard(self.room_group_name, self.channel_name)       
 
     async def receive(self, text_data=None, bytes_data=None):
-        text_data_json = json.loads(text_data)        
+        text_data = json.loads(text_data)        
+        if 'action' in text_data:
+            if text_data['action'] == 'end_session':
+                if await self.end_session():
+                    await self.send(json.dumps({'message':{
+                        'action':'session_ended'
+                    }}))
+                else:
+                    await self.send(json.dumps({'message':{
+                        'action':'session_already_ended'
+                    }}))
     
+    @database_sync_to_async
+    def end_session(self):
+        session_obj = Session.objects.filter(session_id=self.session_id).first()
+        if session_obj and session_obj.active in ['pre','ongoing']:
+            session_obj.active = 'post'
+            session_obj.save()
+            return True
+        else:
+            return False
+        
     async def attendance_marked(self,event):
         message = event['message']
         data = {'action':'attendance_marked','data':message}

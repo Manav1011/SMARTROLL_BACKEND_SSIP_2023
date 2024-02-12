@@ -41,7 +41,7 @@ urlpatterns = [
     # path('', TemplateView.as_view(template_name='index.html'), name='home'),
     # path('__debug__/', include('debug_toolbar.urls')),
     # path('',TemplateView.as_view(template_name='index.html')),
-    path('admin/', admin.site.urls),
+    path('smartroll@admin.private/', admin.site.urls),
     path('check_server_avaibility/', check_server_avaibility,name='check_server_avaibility'),
     path('check_token_authenticity/', check_token_authenticity,name='check_token_authenticity'),
     path('auth/',include('StakeHolders.urls')),

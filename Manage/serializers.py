@@ -1,6 +1,7 @@
 from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom,Term
 from datetime import datetime
 from rest_framework import serializers
+from Session.models import Session
 
 class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -107,8 +108,8 @@ class TimeTableSerializerForStudent(serializers.ModelSerializer):
     def get_schedules(self,obj):
         current_datetime = datetime.now()
         current_day_name = current_datetime.strftime('%A')
-        # schedules = obj.schedule_set.filter(day=current_day_name.lower())
-        schedules = obj.schedule_set.filter(day='saturday')
+        schedules = obj.schedule_set.filter(day=current_day_name.lower())
+        # schedules = obj.schedule_set.filter(day='saturday')
         schedules_serialized = ScheduleSerializerForStudent(instance=schedules,many=True,batches=self.batches)
         return schedules_serialized.data    
     
@@ -127,12 +128,18 @@ class TimeTableSerializerForTeacher(serializers.ModelSerializer):
     def get_schedules(self,obj):
         current_datetime = datetime.now()
         current_day_name = current_datetime.strftime('%A')
-        # schedules = obj.schedule_set.filter(day=current_day_name.lower())
-        schedules = obj.schedule_set.filter(day='saturday')
+        schedules = obj.schedule_set.filter(day=current_day_name.lower())
+        # schedules = obj.schedule_set.filter(day='saturday')
         schedules_serialized = ScheduleSerializerForTeacher(instance=schedules,many=True,teacher=self.teacher)
         return schedules_serialized.data    
     
+class SessionSerializerForLecture(serializers.ModelSerializer):
+    class Meta:
+        model = Session
+        fields = ['session_id','active','day','created_at']
+
 class LectureSerializer(serializers.ModelSerializer):
+    session = serializers.SerializerMethodField()
     subject = SubjectSerializer()
     teacher = serializers.SerializerMethodField()
     classroom = ClassRoomSerializer()
@@ -140,10 +147,17 @@ class LectureSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lecture
-        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug']
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session']
     
     def get_teacher(self,obj):
         return obj.teacher.profile.name
+
+    def get_session(self,obj):
+        today= datetime.now().date()
+        session_obj = obj.session_set.filter(day=today).first()
+        session_serialized = SessionSerializerForLecture(session_obj)
+        return session_serialized.data
+
 
 class ScheduleSerializer(serializers.ModelSerializer):
     lectures = serializers.SerializerMethodField()
