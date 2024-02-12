@@ -31,8 +31,8 @@ SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
+
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
 CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://8be7-14-139-110-146.ngrok-free.app"]

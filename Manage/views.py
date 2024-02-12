@@ -102,7 +102,7 @@ def get_terms(request):
                 data['data'] = terms_serialized.data
                 return JsonResponse(data,status=200)
             else:
-                raise Exception('Semester Does Not Exists')
+                raise Exception('No Term Added')
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
@@ -556,7 +556,7 @@ def get_timetable_for_teacher(request):
                 timetable_serialized = TimeTableSerializerForTeacher(instance=timetables,teacher=teacher_obj,many=True)
                 data['data'] = timetable_serialized.data
                 return JsonResponse(data,status=200)
-            else: 
+            else:
                 raise Exception('Teacher does not exist')
         else:
             raise Exception("You're not allowed to perform this action")

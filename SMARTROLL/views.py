@@ -21,3 +21,6 @@ def check_server_avaibility(request):
 @permission_classes([IsAuthenticated])
 def check_token_authenticity(request):
     return JsonResponse(data={'data':True},status=200)
+
+def handle404(request,exception):
+    return render(request,template_name='404.html')
