@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from .serializers import SessionSerializer,AttendanceSerializer
 from .models import Session,Attendance
 from Manage.models import Lecture
+from django.utils import timezone
 from StakeHolders.models import Student,Teacher
 import json
 import os
@@ -25,24 +26,28 @@ def create_lecture_session(request):
                     lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
                     if lecture_obj:
                         batches = lecture_obj.batches.all()
-                        lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=datetime.datetime.today().date())
-                        # if created:           
-                        #     students = Student.objects.filter(batch__in=batches)
-                        #     for student in students:
-                        #         attendance_obj = Attendance.objects.create(student=student)
-                        #         lecture_session.attendances.add(attendance_obj)
-                        #         lecture_session_serialized = SessionSerializer(lecture_session)
-                        #         data['data'] = lecture_session_serialized.data                        
-                        if created:
-                            print('newely creted')
-                            pass
+                        current_time = timezone.localtime().time()
+                        if current_time >= lecture_obj.start_time and current_time <= lecture_obj.end_time:                            
+                            lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=datetime.datetime.today().date())
+                            if created:           
+                                students = Student.objects.filter(batch__in=batches)
+                                for student in students:
+                                    attendance_obj = Attendance.objects.create(student=student)
+                                    lecture_session.attendances.add(attendance_obj)
+                                    lecture_session_serialized = SessionSerializer(lecture_session)
+                                    data['data'] = lecture_session_serialized.data                        
+                            if created:
+                                print('newely creted')
+                                pass
+                            else:
+                                if lecture_session.active == 'pre':
+                                    lecture_session.active = 'ongoing'
+                                    lecture_session.save()
+                            lecture_session_serialized = SessionSerializer(lecture_session)
+                            data['data'] = lecture_session_serialized.data
+                            return Response(data,status=200)
                         else:
-                            if lecture_session.active == 'pre':
-                                lecture_session.active = 'ongoing'
-                                lecture_session.save()
-                        lecture_session_serialized = SessionSerializer(lecture_session)
-                        data['data'] = lecture_session_serialized.data
-                        return Response(data,status=200)
+                            raise Exception(f'You cannot start the session yet!!')
                     else:
                         raise Exception('Lecture does not exists')
                 else:

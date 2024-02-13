@@ -1,0 +1,1740 @@
+{
+    "session_id": "c846d0b7c338a83a2c74743a2708e1c0f110905b7d206361d7e4d27dac4496bb",
+    "created_at": "2024-02-13T13:58:04.441020+05:30",
+    "active": "ongoing",
+    "lecture": {
+        "start_time": "12:30:00",
+        "end_time": "14:30:00",
+        "type": "lab",
+        "subject": {
+            "slug": "950022_1707807714",
+            "subject_name": "AJAVA",
+            "code": 3160707,
+            "credit": 4
+        },
+        "teacher": "Manav Shah",
+        "classroom": {
+            "class_name": "Upnishad Hall",
+            "slug": "118170_1707807560"
+        },
+        "batches": [
+            {
+                "slug": "337158_1707806437",
+                "batch_name": "B1",
+                "division": {
+                    "division_name": "B",
+                    "slug": "114974_1707806432"
+                }
+            },
+            {
+                "slug": "273728_1707806441",
+                "batch_name": "B2",
+                "division": {
+                    "division_name": "B",
+                    "slug": "114974_1707806432"
+                }
+            },
+            {
+                "slug": "811654_1707806445",
+                "batch_name": "B3",
+                "division": {
+                    "division_name": "B",
+                    "slug": "114974_1707806432"
+                }
+            },
+            {
+                "slug": "166459_1707806450",
+                "batch_name": "B4",
+                "division": {
+                    "division_name": "B",
+                    "slug": "114974_1707806432"
+                }
+            }
+        ],
+        "slug": "125169_1707807774",
+        "session": {
+            "session_id": "c846d0b7c338a83a2c74743a2708e1c0f110905b7d206361d7e4d27dac4496bb",
+            "active": "ongoing",
+            "day": "2024-02-13",
+            "created_at": "2024-02-13T13:58:04.441020+05:30"
+        }
+    },
+    "student_count": 67,
+    "marked_attendances": [
+        {
+            "student": {
+                "slug": "306593_1707812239",
+                "profile": {
+                    "name": "Ashishbhai Reshiyabhai Rathawa",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 1,
+                "enrollment": "210280107125"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "181848_1707812239",
+                "profile": {
+                    "name": "JAYESH PRAVINBHAI ROSHIYA",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 2,
+                "enrollment": "210280107126"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "967783_1707812239",
+                "profile": {
+                    "name": "SACHIN AKLESHBHAI PRAJAPATI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 3,
+                "enrollment": "210280107127"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "274522_1707812239",
+                "profile": {
+                    "name": "Divy Maheshbhai Patel",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 4,
+                "enrollment": "210280107129"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "240179_1707812240",
+                "profile": {
+                    "name": "DAMOR KAUSHIKKUMAR KAMLESHBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 5,
+                "enrollment": "210280107130"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "530895_1707812240",
+                "profile": {
+                    "name": "Meet Umangkumar Shah",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,   
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 6,
+                "enrollment": "210280107131"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "339995_1707812240",
+                "profile": {
+                    "name": "Krisha Vrujlal Kothadiya",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 7,
+                "enrollment": "210280107132"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "299277_1707812240",
+                "profile": {
+                    "name": "RATHOD VIJAYSINH ISHWARSINH",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 8,
+                "enrollment": "210280107133"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "181267_1707812240",
+                "profile": {
+                    "name": "Dev Umeshkumar Patel",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 9,
+                "enrollment": "210280107134"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "307603_1707812240",
+                "profile": {
+                    "name": "Udai Bhat",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 10,
+                "enrollment": "210280107138"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "337593_1707812240",
+                "profile": {
+                    "name": "Bhalsod Nidhi Kamleshbhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 11,
+                "enrollment": "220283107002"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "997288_1707812240",
+                "profile": {
+                    "name": "BHATT AMANKUMAR ANANDKUMAR",
+                    "email": "amansevak123@gmail.com",
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 12,
+                "enrollment": "220283107003"
+            },
+            "is_present": true,
+            "marking_time": "2024-02-13T08:34:34.539044+05:30",
+            "marking_ip": "172.16.2.116"
+        },
+        {
+            "student": {
+                "slug": "205240_1707812240",
+                "profile": {
+                    "name": "Dhara Mahendrabhai Chaudhari",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 13,
+                "enrollment": "220283107004"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "249868_1707812240",
+                "profile": {
+                    "name": "Priyanka Jayeshkumar Dalwadi",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 14,
+                "enrollment": "220283107005"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "339470_1707812240",
+                "profile": {
+                    "name": "Sanjana Dineshbhai Gamit",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 15,
+                "enrollment": "220283107006"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "317056_1707812240",
+                "profile": {
+                    "name": "Mahek Chandrakantbhai Gohil",
+                    "email": "mahekgohil606@gmail.com",
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 16,
+                "enrollment": "220283107007"
+            },
+            "is_present": true,
+            "marking_time": "2024-02-13T08:34:25.331210+05:30",
+            "marking_ip": "172.16.2.130"
+        },
+        {
+            "student": {
+                "slug": "296864_1707812240",
+                "profile": {
+                    "name": "GOHIL MAYUR KISHORBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 17,
+                "enrollment": "220283107008"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "463817_1707812240",
+                "profile": {
+                    "name": "Nidhi Nileshbhai Jajal",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 18,
+                "enrollment": "220283107009"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "107360_1707812240",
+                "profile": {
+                    "name": "Shubh mukesh Kachhadiya",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 19,
+                "enrollment": "220283107010"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "308774_1707812240",
+                "profile": {
+                    "name": "MAGDANI DIPEN HARESHBHAI",
+                    "email": "dipenmagdani@gmail.com",
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 20,
+                "enrollment": "220283107011"
+            },
+            "is_present": true,
+            "marking_time": "2024-02-13T08:34:28.907569+05:30",
+            "marking_ip": "172.16.1.250"
+        },
+        {
+            "student": {
+                "slug": "116104_1707812240",
+                "profile": {
+                    "name": "MODI PRIYA DINESHKUMAR",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 21,
+                "enrollment": "220283107014"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "157099_1707812240",
+                "profile": {
+                    "name": "RINABEN SITARAMBHAI NIMBAL",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 22,
+                "enrollment": "220283107015"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "296751_1707812240",
+                "profile": {
+                    "name": "PANCHAL DHRUMIL VINAYKUMAR",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 23,
+                "enrollment": "220283107016"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "335167_1707812240",
+                "profile": {
+                    "name": "Rohan Nayan Panchasara",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 24,
+                "enrollment": "220283107017"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "159875_1707812240",
+                "profile": {
+                    "name": "Harsh Natwarbhai Parmar",
+                    "email": "parmarharsh901@gmail.com",
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 25,
+                "enrollment": "220283107019"
+            },
+            "is_present": true,
+            "marking_time": "2024-02-13T08:34:27.677104+05:30",
+            "marking_ip": "172.16.2.110"
+        },
+        {
+            "student": {
+                "slug": "251169_1707812241",
+                "profile": {
+                    "name": "Shraddha Ishwarbhai Parmar",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 26,
+                "enrollment": "220283107020"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "974179_1707812241",
+                "profile": {
+                    "name": "Cherish Patel",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 27,
+                "enrollment": "220283107022"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "237928_1707812241",
+                "profile": {
+                    "name": "Drashti Hareshkumar Patel",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 28,
+                "enrollment": "220283107023"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "748096_1707812241",
+                "profile": {
+                    "name": "Patel Krish Mahendra",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 29,
+                "enrollment": "220283107024"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "260099_1707812241",
+                "profile": {
+                    "name": "Tathya Hemantkumar Patel",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 30,
+                "enrollment": "220283107025"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "487299_1707812241",
+                "profile": {
+                    "name": "PATEL TEJALKUMARI THAKORBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 31,
+                "enrollment": "220283107026"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "121623_1707812241",
+                "profile": {
+                    "name": "Patel Vaishnavi Manoj",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 32,
+                "enrollment": "220283107027"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "186907_1707812241",
+                "profile": {
+                    "name": "NIHAL SURYAKANT RAJPAL",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 33,
+                "enrollment": "220283107028"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "186666_1707812241",
+                "profile": {
+                    "name": "RATHOD SHUBHAM RAJESHKUMAR",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 34,
+                "enrollment": "220283107030"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "228522_1707812241",
+                "profile": {
+                    "name": "Raval Jeet Nitinkumar",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 35,
+                "enrollment": "220283107031"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "135341_1707812241",
+                "profile": {
+                    "name": "Manav Kaushalkumar Shah",
+                    "email": "22csman033@ldce.ac.in",
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 36,
+                "enrollment": "220283107033"
+            },
+            "is_present": true,
+            "marking_time": "2024-02-13T08:34:24.620245+05:30",
+            "marking_ip": "172.16.0.85"
+        },
+        {
+            "student": {
+                "slug": "304227_1707812241",
+                "profile": {
+                    "name": "SIDDHAPURA TRUSHTI MAHESHBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 37,
+                "enrollment": "220283107035"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "334066_1707812241",
+                "profile": {
+                    "name": "SINGH PREM SHIVPOOJAN",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 38,
+                "enrollment": "220283107036"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "132346_1707812241",
+                "profile": {
+                    "name": "SOLANKI UJASH PRAHLADBHAI",
+                    "email": "solankiujash2802@gmail.com",
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 39,
+                "enrollment": "220283107037"
+            },
+            "is_present": true,
+            "marking_time": "2024-02-13T08:34:33.102471+05:30",
+            "marking_ip": "172.16.2.114"
+        },
+        {
+            "student": {
+                "slug": "309096_1707812241",
+                "profile": {
+                    "name": "Sondarava ketan Sanjaybhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 40,
+                "enrollment": "220283107038"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "629244_1707812241",
+                "profile": {
+                    "name": "Vaghela Bhavesh Gunabhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 41,
+                "enrollment": "220283107040"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "228632_1707812241",
+                "profile": {
+                    "name": "TANK NIDHI GOVINDBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 42,
+                "enrollment": "210280107023"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "973569_1707812241",
+                "profile": {
+                    "name": "Raja G Jha",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 43,
+                "enrollment": "210280107062"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "671494_1707812241",
+                "profile": {
+                    "name": "Smit Vijaybhai Mehta",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 44,
+                "enrollment": "220283107012"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "195272_1707812241",
+                "profile": {
+                    "name": "Himani Akshaybhai Trivedi",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 45,
+                "enrollment": "220283107039"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "614775_1707812241",
+                "profile": {
+                    "name": "Aryan Himanshu Wala",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 46,
+                "enrollment": "220283107042"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "308284_1707812241",
+                "profile": {
+                    "name": "HAPPY RAMNIKBHAI DOBARIYA",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 47,
+                "enrollment": "210280107007"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "154833_1707812241",
+                "profile": {
+                    "name": "Divya DipakKumar Halpati",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 48,
+                "enrollment": "210280107013"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "768408_1707812242",
+                "profile": {
+                    "name": "Naliyadhara Henish Kantibhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 49,
+                "enrollment": "210280107022"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "152842_1707812242",
+                "profile": {
+                    "name": "Vaghasiya om Vijaykumar",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 50,
+                "enrollment": "210280107028"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "131367_1707812242",
+                "profile": {
+                    "name": "RAJPARA YASH HASMUKHBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 51,
+                "enrollment": "210280107036"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "122621_1707812242",
+                "profile": {
+                    "name": "Ninama Bhaviniben Laxmanbhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 52,
+                "enrollment": "210280107043"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "302227_1707812242",
+                "profile": {
+                    "name": "KRUSHI AJAYBHAI PATEL",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 53,
+                "enrollment": "210280107048"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "240147_1707812242",
+                "profile": {
+                    "name": "Nikola Payal Jagdishbhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 54,
+                "enrollment": "210280107050"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "663058_1707812242",
+                "profile": {
+                    "name": "Raj Dilipbhai Sorathiya",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 55,
+                "enrollment": "210280107054"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "398985_1707812242",
+                "profile": {
+                    "name": "Patel Nisha Pramodbhai",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 56,
+                "enrollment": "210280107055"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "310618_1707812242",
+                "profile": {
+                    "name": "Dev Mukundrai Solanki",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 57,
+                "enrollment": "210280107061"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "129293_1707812242",
+                "profile": {
+                    "name": "Dharmik Hasmukhbhai Jagtiya",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 58,
+                "enrollment": "210280107082"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "912622_1707812242",
+                "profile": {
+                    "name": "Sneha Ishwar Gavit",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 59,
+                "enrollment": "210280107083"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "105362_1707812242",
+                "profile": {
+                    "name": "Hrishita Ranjan Das",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 60,
+                "enrollment": "210280107084"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "761418_1707812242",
+                "profile": {
+                    "name": "DEVANG JAGDISHBHAI JALAG",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 61,
+                "enrollment": "210280107119"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "411662_1707812242",
+                "profile": {
+                    "name": "KARIYA PARTHKUMAR KAMLESHBHAI",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 62,
+                "enrollment": "210280107135"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "319230_1707812242",
+                "profile": {
+                    "name": "Shruty Razdan",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 63,
+                "enrollment": "210280107136"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "286639_1707812242",
+                "profile": {
+                    "name": "Shriya Pandit",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 64,
+                "enrollment": "210280107137"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "132224_1707812242",
+                "profile": {
+                    "name": "RIYANSHE BHAT",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 65,
+                "enrollment": "210280107139"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "170949_1707812242",
+                "profile": {
+                    "name": "MAYUR BHAT",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 66,
+                "enrollment": "210280107140"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        },
+        {
+            "student": {
+                "slug": "231449_1707812242",
+                "profile": {
+                    "name": "Aditya Dey",
+                    "email": null,
+                    "ph_no": null,
+                    "role": "student"
+                },
+                "branch": {
+                    "branch_name": "Computer Engineering",
+                    "branch_code": 7,
+                    "slug": "239459_1707803228",
+                    "college": {
+                        "college_name": "L.D. college of engineering",
+                        "slug": "325866_1707733184"
+                    }
+                },
+                "sr_no": 67,
+                "enrollment": "210280107141"
+            },
+            "is_present": false,
+            "marking_time": null,
+            "marking_ip": null
+        }
+    ]
+}

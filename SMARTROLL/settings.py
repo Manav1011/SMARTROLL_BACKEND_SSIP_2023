@@ -22,7 +22,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SSL_CERTIFICATE_PATH = os.path.join(BASE_DIR, "localhost.crt")
 SSL_KEY_PATH = os.path.join(BASE_DIR, "localhost.key")
 
+TIME_ZONE =  'Asia/Kolkata'
+USE_TZ = True
 
+from django.utils import timezone
+import pytz
+
+timezone.activate(pytz.timezone("Asia/Kolkata"))
+timezone.localtime(timezone.now())
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 

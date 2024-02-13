@@ -4,6 +4,7 @@ import json
 import jwt
 from .models import Session
 from StakeHolders.models import Student,Teacher
+from Session.serializers import SessionSerializerHistory
 
 class AttendanceSessionConsumer(AsyncWebsocketConsumer):
     async def connect(self):
@@ -43,9 +44,11 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
         text_data = json.loads(text_data)        
         if 'action' in text_data:
             if text_data['action'] == 'end_session':
-                if await self.end_session():
+                end_status,data = await self.end_session()
+                if end_status and data:
                     await self.send(json.dumps({'message':{
-                        'action':'session_ended'
+                        'action':'session_ended',
+                        'data':data
                     }}))
                 else:
                     await self.send(json.dumps({'message':{
@@ -57,10 +60,12 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
         session_obj = Session.objects.filter(session_id=self.session_id).first()
         if session_obj and session_obj.active in ['pre','ongoing']:
             session_obj.active = 'post'
-            session_obj.save()
-            return True
+            session_serialized = SessionSerializerHistory(session_obj)
+            # session_obj.save()
+            # session_serialized = SessionSerializerHistory(session_obj)
+            return True,session_serialized.data
         else:
-            return False
+            return False,None
         
     async def attendance_marked(self,event):
         message = event['message']

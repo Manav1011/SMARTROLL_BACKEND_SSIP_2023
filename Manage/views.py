@@ -179,7 +179,7 @@ def add_division(request):
         if request.user.role == 'admin':
             body = request.data
             admin_obj = Admin.objects.get(profile=request.user)            
-            if 'division_name' in body and 'semester_slug' in body :
+            if 'division_name' in body and 'semester_slug' in body and len(body['division_name']) > 0:
                 semester_obj = Semester.objects.filter(slug=body['semester_slug']).first()                
                 if semester_obj and semester_obj.term.branch.admins.contains(admin_obj):
                     division_obj,created = Division.objects.get_or_create(division_name = body['division_name'],semester=semester_obj)
@@ -213,7 +213,7 @@ def add_batch(request):
         if request.user.role == 'admin':
             body = request.data
             admin_obj = Admin.objects.get(profile=request.user)            
-            if 'batch_name' in body and 'division_slug' in body :
+            if 'batch_name' in body and 'division_slug' in body and len(body['batch_name']) > 0:
                 division_obj = Division.objects.filter(slug=body['division_slug']).first()                
                 if division_obj and division_obj.semester.term.branch.admins.contains(admin_obj):
                     batch_obj,created = Batch.objects.get_or_create(batch_name = body['batch_name'],division=division_obj)
@@ -222,7 +222,7 @@ def add_batch(request):
                         data['data'] = batch_serialized.data
                         return JsonResponse(data,status=200)
                     else:
-                        raise Exception('division already added')
+                        raise Exception('Batch already added')
                 else:
                     raise Exception("This Semester does not exist")
             else:
@@ -299,7 +299,7 @@ def add_subject(request):
             admin_obj = Admin.objects.get(profile=request.user)       
             if 'code' in body and 'subject_name' in body and 'credit' in body and 'semester_slug' in body:
                 semester_obj = Semester.objects.filter(slug= body['semester_slug']).first()
-                if semester_obj and semester_obj.branch.admins.contains(admin_obj):
+                if semester_obj and semester_obj.term.branch.admins.contains(admin_obj):
                     subject_obj,created = Subject.objects.get_or_create(code=body['code'],subject_name = body['subject_name'], credit = body['credit'],semester = semester_obj)
                     if created:
                         subject_serialized = SubjectSerializer(subject_obj)
@@ -327,13 +327,13 @@ def get_subjects(request):
         if request.user.role == 'admin':            
             admin_obj = Admin.objects.get(profile=request.user)                                    
             branch_obj = admin_obj.branch_set.first()            
-            subjects = Subject.objects.filter(semester__branch=branch_obj)
+            subjects = Subject.objects.filter(semester__term__branch=branch_obj)
             subject_serialized = SubjectSerializer(subjects, many=True)
             data['data'] = subject_serialized.data
             return JsonResponse(data,status=200)
         else:
             raise Exception("You're not allowed to perform this action")
-    except Exception as e:
+    except Exception as e:        
         data['message'] = str(e)
         data['error'] = True
         return JsonResponse(data,status=500)
@@ -510,9 +510,9 @@ def upload_students_data(request):
                                 current_batch = batch
                                 enrollment = row[2]
                                 name = row[3]
-                                gender = row[4]              
-                                batch_obj = Batch.objects.filter(batch_name=batch[1:]).first()
-                                if batch_obj and batch_obj.division == divison_obj:
+                                gender = row[4]                                
+                                batch_obj = divison_obj.batch_set.filter(batch_name=batch).first()
+                                if batch_obj:
                                     profile_obj,created = Profile.objects.get_or_create_by_name(name=name,gender=gender,role='student')
                                     if created:                            
                                         student_obj,student_created = Student.objects.get_or_create(profile=profile_obj,sr_no=serial_no,enrollment=enrollment)
