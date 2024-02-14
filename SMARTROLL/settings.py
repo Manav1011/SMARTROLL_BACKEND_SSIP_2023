@@ -34,7 +34,7 @@ timezone.localtime(timezone.now())
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j'
+SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -141,18 +141,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'smartroll',
-#         'USER': 'postgres',
-#         'PASSWORD': 'Manav@1011',
-#         'HOST': 'localhost',
-#         'PORT': '5432',   
-#     }
-# }
-# DATABASES['default'] = dj_database_url.parse(os.environ['POSTGRES_INTERNAL_URL'])
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 CHANNEL_LAYERS = {
@@ -200,14 +188,21 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'logfile': {
-            'class': 'logging.FileHandler',
-            'filename': 'server.log',
+       'file': {            
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(BASE_DIR, 'server.log'),
+            'backupCount': 10, # keep at most 10 log files
+            'maxBytes': 5242880, # 5*1024*1024 bytes (5MB)
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['logfile'],
+            'handlers': ['file'],
+        },
+        'daphne': {
+            'handlers': ['file'],
+            'level': 'DEBUG',  # Set the desired logging level
+            'propagate': True,
         },
     },
 }

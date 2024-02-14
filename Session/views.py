@@ -55,10 +55,11 @@ def create_lecture_session(request):
                 raise Exception('Teacher does not exists')
         else:
             raise Exception("You're not allowed to perform this action")
-    except Exception as e:         
-         data['error'] = True
-         data['message'] = str(e)
-         return Response(data,status=500)
+    except Exception as e:   
+        print(e)      
+        data['error'] = True
+        data['message'] = str(e)
+        return Response(data,status=500)
 
 def authenticate_ip(ip,network_part):        
     user_network_addr = '.'.join(ip.split('.')[:network_part])
