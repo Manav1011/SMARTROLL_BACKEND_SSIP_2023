@@ -37,12 +37,12 @@ timezone.localtime(timezone.now())
 SECRET_KEY = 'django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://8be7-14-139-110-146.ngrok-free.app"]
+# CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://8be7-14-139-110-146.ngrok-free.app"]
 
 
 # Application definition
@@ -196,14 +196,31 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+LOGGING = {                                                                                                                 
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'logfile': {
+            'class': 'logging.FileHandler',
+            'filename': 'server.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['logfile'],
+        },
+    },
+}
+
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 INTERNAL_IPS = [  
     '127.0.0.1',
     '127.0.0.10', 
-    '192.168.29.18'       
+    '192.168.180.106'       
 ]
 MEDIA_URL = '/media/'
 
