@@ -1,30 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <main class="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
-        <h1 class="text-9xl font-extrabold text-white tracking-widest">404</h1>
-        <div class="bg-[#FF6A3D] px-2 text-sm rounded rotate-12 absolute">
-            Page Not Found
-        </div>
-        <button class="mt-5">
-          <a
-            class="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"
-          >
-            <span
-              class="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"
-            ></span>
-    
-            <span class="relative block px-8 py-3 bg-[#1A2238] border border-current">
-              <router-link to="/">Go Home</router-link>
-            </span>
-          </a>
-        </button>
-    </main>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <meta name="description" content="CoreUI for React - Open Source Bootstrap Admin Template" />
+    <meta name="author" content="Łukasz Holeczek" />
+    <meta
+      name="keyword"
+      content="Bootstrap,Admin,Template,Open,Source,CSS,SCSS,HTML,RWD,Dashboard,React"
+    />
+    <title>SMART ROLL</title>
+    <link rel="manifest" href="{% static "manifest.json" %}" />
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}" />
+    <style></style>
+    <script defer="defer" src="{% static "js/main.4cb3973f.js" %}"></script>
+    <link href="{% static "css/main.dc9f2616.css" %}" rel="stylesheet" />
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
 </html>
