@@ -49,6 +49,7 @@ def get_object_counts(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data = {"data":str(e)}
         return JsonResponse(data,status=500)
 
@@ -82,6 +83,7 @@ def add_term(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['error'] = True
         data['message'] = str(e)
         return JsonResponse(data,status=500) 
@@ -106,6 +108,7 @@ def get_terms(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['error'] = True
         data['message'] = str(e)   
         return JsonResponse(data,status=500)   
@@ -136,6 +139,7 @@ def add_semester(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['error'] = True
         data['message'] = str(e)
         return JsonResponse(data,status=500)    
@@ -167,6 +171,7 @@ def get_semesters(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['error'] = True
         data['message'] = str(e)   
         return JsonResponse(data,status=500) 
@@ -201,6 +206,7 @@ def add_division(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -231,6 +237,7 @@ def add_batch(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -257,6 +264,7 @@ def get_batches(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -285,6 +293,7 @@ def get_divisions(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True
         return JsonResponse(data,status=500)
@@ -315,6 +324,7 @@ def add_subject(request):
             raise Exception("You're not allowed to perform this action")            
 
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True
         return JsonResponse(data,status=500)    
@@ -334,6 +344,7 @@ def get_subjects(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:        
+        print(e)
         data['message'] = str(e)
         data['error'] = True
         return JsonResponse(data,status=500)
@@ -363,6 +374,7 @@ def add_teacher(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -382,6 +394,7 @@ def get_teachers(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -407,6 +420,7 @@ def get_timetable(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -446,6 +460,7 @@ def get_lecture_configs(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -483,6 +498,7 @@ def add_lecture_to_schedule(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -528,6 +544,7 @@ def upload_students_data(request):
                                 else:
                                     raise Exception(f"Batch/Division does not exist for {serial_no} - {batch[1:]} - {enrollment} - {name} - {gender}")                        
                         except Exception as e:
+                            print(e)
                             data['data']['error_count'] += 1
                             data['data']['logs'][row[0]] = f"{str(e)} - {serial_no} - {batch[1:]} - {enrollment} - {name} - {gender}"
                     return JsonResponse(data,status=200)
@@ -538,6 +555,7 @@ def upload_students_data(request):
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
@@ -562,6 +580,7 @@ def get_timetable_for_teacher(request):
             raise Exception("You're not allowed to perform this action")
 
     except Exception as e:
+        print(e)
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)

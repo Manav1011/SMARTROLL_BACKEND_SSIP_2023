@@ -130,6 +130,7 @@ def student_register(request):
         else:
             raise Exception('Credentials are not provided')
     except Exception as e:
+        print(e)
         data['error'] = True
         data['message'] = str(e)
         return JsonResponse(data, status=500)
