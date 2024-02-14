@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student
+from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher
 urlpatterns = [        
     path('get_object_counts',get_object_counts,name='get_object_counts'),    
     path('add_term/',add_term,name='add_term'),
@@ -20,5 +20,7 @@ urlpatterns = [
     path('upload_students_data/',upload_students_data,name='upload_students_data'),
     path('get_timetable_for_teacher',get_timetable_for_teacher,name='get_timetable_for_teacher'),
     path('get_timetable_for_student',get_timetable_for_student,name='get_timetable_for_student'),
-    path('session/',include('Session.urls'),name='session_management')
+    path('get_subjects_of_teacher',get_subjects_of_teacher,name='get_subjects_of_teacher'),
+    path('get_lecture_sessions_for_teacher',get_lecture_sessions_for_teacher,name='get_lecture_sessions_for_teacher'),
+    path('session/',include('Session.urls'),name='session_management'),
 ]

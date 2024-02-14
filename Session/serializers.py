@@ -38,7 +38,7 @@ class SessionSerializerHistory(serializers.ModelSerializer):
     marked_attendances = serializers.SerializerMethodField()
     class Meta:
         model = Session
-        fields  = ['session_id','created_at','active','lecture','student_count','marked_attendances']
+        fields  = ['session_id','day','created_at','active','lecture','student_count','marked_attendances']
     
     def get_student_count(self,obj):
         return len(obj.attendances.all())

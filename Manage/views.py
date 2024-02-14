@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term
 from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory
 from Manage.models import Semester,Subject
 import pandas as pd
 from django.contrib.auth import get_user_model
@@ -546,7 +546,7 @@ def upload_students_data(request):
 @permission_classes([IsAuthenticated])
 def get_timetable_for_teacher(request):
     try:
-        data = {'data':{'logs':{},'register_count':0,'error_count':0},'error':False,'message':None}
+        data = {'data':None,'error':False,'message':None}
         if request.user.role == 'teacher':
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
             if teacher_obj:
@@ -583,6 +583,61 @@ def get_timetable_for_student(request):
                 return JsonResponse(data,status=200)
             else:
                 raise Exception("Student does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_subjects_of_teacher(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                lectures = Lecture.objects.filter(teacher=teacher_obj)
+                subjects = list({lecture.subject for lecture in lectures})
+                subjects_serialized = SubjectSerializer(subjects,many=True)
+                data['data'] = subjects_serialized.data
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_lecture_sessions_for_teacher(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.query_params
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                if 'subject_slug' in body:
+                        subject_obj = Subject.objects.filter(slug=body['subject_slug']).first()
+                        if subject_obj:
+                            lectures = subject_obj.lecture_set.filter(teacher=teacher_obj,session__active='post')
+                            lectures_serialized = LectureSerializerForHistory(lectures,many=True)
+                            data['data'] = lectures_serialized.data
+                            return JsonResponse(data,status=200)                            
+                        else:
+                            raise Exception('Subject does not exists')
+                else:
+                    raise Exception('Parameters Missing')
+            else:
+                raise Exception("Teacher does not exist")
         else:
             raise Exception("You're not allowed to perform this action")
 

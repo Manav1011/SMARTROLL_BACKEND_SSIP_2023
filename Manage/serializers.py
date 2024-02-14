@@ -138,6 +138,22 @@ class SessionSerializerForLecture(serializers.ModelSerializer):
         model = Session
         fields = ['session_id','active','day','created_at']
 
+class LectureSerializerForHistory(serializers.ModelSerializer):
+    session = serializers.SerializerMethodField()
+    classroom = serializers.SerializerMethodField()
+    class Meta:
+        model = Lecture
+        fields = ['type','classroom','slug','session']
+    
+    def get_classroom(self,obj):
+        return obj.classroom.class_name
+    
+    def get_session(self,obj):
+        today= datetime.now().date()
+        session_obj = obj.session_set.filter(active='post')
+        session_serialized = SessionSerializerForLecture(session_obj,many=True)
+        return session_serialized.data
+    
 class LectureSerializer(serializers.ModelSerializer):
     session = serializers.SerializerMethodField()
     subject = SubjectSerializer()

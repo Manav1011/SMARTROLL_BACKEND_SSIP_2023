@@ -3,7 +3,7 @@ from channels.db import database_sync_to_async
 import json
 import jwt
 from .models import Session
-from StakeHolders.models import Student,Teacher
+from StakeHolders.models import Teacher
 from Session.serializers import SessionSerializerHistory
 
 class AttendanceSessionConsumer(AsyncWebsocketConsumer):
@@ -61,8 +61,7 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
         if session_obj and session_obj.active in ['pre','ongoing']:
             session_obj.active = 'post'
             session_serialized = SessionSerializerHistory(session_obj)
-            # session_obj.save()
-            # session_serialized = SessionSerializerHistory(session_obj)
+            session_obj.save()         
             return True,session_serialized.data
         else:
             return False,None

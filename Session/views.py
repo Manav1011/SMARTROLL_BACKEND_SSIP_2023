@@ -1,12 +1,11 @@
 from rest_framework.decorators import permission_classes,api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .serializers import SessionSerializer,AttendanceSerializer
+from .serializers import SessionSerializer,AttendanceSerializer,SessionSerializerHistory
 from .models import Session,Attendance
 from Manage.models import Lecture
 from django.utils import timezone
 from StakeHolders.models import Student,Teacher
-import json
 import os
 import datetime
 from channels.layers import get_channel_layer
@@ -121,3 +120,29 @@ def mark_attendance_for_student(request):
          data['error'] = True
          data['message'] = str(e)
          return Response(data,status=500)
+    
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_session_data_for_export(request,session_id):
+    data = {'data':None,'error':False,'message':None}
+    body = request.query_params
+    try:
+        if request.user.role == 'teacher':
+            if session_id:
+                session_obj = Session.objects.filter(session_id=session_id).first()
+                if session_obj:
+                    session_serialized = SessionSerializerHistory(session_obj)
+                    data['data'] = session_serialized.data
+                    return Response(data,status=290)
+                else:
+                    raise Exception('Session does not exists')
+            else:
+                raise Exception("Parameters missing")
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True     
+        return Response(data,status=500)   
