@@ -2,3 +2,1804 @@ Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 36494]
+HTTP 200 response started for ['127.0.0.1', 36494]
+HTTP close for ['127.0.0.1', 36494]
+HTTP response complete for ['127.0.0.1', 36494]
+[mHTTP GET / 200 [0.01, 127.0.0.1:36494][0m
+HTTP b'GET' request for ['127.0.0.1', 36494]
+HTTP b'GET' request for ['127.0.0.1', 36504]
+HTTP 200 response started for ['127.0.0.1', 36504]
+HTTP close for ['127.0.0.1', 36504]
+HTTP response complete for ['127.0.0.1', 36504]
+[mHTTP GET /static/js/main.7a2e081d.js 200 [0.01, 127.0.0.1:36504][0m
+HTTP 200 response started for ['127.0.0.1', 36494]
+HTTP close for ['127.0.0.1', 36494]
+HTTP response complete for ['127.0.0.1', 36494]
+[mHTTP GET /static/css/main.dc9f2616.css 200 [0.01, 127.0.0.1:36494][0m
+HTTP b'GET' request for ['127.0.0.1', 36510]
+HTTP b'GET' request for ['127.0.0.1', 36494]
+HTTP 200 response started for ['127.0.0.1', 36494]
+HTTP close for ['127.0.0.1', 36494]
+HTTP response complete for ['127.0.0.1', 36494]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:36494][0m
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:36510][0m
+HTTP b'GET' request for ['127.0.0.1', 36494]
+HTTP 200 response started for ['127.0.0.1', 36494]
+HTTP close for ['127.0.0.1', 36494]
+HTTP response complete for ['127.0.0.1', 36494]
+[mHTTP GET / 200 [0.01, 127.0.0.1:36494][0m
+HTTP b'GET' request for ['127.0.0.1', 36494]
+HTTP b'GET' request for ['127.0.0.1', 36504]
+HTTP 200 response started for ['127.0.0.1', 36504]
+HTTP close for ['127.0.0.1', 36504]
+HTTP response complete for ['127.0.0.1', 36504]
+[mHTTP GET /static/css/main.dc9f2616.css 200 [0.01, 127.0.0.1:36504][0m
+HTTP 200 response started for ['127.0.0.1', 36494]
+HTTP close for ['127.0.0.1', 36494]
+HTTP response complete for ['127.0.0.1', 36494]
+[mHTTP GET /static/js/main.7a2e081d.js 200 [0.01, 127.0.0.1:36494][0m
+HTTP b'GET' request for ['127.0.0.1', 36510]
+HTTP b'GET' request for ['127.0.0.1', 36494]
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:36510][0m
+HTTP 200 response started for ['127.0.0.1', 36494]
+HTTP close for ['127.0.0.1', 36494]
+HTTP response complete for ['127.0.0.1', 36494]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:36494][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 36510]
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.01, 127.0.0.1:36510][0m
+HTTP b'GET' request for ['127.0.0.1', 36510]
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:36510][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 36510]
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.00, 127.0.0.1:36510][0m
+HTTP b'GET' request for ['127.0.0.1', 36510]
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:36510][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 36510]
+HTTP b'OPTIONS' request for ['127.0.0.1', 40032]
+HTTP 200 response started for ['127.0.0.1', 40032]
+HTTP close for ['127.0.0.1', 40032]
+HTTP response complete for ['127.0.0.1', 40032]
+[mHTTP OPTIONS /manage/get_object_counts 200 [0.01, 127.0.0.1:40032][0m
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP OPTIONS /manage/get_terms 200 [0.01, 127.0.0.1:36510][0m
+HTTP b'GET' request for ['127.0.0.1', 40032]
+HTTP b'GET' request for ['127.0.0.1', 36510]
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP GET /manage/get_terms 200 [0.03, 127.0.0.1:36510][0m
+HTTP 200 response started for ['127.0.0.1', 40032]
+HTTP close for ['127.0.0.1', 40032]
+HTTP response complete for ['127.0.0.1', 40032]
+[mHTTP GET /manage/get_object_counts 200 [0.04, 127.0.0.1:40032][0m
+HTTP b'GET' request for ['127.0.0.1', 40032]
+HTTP 200 response started for ['127.0.0.1', 40032]
+HTTP close for ['127.0.0.1', 40032]
+HTTP response complete for ['127.0.0.1', 40032]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:40032][0m
+HTTP b'GET' request for ['127.0.0.1', 40032]
+HTTP 200 response started for ['127.0.0.1', 40032]
+HTTP close for ['127.0.0.1', 40032]
+HTTP response complete for ['127.0.0.1', 40032]
+[mHTTP GET /check_token_authenticity/ 200 [0.01, 127.0.0.1:40032][0m
+HTTP b'GET' request for ['127.0.0.1', 40032]
+HTTP b'GET' request for ['127.0.0.1', 36510]
+HTTP 200 response started for ['127.0.0.1', 40032]
+HTTP close for ['127.0.0.1', 40032]
+HTTP response complete for ['127.0.0.1', 40032]
+[mHTTP GET /manage/get_terms 200 [0.03, 127.0.0.1:40032][0m
+HTTP 200 response started for ['127.0.0.1', 36510]
+HTTP close for ['127.0.0.1', 36510]
+HTTP response complete for ['127.0.0.1', 36510]
+[mHTTP GET /manage/get_object_counts 200 [0.03, 127.0.0.1:36510][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 302 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[32mHTTP GET /smartroll@admin.private/ 302 [0.05, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/login/?next=/smartroll%40admin.private/ 200 [0.03, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:34012][0m
+HTTP b'POST' request for ['127.0.0.1', 34012]
+HTTP 302 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[32mHTTP POST /smartroll@admin.private/login/?next=/smartroll%40admin.private/ 302 [0.22, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/ 200 [0.04, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.05, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.02, 127.0.0.1:34020][0m
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.02, 127.0.0.1:60370][0m
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/core.js 200 [0.02, 127.0.0.1:60330][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/js/actions.js 200 [0.03, 127.0.0.1:60356][0m
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.03, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.min.js 200 [0.01, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.min.js 200 [0.01, 127.0.0.1:34020][0m
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:34020][0m
+HTTP b'POST' request for ['127.0.0.1', 34020]
+HTTP 302 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[32mHTTP POST /smartroll@admin.private/Session/session/ 302 [0.02, 127.0.0.1:34020][0m
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:34020][0m
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /static/admin/js/core.js 200 [0.02, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.min.js 200 [0.02, 127.0.0.1:60356][0m
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.02, 127.0.0.1:60330][0m
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.02, 127.0.0.1:34020][0m
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/actions.js 200 [0.02, 127.0.0.1:60370][0m
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.01, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.min.js 200 [0.01, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.02, 127.0.0.1:60330][0m
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/js/actions.js 200 [0.02, 127.0.0.1:34020][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.02, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.min.js 200 [0.03, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/core.js 200 [0.03, 127.0.0.1:60370][0m
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.min.js 200 [0.01, 127.0.0.1:34020][0m
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.02, 127.0.0.1:60330][0m
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:60330][0m
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:60330][0m
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.02, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.min.js 200 [0.02, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/core.js 200 [0.02, 127.0.0.1:60370][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.03, 127.0.0.1:60330][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/js/actions.js 200 [0.03, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.04, 127.0.0.1:34020][0m
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.min.js 200 [0.01, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.02, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.01, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:34012][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.03, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/js/core.js 200 [0.03, 127.0.0.1:60356][0m
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.03, 127.0.0.1:60330][0m
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/actions.js 200 [0.03, 127.0.0.1:60370][0m
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.min.js 200 [0.04, 127.0.0.1:34020][0m
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.04, 127.0.0.1:60340][0m
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.01, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.min.js 200 [0.01, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /favicon.ico 200 [0.00, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:60356][0m
+HTTP b'GET' request for ['127.0.0.1', 60356]
+HTTP b'GET' request for ['127.0.0.1', 34012]
+HTTP b'GET' request for ['127.0.0.1', 60340]
+HTTP b'GET' request for ['127.0.0.1', 34020]
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.02, 127.0.0.1:60370][0m
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/actions.js 200 [0.02, 127.0.0.1:60330][0m
+HTTP 200 response started for ['127.0.0.1', 60356]
+HTTP close for ['127.0.0.1', 60356]
+HTTP response complete for ['127.0.0.1', 60356]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.03, 127.0.0.1:60356][0m
+HTTP 200 response started for ['127.0.0.1', 60340]
+HTTP close for ['127.0.0.1', 60340]
+HTTP response complete for ['127.0.0.1', 60340]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.min.js 200 [0.03, 127.0.0.1:60340][0m
+HTTP b'GET' request for ['127.0.0.1', 60370]
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP 200 response started for ['127.0.0.1', 34020]
+HTTP close for ['127.0.0.1', 34020]
+HTTP response complete for ['127.0.0.1', 34020]
+[mHTTP GET /static/admin/js/core.js 200 [0.03, 127.0.0.1:34020][0m
+HTTP 200 response started for ['127.0.0.1', 34012]
+HTTP close for ['127.0.0.1', 34012]
+HTTP response complete for ['127.0.0.1', 34012]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.04, 127.0.0.1:34012][0m
+HTTP 200 response started for ['127.0.0.1', 60370]
+HTTP close for ['127.0.0.1', 60370]
+HTTP response complete for ['127.0.0.1', 60370]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.01, 127.0.0.1:60370][0m
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.min.js 200 [0.01, 127.0.0.1:60330][0m
+HTTP b'GET' request for ['127.0.0.1', 60330]
+HTTP 200 response started for ['127.0.0.1', 60330]
+HTTP close for ['127.0.0.1', 60330]
+HTTP response complete for ['127.0.0.1', 60330]
+[mHTTP GET /favicon.ico 200 [0.01, 127.0.0.1:60330][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 37248]
+HTTP 200 response started for ['127.0.0.1', 37248]
+HTTP close for ['127.0.0.1', 37248]
+HTTP response complete for ['127.0.0.1', 37248]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.10, 127.0.0.1:37248][0m
+HTTP b'GET' request for ['127.0.0.1', 37248]
+HTTP b'GET' request for ['127.0.0.1', 37264]
+HTTP b'GET' request for ['127.0.0.1', 37280]
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP b'GET' request for ['127.0.0.1', 37302]
+HTTP b'GET' request for ['127.0.0.1', 37310]
+HTTP 200 response started for ['127.0.0.1', 37302]
+HTTP 200 response started for ['127.0.0.1', 37248]
+HTTP 200 response started for ['127.0.0.1', 37310]
+HTTP 200 response started for ['127.0.0.1', 37280]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP response chunk for ['127.0.0.1', 37302]
+HTTP close for ['127.0.0.1', 37302]
+HTTP response complete for ['127.0.0.1', 37302]
+[mHTTP GET /static/admin/js/admin/RelatedObjectLookups.js 200 [0.03, 127.0.0.1:37302][0m
+HTTP response chunk for ['127.0.0.1', 37310]
+HTTP close for ['127.0.0.1', 37310]
+HTTP response complete for ['127.0.0.1', 37310]
+[mHTTP GET /static/admin/js/actions.js 200 [0.03, 127.0.0.1:37310][0m
+HTTP response chunk for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /static/admin/js/core.js 200 [0.04, 127.0.0.1:37290][0m
+HTTP response chunk for ['127.0.0.1', 37248]
+HTTP close for ['127.0.0.1', 37248]
+HTTP response complete for ['127.0.0.1', 37248]
+[mHTTP GET /static/admin/css/changelists.css 200 [0.05, 127.0.0.1:37248][0m
+HTTP b'GET' request for ['127.0.0.1', 37302]
+HTTP response chunk for ['127.0.0.1', 37280]
+HTTP response chunk for ['127.0.0.1', 37280]
+HTTP response chunk for ['127.0.0.1', 37280]
+HTTP response chunk for ['127.0.0.1', 37280]
+HTTP response chunk for ['127.0.0.1', 37280]
+HTTP close for ['127.0.0.1', 37280]
+HTTP response complete for ['127.0.0.1', 37280]
+[mHTTP GET /static/admin/js/vendor/jquery/jquery.js 200 [0.05, 127.0.0.1:37280][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37302]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP response chunk for ['127.0.0.1', 37302]
+HTTP close for ['127.0.0.1', 37302]
+HTTP response complete for ['127.0.0.1', 37302]
+[mHTTP GET /static/admin/js/urlify.js 200 [0.01, 127.0.0.1:37302][0m
+HTTP response chunk for ['127.0.0.1', 37290]
+HTTP response chunk for ['127.0.0.1', 37290]
+HTTP response chunk for ['127.0.0.1', 37290]
+HTTP response chunk for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /static/admin/js/vendor/xregexp/xregexp.js 200 [0.01, 127.0.0.1:37290][0m
+HTTP 200 response started for ['127.0.0.1', 37264]
+HTTP close for ['127.0.0.1', 37264]
+HTTP response complete for ['127.0.0.1', 37264]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.07, 127.0.0.1:37264][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+Not Found: /favicon.ico
+HTTP 404 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[33mHTTP GET /favicon.ico 404 [0.02, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:37290][0m
+HTTP b'POST' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP POST /smartroll@admin.private/Session/session/ 200 [0.06, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 304 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[36mHTTP GET /static/admin/js/cancel.js 304 [0.00, 127.0.0.1:37290][0m
+HTTP b'POST' request for ['127.0.0.1', 37290]
+HTTP 302 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[32mHTTP POST /smartroll@admin.private/Session/session/ 302 [0.15, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 38286]
+HTTP 200 response started for ['127.0.0.1', 38286]
+HTTP close for ['127.0.0.1', 38286]
+HTTP response complete for ['127.0.0.1', 38286]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:38286][0m
+HTTP b'GET' request for ['127.0.0.1', 38286]
+HTTP 200 response started for ['127.0.0.1', 38286]
+HTTP close for ['127.0.0.1', 38286]
+HTTP response complete for ['127.0.0.1', 38286]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:38286][0m
+HTTP b'GET' request for ['127.0.0.1', 38286]
+HTTP b'GET' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38286]
+HTTP close for ['127.0.0.1', 38286]
+HTTP response complete for ['127.0.0.1', 38286]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:38286][0m
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP GET /manage/get_object_counts 200 [0.04, 127.0.0.1:38290][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP OPTIONS /manage/get_semesters?term_slug=154413_1707736863 200 [0.01, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP GET /manage/get_semesters?term_slug=154413_1707736863 200 [0.02, 127.0.0.1:38290][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP OPTIONS /manage/get_divisions?semester_slug=982010_1707737115 200 [0.00, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP GET /manage/get_divisions?semester_slug=982010_1707737115 200 [0.03, 127.0.0.1:38290][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP OPTIONS /manage/get_batches?division_slug=241042_1707737248 200 [0.01, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP GET /manage/get_batches?division_slug=241042_1707737248 200 [0.03, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.04, 127.0.0.1:37290][0m
+HTTP b'GET' request for ['127.0.0.1', 37290]
+HTTP 200 response started for ['127.0.0.1', 37290]
+HTTP close for ['127.0.0.1', 37290]
+HTTP response complete for ['127.0.0.1', 37290]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:37290][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:38290][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 38290]
+HTTP 200 response started for ['127.0.0.1', 38290]
+HTTP close for ['127.0.0.1', 38290]
+HTTP response complete for ['127.0.0.1', 38290]
+[mHTTP OPTIONS /manage/get_terms 200 [0.01, 127.0.0.1:38290][0m
+HTTP b'GET' request for ['127.0.0.1', 37174]
+HTTP 200 response started for ['127.0.0.1', 37174]
+HTTP close for ['127.0.0.1', 37174]
+HTTP response complete for ['127.0.0.1', 37174]
+[mHTTP GET / 200 [0.01, 127.0.0.1:37174][0m
+HTTP b'GET' request for ['127.0.0.1', 37174]
+HTTP 200 response started for ['127.0.0.1', 37174]
+HTTP response chunk for ['127.0.0.1', 37174]
+HTTP response chunk for ['127.0.0.1', 37174]
+HTTP response chunk for ['127.0.0.1', 37174]
+HTTP response chunk for ['127.0.0.1', 37174]
+HTTP response chunk for ['127.0.0.1', 37174]
+HTTP close for ['127.0.0.1', 37174]
+HTTP response complete for ['127.0.0.1', 37174]
+[mHTTP GET /static/js/main.7a2e081d.js 200 [0.01, 127.0.0.1:37174][0m
+HTTP b'GET' request for ['127.0.0.1', 37176]
+HTTP 200 response started for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP close for ['127.0.0.1', 37176]
+HTTP response complete for ['127.0.0.1', 37176]
+[mHTTP GET /static/css/main.dc9f2616.css 200 [0.01, 127.0.0.1:37176][0m
+HTTP b'GET' request for ['127.0.0.1', 37176]
+HTTP b'GET' request for ['127.0.0.1', 37174]
+HTTP b'GET' request for ['127.0.0.1', 37188]
+HTTP b'GET' request for ['127.0.0.1', 37192]
+HTTP b'GET' request for ['127.0.0.1', 37194]
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37194]
+HTTP 200 response started for ['127.0.0.1', 37176]
+HTTP 200 response started for ['127.0.0.1', 37192]
+HTTP 200 response started for ['127.0.0.1', 37188]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37174]
+HTTP response chunk for ['127.0.0.1', 37194]
+HTTP close for ['127.0.0.1', 37194]
+HTTP response complete for ['127.0.0.1', 37194]
+[mHTTP GET /static/js/846.cae6c070.chunk.js 200 [0.01, 127.0.0.1:37194][0m
+HTTP response chunk for ['127.0.0.1', 37188]
+HTTP close for ['127.0.0.1', 37188]
+HTTP response complete for ['127.0.0.1', 37188]
+[mHTTP GET /static/css/441.802d6e65.chunk.css 200 [0.01, 127.0.0.1:37188][0m
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP response chunk for ['127.0.0.1', 37176]
+HTTP close for ['127.0.0.1', 37176]
+HTTP response complete for ['127.0.0.1', 37176]
+[mHTTP GET /static/js/983.744348bf.chunk.js 200 [0.01, 127.0.0.1:37176][0m
+HTTP response chunk for ['127.0.0.1', 37192]
+HTTP close for ['127.0.0.1', 37192]
+HTTP response complete for ['127.0.0.1', 37192]
+[mHTTP GET /static/css/149.f970e96b.chunk.css 200 [0.01, 127.0.0.1:37192][0m
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /static/js/653.9ed1852b.chunk.js 200 [0.01, 127.0.0.1:37200][0m
+HTTP response chunk for ['127.0.0.1', 37174]
+HTTP close for ['127.0.0.1', 37174]
+HTTP response complete for ['127.0.0.1', 37174]
+[mHTTP GET /static/js/294.fc4cf065.chunk.js 200 [0.01, 127.0.0.1:37174][0m
+HTTP b'GET' request for ['127.0.0.1', 37214]
+HTTP 200 response started for ['127.0.0.1', 37214]
+HTTP response chunk for ['127.0.0.1', 37214]
+HTTP close for ['127.0.0.1', 37214]
+HTTP response complete for ['127.0.0.1', 37214]
+[mHTTP GET /static/manifest.json 200 [0.00, 127.0.0.1:37214][0m
+HTTP b'GET' request for ['127.0.0.1', 37194]
+HTTP b'GET' request for ['127.0.0.1', 37188]
+HTTP 200 response started for ['127.0.0.1', 37194]
+HTTP 200 response started for ['127.0.0.1', 37188]
+HTTP response chunk for ['127.0.0.1', 37194]
+HTTP close for ['127.0.0.1', 37194]
+HTTP response complete for ['127.0.0.1', 37194]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:37194][0m
+HTTP response chunk for ['127.0.0.1', 37188]
+HTTP close for ['127.0.0.1', 37188]
+HTTP response complete for ['127.0.0.1', 37188]
+[mHTTP GET /static/js/149.ce21472b.chunk.js 200 [0.01, 127.0.0.1:37188][0m
+HTTP b'GET' request for ['127.0.0.1', 37188]
+HTTP 200 response started for ['127.0.0.1', 37188]
+HTTP close for ['127.0.0.1', 37188]
+HTTP response complete for ['127.0.0.1', 37188]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:37188][0m
+HTTP b'GET' request for ['127.0.0.1', 37188]
+HTTP b'GET' request for ['127.0.0.1', 37194]
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37188]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37188]
+HTTP close for ['127.0.0.1', 37188]
+HTTP response complete for ['127.0.0.1', 37188]
+[mHTTP GET /static/js/134.e02209a5.chunk.js 200 [0.01, 127.0.0.1:37188][0m
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /static/js/24.1f11f4de.chunk.js 200 [0.00, 127.0.0.1:37200][0m
+HTTP 200 response started for ['127.0.0.1', 37194]
+HTTP response chunk for ['127.0.0.1', 37194]
+HTTP close for ['127.0.0.1', 37194]
+HTTP response complete for ['127.0.0.1', 37194]
+[mHTTP GET /static/css/24.d767f4f9.chunk.css 200 [0.01, 127.0.0.1:37194][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
+HTTP b'POST' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP POST /auth/api/login/ 200 [0.34, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 200 [0.00, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP b'GET' request for ['127.0.0.1', 37188]
+HTTP 200 response started for ['127.0.0.1', 37188]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37188]
+HTTP close for ['127.0.0.1', 37188]
+HTTP response complete for ['127.0.0.1', 37188]
+[mHTTP GET /static/js/338.e2ff9b54.chunk.js 200 [0.00, 127.0.0.1:37188][0m
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /static/css/338.17c92f06.chunk.css 200 [0.01, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37188]
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37188]
+HTTP close for ['127.0.0.1', 37188]
+HTTP response complete for ['127.0.0.1', 37188]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:37188][0m
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /manage/get_object_counts 200 [0.04, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP response chunk for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /static/js/417.2f9876e6.chunk.js 200 [0.01, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /manage/get_terms 200 [0.03, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /manage/get_divisions?semester_slug=549249_1707806427 200 [0.03, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 37200]
+HTTP 200 response started for ['127.0.0.1', 37200]
+HTTP close for ['127.0.0.1', 37200]
+HTTP response complete for ['127.0.0.1', 37200]
+[mHTTP GET /manage/get_timetable?division_slug=114974_1707806432 200 [0.08, 127.0.0.1:37200][0m
+HTTP b'GET' request for ['127.0.0.1', 55170]
+HTTP 200 response started for ['127.0.0.1', 55170]
+HTTP close for ['127.0.0.1', 55170]
+HTTP response complete for ['127.0.0.1', 55170]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.04, 127.0.0.1:55170][0m
+HTTP b'GET' request for ['127.0.0.1', 55170]
+HTTP 200 response started for ['127.0.0.1', 55170]
+HTTP close for ['127.0.0.1', 55170]
+HTTP response complete for ['127.0.0.1', 55170]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:55170][0m
+HTTP b'GET' request for ['127.0.0.1', 55196]
+HTTP 200 response started for ['127.0.0.1', 55196]
+HTTP close for ['127.0.0.1', 55196]
+HTTP response complete for ['127.0.0.1', 55196]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=584781_1707806432 200 [0.05, 127.0.0.1:55196][0m
+HTTP b'POST' request for ['127.0.0.1', 40956]
+Internal Server Error: /manage/add_lecture_to_schedule/
+HTTP 500 response started for ['127.0.0.1', 40956]
+HTTP close for ['127.0.0.1', 40956]
+HTTP response complete for ['127.0.0.1', 40956]
+[35;1mHTTP POST /manage/add_lecture_to_schedule/ 500 [0.07, 127.0.0.1:40956][0m
+HTTP b'GET' request for ['127.0.0.1', 40960]
+HTTP 200 response started for ['127.0.0.1', 40960]
+HTTP close for ['127.0.0.1', 40960]
+HTTP response complete for ['127.0.0.1', 40960]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.04, 127.0.0.1:40960][0m
+HTTP b'GET' request for ['127.0.0.1', 40960]
+HTTP 200 response started for ['127.0.0.1', 40960]
+HTTP close for ['127.0.0.1', 40960]
+HTTP response complete for ['127.0.0.1', 40960]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:40960][0m
+HTTP b'GET' request for ['127.0.0.1', 40960]
+HTTP 200 response started for ['127.0.0.1', 40960]
+HTTP close for ['127.0.0.1', 40960]
+HTTP response complete for ['127.0.0.1', 40960]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:40960][0m
+HTTP b'GET' request for ['127.0.0.1', 40960]
+HTTP 200 response started for ['127.0.0.1', 40960]
+HTTP close for ['127.0.0.1', 40960]
+HTTP response complete for ['127.0.0.1', 40960]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:40960][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'POST' request for ['127.0.0.1', 44734]
+Internal Server Error: /manage/add_lecture_to_schedule/
+HTTP 500 response started for ['127.0.0.1', 44734]
+HTTP close for ['127.0.0.1', 44734]
+HTTP response complete for ['127.0.0.1', 44734]
+[35;1mHTTP POST /manage/add_lecture_to_schedule/ 500 [0.03, 127.0.0.1:44734][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.12, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/11/change/ 200 [0.09, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP b'GET' request for ['127.0.0.1', 43024]
+HTTP 304 response started for ['127.0.0.1', 43024]
+HTTP close for ['127.0.0.1', 43024]
+HTTP response complete for ['127.0.0.1', 43024]
+[36mHTTP GET /static/admin/js/admin/DateTimeShortcuts.js 304 [0.01, 127.0.0.1:43024][0m
+HTTP b'GET' request for ['127.0.0.1', 43026]
+HTTP b'GET' request for ['127.0.0.1', 43024]
+HTTP 304 response started for ['127.0.0.1', 43026]
+HTTP close for ['127.0.0.1', 43026]
+HTTP response complete for ['127.0.0.1', 43026]
+[36mHTTP GET /static/admin/css/forms.css 304 [0.01, 127.0.0.1:43026][0m
+HTTP 304 response started for ['127.0.0.1', 43024]
+HTTP close for ['127.0.0.1', 43024]
+HTTP response complete for ['127.0.0.1', 43024]
+[36mHTTP GET /static/admin/js/calendar.js 304 [0.00, 127.0.0.1:43024][0m
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 304 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[36mHTTP GET /static/admin/css/widgets.css 304 [0.00, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/11/delete/ 200 [0.04, 127.0.0.1:44748][0m
+HTTP b'POST' request for ['127.0.0.1', 44748]
+HTTP 302 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[32mHTTP POST /smartroll@admin.private/Manage/lecture/11/delete/ 302 [0.04, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:44748][0m
+HTTP b'GET' request for ['127.0.0.1', 44748]
+HTTP 200 response started for ['127.0.0.1', 44748]
+HTTP close for ['127.0.0.1', 44748]
+HTTP response complete for ['127.0.0.1', 44748]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:44748][0m
+HTTP b'POST' request for ['127.0.0.1', 44734]
+Internal Server Error: /manage/add_lecture_to_schedule/
+HTTP 500 response started for ['127.0.0.1', 44734]
+HTTP close for ['127.0.0.1', 44734]
+HTTP response complete for ['127.0.0.1', 44734]
+[35;1mHTTP POST /manage/add_lecture_to_schedule/ 500 [0.04, 127.0.0.1:44734][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/12/change/ 200 [0.06, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/12/delete/ 200 [0.04, 127.0.0.1:34134][0m
+HTTP b'POST' request for ['127.0.0.1', 34134]
+HTTP 302 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[32mHTTP POST /smartroll@admin.private/Manage/lecture/12/delete/ 302 [0.03, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.04, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/10/change/ 200 [0.06, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:34134][0m
+HTTP b'POST' request for ['127.0.0.1', 53266]
+Internal Server Error: /manage/add_lecture_to_schedule/
+HTTP 500 response started for ['127.0.0.1', 53266]
+HTTP close for ['127.0.0.1', 53266]
+HTTP response complete for ['127.0.0.1', 53266]
+[35;1mHTTP POST /manage/add_lecture_to_schedule/ 500 [0.04, 127.0.0.1:53266][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/10/change/ 200 [0.07, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/13/change/ 200 [0.07, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/13/delete/ 200 [0.04, 127.0.0.1:34134][0m
+HTTP b'POST' request for ['127.0.0.1', 34134]
+HTTP 302 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[32mHTTP POST /smartroll@admin.private/Manage/lecture/13/delete/ 302 [0.03, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:34134][0m
+HTTP b'GET' request for ['127.0.0.1', 34134]
+HTTP 200 response started for ['127.0.0.1', 34134]
+HTTP close for ['127.0.0.1', 34134]
+HTTP response complete for ['127.0.0.1', 34134]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:34134][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET / 200 [0.01, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /manage/get_terms 200 [0.03, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.03, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /manage/get_divisions?semester_slug=549249_1707806427 200 [0.03, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /manage/get_timetable?division_slug=114974_1707806432 200 [0.06, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=584781_1707806432 200 [0.04, 127.0.0.1:33678][0m
+HTTP b'POST' request for ['127.0.0.1', 33678]
+HTTP 200 response started for ['127.0.0.1', 33678]
+HTTP close for ['127.0.0.1', 33678]
+HTTP response complete for ['127.0.0.1', 33678]
+[mHTTP POST /manage/add_lecture_to_schedule/ 200 [1.28, 127.0.0.1:33678][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.10, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/20/change/ 200 [0.08, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 302 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[32mHTTP POST /smartroll@admin.private/Session/session/20/change/ 302 [0.04, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/21/change/ 200 [0.06, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 302 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[32mHTTP POST /smartroll@admin.private/Session/session/21/change/ 302 [0.04, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/22/change/ 200 [0.06, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 302 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[32mHTTP POST /smartroll@admin.private/Session/session/22/change/ 302 [0.05, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.05, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP POST /smartroll@admin.private/Session/session/ 200 [0.05, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 304 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[36mHTTP GET /static/admin/js/cancel.js 304 [0.00, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 302 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[32mHTTP POST /smartroll@admin.private/Session/session/ 302 [0.08, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Session/session/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.03, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/14/change/ 200 [0.07, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/14/delete/ 200 [0.05, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 302 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[32mHTTP POST /smartroll@admin.private/Manage/lecture/14/delete/ 302 [0.04, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.05, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/10/change/ 200 [0.06, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+HTTP b'POST' request for ['127.0.0.1', 39316]
+HTTP 302 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[32mHTTP POST /smartroll@admin.private/Manage/lecture/10/change/ 302 [0.04, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/Manage/lecture/ 200 [0.04, 127.0.0.1:39316][0m
+HTTP b'GET' request for ['127.0.0.1', 39316]
+HTTP 200 response started for ['127.0.0.1', 39316]
+HTTP close for ['127.0.0.1', 39316]
+HTTP response complete for ['127.0.0.1', 39316]
+[mHTTP GET /smartroll@admin.private/jsi18n/ 200 [0.02, 127.0.0.1:39316][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 60802]
+HTTP 200 response started for ['127.0.0.1', 60802]
+HTTP close for ['127.0.0.1', 60802]
+HTTP response complete for ['127.0.0.1', 60802]
+[mHTTP GET / 200 [0.01, 127.0.0.1:60802][0m
+HTTP b'GET' request for ['127.0.0.1', 60802]
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP 304 response started for ['127.0.0.1', 60802]
+HTTP close for ['127.0.0.1', 60802]
+HTTP response complete for ['127.0.0.1', 60802]
+[36mHTTP GET /static/css/main.dc9f2616.css 304 [0.00, 127.0.0.1:60802][0m
+HTTP 304 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[36mHTTP GET /static/js/main.7a2e081d.js 304 [0.00, 127.0.0.1:60806][0m
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP b'GET' request for ['127.0.0.1', 60802]
+HTTP b'GET' request for ['127.0.0.1', 60810]
+HTTP b'GET' request for ['127.0.0.1', 60816]
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP b'GET' request for ['127.0.0.1', 60822]
+HTTP 304 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[36mHTTP GET /static/js/983.744348bf.chunk.js 304 [0.01, 127.0.0.1:60806][0m
+HTTP 304 response started for ['127.0.0.1', 60802]
+HTTP close for ['127.0.0.1', 60802]
+HTTP response complete for ['127.0.0.1', 60802]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js 304 [0.01, 127.0.0.1:60802][0m
+HTTP 304 response started for ['127.0.0.1', 60810]
+HTTP close for ['127.0.0.1', 60810]
+HTTP response complete for ['127.0.0.1', 60810]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js 304 [0.01, 127.0.0.1:60810][0m
+HTTP 304 response started for ['127.0.0.1', 60816]
+HTTP close for ['127.0.0.1', 60816]
+HTTP response complete for ['127.0.0.1', 60816]
+[36mHTTP GET /static/js/653.9ed1852b.chunk.js 304 [0.01, 127.0.0.1:60816][0m
+HTTP 304 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css 304 [0.01, 127.0.0.1:60818][0m
+HTTP 304 response started for ['127.0.0.1', 60822]
+HTTP close for ['127.0.0.1', 60822]
+HTTP response complete for ['127.0.0.1', 60822]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css 304 [0.01, 127.0.0.1:60822][0m
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP 304 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[36mHTTP GET /static/favicon.ico 304 [0.00, 127.0.0.1:60806][0m
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP b'GET' request for ['127.0.0.1', 60828]
+HTTP 304 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[36mHTTP GET /static/js/149.ce21472b.chunk.js 304 [0.00, 127.0.0.1:60806][0m
+HTTP 304 response started for ['127.0.0.1', 60828]
+HTTP close for ['127.0.0.1', 60828]
+HTTP response complete for ['127.0.0.1', 60828]
+[36mHTTP GET /static/manifest.json 304 [0.00, 127.0.0.1:60828][0m
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP 200 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:60806][0m
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP 200 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:60806][0m
+HTTP b'GET' request for ['127.0.0.1', 60806]
+HTTP 304 response started for ['127.0.0.1', 60806]
+HTTP close for ['127.0.0.1', 60806]
+HTTP response complete for ['127.0.0.1', 60806]
+[36mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 304 [0.00, 127.0.0.1:60806][0m
+HTTP b'GET' request for ['127.0.0.1', 60822]
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 304 response started for ['127.0.0.1', 60822]
+HTTP close for ['127.0.0.1', 60822]
+HTTP response complete for ['127.0.0.1', 60822]
+[36mHTTP GET /static/js/134.e02209a5.chunk.js 304 [0.00, 127.0.0.1:60822][0m
+HTTP 304 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[36mHTTP GET /static/js/417.2f9876e6.chunk.js 304 [0.00, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP GET /manage/get_terms 200 [0.03, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP GET /manage/get_divisions?semester_slug=549249_1707806427 200 [0.03, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP GET /manage/get_timetable?division_slug=114974_1707806432 200 [0.06, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=584781_1707806432 200 [0.04, 127.0.0.1:60818][0m
+HTTP b'POST' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP POST /manage/add_lecture_to_schedule/ 200 [0.84, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+HTTP 200 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 60818]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 60818]
+HTTP close for ['127.0.0.1', 60818]
+HTTP response complete for ['127.0.0.1', 60818]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:60818][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET / 200 [0.01, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP b'GET' request for ['127.0.0.1', 39384]
+HTTP 200 response started for ['127.0.0.1', 39384]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP response chunk for ['127.0.0.1', 39384]
+HTTP response chunk for ['127.0.0.1', 39384]
+HTTP response chunk for ['127.0.0.1', 39384]
+HTTP response chunk for ['127.0.0.1', 39384]
+HTTP response chunk for ['127.0.0.1', 39384]
+HTTP response chunk for ['127.0.0.1', 39384]
+HTTP close for ['127.0.0.1', 39384]
+HTTP response complete for ['127.0.0.1', 39384]
+[mHTTP GET /static/css/main.dc9f2616.css 200 [0.02, 127.0.0.1:39384][0m
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /static/js/main.7a2e081d.js 200 [0.02, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP b'GET' request for ['127.0.0.1', 39384]
+HTTP b'GET' request for ['127.0.0.1', 39388]
+HTTP b'GET' request for ['127.0.0.1', 39404]
+HTTP b'GET' request for ['127.0.0.1', 39416]
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP 304 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[36mHTTP GET /static/js/983.744348bf.chunk.js 304 [0.01, 127.0.0.1:39382][0m
+HTTP 304 response started for ['127.0.0.1', 39384]
+HTTP close for ['127.0.0.1', 39384]
+HTTP response complete for ['127.0.0.1', 39384]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js 304 [0.01, 127.0.0.1:39384][0m
+HTTP 304 response started for ['127.0.0.1', 39388]
+HTTP close for ['127.0.0.1', 39388]
+HTTP response complete for ['127.0.0.1', 39388]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js 304 [0.01, 127.0.0.1:39388][0m
+HTTP 304 response started for ['127.0.0.1', 39404]
+HTTP close for ['127.0.0.1', 39404]
+HTTP response complete for ['127.0.0.1', 39404]
+[36mHTTP GET /static/js/653.9ed1852b.chunk.js 304 [0.01, 127.0.0.1:39404][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 304 response started for ['127.0.0.1', 39416]
+HTTP close for ['127.0.0.1', 39416]
+HTTP response complete for ['127.0.0.1', 39416]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css 304 [0.01, 127.0.0.1:39416][0m
+HTTP 304 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css 304 [0.01, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39440]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:39382][0m
+HTTP 200 response started for ['127.0.0.1', 39440]
+HTTP response chunk for ['127.0.0.1', 39440]
+HTTP close for ['127.0.0.1', 39440]
+HTTP response complete for ['127.0.0.1', 39440]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:39440][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 304 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[36mHTTP GET /static/js/149.ce21472b.chunk.js 304 [0.00, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP b'GET' request for ['127.0.0.1', 39416]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39424]
+HTTP 304 response started for ['127.0.0.1', 39416]
+HTTP close for ['127.0.0.1', 39416]
+HTTP response complete for ['127.0.0.1', 39416]
+[36mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 304 [0.01, 127.0.0.1:39416][0m
+HTTP response chunk for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /static/js/417.2f9876e6.chunk.js 200 [0.01, 127.0.0.1:39382][0m
+HTTP response chunk for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[mHTTP GET /static/js/134.e02209a5.chunk.js 200 [0.01, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39424]
+Internal Server Error: /manage/get_terms
+HTTP 500 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[35;1mHTTP GET /manage/get_terms 500 [0.02, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP 200 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[mHTTP GET / 200 [0.01, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP 200 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP 200 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[mHTTP GET /check_token_authenticity/ 200 [0.01, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP b'GET' request for ['127.0.0.1', 39416]
+HTTP 304 response started for ['127.0.0.1', 39416]
+HTTP close for ['127.0.0.1', 39416]
+HTTP response complete for ['127.0.0.1', 39416]
+[36mHTTP GET /static/js/934.2ee2937b.chunk.js 304 [0.00, 127.0.0.1:39416][0m
+HTTP 304 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[36mHTTP GET /static/js/426.056ac05f.chunk.js 304 [0.01, 127.0.0.1:39424][0m
+HTTP 304 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[36mHTTP GET /static/js/841.7606a9eb.chunk.js 304 [0.01, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.05, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP b'GET' request for ['127.0.0.1', 39416]
+HTTP b'GET' request for ['127.0.0.1', 39404]
+HTTP b'GET' request for ['127.0.0.1', 39388]
+HTTP b'GET' request for ['127.0.0.1', 39384]
+HTTP 304 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[36mHTTP GET /static/js/main.7a2e081d.js.map 304 [0.01, 127.0.0.1:39382][0m
+HTTP 304 response started for ['127.0.0.1', 39416]
+HTTP close for ['127.0.0.1', 39416]
+HTTP response complete for ['127.0.0.1', 39416]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js.map 304 [0.01, 127.0.0.1:39416][0m
+HTTP 304 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js.map 304 [0.01, 127.0.0.1:39424][0m
+HTTP 304 response started for ['127.0.0.1', 39404]
+HTTP close for ['127.0.0.1', 39404]
+HTTP response complete for ['127.0.0.1', 39404]
+[36mHTTP GET /static/js/983.744348bf.chunk.js.map 304 [0.01, 127.0.0.1:39404][0m
+HTTP 304 response started for ['127.0.0.1', 39384]
+HTTP close for ['127.0.0.1', 39384]
+HTTP response complete for ['127.0.0.1', 39384]
+[36mHTTP GET /static/js/653.9ed1852b.chunk.js.map 304 [0.02, 127.0.0.1:39384][0m
+HTTP 304 response started for ['127.0.0.1', 39388]
+HTTP close for ['127.0.0.1', 39388]
+HTTP response complete for ['127.0.0.1', 39388]
+[36mHTTP GET /static/js/149.ce21472b.chunk.js.map 304 [0.02, 127.0.0.1:39388][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP b'GET' request for ['127.0.0.1', 39416]
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP 304 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[36mHTTP GET /static/js/841.7606a9eb.chunk.js.map 304 [0.01, 127.0.0.1:39382][0m
+HTTP 304 response started for ['127.0.0.1', 39416]
+HTTP close for ['127.0.0.1', 39416]
+HTTP response complete for ['127.0.0.1', 39416]
+[36mHTTP GET /static/js/934.2ee2937b.chunk.js.map 304 [0.01, 127.0.0.1:39416][0m
+HTTP 304 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[36mHTTP GET /static/js/426.056ac05f.chunk.js.map 304 [0.01, 127.0.0.1:39424][0m
+HTTP b'GET' request for ['127.0.0.1', 39424]
+HTTP b'GET' request for ['127.0.0.1', 39416]
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 304 response started for ['127.0.0.1', 39424]
+HTTP close for ['127.0.0.1', 39424]
+HTTP response complete for ['127.0.0.1', 39424]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css.map 304 [0.01, 127.0.0.1:39424][0m
+HTTP 304 response started for ['127.0.0.1', 39416]
+HTTP close for ['127.0.0.1', 39416]
+HTTP response complete for ['127.0.0.1', 39416]
+[36mHTTP GET /static/css/main.dc9f2616.css.map 304 [0.01, 127.0.0.1:39416][0m
+HTTP 304 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css.map 304 [0.01, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET / 200 [0.01, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 39382]
+HTTP 200 response started for ['127.0.0.1', 39382]
+HTTP close for ['127.0.0.1', 39382]
+HTTP response complete for ['127.0.0.1', 39382]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.06, 127.0.0.1:39382][0m
+HTTP b'GET' request for ['127.0.0.1', 54064]
+HTTP 200 response started for ['127.0.0.1', 54064]
+HTTP close for ['127.0.0.1', 54064]
+HTTP response complete for ['127.0.0.1', 54064]
+[mHTTP GET / 200 [0.01, 127.0.0.1:54064][0m
+HTTP b'GET' request for ['127.0.0.1', 54064]
+HTTP 200 response started for ['127.0.0.1', 54064]
+HTTP close for ['127.0.0.1', 54064]
+HTTP response complete for ['127.0.0.1', 54064]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:54064][0m
+HTTP b'GET' request for ['127.0.0.1', 54064]
+HTTP 200 response started for ['127.0.0.1', 54064]
+HTTP close for ['127.0.0.1', 54064]
+HTTP response complete for ['127.0.0.1', 54064]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:54064][0m
+HTTP b'GET' request for ['127.0.0.1', 54064]
+HTTP 200 response started for ['127.0.0.1', 54064]
+HTTP close for ['127.0.0.1', 54064]
+HTTP response complete for ['127.0.0.1', 54064]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.06, 127.0.0.1:54064][0m
+HTTP b'GET' request for ['127.0.0.1', 49344]
+HTTP 200 response started for ['127.0.0.1', 49344]
+HTTP response chunk for ['127.0.0.1', 49344]
+HTTP close for ['127.0.0.1', 49344]
+HTTP response complete for ['127.0.0.1', 49344]
+[mHTTP GET /static/js/746.b41fedd6.chunk.js 200 [0.00, 127.0.0.1:49344][0m
+HTTP b'GET' request for ['127.0.0.1', 49344]
+HTTP b'GET' request for ['127.0.0.1', 49350]
+HTTP 304 response started for ['127.0.0.1', 49344]
+HTTP close for ['127.0.0.1', 49344]
+HTTP response complete for ['127.0.0.1', 49344]
+[36mHTTP GET /static/css/24.d767f4f9.chunk.css 304 [0.00, 127.0.0.1:49344][0m
+HTTP 304 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[36mHTTP GET /static/js/24.1f11f4de.chunk.js 304 [0.01, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+HTTP 304 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[36mHTTP GET /static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
+HTTP b'POST' request for ['127.0.0.1', 49350]
+HTTP 200 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[mHTTP POST /auth/api/login/ 200 [0.23, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+HTTP 200 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+HTTP 200 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+HTTP b'GET' request for ['127.0.0.1', 49344]
+HTTP 200 response started for ['127.0.0.1', 49344]
+HTTP 200 response started for ['127.0.0.1', 49350]
+HTTP response chunk for ['127.0.0.1', 49344]
+HTTP close for ['127.0.0.1', 49344]
+HTTP response complete for ['127.0.0.1', 49344]
+[mHTTP GET /static/js/551.76bb0bc6.chunk.js 200 [0.00, 127.0.0.1:49344][0m
+HTTP response chunk for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[mHTTP GET /static/js/426.056ac05f.chunk.js 200 [0.01, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+HTTP 200 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.04, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET / 200 [0.01, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.07, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET / 200 [0.01, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:59326][0m
+HTTP b'GET' request for ['127.0.0.1', 59326]
+HTTP 200 response started for ['127.0.0.1', 59326]
+HTTP close for ['127.0.0.1', 59326]
+HTTP response complete for ['127.0.0.1', 59326]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.05, 127.0.0.1:59326][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000

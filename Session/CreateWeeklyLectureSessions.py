@@ -16,7 +16,8 @@ def return_day_index(day):
     return day_mapping[day]
 
 def create_weekly_sessions():
-    today= datetime.now().date() - timedelta(days =5)
+    # today= datetime.now().date() - timedelta(days =5)
+    today= datetime.now().date()
     timetables = TimeTable.objects.all()
     for timetable in timetables:
         schedules = timetable.schedule_set.all()
