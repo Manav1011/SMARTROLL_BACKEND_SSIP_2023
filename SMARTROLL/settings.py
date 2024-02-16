@@ -37,7 +37,7 @@ timezone.localtime(timezone.now())
 SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CSRF_COOKIE_SECURE = False
@@ -159,7 +159,7 @@ CHANNEL_LAYERS = {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
             # Assuming Redis is running on localhost
-            'hosts': [('localhost', 6379)]            
+            'hosts': [(os.environ.get('REDIS_HOST'), 6379)]            
         },
     },
 }

@@ -21,6 +21,7 @@ ENV DB_USER=manav1011
 ENV DB_PASS=Manav@1011
 ENV DB_HOST=postgres
 ENV DB_PORT=5432
+ENV REDIS_HOST=redis
 
 # RUN chmod +x /app/run.sh
 
