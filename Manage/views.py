@@ -490,22 +490,15 @@ def add_lecture_to_schedule(request):
                     batches = Batch.objects.filter(slug__in=body['batches'])
                     lecture_obj.batches.add(*batches)
                     # Need to create lecture sessions for this particular lecture till the next sunday...after that the cronjob will take care of it
-                    today = datetime.datetime.now()
-                    days_until_saturday = (5 - today.weekday() + 7) % 7  # Calculate days until next Saturday
-                    next_saturday = today + datetime.timedelta(days=days_until_saturday)
-                    date_objects = [(next_saturday - datetime.timedelta(days=i)).date() for i in range(days_until_saturday + 1)]
+                    today = datetime.datetime.now().date()                    
                     if lecture_obj:
                             batches = lecture_obj.batches.all()
-                            for date in date_objects:
-                                try:
-                                    lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=date,active='pre')
-                                    if created:             
-                                        students = Student.objects.filter(batch__in=batches)
-                                        for student in students:
-                                            attendance_obj = Attendance.objects.create(student=student)
-                                            lecture_session.attendances.add(attendance_obj)                                
-                                except Exception as e:
-                                    pass
+                            lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=today,active='pre')
+                            if created:             
+                                students = Student.objects.filter(batch__in=batches)
+                                for student in students:
+                                    attendance_obj = Attendance.objects.create(student=student)
+                                    lecture_session.attendances.add(attendance_obj)
                     else:
                         raise Exception('Lecture does not exists')
                     lecture_obj_serialized = LectureSerializer(lecture_obj)
