@@ -31,6 +31,9 @@ class Attendance(models.Model):
     marking_ip = models.GenericIPAddressField(null=True,blank=True)
     # physically_present = models.BooleanField(default=False)
 
+    def __str__(self) -> str:
+        return self.student.profile.name if self.student.profile.name else self.id
+
 SESSION_STATUS = [
     ('pre','Pre'),
     ('ongoing','Ongoing'),

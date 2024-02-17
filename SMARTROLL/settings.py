@@ -37,8 +37,8 @@ timezone.localtime(timezone.now())
 SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-ALLOWED_HOSTS = ['*']
+DEBUG = bool(os.environ.get('DJANGO_DEBUG')) if bool(os.environ.get('DJANGO_DEBUG')) else True
+ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',    
     'corsheaders',
     'django_extensions',
+    'django_crontab',
     'drf_yasg',
     'Profile',
     'StakeHolders',    
@@ -76,6 +77,10 @@ REST_FRAMEWORK = {
     ),
 }
 
+
+CRONJOBS = [
+    ('0 12 * * 0', 'Session.cron.create_weekly_sessions')
+]
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
@@ -134,36 +139,46 @@ ASGI_APPLICATION = "SMARTROLL.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT')
-    }
-}
 
+
+if DEBUG:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('DB_NAME'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASS'),
+            'HOST': os.environ.get('DB_HOST'),
+            'PORT': os.environ.get('DB_PORT')
+        }
+    }
 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            # Assuming Redis is running on localhost
-            'hosts': [(os.environ.get('REDIS_HOST'), 6379)]            
-        },
-    },
-}
 
+if DEBUG:
+    CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+        }
+    }
+else:
+    CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+            'CONFIG': {
+                # Assuming Redis is running on localhost
+                'hosts': [(os.environ.get('REDIS_HOST'), 6379)]            
+            },
+        },
+    }
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -194,29 +209,29 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-LOGGING = {                                                                                                                 
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-       'file': {            
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(BASE_DIR, 'server.log'),
-            'backupCount': 10, # keep at most 10 log files
-            'maxBytes': 5242880, # 5*1024*1024 bytes (5MB)
+if not DEBUG:
+    LOGGING = {                                                                                                                 
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+        'file': {            
+                'class': 'logging.handlers.RotatingFileHandler',
+                'filename': os.path.join(BASE_DIR, 'server.log'),
+                'backupCount': 10, # keep at most 10 log files
+                'maxBytes': 5242880, # 5*1024*1024 bytes (5MB)
+            },
         },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
+        'loggers': {
+            'django': {
+                'handlers': ['file'],
+            },
+            'daphne': {
+                'handlers': ['file'],
+                'level': 'DEBUG',  # Set the desired logging level
+                'propagate': True,
+            },
         },
-        'daphne': {
-            'handlers': ['file'],
-            'level': 'DEBUG',  # Set the desired logging level
-            'propagate': True,
-        },
-    },
-}
+    }
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [

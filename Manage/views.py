@@ -92,6 +92,8 @@ def add_term(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_terms(request):
+    print(request.META)
+    # print(request.META['REMOTE_ADDR'])
     try:        
         data = {'data':None,'error':False,'message':None}
         body = request.query_params
@@ -610,7 +612,7 @@ def get_timetable_for_student(request):
                 batches = Batch.objects.filter(students=student_obj)
                 division = Division.objects.filter(batch__students=student_obj).first()
                 timetables = TimeTable.objects.filter(division=division)    
-                timetable_serialized = TimeTableSerializerForStudent(instance=timetables,batches=batches,many=True)
+                timetable_serialized = TimeTableSerializerForStudent(instance=timetables,student=student_obj,batches=batches,many=True)
                 data['data'] = timetable_serialized.data
                 return JsonResponse(data,status=200)
             else:

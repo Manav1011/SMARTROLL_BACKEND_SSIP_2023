@@ -793,7 +793,7 @@ HTTP response chunk for ['127.0.0.1', 37200]
 HTTP response chunk for ['127.0.0.1', 37200]
 HTTP close for ['127.0.0.1', 37200]
 HTTP response complete for ['127.0.0.1', 37200]
-[mHTTP GET /static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
+[mHTTP GET /static/static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
 HTTP b'POST' request for ['127.0.0.1', 37200]
 HTTP 200 response started for ['127.0.0.1', 37200]
 HTTP close for ['127.0.0.1', 37200]
@@ -1720,7 +1720,7 @@ HTTP b'GET' request for ['127.0.0.1', 49350]
 HTTP 304 response started for ['127.0.0.1', 49350]
 HTTP close for ['127.0.0.1', 49350]
 HTTP response complete for ['127.0.0.1', 49350]
-[36mHTTP GET /static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
+[36mHTTP GET /static/static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
 HTTP b'POST' request for ['127.0.0.1', 49350]
 HTTP 200 response started for ['127.0.0.1', 49350]
 HTTP close for ['127.0.0.1', 49350]
@@ -2364,3 +2364,1774 @@ HTTP 200 response started for ['127.0.0.1', 40040]
 HTTP close for ['127.0.0.1', 40040]
 HTTP response complete for ['127.0.0.1', 40040]
 [mHTTP GET /manage/get_timetable_for_teacher 200 [0.06, 127.0.0.1:40040][0m
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 57566]
+HTTP 200 response started for ['127.0.0.1', 57566]
+HTTP close for ['127.0.0.1', 57566]
+HTTP response complete for ['127.0.0.1', 57566]
+[mHTTP GET / 200 [0.06, 127.0.0.1:57566][0m
+HTTP b'GET' request for ['127.0.0.1', 57566]
+HTTP b'GET' request for ['127.0.0.1', 57582]
+HTTP 304 response started for ['127.0.0.1', 57566]
+HTTP close for ['127.0.0.1', 57566]
+HTTP response complete for ['127.0.0.1', 57566]
+[36mHTTP GET /static/js/main.7a2e081d.js 304 [0.01, 127.0.0.1:57566][0m
+HTTP 304 response started for ['127.0.0.1', 57582]
+HTTP close for ['127.0.0.1', 57582]
+HTTP response complete for ['127.0.0.1', 57582]
+[36mHTTP GET /static/css/main.dc9f2616.css 304 [0.02, 127.0.0.1:57582][0m
+HTTP b'GET' request for ['127.0.0.1', 57582]
+HTTP b'GET' request for ['127.0.0.1', 57566]
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 304 response started for ['127.0.0.1', 57582]
+HTTP close for ['127.0.0.1', 57582]
+HTTP response complete for ['127.0.0.1', 57582]
+[36mHTTP GET /static/js/983.744348bf.chunk.js 304 [0.01, 127.0.0.1:57582][0m
+HTTP 304 response started for ['127.0.0.1', 57566]
+HTTP close for ['127.0.0.1', 57566]
+HTTP response complete for ['127.0.0.1', 57566]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js 304 [0.02, 127.0.0.1:57566][0m
+HTTP 304 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js 304 [0.02, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP b'GET' request for ['127.0.0.1', 57566]
+HTTP b'GET' request for ['127.0.0.1', 57582]
+HTTP 304 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css 304 [0.01, 127.0.0.1:57590][0m
+HTTP 304 response started for ['127.0.0.1', 57566]
+HTTP close for ['127.0.0.1', 57566]
+HTTP response complete for ['127.0.0.1', 57566]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css 304 [0.01, 127.0.0.1:57566][0m
+HTTP 304 response started for ['127.0.0.1', 57582]
+HTTP close for ['127.0.0.1', 57582]
+HTTP response complete for ['127.0.0.1', 57582]
+[36mHTTP GET /static/js/653.9ed1852b.chunk.js 304 [0.01, 127.0.0.1:57582][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 304 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[36mHTTP GET /static/js/149.ce21472b.chunk.js 304 [0.01, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 304 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[36mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 304 [0.01, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP b'GET' request for ['127.0.0.1', 57582]
+HTTP 304 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[36mHTTP GET /static/css/338.17c92f06.chunk.css 304 [0.01, 127.0.0.1:57590][0m
+HTTP 304 response started for ['127.0.0.1', 57582]
+HTTP close for ['127.0.0.1', 57582]
+HTTP response complete for ['127.0.0.1', 57582]
+[36mHTTP GET /static/js/338.e2ff9b54.chunk.js 304 [0.01, 127.0.0.1:57582][0m
+HTTP b'GET' request for ['127.0.0.1', 57582]
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 200 response started for ['127.0.0.1', 57582]
+HTTP close for ['127.0.0.1', 57582]
+HTTP response complete for ['127.0.0.1', 57582]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:57582][0m
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET /manage/get_object_counts 200 [0.04, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57592]
+HTTP 304 response started for ['127.0.0.1', 57592]
+HTTP close for ['127.0.0.1', 57592]
+HTTP response complete for ['127.0.0.1', 57592]
+[36mHTTP GET /static/manifest.json 304 [0.01, 127.0.0.1:57592][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET / 200 [0.01, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 304 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[36mHTTP GET /static/favicon.ico 304 [0.01, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:57590][0m
+HTTP b'GET' request for ['127.0.0.1', 57590]
+HTTP b'GET' request for ['127.0.0.1', 57582]
+HTTP 200 response started for ['127.0.0.1', 57590]
+HTTP close for ['127.0.0.1', 57590]
+HTTP response complete for ['127.0.0.1', 57590]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:57590][0m
+HTTP 200 response started for ['127.0.0.1', 57582]
+HTTP close for ['127.0.0.1', 57582]
+HTTP response complete for ['127.0.0.1', 57582]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:57582][0m
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 35826]
+HTTP 200 response started for ['127.0.0.1', 35826]
+HTTP close for ['127.0.0.1', 35826]
+HTTP response complete for ['127.0.0.1', 35826]
+[mHTTP GET / 200 [0.03, 127.0.0.1:35826][0m
+HTTP b'GET' request for ['127.0.0.1', 35826]
+HTTP 200 response started for ['127.0.0.1', 35826]
+HTTP close for ['127.0.0.1', 35826]
+HTTP response complete for ['127.0.0.1', 35826]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:35826][0m
+HTTP b'GET' request for ['127.0.0.1', 35826]
+HTTP 200 response started for ['127.0.0.1', 35826]
+HTTP close for ['127.0.0.1', 35826]
+HTTP response complete for ['127.0.0.1', 35826]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:35826][0m
+HTTP b'GET' request for ['127.0.0.1', 35826]
+HTTP b'GET' request for ['127.0.0.1', 35828]
+HTTP 200 response started for ['127.0.0.1', 35826]
+HTTP close for ['127.0.0.1', 35826]
+HTTP response complete for ['127.0.0.1', 35826]
+[mHTTP GET /manage/get_terms 200 [0.07, 127.0.0.1:35826][0m
+HTTP 200 response started for ['127.0.0.1', 35828]
+HTTP close for ['127.0.0.1', 35828]
+HTTP response complete for ['127.0.0.1', 35828]
+[mHTTP GET /manage/get_object_counts 200 [0.07, 127.0.0.1:35828][0m
+HTTP b'GET' request for ['127.0.0.1', 35828]
+HTTP 200 response started for ['127.0.0.1', 35828]
+HTTP close for ['127.0.0.1', 35828]
+HTTP response complete for ['127.0.0.1', 35828]
+[mHTTP GET / 200 [0.01, 127.0.0.1:35828][0m
+HTTP b'GET' request for ['127.0.0.1', 35828]
+HTTP 200 response started for ['127.0.0.1', 35828]
+HTTP close for ['127.0.0.1', 35828]
+HTTP response complete for ['127.0.0.1', 35828]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:35828][0m
+HTTP b'GET' request for ['127.0.0.1', 35828]
+HTTP 200 response started for ['127.0.0.1', 35828]
+HTTP close for ['127.0.0.1', 35828]
+HTTP response complete for ['127.0.0.1', 35828]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:35828][0m
+HTTP b'GET' request for ['127.0.0.1', 35828]
+HTTP b'GET' request for ['127.0.0.1', 35826]
+HTTP 200 response started for ['127.0.0.1', 35828]
+HTTP close for ['127.0.0.1', 35828]
+HTTP response complete for ['127.0.0.1', 35828]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:35828][0m
+HTTP 200 response started for ['127.0.0.1', 35826]
+HTTP close for ['127.0.0.1', 35826]
+HTTP response complete for ['127.0.0.1', 35826]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:35826][0m
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET / 200 [0.03, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/css/main.dc9f2616.css 200 [0.03, 127.0.0.1:49346][0m
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/js/main.60dc0b29.js 200 [0.03, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP b'GET' request for ['127.0.0.1', 49358]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49358]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/js/983.744348bf.chunk.js 200 [0.02, 127.0.0.1:49336][0m
+HTTP response chunk for ['127.0.0.1', 49358]
+HTTP close for ['127.0.0.1', 49358]
+HTTP response complete for ['127.0.0.1', 49358]
+[mHTTP GET /static/js/846.cae6c070.chunk.js 200 [0.01, 127.0.0.1:49358][0m
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/js/294.fc4cf065.chunk.js 200 [0.02, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49358]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49358]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49358]
+HTTP close for ['127.0.0.1', 49358]
+HTTP response complete for ['127.0.0.1', 49358]
+[mHTTP GET /static/css/149.f970e96b.chunk.css 200 [0.01, 127.0.0.1:49358][0m
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/css/441.802d6e65.chunk.css 200 [0.01, 127.0.0.1:49346][0m
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/js/285.7f673c6a.chunk.js 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/js/149.85d64218.chunk.js 200 [0.00, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/css/338.17c92f06.chunk.css 200 [0.01, 127.0.0.1:49346][0m
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/js/338.95ce9472.chunk.js 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /manage/get_terms 200 [0.06, 127.0.0.1:49336][0m
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /manage/get_object_counts 200 [0.06, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49366]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49366]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49366]
+HTTP close for ['127.0.0.1', 49366]
+HTTP response complete for ['127.0.0.1', 49366]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:49366][0m
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.03, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET / 200 [0.01, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /check_token_authenticity/ 200 [0.01, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:49346][0m
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /manage/get_object_counts 200 [0.04, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET / 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /check_token_authenticity/ 200 [0.01, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:49336][0m
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /manage/get_object_counts 200 [0.04, 127.0.0.1:49346][0m
+HTTP b'GET' request for ['127.0.0.1', 49346]
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49358]
+HTTP b'GET' request for ['127.0.0.1', 45406]
+HTTP b'GET' request for ['127.0.0.1', 45418]
+HTTP b'GET' request for ['127.0.0.1', 45424]
+HTTP 200 response started for ['127.0.0.1', 49346]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49358]
+HTTP response chunk for ['127.0.0.1', 49358]
+HTTP response chunk for ['127.0.0.1', 49358]
+HTTP close for ['127.0.0.1', 49358]
+HTTP response complete for ['127.0.0.1', 49358]
+[mHTTP GET /static/js/149.85d64218.chunk.js.map 200 [0.02, 127.0.0.1:49358][0m
+HTTP 200 response started for ['127.0.0.1', 45424]
+HTTP 200 response started for ['127.0.0.1', 45418]
+HTTP 200 response started for ['127.0.0.1', 45406]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/js/983.744348bf.chunk.js.map 200 [0.03, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49358]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP response chunk for ['127.0.0.1', 49346]
+HTTP close for ['127.0.0.1', 49346]
+HTTP response complete for ['127.0.0.1', 49346]
+[mHTTP GET /static/js/main.60dc0b29.js.map 200 [0.05, 127.0.0.1:49346][0m
+HTTP response chunk for ['127.0.0.1', 45406]
+HTTP close for ['127.0.0.1', 45406]
+HTTP response complete for ['127.0.0.1', 45406]
+[mHTTP GET /static/js/846.cae6c070.chunk.js.map 200 [0.04, 127.0.0.1:45406][0m
+HTTP response chunk for ['127.0.0.1', 45424]
+HTTP response chunk for ['127.0.0.1', 45424]
+HTTP response chunk for ['127.0.0.1', 45424]
+HTTP close for ['127.0.0.1', 45424]
+HTTP response complete for ['127.0.0.1', 45424]
+[mHTTP GET /static/js/294.fc4cf065.chunk.js.map 200 [0.04, 127.0.0.1:45424][0m
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP response chunk for ['127.0.0.1', 45418]
+HTTP close for ['127.0.0.1', 45418]
+HTTP response complete for ['127.0.0.1', 45418]
+[mHTTP GET /static/js/285.7f673c6a.chunk.js.map 200 [0.04, 127.0.0.1:45418][0m
+HTTP 200 response started for ['127.0.0.1', 49358]
+HTTP response chunk for ['127.0.0.1', 49358]
+HTTP close for ['127.0.0.1', 49358]
+HTTP response complete for ['127.0.0.1', 49358]
+[mHTTP GET /static/js/338.95ce9472.chunk.js.map 200 [0.03, 127.0.0.1:49358][0m
+HTTP b'GET' request for ['127.0.0.1', 45406]
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 45424]
+HTTP b'GET' request for ['127.0.0.1', 49358]
+HTTP 200 response started for ['127.0.0.1', 45406]
+HTTP 200 response started for ['127.0.0.1', 45424]
+HTTP response chunk for ['127.0.0.1', 45406]
+HTTP close for ['127.0.0.1', 45406]
+HTTP response complete for ['127.0.0.1', 45406]
+[mHTTP GET /static/css/338.17c92f06.chunk.css.map 200 [0.02, 127.0.0.1:45406][0m
+HTTP response chunk for ['127.0.0.1', 45424]
+HTTP close for ['127.0.0.1', 45424]
+HTTP response complete for ['127.0.0.1', 45424]
+[mHTTP GET /static/css/441.802d6e65.chunk.css.map 200 [0.02, 127.0.0.1:45424][0m
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49358]
+HTTP response chunk for ['127.0.0.1', 49358]
+HTTP close for ['127.0.0.1', 49358]
+HTTP response complete for ['127.0.0.1', 49358]
+[mHTTP GET /static/css/149.f970e96b.chunk.css.map 200 [0.02, 127.0.0.1:49358][0m
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP response chunk for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /static/css/main.dc9f2616.css.map 200 [0.03, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.03, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /manage/get_divisions?semester_slug=549249_1707806427 200 [0.03, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP 200 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:49336][0m
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49772]
+HTTP b'GET' request for ['127.0.0.1', 49782]
+HTTP 304 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[36mHTTP GET /static/css/338.17c92f06.chunk.css.map 304 [0.01, 127.0.0.1:49336][0m
+HTTP 304 response started for ['127.0.0.1', 49772]
+HTTP close for ['127.0.0.1', 49772]
+HTTP response complete for ['127.0.0.1', 49772]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css.map 304 [0.01, 127.0.0.1:49772][0m
+HTTP b'GET' request for ['127.0.0.1', 49794]
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 304 response started for ['127.0.0.1', 49782]
+HTTP close for ['127.0.0.1', 49782]
+HTTP response complete for ['127.0.0.1', 49782]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css.map 304 [0.02, 127.0.0.1:49782][0m
+HTTP b'GET' request for ['127.0.0.1', 49800]
+HTTP b'GET' request for ['127.0.0.1', 49336]
+HTTP b'GET' request for ['127.0.0.1', 49772]
+HTTP b'GET' request for ['127.0.0.1', 49782]
+HTTP 304 response started for ['127.0.0.1', 49794]
+HTTP close for ['127.0.0.1', 49794]
+HTTP response complete for ['127.0.0.1', 49794]
+[36mHTTP GET /static/js/main.60dc0b29.js.map 304 [0.03, 127.0.0.1:49794][0m
+HTTP 304 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[36mHTTP GET /static/css/main.dc9f2616.css.map 304 [0.03, 127.0.0.1:49798][0m
+HTTP 304 response started for ['127.0.0.1', 49800]
+HTTP close for ['127.0.0.1', 49800]
+HTTP response complete for ['127.0.0.1', 49800]
+[36mHTTP GET /static/js/983.744348bf.chunk.js.map 304 [0.02, 127.0.0.1:49800][0m
+HTTP 304 response started for ['127.0.0.1', 49336]
+HTTP close for ['127.0.0.1', 49336]
+HTTP response complete for ['127.0.0.1', 49336]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js.map 304 [0.02, 127.0.0.1:49336][0m
+HTTP 304 response started for ['127.0.0.1', 49772]
+HTTP close for ['127.0.0.1', 49772]
+HTTP response complete for ['127.0.0.1', 49772]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js.map 304 [0.02, 127.0.0.1:49772][0m
+HTTP 304 response started for ['127.0.0.1', 49782]
+HTTP close for ['127.0.0.1', 49782]
+HTTP response complete for ['127.0.0.1', 49782]
+[36mHTTP GET /static/js/149.85d64218.chunk.js.map 304 [0.01, 127.0.0.1:49782][0m
+HTTP b'GET' request for ['127.0.0.1', 49794]
+HTTP 304 response started for ['127.0.0.1', 49794]
+HTTP close for ['127.0.0.1', 49794]
+HTTP response complete for ['127.0.0.1', 49794]
+[36mHTTP GET /static/js/285.7f673c6a.chunk.js.map 304 [0.01, 127.0.0.1:49794][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 304 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[36mHTTP GET /static/js/338.95ce9472.chunk.js.map 304 [0.00, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_divisions?semester_slug=549249_1707806427 200 [0.03, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.03, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP b'GET' request for ['127.0.0.1', 49794]
+HTTP 200 response started for ['127.0.0.1', 49794]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49794]
+HTTP close for ['127.0.0.1', 49794]
+HTTP response complete for ['127.0.0.1', 49794]
+[mHTTP GET /static/css/962.17c92f06.chunk.css 200 [0.01, 127.0.0.1:49794][0m
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /static/js/962.cac70087.chunk.js 200 [0.01, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_teacher 200 [0.03, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP b'GET' request for ['127.0.0.1', 49794]
+HTTP 200 response started for ['127.0.0.1', 49794]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49794]
+HTTP close for ['127.0.0.1', 49794]
+HTTP response complete for ['127.0.0.1', 49794]
+[mHTTP GET /static/js/134.e02209a5.chunk.js 200 [0.01, 127.0.0.1:49794][0m
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /static/js/417.09ea4dec.chunk.js 200 [0.01, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP b'GET' request for ['127.0.0.1', 49794]
+HTTP 304 response started for ['127.0.0.1', 49794]
+HTTP close for ['127.0.0.1', 49794]
+HTTP response complete for ['127.0.0.1', 49794]
+[36mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 304 [0.01, 127.0.0.1:49794][0m
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_terms 200 [0.03, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /static/js/681.7e3135d0.chunk.js 200 [0.01, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_terms 200 [0.02, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_teacher 200 [0.03, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_terms 200 [0.02, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_terms 200 [0.02, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /static/js/746.b41fedd6.chunk.js 200 [0.01, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP b'GET' request for ['127.0.0.1', 49794]
+HTTP 200 response started for ['127.0.0.1', 49794]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49794]
+HTTP close for ['127.0.0.1', 49794]
+HTTP response complete for ['127.0.0.1', 49794]
+[mHTTP GET /static/js/24.1f11f4de.chunk.js 200 [0.01, 127.0.0.1:49794][0m
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /static/css/24.d767f4f9.chunk.css 200 [0.01, 127.0.0.1:49798][0m
+HTTP b'GET' request for ['127.0.0.1', 49798]
+HTTP 200 response started for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP response chunk for ['127.0.0.1', 49798]
+HTTP close for ['127.0.0.1', 49798]
+HTTP response complete for ['127.0.0.1', 49798]
+[mHTTP GET /static/images/background2.jpg 200 [0.01, 127.0.0.1:49798][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 45504]
+HTTP 200 response started for ['127.0.0.1', 45504]
+HTTP close for ['127.0.0.1', 45504]
+HTTP response complete for ['127.0.0.1', 45504]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.00, 127.0.0.1:45504][0m
+HTTP b'GET' request for ['127.0.0.1', 45504]
+HTTP 200 response started for ['127.0.0.1', 45504]
+HTTP close for ['127.0.0.1', 45504]
+HTTP response complete for ['127.0.0.1', 45504]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:45504][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 45504]
+HTTP 200 response started for ['127.0.0.1', 45504]
+HTTP close for ['127.0.0.1', 45504]
+HTTP response complete for ['127.0.0.1', 45504]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.00, 127.0.0.1:45504][0m
+HTTP b'GET' request for ['127.0.0.1', 45504]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 45504]
+HTTP close for ['127.0.0.1', 45504]
+HTTP response complete for ['127.0.0.1', 45504]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.00, 127.0.0.1:45504][0m
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP 200 response started for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[mHTTP GET / 200 [0.01, 127.0.0.1:48696][0m
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP 304 response started for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[36mHTTP GET /static/js/main.60dc0b29.js 304 [0.01, 127.0.0.1:48696][0m
+HTTP 304 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[36mHTTP GET /static/css/main.dc9f2616.css 304 [0.01, 127.0.0.1:48712][0m
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[36mHTTP GET /static/js/983.744348bf.chunk.js 304 [0.02, 127.0.0.1:48712][0m
+HTTP 304 response started for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js 304 [0.01, 127.0.0.1:48696][0m
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js 304 [0.01, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css 304 [0.01, 127.0.0.1:48716][0m
+HTTP 304 response started for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css 304 [0.01, 127.0.0.1:48696][0m
+HTTP 304 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[36mHTTP GET /static/js/285.7f673c6a.chunk.js 304 [0.01, 127.0.0.1:48712][0m
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP 304 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[36mHTTP GET /static/js/149.85d64218.chunk.js 304 [0.01, 127.0.0.1:48712][0m
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP 200 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:48712][0m
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[36mHTTP GET /static/js/134.e02209a5.chunk.js 304 [0.01, 127.0.0.1:48712][0m
+HTTP 304 response started for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[36mHTTP GET /static/css/24.d767f4f9.chunk.css 304 [0.01, 127.0.0.1:48696][0m
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/js/24.1f11f4de.chunk.js 304 [0.01, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/images/background2.jpg 304 [0.00, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 304 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[36mHTTP GET /static/manifest.json 304 [0.00, 127.0.0.1:48732][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP b'GET' request for ['127.0.0.1', 48712]
+HTTP b'GET' request for ['127.0.0.1', 35948]
+HTTP b'GET' request for ['127.0.0.1', 35964]
+HTTP b'GET' request for ['127.0.0.1', 35972]
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/js/main.60dc0b29.js.map 304 [0.03, 127.0.0.1:48716][0m
+HTTP 304 response started for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[36mHTTP GET /static/js/846.cae6c070.chunk.js.map 304 [0.03, 127.0.0.1:48696][0m
+HTTP 304 response started for ['127.0.0.1', 48712]
+HTTP close for ['127.0.0.1', 48712]
+HTTP response complete for ['127.0.0.1', 48712]
+[36mHTTP GET /static/js/294.fc4cf065.chunk.js.map 304 [0.03, 127.0.0.1:48712][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 35948]
+HTTP close for ['127.0.0.1', 35948]
+HTTP response complete for ['127.0.0.1', 35948]
+[36mHTTP GET /static/js/983.744348bf.chunk.js.map 304 [0.03, 127.0.0.1:35948][0m
+HTTP 304 response started for ['127.0.0.1', 35972]
+HTTP close for ['127.0.0.1', 35972]
+HTTP response complete for ['127.0.0.1', 35972]
+[36mHTTP GET /static/js/149.85d64218.chunk.js.map 304 [0.03, 127.0.0.1:35972][0m
+HTTP 304 response started for ['127.0.0.1', 35964]
+HTTP close for ['127.0.0.1', 35964]
+HTTP response complete for ['127.0.0.1', 35964]
+[36mHTTP GET /static/js/285.7f673c6a.chunk.js.map 304 [0.04, 127.0.0.1:35964][0m
+HTTP b'GET' request for ['127.0.0.1', 48696]
+HTTP 200 response started for ['127.0.0.1', 48696]
+HTTP 200 response started for ['127.0.0.1', 48716]
+HTTP response chunk for ['127.0.0.1', 48696]
+HTTP response chunk for ['127.0.0.1', 48696]
+HTTP close for ['127.0.0.1', 48696]
+HTTP response complete for ['127.0.0.1', 48696]
+[mHTTP GET /static/js/134.e02209a5.chunk.js.map 200 [0.03, 127.0.0.1:48696][0m
+HTTP response chunk for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[mHTTP GET /static/js/24.1f11f4de.chunk.js.map 200 [0.05, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 35964]
+HTTP b'GET' request for ['127.0.0.1', 35972]
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP b'GET' request for ['127.0.0.1', 35948]
+HTTP 304 response started for ['127.0.0.1', 35964]
+HTTP close for ['127.0.0.1', 35964]
+HTTP response complete for ['127.0.0.1', 35964]
+[36mHTTP GET /static/css/149.f970e96b.chunk.css.map 304 [0.01, 127.0.0.1:35964][0m
+HTTP 304 response started for ['127.0.0.1', 35972]
+HTTP close for ['127.0.0.1', 35972]
+HTTP response complete for ['127.0.0.1', 35972]
+[36mHTTP GET /static/css/main.dc9f2616.css.map 304 [0.02, 127.0.0.1:35972][0m
+HTTP 200 response started for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 35948]
+HTTP close for ['127.0.0.1', 35948]
+HTTP response complete for ['127.0.0.1', 35948]
+[36mHTTP GET /static/css/441.802d6e65.chunk.css.map 304 [0.02, 127.0.0.1:35948][0m
+HTTP response chunk for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[mHTTP GET /static/css/24.d767f4f9.chunk.css.map 200 [0.02, 127.0.0.1:48716][0m
+HTTP b'POST' request for ['127.0.0.1', 48716]
+HTTP 200 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[mHTTP POST /auth/api/login/ 200 [0.57, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 200 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 200 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 304 [0.01, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP b'GET' request for ['127.0.0.1', 35948]
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/css/338.17c92f06.chunk.css 304 [0.01, 127.0.0.1:48716][0m
+HTTP 304 response started for ['127.0.0.1', 35948]
+HTTP close for ['127.0.0.1', 35948]
+HTTP response complete for ['127.0.0.1', 35948]
+[36mHTTP GET /static/js/338.95ce9472.chunk.js 304 [0.01, 127.0.0.1:35948][0m
+HTTP b'GET' request for ['127.0.0.1', 35948]
+HTTP b'GET' request for ['127.0.0.1', 48716]
+HTTP 304 response started for ['127.0.0.1', 35948]
+HTTP close for ['127.0.0.1', 35948]
+HTTP response complete for ['127.0.0.1', 35948]
+[36mHTTP GET /static/css/338.17c92f06.chunk.css.map 304 [0.01, 127.0.0.1:35948][0m
+HTTP 304 response started for ['127.0.0.1', 48716]
+HTTP close for ['127.0.0.1', 48716]
+HTTP response complete for ['127.0.0.1', 48716]
+[36mHTTP GET /static/js/338.95ce9472.chunk.js.map 304 [0.01, 127.0.0.1:48716][0m
+HTTP b'GET' request for ['127.0.0.1', 35972]
+HTTP b'GET' request for ['127.0.0.1', 35964]
+HTTP 200 response started for ['127.0.0.1', 35972]
+HTTP close for ['127.0.0.1', 35972]
+HTTP response complete for ['127.0.0.1', 35972]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:35972][0m
+HTTP 200 response started for ['127.0.0.1', 35964]
+HTTP close for ['127.0.0.1', 35964]
+HTTP response complete for ['127.0.0.1', 35964]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:35964][0m
+HTTP b'GET' request for ['127.0.0.1', 35964]
+HTTP 200 response started for ['127.0.0.1', 35964]
+HTTP close for ['127.0.0.1', 35964]
+HTTP response complete for ['127.0.0.1', 35964]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.03, 127.0.0.1:35964][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:48732][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP OPTIONS /auth/api/login/ 200 [0.01, 127.0.0.1:48732][0m
+HTTP b'POST' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP POST /auth/api/login/ 200 [0.56, 127.0.0.1:48732][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:48732][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /check_token_authenticity/ 200 [0.01, 127.0.0.1:48732][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48732]
+HTTP b'OPTIONS' request for ['127.0.0.1', 58084]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP OPTIONS /manage/get_terms 200 [0.02, 127.0.0.1:48732][0m
+HTTP 200 response started for ['127.0.0.1', 58084]
+HTTP close for ['127.0.0.1', 58084]
+HTTP response complete for ['127.0.0.1', 58084]
+[mHTTP OPTIONS /manage/get_object_counts 200 [0.02, 127.0.0.1:58084][0m
+HTTP b'GET' request for ['127.0.0.1', 58084]
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 58084]
+HTTP close for ['127.0.0.1', 58084]
+HTTP response complete for ['127.0.0.1', 58084]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:58084][0m
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:48732][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP OPTIONS /manage/get_semesters?term_slug=337714_1707803245 200 [0.01, 127.0.0.1:48732][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:48732][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:48732][0m
+HTTP b'GET' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:48732][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP OPTIONS /manage/add_semester/ 200 [0.01, 127.0.0.1:48732][0m
+HTTP b'POST' request for ['127.0.0.1', 48732]
+HTTP 200 response started for ['127.0.0.1', 48732]
+HTTP close for ['127.0.0.1', 48732]
+HTTP response complete for ['127.0.0.1', 48732]
+[mHTTP POST /manage/add_semester/ 200 [0.04, 127.0.0.1:48732][0m
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 41960]
+HTTP 200 response started for ['127.0.0.1', 41960]
+HTTP close for ['127.0.0.1', 41960]
+HTTP response complete for ['127.0.0.1', 41960]
+[mHTTP GET / 200 [0.03, 127.0.0.1:41960][0m
+HTTP b'GET' request for ['127.0.0.1', 41960]
+HTTP b'GET' request for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP close for ['127.0.0.1', 41976]
+HTTP response complete for ['127.0.0.1', 41976]
+[mHTTP GET /static/css/main.dc9f2616.css 200 [0.03, 127.0.0.1:41976][0m
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP close for ['127.0.0.1', 41960]
+HTTP response complete for ['127.0.0.1', 41960]
+[mHTTP GET /static/js/main.df7ce776.js 200 [0.03, 127.0.0.1:41960][0m
+HTTP b'GET' request for ['127.0.0.1', 41960]
+HTTP 200 response started for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP close for ['127.0.0.1', 41960]
+HTTP response complete for ['127.0.0.1', 41960]
+[mHTTP GET /static/css/main.dc9f2616.css.map 200 [0.01, 127.0.0.1:41960][0m
+HTTP b'GET' request for ['127.0.0.1', 41976]
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP b'GET' request for ['127.0.0.1', 42000]
+HTTP 200 response started for ['127.0.0.1', 41976]
+HTTP b'GET' request for ['127.0.0.1', 42006]
+HTTP b'GET' request for ['127.0.0.1', 42018]
+HTTP b'GET' request for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP close for ['127.0.0.1', 41976]
+HTTP response complete for ['127.0.0.1', 41976]
+[mHTTP GET /static/js/983.744348bf.chunk.js 200 [0.03, 127.0.0.1:41976][0m
+HTTP 200 response started for ['127.0.0.1', 42000]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 42000]
+HTTP close for ['127.0.0.1', 42000]
+HTTP response complete for ['127.0.0.1', 42000]
+[mHTTP GET /static/js/846.cae6c070.chunk.js 200 [0.03, 127.0.0.1:42000][0m
+HTTP 200 response started for ['127.0.0.1', 42006]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /static/js/294.fc4cf065.chunk.js 200 [0.04, 127.0.0.1:41992][0m
+HTTP 200 response started for ['127.0.0.1', 42018]
+HTTP b'GET' request for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 42006]
+HTTP close for ['127.0.0.1', 42006]
+HTTP response complete for ['127.0.0.1', 42006]
+[mHTTP GET /static/css/441.802d6e65.chunk.css 200 [0.04, 127.0.0.1:42006][0m
+HTTP b'GET' request for ['127.0.0.1', 42030]
+HTTP response chunk for ['127.0.0.1', 42018]
+HTTP close for ['127.0.0.1', 42018]
+HTTP response complete for ['127.0.0.1', 42018]
+[mHTTP GET /static/css/149.f970e96b.chunk.css 200 [0.04, 127.0.0.1:42018][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP close for ['127.0.0.1', 41960]
+HTTP response complete for ['127.0.0.1', 41960]
+[mHTTP GET /static/js/285.7f673c6a.chunk.js 200 [0.04, 127.0.0.1:41960][0m
+HTTP 200 response started for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP GET /static/manifest.json 200 [0.02, 127.0.0.1:42030][0m
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /static/js/149.85d64218.chunk.js 200 [0.02, 127.0.0.1:41992][0m
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP close for ['127.0.0.1', 41976]
+HTTP response complete for ['127.0.0.1', 41976]
+[mHTTP GET /static/js/main.df7ce776.js.map 200 [0.05, 127.0.0.1:41976][0m
+HTTP b'GET' request for ['127.0.0.1', 41976]
+HTTP b'GET' request for ['127.0.0.1', 41960]
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP b'GET' request for ['127.0.0.1', 42018]
+HTTP b'GET' request for ['127.0.0.1', 42006]
+HTTP 200 response started for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 41960]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 42018]
+HTTP response chunk for ['127.0.0.1', 41960]
+HTTP close for ['127.0.0.1', 41960]
+HTTP response complete for ['127.0.0.1', 41960]
+[mHTTP GET /static/js/846.cae6c070.chunk.js.map 200 [0.02, 127.0.0.1:41960][0m
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP close for ['127.0.0.1', 41976]
+HTTP response complete for ['127.0.0.1', 41976]
+[mHTTP GET /static/js/983.744348bf.chunk.js.map 200 [0.03, 127.0.0.1:41976][0m
+HTTP 200 response started for ['127.0.0.1', 42006]
+HTTP response chunk for ['127.0.0.1', 42018]
+HTTP close for ['127.0.0.1', 42018]
+HTTP response complete for ['127.0.0.1', 42018]
+[mHTTP GET /static/css/441.802d6e65.chunk.css.map 200 [0.02, 127.0.0.1:42018][0m
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /static/js/294.fc4cf065.chunk.js.map 200 [0.03, 127.0.0.1:41992][0m
+HTTP response chunk for ['127.0.0.1', 42006]
+HTTP close for ['127.0.0.1', 42006]
+HTTP response complete for ['127.0.0.1', 42006]
+[mHTTP GET /static/css/149.f970e96b.chunk.css.map 200 [0.03, 127.0.0.1:42006][0m
+HTTP b'GET' request for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP close for ['127.0.0.1', 41976]
+HTTP response complete for ['127.0.0.1', 41976]
+[mHTTP GET /static/js/149.85d64218.chunk.js.map 200 [0.01, 127.0.0.1:41976][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:41992][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /static/js/285.7f673c6a.chunk.js.map 200 [0.01, 127.0.0.1:41992][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:41992][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP b'GET' request for ['127.0.0.1', 41976]
+HTTP b'GET' request for ['127.0.0.1', 42006]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 41976]
+HTTP 200 response started for ['127.0.0.1', 42006]
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /static/js/338.b4389108.chunk.js 200 [0.02, 127.0.0.1:41992][0m
+HTTP response chunk for ['127.0.0.1', 41976]
+HTTP close for ['127.0.0.1', 41976]
+HTTP response complete for ['127.0.0.1', 41976]
+[mHTTP GET /static/css/338.17c92f06.chunk.css 200 [0.02, 127.0.0.1:41976][0m
+HTTP response chunk for ['127.0.0.1', 42006]
+HTTP response chunk for ['127.0.0.1', 42006]
+HTTP close for ['127.0.0.1', 42006]
+HTTP response complete for ['127.0.0.1', 42006]
+[mHTTP GET /static/media/smartroll_logo.a3c3e21d0b4a56919e74.png 200 [0.02, 127.0.0.1:42006][0m
+HTTP b'GET' request for ['127.0.0.1', 42006]
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 42006]
+HTTP close for ['127.0.0.1', 42006]
+HTTP response complete for ['127.0.0.1', 42006]
+[mHTTP GET /manage/get_terms 200 [0.08, 127.0.0.1:42006][0m
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /manage/get_object_counts 200 [0.09, 127.0.0.1:41992][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP b'GET' request for ['127.0.0.1', 42006]
+HTTP 200 response started for ['127.0.0.1', 42006]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP response chunk for ['127.0.0.1', 42006]
+HTTP close for ['127.0.0.1', 42006]
+HTTP response complete for ['127.0.0.1', 42006]
+[mHTTP GET /static/css/338.17c92f06.chunk.css.map 200 [0.01, 127.0.0.1:42006][0m
+HTTP response chunk for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /static/js/338.b4389108.chunk.js.map 200 [0.02, 127.0.0.1:41992][0m
+HTTP b'GET' request for ['127.0.0.1', 41992]
+HTTP 200 response started for ['127.0.0.1', 41992]
+HTTP close for ['127.0.0.1', 41992]
+HTTP response complete for ['127.0.0.1', 41992]
+[mHTTP GET /manage/get_semesters?term_slug=337714_1707803245 200 [0.02, 127.0.0.1:41992][0m
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 39510]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 39510]
+HTTP close for ['127.0.0.1', 39510]
+HTTP response complete for ['127.0.0.1', 39510]
+[31;1mHTTP GET / 400 [0.01, 127.0.0.1:39510][0m
+HTTP b'GET' request for ['127.0.0.1', 39510]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 39510]
+HTTP close for ['127.0.0.1', 39510]
+HTTP response complete for ['127.0.0.1', 39510]
+[31;1mHTTP GET / 400 [0.00, 127.0.0.1:39510][0m
+HTTP b'GET' request for ['127.0.0.1', 39510]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 39510]
+HTTP close for ['127.0.0.1', 39510]
+HTTP response complete for ['127.0.0.1', 39510]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:39510][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 41250]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 41250]
+HTTP close for ['127.0.0.1', 41250]
+HTTP response complete for ['127.0.0.1', 41250]
+[31;1mHTTP GET / 400 [0.01, 127.0.0.1:41250][0m
+HTTP b'GET' request for ['127.0.0.1', 41250]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 41250]
+HTTP close for ['127.0.0.1', 41250]
+HTTP response complete for ['127.0.0.1', 41250]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:41250][0m
+HTTP b'GET' request for ['127.0.0.1', 41250]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 41250]
+HTTP close for ['127.0.0.1', 41250]
+HTTP response complete for ['127.0.0.1', 41250]
+[31;1mHTTP GET / 400 [0.00, 127.0.0.1:41250][0m
+HTTP b'GET' request for ['127.0.0.1', 41250]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 41250]
+HTTP close for ['127.0.0.1', 41250]
+HTTP response complete for ['127.0.0.1', 41250]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:41250][0m
+HTTP b'GET' request for ['127.0.0.1', 41250]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 41250]
+HTTP close for ['127.0.0.1', 41250]
+HTTP response complete for ['127.0.0.1', 41250]
+[31;1mHTTP GET / 400 [0.00, 127.0.0.1:41250][0m
+HTTP b'GET' request for ['127.0.0.1', 41250]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 41250]
+HTTP close for ['127.0.0.1', 41250]
+HTTP response complete for ['127.0.0.1', 41250]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:41250][0m
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 38460]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 38460]
+HTTP close for ['127.0.0.1', 38460]
+HTTP response complete for ['127.0.0.1', 38460]
+[31;1mHTTP GET / 400 [0.01, 127.0.0.1:38460][0m
+HTTP b'GET' request for ['127.0.0.1', 38460]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 38460]
+HTTP close for ['127.0.0.1', 38460]
+HTTP response complete for ['127.0.0.1', 38460]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:38460][0m
+HTTP b'GET' request for ['127.0.0.1', 38460]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 38460]
+HTTP close for ['127.0.0.1', 38460]
+HTTP response complete for ['127.0.0.1', 38460]
+[31;1mHTTP GET / 400 [0.00, 127.0.0.1:38460][0m
+HTTP b'GET' request for ['127.0.0.1', 38460]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 38460]
+HTTP close for ['127.0.0.1', 38460]
+HTTP response complete for ['127.0.0.1', 38460]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:38460][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 49350]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[31;1mHTTP GET / 400 [0.01, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[31;1mHTTP GET / 400 [0.00, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /
+HTTP 400 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[31;1mHTTP GET / 400 [0.00, 127.0.0.1:49350][0m
+HTTP b'GET' request for ['127.0.0.1', 49350]
+Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 534, in thread_handler
+    raise exc_info[1]
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/utils/deprecation.py", line 146, in __acall__
+    response = await sync_to_async(
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 479, in __call__
+    ret: _R = await loop.run_in_executor(
+  File "/usr/lib/python3.10/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/asgiref/sync.py", line 538, in thread_handler
+    return func(*args, **kwargs)
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/middleware/security.py", line 28, in process_request
+    host = self.redirect_host or request.get_host()
+  File "/home/manav1011/Documents/SMARTROLL_SSIP_2023/venv/lib/python3.10/site-packages/django/http/request.py", line 150, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000'. You may need to add 'localhost' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+HTTP 400 response started for ['127.0.0.1', 49350]
+HTTP close for ['127.0.0.1', 49350]
+HTTP response complete for ['127.0.0.1', 49350]
+[31;1mHTTP GET /favicon.ico 400 [0.00, 127.0.0.1:49350][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.

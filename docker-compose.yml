@@ -11,6 +11,19 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    command: >
+      bash -c "
+        python manage.py makemigrations &&
+        python manage.py migrate &&
+        python manage.py flush --noinput &&
+        python manage.py loaddata datadump.json &&
+        python manage.py collectstatic --noinput &&
+        python manage.py crontab remove &&
+        python manage.py crontab remove &&
+        python manage.py crontab add && 
+        python manage.py crontab show && 
+        daphne -b 0.0.0.0 -p 8000 SMARTROLL.asgi:application
+      "
 
   postgres:
     image: postgres:latest

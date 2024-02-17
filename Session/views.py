@@ -5,6 +5,7 @@ from .serializers import SessionSerializer,AttendanceSerializer,SessionSerialize
 from .models import Session,Attendance
 from Manage.models import Lecture
 from django.utils import timezone
+import ipaddress
 from StakeHolders.models import Student,Teacher
 import os
 import datetime
@@ -25,8 +26,8 @@ def create_lecture_session(request):
                     lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
                     if lecture_obj:
                         batches = lecture_obj.batches.all()
-                        current_time = timezone.localtime().time()
-                        if current_time >= lecture_obj.start_time and current_time <= lecture_obj.end_time:                            
+                        current_time = timezone.localtime().time()                        
+                        if current_time >= lecture_obj.start_time and current_time <= lecture_obj.end_time:
                             lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=datetime.datetime.today().date())
                             if created:           
                                 students = Student.objects.filter(batch__in=batches)
@@ -71,20 +72,20 @@ def authenticate_ip(ip,network_part):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def mark_attendance_for_student(request):
-    data = {'data':None,'error':False,'message':None}
+    data = {'data':None,'error':False,'message':None,"code":None}
     try:
-        if request.user.role == 'student':
-            # if authenticate_ip(request.META['REMOTE_ADDR'],2):
-                student_obj = Student.objects.filter(profile=request.user).first()
-                if student_obj:
-                    body = request.data
-                    if 'lecture_slug' in body:
-                        lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
-                        if lecture_obj:
+        if request.user.role == 'student':            
+            student_obj = Student.objects.filter(profile=request.user).first()
+            if student_obj:
+                body = request.data
+                if 'lecture_slug' in body:
+                    lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
+                    if lecture_obj:                                                
+                        if ipaddress.IPv4Address(request.META['REMOTE_ADDR']) in ipaddress.IPv4Network(f'{lecture_obj.classroom.router.network_add}/{lecture_obj.classroom.router.CIDR}'):                            
                             session_obj = Session.objects.filter(lecture=lecture_obj).first()
                             if session_obj:
                                 if session_obj.active == 'ongoing':
-                                    attendance_obj = session_obj.attendances.filter(student=student_obj).first()                                
+                                    attendance_obj = session_obj.attendances.filter(student=student_obj).first()
                                     if attendance_obj:
                                         if not attendance_obj.is_present:
                                             attendance_obj.is_present = True
@@ -95,25 +96,28 @@ def mark_attendance_for_student(request):
                                             attendance_serialized = AttendanceSerializer(attendance_obj)
                                             async_to_sync(channel_layer.group_send)(channel_name, {"type": "attendance.marked",'message':attendance_serialized.data})
                                             data['data'] = True
+                                            data['code'] = 100
                                             return Response(data,status=200)
                                         else:
+                                            data['code'] = 100                                                                            
                                             raise Exception("Your attendance has already been marked")
                                     else:
                                             raise Exception("You're not part of this attendance session :\\")
                                 elif session_obj.active == 'post':
+                                    data['code'] = 100
                                     raise Exception('Attendance session has been ended!!')
                                 else:
                                     raise Exception('Attendance session has not been started yet!!')
                             else:
                                 raise Exception('Session does not exist')
                         else:
-                            raise Exception('Lecture does not exists')
+                            raise Exception(f'Please connect to {lecture_obj.classroom.router.hostname}...then try again!!')
                     else:
-                        raise Exception('Parameters missing')
+                        raise Exception('Lecture does not exists')
                 else:
-                    raise Exception('Student does not exists')
-            # else:
-            #     raise Exception("Please connect to LDCE's network")
+                    raise Exception('Parameters missing')
+            else:
+                raise Exception('Student does not exists')            
         else:
             raise Exception("You're not allowed to perform this action")
     except Exception as e:

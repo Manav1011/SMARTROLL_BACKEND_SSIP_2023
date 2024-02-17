@@ -135,7 +135,9 @@ class TimeTable(models.Model):
 
     
 class Router(models.Model):
-    network_add = models.GenericIPAddressField()
+    hostname = models.CharField(max_length=20,null=True,blank=True)
+    network_add = models.GenericIPAddressField(null=True,blank=True)
+    CIDR = models.PositiveIntegerField(null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
     
     def save(self, *args, **kwargs):
@@ -148,7 +150,7 @@ class Router(models.Model):
 
 class Classroom(models.Model):
     class_name = models.CharField(max_length = 20)
-    routers = models.ForeignKey(Router,on_delete=models.DO_NOTHING)
+    router = models.ForeignKey(Router,on_delete=models.DO_NOTHING)
     slug = models.SlugField(unique=True,null=True,blank=True)
     branch = models.ForeignKey(Branch,null=True,blank=True,on_delete=models.CASCADE)
 

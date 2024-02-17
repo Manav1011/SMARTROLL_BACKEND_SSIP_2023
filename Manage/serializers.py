@@ -1,7 +1,7 @@
 from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom,Term
 from datetime import datetime
 from rest_framework import serializers
-from Session.models import Session
+from Session.models import Session,Attendance
 
 class CollegeSerializer(serializers.ModelSerializer):
     class Meta:
@@ -83,13 +83,14 @@ class ScheduleSerializerForStudent(serializers.ModelSerializer):
         model = Schedule
         fields = ['day','slug','lectures']
     
-    def __init__(self, batches=None, *args, **kwargs):
+    def __init__(self, batches=None,student=None,*args, **kwargs):
         super(ScheduleSerializerForStudent, self).__init__(*args, **kwargs)
         self.batches = batches
+        self.student = student
     
     def get_lectures(self,obj):        
         lectures = obj.lecture_set.filter(batches__in=self.batches)
-        lectures_serialized = LectureSerializer(lectures,many=True)
+        lectures_serialized = LectureSerializerForStudent(instance=lectures,student=self.student,many=True)
         return lectures_serialized.data        
 
 
@@ -101,8 +102,9 @@ class TimeTableSerializerForStudent(serializers.ModelSerializer):
         model = TimeTable
         fields = ['slug','division','schedules']
     
-    def __init__(self, batches, *args, **kwargs):
+    def __init__(self, batches,student=None,*args, **kwargs):
         super(TimeTableSerializerForStudent, self).__init__(*args, **kwargs)
+        self.student = student
         self.batches = batches
 
     def get_schedules(self,obj):
@@ -110,7 +112,7 @@ class TimeTableSerializerForStudent(serializers.ModelSerializer):
         current_day_name = current_datetime.strftime('%A')
         schedules = obj.schedule_set.filter(day=current_day_name.lower())
         # schedules = obj.schedule_set.filter(day='saturday')
-        schedules_serialized = ScheduleSerializerForStudent(instance=schedules,many=True,batches=self.batches)
+        schedules_serialized = ScheduleSerializerForStudent(instance=schedules,student=self.student,many=True,batches=self.batches)
         return schedules_serialized.data    
     
 class TimeTableSerializerForTeacher(serializers.ModelSerializer):
@@ -137,6 +139,26 @@ class SessionSerializerForLecture(serializers.ModelSerializer):
     class Meta:
         model = Session
         fields = ['session_id','active','day','created_at']
+
+class AttendanceSerializerStudentTimeTable(serializers.ModelSerializer):        
+    class Meta:
+        model = Attendance
+        fields = ['is_present','marking_time','marking_ip']
+
+class SessionSerializerForLectureForStudent(serializers.ModelSerializer):
+    attendances = serializers.SerializerMethodField()
+    class Meta:
+        model = Session
+        fields = ['session_id','active','day','created_at','attendances']
+    
+    def __init__(self,student=None,*args, **kwargs):
+        super(SessionSerializerForLectureForStudent, self).__init__(*args, **kwargs)
+        self.student = student
+
+    def get_attendances(self,obj):                
+        attendance_obj = obj.attendances.filter(student=self.student).first()        
+        attendance_obj_serialized = AttendanceSerializerStudentTimeTable(instance=attendance_obj)
+        return attendance_obj_serialized.data
 
 class LectureSerializerForHistory(serializers.ModelSerializer):
     session = serializers.SerializerMethodField()
@@ -172,6 +194,30 @@ class LectureSerializer(serializers.ModelSerializer):
         today= datetime.now().date()
         session_obj = obj.session_set.filter(day=today).first()
         session_serialized = SessionSerializerForLecture(session_obj)
+        return session_serialized.data
+
+class LectureSerializerForStudent(serializers.ModelSerializer):
+    session = serializers.SerializerMethodField()
+    subject = SubjectSerializer()
+    teacher = serializers.SerializerMethodField()
+    classroom = ClassRoomSerializer()
+    batches = BatchSerializer(many=True)
+
+    class Meta:
+        model = Lecture
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session']
+    
+    def __init__(self,student=None,*args, **kwargs):
+        super(LectureSerializerForStudent, self).__init__(*args, **kwargs)
+        self.student = student
+
+    def get_teacher(self,obj):
+        return obj.teacher.profile.name
+
+    def get_session(self,obj):
+        today= datetime.now().date()
+        session_obj = obj.session_set.filter(day=today).first()
+        session_serialized = SessionSerializerForLectureForStudent(instance=session_obj,student=self.student)
         return session_serialized.data
 
 
