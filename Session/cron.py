@@ -6,7 +6,7 @@ from StakeHolders.models import Student
 import os
 
 def return_day_index(day):
-    day_mapping = {
+    day_mapping = {        
         'monday': 1,
         'tuesday': 2,
         'wednesday': 3,

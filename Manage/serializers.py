@@ -128,7 +128,7 @@ class TimeTableSerializerForTeacher(serializers.ModelSerializer):
         self.teacher = teacher
 
     def get_schedules(self,obj):
-        current_datetime = datetime.now()
+        current_datetime = datetime.now()        
         current_day_name = current_datetime.strftime('%A')
         schedules = obj.schedule_set.filter(day=current_day_name.lower())
         # schedules = obj.schedule_set.filter(day='saturday')

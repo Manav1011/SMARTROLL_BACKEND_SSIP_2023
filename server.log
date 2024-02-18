@@ -793,7 +793,7 @@ HTTP response chunk for ['127.0.0.1', 37200]
 HTTP response chunk for ['127.0.0.1', 37200]
 HTTP close for ['127.0.0.1', 37200]
 HTTP response complete for ['127.0.0.1', 37200]
-[mHTTP GET /static/static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
+[mHTTP GET /static/static/static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
 HTTP b'POST' request for ['127.0.0.1', 37200]
 HTTP 200 response started for ['127.0.0.1', 37200]
 HTTP close for ['127.0.0.1', 37200]
@@ -1720,7 +1720,7 @@ HTTP b'GET' request for ['127.0.0.1', 49350]
 HTTP 304 response started for ['127.0.0.1', 49350]
 HTTP close for ['127.0.0.1', 49350]
 HTTP response complete for ['127.0.0.1', 49350]
-[36mHTTP GET /static/static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
+[36mHTTP GET /static/static/static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
 HTTP b'POST' request for ['127.0.0.1', 49350]
 HTTP 200 response started for ['127.0.0.1', 49350]
 HTTP close for ['127.0.0.1', 49350]
@@ -3055,7 +3055,7 @@ HTTP response chunk for ['127.0.0.1', 49798]
 HTTP response chunk for ['127.0.0.1', 49798]
 HTTP close for ['127.0.0.1', 49798]
 HTTP response complete for ['127.0.0.1', 49798]
-[mHTTP GET /static/images/background2.jpg 200 [0.01, 127.0.0.1:49798][0m
+[mHTTP GET /static/static/images/background2.jpg 200 [0.01, 127.0.0.1:49798][0m
 HTTP b'OPTIONS' request for ['127.0.0.1', 45504]
 HTTP 200 response started for ['127.0.0.1', 45504]
 HTTP close for ['127.0.0.1', 45504]
@@ -3151,7 +3151,7 @@ HTTP b'GET' request for ['127.0.0.1', 48716]
 HTTP 304 response started for ['127.0.0.1', 48716]
 HTTP close for ['127.0.0.1', 48716]
 HTTP response complete for ['127.0.0.1', 48716]
-[36mHTTP GET /static/images/background2.jpg 304 [0.00, 127.0.0.1:48716][0m
+[36mHTTP GET /static/static/images/background2.jpg 304 [0.00, 127.0.0.1:48716][0m
 HTTP b'GET' request for ['127.0.0.1', 48732]
 HTTP 304 response started for ['127.0.0.1', 48732]
 HTTP close for ['127.0.0.1', 48732]
@@ -4135,3 +4135,4 @@ HTTP/2 support enabled
 Configuring endpoint tcp:port=8000:interface=0.0.0.0
 Listening on TCP address 0.0.0.0:8000
 /home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader

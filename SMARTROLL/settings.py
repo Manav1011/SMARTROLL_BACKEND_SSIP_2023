@@ -37,12 +37,12 @@ timezone.localtime(timezone.now())
 SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG')) if bool(os.environ.get('DJANGO_DEBUG')) else True
-ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost']
+DEBUG = False
+ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost','smartroll.ldce.mnv-dev.live']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-# CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://8be7-14-139-110-146.ngrok-free.app"]
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://smartroll.ldce.mnv-dev.live"]
 
 
 # Application definition
@@ -199,8 +199,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
 
 USE_I18N = True
 

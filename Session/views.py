@@ -25,8 +25,8 @@ def create_lecture_session(request):
                 if 'lecture_slug' in body:
                     lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
                     if lecture_obj:
-                        batches = lecture_obj.batches.all()
-                        current_time = timezone.localtime().time()                        
+                        batches = lecture_obj.batches.all()                        
+                        current_time = datetime.datetime.now().time()
                         if current_time >= lecture_obj.start_time and current_time <= lecture_obj.end_time:
                             lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=datetime.datetime.today().date())
                             if created:           

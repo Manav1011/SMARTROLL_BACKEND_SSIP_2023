@@ -91,9 +91,8 @@ def add_term(request):
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_terms(request):
-    print(request.META)
-    # print(request.META['REMOTE_ADDR'])
+def get_terms(request):    
+    print(request.META['REMOTE_ADDR'])
     try:        
         data = {'data':None,'error':False,'message':None}
         body = request.query_params
