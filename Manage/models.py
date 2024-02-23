@@ -191,6 +191,7 @@ class Lecture(models.Model):
     batches = models.ManyToManyField(Batch, blank=True)
     schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING, null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
+    is_proxy = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -199,3 +200,13 @@ class Lecture(models.Model):
     
     def __str__(self) -> str:
         return f"{self.type} - {self.subject.subject_name}"
+    
+class Link(models.Model):
+    from_lecture = models.ForeignKey(Lecture, null=True, blank=True, on_delete=models.CASCADE, related_name='from_links')
+    to_lecture = models.ForeignKey(Lecture, null=True, blank=True, on_delete=models.CASCADE, related_name='to_links')
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()
+        super(Link, self).save(*args, **kwargs)      

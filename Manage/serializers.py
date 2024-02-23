@@ -27,16 +27,17 @@ class BatchSerializer(serializers.ModelSerializer):
         model = Batch
         fields = ['slug','batch_name','division']
 
-
-class SubjectSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Subject
-        fields = ['slug', 'subject_name', 'code', 'credit']
-        
 class SemesterSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Semester
         fields = ['slug','no','status']
+
+class SubjectSerializer(serializers.ModelSerializer):
+    semester = SemesterSerializer()
+    class Meta:
+        model = Subject
+        fields = ['slug', 'subject_name', 'code', 'credit','semester']
+    
 
 class DivisionSerializerForTeacher(serializers.ModelSerializer):
     semester = SemesterSerializer()

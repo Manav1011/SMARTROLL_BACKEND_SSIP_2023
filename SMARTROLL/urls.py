@@ -19,7 +19,7 @@ from django.urls import path,include,re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-from .views import check_server_avaibility,check_token_authenticity,handle404
+from .views import check_server_avaibility,check_token_authenticity,handle404,TeacherActivation
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -42,6 +42,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     # path('', TemplateView.as_view(template_name='index.html'), name='home'),
     # path('__debug__/', include('debug_toolbar.urls')),
+    path('teacher_activation/<str:slug>',TeacherActivation),
     path('',TemplateView.as_view(template_name='index.html')),
     path('smartroll@admin.private/', admin.site.urls),
     path('check_server_avaibility/', check_server_avaibility,name='check_server_avaibility'),

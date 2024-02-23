@@ -4136,3 +4136,22 @@ Configuring endpoint tcp:port=8000:interface=0.0.0.0
 Listening on TCP address 0.0.0.0:8000
 /home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
 Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Session/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Session/views.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001

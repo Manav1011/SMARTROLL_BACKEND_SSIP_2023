@@ -1,10 +1,11 @@
 from django.urls import path,include
-from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher
+from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount
 urlpatterns = [        
     path('get_object_counts',get_object_counts,name='get_object_counts'),    
     path('add_term/',add_term,name='add_term'),
     path('get_terms',get_terms,name='get_terms'),
     path('add_semester/',add_semester,name='add_semester'),
+    path('activate_teacher_acount/',activate_teacher_acount,name='activate_teacher_acount'),
     path('get_semesters',get_semesters,name='get_semesters'),
     path('add_division/',add_division,name='add_division'),
     path('get_subject',get_subjects,name='get_subjects'),

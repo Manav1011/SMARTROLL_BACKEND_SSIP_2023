@@ -37,12 +37,12 @@ timezone.localtime(timezone.now())
 SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost','smartroll.ldce.mnv-dev.live']
+DEBUG = True
+ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost','smartroll.ldce.mnv-dev.live','192.168.17.106','ea5b-2405-201-2024-b862-a240-d7c6-e920-c012.ngrok-free.app']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","https://smartroll.ldce.mnv-dev.live"]
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","http://localhost:8000"]
 
 
 # Application definition
@@ -242,6 +242,12 @@ INTERNAL_IPS = [
     '192.168.180.106'       
 ]
 MEDIA_URL = '/media/'
+EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS=True
+EMAIL_PORT=587
+EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD')
 
 # Path where media is stored'
 MEDIA_ROOT = BASE_DIR / 'media'

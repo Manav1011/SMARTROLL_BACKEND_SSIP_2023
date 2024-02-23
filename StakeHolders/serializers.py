@@ -7,7 +7,7 @@ from Profile.models import Profile
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['name','email','ph_no','role']
+        fields = ['name','email','role']
 
 
 class AdminSerializer(serializers.ModelSerializer):

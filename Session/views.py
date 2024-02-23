@@ -80,8 +80,9 @@ def mark_attendance_for_student(request):
                 body = request.data
                 if 'lecture_slug' in body:
                     lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
-                    if lecture_obj:                                                
-                        if ipaddress.IPv4Address(request.META['REMOTE_ADDR']) in ipaddress.IPv4Network(f'{lecture_obj.classroom.router.network_add}/{lecture_obj.classroom.router.CIDR}'):                            
+                    if lecture_obj:                
+                            print(request.META['REMOTE_ADDR'])
+                        # if ipaddress.IPv4Address(request.META['REMOTE_ADDR']) in ipaddress.IPv4Network(f'{lecture_obj.classroom.router.network_add}/{lecture_obj.classroom.router.CIDR}'):                            
                             session_obj = Session.objects.filter(lecture=lecture_obj).first()
                             if session_obj:
                                 if session_obj.active == 'ongoing':
@@ -110,8 +111,8 @@ def mark_attendance_for_student(request):
                                     raise Exception('Attendance session has not been started yet!!')
                             else:
                                 raise Exception('Session does not exist')
-                        else:
-                            raise Exception(f'Please connect to {lecture_obj.classroom.router.hostname}...then try again!!')
+                        # else:
+                        #     raise Exception(f'Please connect to {lecture_obj.classroom.router.hostname}...then try again!!')
                     else:
                         raise Exception('Lecture does not exists')
                 else:

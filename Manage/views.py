@@ -12,9 +12,24 @@ import pandas as pd
 from django.contrib.auth import get_user_model
 from StakeHolders.serializers import TeacherSerializer
 import datetime
+from django.conf import settings as django_settings
+from django.core.mail import send_mail
+from threading import Thread
 # Create your views here.
 
 User = get_user_model()
+
+def send_activation_email(receiver,teacher_slug):    
+    sender_email = django_settings.EMAIL_HOST_USER
+    sent = False
+    url = f'https://ea5b-2405-201-2024-b862-a240-d7c6-e920-c012.ngrok-free.app/teacher_activation/{teacher_slug}'
+    try:
+        send_mail('Activate Your Acount',url, from_email=sender_email,recipient_list=[receiver])
+        sent=True
+    except Exception as e:             
+        sent = False
+    return sent
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -92,7 +107,6 @@ def add_term(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_terms(request):    
-    print(request.META['REMOTE_ADDR'])
     try:        
         data = {'data':None,'error':False,'message':None}
         body = request.query_params
@@ -361,16 +375,17 @@ def add_teacher(request):
             body = request.data
             admin_obj = Admin.objects.get(profile=request.user)            
             branch_obj = admin_obj.branch_set.first()
-            if 'name' in body and 'email' in body and 'ph_no' in body:
-                profile_obj,created = Profile.objects.get_or_create(name=body['name'],email=body['email'],ph_no=body['ph_no'],role='teacher')
+            if 'name' in body and 'email' in body:
+                profile_obj,created = Profile.objects.get_or_create(name=body['name'],email=body['email'],role='teacher')
                 if created:
                     teacher_obj = Teacher.objects.create(profile=profile_obj)
                     branch_obj.teachers.add(teacher_obj)
                     teacher_serialized = TeacherSerializer(teacher_obj)
+                    Thread(target=send_activation_email,args=(body['email'],teacher_obj.slug)).start()
                     data['data'] = teacher_serialized.data
                     return JsonResponse(data,status=200)
                 else:
-                    raise Exception('Teacher already exists')
+                    raise Exception('Teacher is already added, Please check the mail!!')
             else:
                 raise Exception('Credentials not provided')
         else:
@@ -381,6 +396,33 @@ def add_teacher(request):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
+@api_view(['POST'])
+def activate_teacher_acount(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.data
+        if 'password' in body and 'teacher_slug' in body:
+            teacher_obj = Teacher.objects.filter(slug=body['teacher_slug']).first()
+            if teacher_obj:                
+                if not teacher_obj.profile.is_active:
+                    teacher_obj.profile.is_active = True
+                    teacher_obj.profile.set_password(body['password'])
+                    teacher_obj.profile.save()
+                    data['data'] = True
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Teacher is already added')
+            else:
+                raise Exception('Teacher does not exists')
+        else:
+            raise Exception('Parameters missing')
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_teachers(request):
