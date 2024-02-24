@@ -5,8 +5,13 @@ from Manage.models import Lecture
 from StakeHolders.models import Student
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
+import uuid,time
 
-
+def generate_unique_hash():    
+    random_hash = str(uuid.uuid4().int)[:6]    
+    timestamp = str(int(time.time()))    
+    unique_hash = f"{random_hash}_{timestamp}"
+    return unique_hash
 
 # Create your models here.
 def generate_random_unique_hash():
@@ -29,7 +34,14 @@ class Attendance(models.Model):
     is_present = models.BooleanField(default=False)
     marking_time = models.DateTimeField(null=True,blank=True)
     marking_ip = models.GenericIPAddressField(null=True,blank=True)
-    # physically_present = models.BooleanField(default=False)
+    manual = models.BooleanField(default=False)
+    
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()
+        super(Attendance, self).save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.student.profile.name if self.student.profile.name else self.id

@@ -11,6 +11,7 @@ import os
 import datetime
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
+from channels.db import database_sync_to_async
 channel_layer = get_channel_layer()
 
 @api_view(['POST'])
@@ -69,6 +70,37 @@ def authenticate_ip(ip,network_part):
     return False
          
         
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def mark_attendance_for_absent_student(request):
+    data = {'data':None,'error':False,'message':None}
+    try:    
+        if request.user.role == 'teacher':            
+            body = request.data
+            if 'attendance_slug' in body:
+                attendance_obj = Attendance.objects.filter(slug=body['attendance_slug']).first()
+                if attendance_obj:
+                    if not attendance_obj.is_present:
+                        attendance_obj.is_present = True
+                        attendance_obj.manual = True
+                        attendance_obj.marking_time = datetime.datetime.now()
+                        attendance_obj.save()
+                        data['data'] = True
+                        return Response(data,status=200)
+                    else:
+                        raise Exception("Attendance has already been marked!!")
+                else:                    
+                    raise Exception("Attendance object does not exist")
+            else:
+                raise Exception("Parameters missing")
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+         print(e)
+         data['error'] = True
+         data['message'] = str(e)
+         return Response(data,status=500)
+    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def mark_attendance_for_student(request):

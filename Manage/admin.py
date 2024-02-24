@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subject,College,Branch,Semester,Division,Batch,TimeTable,Schedule,Router,Classroom,Lecture,Term
+from .models import Subject,College,Branch,Semester,Division,Batch,TimeTable,Schedule,Router,Classroom,Lecture,Term,Link
 
 # Register your models here.
 
@@ -15,3 +15,4 @@ admin.site.register(Router)
 admin.site.register(Classroom)
 admin.site.register(Lecture)
 admin.site.register(Term)
+admin.site.register(Link)

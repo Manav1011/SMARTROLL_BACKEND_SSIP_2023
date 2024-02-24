@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount
+from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount,add_lecture_as_proxy
 urlpatterns = [        
     path('get_object_counts',get_object_counts,name='get_object_counts'),    
     path('add_term/',add_term,name='add_term'),
@@ -18,6 +18,7 @@ urlpatterns = [
     path('get_timetable',get_timetable,name='get_timetable'),
     path('get_lecture_configs',get_lecture_configs,name='get_lecture_configs'),
     path('add_lecture_to_schedule/',add_lecture_to_schedule,name='add_lecture_to_schedule'),
+    path('add_lecture_as_proxy/',add_lecture_as_proxy,name='add_lecture_as_proxy'),
     path('upload_students_data/',upload_students_data,name='upload_students_data'),
     path('get_timetable_for_teacher',get_timetable_for_teacher,name='get_timetable_for_teacher'),
     path('get_timetable_for_student',get_timetable_for_student,name='get_timetable_for_student'),

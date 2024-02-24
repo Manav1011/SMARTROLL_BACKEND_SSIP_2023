@@ -1,4 +1,4 @@
-from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom,Term
+from .models import Batch, Division,Semester,Subject,Branch,College,TimeTable,Schedule,Lecture,Classroom,Term,Link
 from datetime import datetime
 from rest_framework import serializers
 from Session.models import Session,Attendance
@@ -73,7 +73,7 @@ class ScheduleSerializerForTeacher(serializers.ModelSerializer):
         self.teacher = teacher
     
     def get_lectures(self,obj):
-        lectures = obj.lecture_set.filter(teacher=self.teacher)
+        lectures = obj.lecture_set.filter(teacher=self.teacher,is_active=True)
         lectures_serialized = LectureSerializer(lectures,many=True)
         return lectures_serialized.data
     
@@ -90,7 +90,7 @@ class ScheduleSerializerForStudent(serializers.ModelSerializer):
         self.student = student
     
     def get_lectures(self,obj):        
-        lectures = obj.lecture_set.filter(batches__in=self.batches)
+        lectures = obj.lecture_set.filter(batches__in=self.batches,is_active=True)
         lectures_serialized = LectureSerializerForStudent(instance=lectures,student=self.student,many=True)
         return lectures_serialized.data        
 
@@ -166,7 +166,7 @@ class LectureSerializerForHistory(serializers.ModelSerializer):
     classroom = serializers.SerializerMethodField()
     class Meta:
         model = Lecture
-        fields = ['type','classroom','slug','session']
+        fields = ['type','classroom','slug','session','is_active','is_proxy']
     
     def get_classroom(self,obj):
         return obj.classroom.class_name
@@ -176,6 +176,19 @@ class LectureSerializerForHistory(serializers.ModelSerializer):
         session_obj = obj.session_set.filter(active='post')
         session_serialized = SessionSerializerForLecture(session_obj,many=True)
         return session_serialized.data
+
+class LectureSerializerForLink(serializers.ModelSerializer):
+    subject = SubjectSerializer()
+    class Meta:
+        model = Lecture
+        fields = ['start_time','end_time','type','subject']
+
+class LinkSerializer(serializers.ModelSerializer):
+    from_lecture  = LectureSerializerForLink()
+    # to_lecture  = LectureSerializerForLink()
+    class Meta:
+        model = Link
+        fields = ['from_lecture']
     
 class LectureSerializer(serializers.ModelSerializer):
     session = serializers.SerializerMethodField()
@@ -183,11 +196,20 @@ class LectureSerializer(serializers.ModelSerializer):
     teacher = serializers.SerializerMethodField()
     classroom = ClassRoomSerializer()
     batches = BatchSerializer(many=True)
+    link = serializers.SerializerMethodField()
 
     class Meta:
         model = Lecture
-        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session']
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link']
     
+    def get_link(self,obj):
+        link = obj.to_links.all().filter(to_lecture=obj).first()
+        if link:
+            links_serialized = LinkSerializer(link)
+            return links_serialized.data
+        else:
+            return None
+        
     def get_teacher(self,obj):
         return obj.teacher.profile.name
 
@@ -197,16 +219,26 @@ class LectureSerializer(serializers.ModelSerializer):
         session_serialized = SessionSerializerForLecture(session_obj)
         return session_serialized.data
 
+
 class LectureSerializerForStudent(serializers.ModelSerializer):
     session = serializers.SerializerMethodField()
     subject = SubjectSerializer()
     teacher = serializers.SerializerMethodField()
     classroom = ClassRoomSerializer()
     batches = BatchSerializer(many=True)
+    link = serializers.SerializerMethodField()
 
+    def get_link(self,obj):
+        link = obj.to_links.all().filter(to_lecture=obj).first()
+        if link:
+            links_serialized = LinkSerializer(link)
+            return links_serialized.data
+        else:
+            return None
+        
     class Meta:
         model = Lecture
-        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session']
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link']
     
     def __init__(self,student=None,*args, **kwargs):
         super(LectureSerializerForStudent, self).__init__(*args, **kwargs)
@@ -229,7 +261,7 @@ class ScheduleSerializer(serializers.ModelSerializer):
         fields = ['day','slug','lectures']
 
     def get_lectures(self,obj):
-        lectures = obj.lecture_set.all().order_by('start_time')
+        lectures = obj.lecture_set.all().filter(is_active=True).order_by('start_time')
         lectures_serialized = LectureSerializer(lectures,many=True)
         return lectures_serialized.data
 

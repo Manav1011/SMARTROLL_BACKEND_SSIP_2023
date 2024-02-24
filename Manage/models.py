@@ -165,7 +165,7 @@ class Classroom(models.Model):
 
 LECTURE_TYPE = [
         ('lab', 'Lab'),
-        ('theory', 'Theory'),        
+        ('theory', 'Theory'),
 ]
 
 class Schedule(models.Model):
@@ -192,6 +192,7 @@ class Lecture(models.Model):
     schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING, null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
     is_proxy = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

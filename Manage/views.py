@@ -2,7 +2,7 @@ from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
-from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term
+from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term,Link
 from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
 from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory
@@ -549,6 +549,63 @@ def add_lecture_to_schedule(request):
                     return JsonResponse(data,status=200)
                 else:
                     raise Exception('Lecture already exists for this timeslot')
+            else:
+                raise Exception('Credentials Missing')               
+        else:
+            raise Exception("You're not allowed to perform this action")
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_lecture_as_proxy(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        if request.user.role == 'admin':
+            body = request.data
+            if "prev_lecture_slug" in body and "schedule_slug" in body and "start_time" in body and "end_time" in body and "type" in body and "subject" in body and "teacher" in body and "classroom" in body and "batches" in body:
+                prev_lecture_obj = Lecture.objects.filter(slug=body['prev_lecture_slug']).first()
+                print(prev_lecture_obj)
+                if prev_lecture_obj:
+                    schedule = Schedule.objects.get(slug=body['schedule_slug'])
+                    start_time  = datetime.datetime.strptime(body['start_time'], "%H:%M").time()
+                    end_time  = datetime.datetime.strptime(body['end_time'], "%H:%M").time()
+                    subject = Subject.objects.get(slug=body['subject'])
+                    teacher = Teacher.objects.get(slug=body['teacher'])
+                    classroom = Classroom.objects.get(slug=body['classroom'])
+                    lecture_obj,created = Lecture.objects.get_or_create(start_time=start_time,end_time=end_time,schedule=schedule,is_proxy = True)
+                    if created:
+                        # Create link object 
+                        link_obj,created = Link.objects.get_or_create(from_lecture=prev_lecture_obj,to_lecture=lecture_obj)
+                        lecture_obj.type=body['type']
+                        lecture_obj.subject=subject
+                        lecture_obj.teacher=teacher
+                        lecture_obj.classroom=classroom
+                        lecture_obj.save()
+                        batches = Batch.objects.filter(slug__in=body['batches'])
+                        lecture_obj.batches.add(*batches)
+                        # Need to create lecture sessions for this particular lecture till the next sunday...after that the cronjob will take care of it
+                        today = datetime.datetime.now().date()                    
+                        if lecture_obj:
+                                batches = lecture_obj.batches.all()
+                                lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=today,active='pre')
+                                if created:           
+                                    students = Student.objects.filter(batch__in=batches)
+                                    for student in students:
+                                        attendance_obj = Attendance.objects.create(student=student)
+                                        lecture_session.attendances.add(attendance_obj)
+                        else:
+                            raise Exception('Lecture does not exists')
+                        lecture_obj_serialized = LectureSerializer(lecture_obj)
+                        data['data'] = lecture_obj_serialized.data
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception('Lecture already exists for this timeslot')
+                else:
+                    raise Exception('Lecture does not exists')
             else:
                 raise Exception('Credentials Missing')               
         else:
