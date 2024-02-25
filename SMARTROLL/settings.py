@@ -38,7 +38,7 @@ SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost','smartroll.ldce.mnv-dev.live','192.168.17.106','3933-2405-201-2024-b862-d10b-9445-925a-e1b7.ngrok-free.app']
+ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost','smartroll.ldce.mnv-dev.live','192.168.17.106','007b-2405-201-2024-b862-952b-977c-96ee-8dc7.ngrok-free.app']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False

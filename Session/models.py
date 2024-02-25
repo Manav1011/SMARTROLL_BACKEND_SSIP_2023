@@ -1,7 +1,7 @@
 from django.db import models
 import hashlib
 import secrets
-from Manage.models import Lecture
+from Manage.models import Lecture,GPSCoordinates
 from StakeHolders.models import Student
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
@@ -32,9 +32,10 @@ def generate_random_unique_hash():
 class Attendance(models.Model):
     student = models.ForeignKey(Student,on_delete=models.CASCADE)
     is_present = models.BooleanField(default=False)
-    marking_time = models.DateTimeField(null=True,blank=True)
-    marking_ip = models.GenericIPAddressField(null=True,blank=True)
+    marking_time = models.DateTimeField(null=True,blank=True)    
     manual = models.BooleanField(default=False)
+    coordinates = models.ForeignKey(GPSCoordinates,on_delete = models.DO_NOTHING,null=True,blank=True)
+    on_premises = models.BooleanField(default=False)
     
     slug = models.SlugField(unique=True, null=True, blank=True)
 
@@ -59,7 +60,8 @@ class Session(models.Model):
     lecture = models.ForeignKey(Lecture,on_delete=models.CASCADE,null=True,blank=True)
     attendances = models.ManyToManyField(Attendance,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    active = models.CharField(max_length=7,choices = SESSION_STATUS,null=True,blank=True)
+    active = models.CharField(max_length=7,choices = SESSION_STATUS,null=True,blank=True)    
+
 
     def save(self, *args, **kwargs):
         if not self.session_id:

@@ -132,27 +132,16 @@ class TimeTable(models.Model):
     def __str__(self) -> str:
         return f"Division - {self.slug}"
     
-
-    
-class Router(models.Model):
-    hostname = models.CharField(max_length=20,null=True,blank=True)
-    network_add = models.GenericIPAddressField(null=True,blank=True)
-    CIDR = models.PositiveIntegerField(null=True,blank=True)
-    slug = models.SlugField(unique=True,null=True,blank=True)
-    
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = generate_unique_hash()            
-        super(Router, self).save(*args, **kwargs)
-    
-    def __str__(self) -> str:
-        return self.network_add 
+class GPSCoordinates(models.Model):
+    long = models.CharField(max_length=255,null=True,blank=True)
+    latt = models.CharField(max_length=255,null=True,blank=True)
 
 class Classroom(models.Model):
-    class_name = models.CharField(max_length = 20)
-    router = models.ForeignKey(Router,on_delete=models.DO_NOTHING)
+    class_name = models.CharField(max_length = 20)    
     slug = models.SlugField(unique=True,null=True,blank=True)
     branch = models.ForeignKey(Branch,null=True,blank=True,on_delete=models.CASCADE)
+    gps_coordinates = models.ForeignKey(GPSCoordinates,blank=True,null=True,on_delete=models.DO_NOTHING)
+
 
     def save(self, *args, **kwargs):
         if not self.slug:

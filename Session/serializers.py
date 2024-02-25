@@ -9,7 +9,7 @@ class AttendanceSerializer(serializers.ModelSerializer):
     batches = serializers.SerializerMethodField()
     class Meta:
         model = Attendance
-        fields = ['slug','student','is_present','marking_time','marking_ip','batches']
+        fields = ['slug','student','is_present','marking_time','batches','manual']
     def get_batches(self,obj):
         batches = Batch.objects.filter(students=obj.student)
         batches_serialized = BatchSerializer(batches,many=True)

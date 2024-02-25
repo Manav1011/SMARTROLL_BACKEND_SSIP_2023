@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .serializers import SessionSerializer,AttendanceSerializer,SessionSerializerHistory
 from .models import Session,Attendance
-from Manage.models import Lecture
+from Manage.models import Lecture,GPSCoordinates
 from django.utils import timezone
 import ipaddress
 from StakeHolders.models import Student,Teacher
@@ -62,12 +62,6 @@ def create_lecture_session(request):
         data['error'] = True
         data['message'] = str(e)
         return Response(data,status=500)
-
-def authenticate_ip(ip,network_part):        
-    user_network_addr = '.'.join(ip.split('.')[:network_part])
-    if os.environ.get('router_network_addr') == user_network_addr:
-        return True
-    return False
          
         
 @api_view(['POST'])
@@ -101,6 +95,29 @@ def mark_attendance_for_absent_student(request):
          data['message'] = str(e)
          return Response(data,status=500)
     
+import math
+
+def haversine_distance_in_meters(lat1, lon1, lat2, lon2):
+    R = 6371000  # Earth's radius in meters
+
+    # Convert latitude and longitude from degrees to radians
+    d_lat = math.radians(lat2 - lat1)
+    d_lon = math.radians(lon2 - lon1)
+
+    a = (
+        math.sin(d_lat / 2) * math.sin(d_lat / 2) +
+        math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) *
+        math.sin(d_lon / 2) * math.sin(d_lon / 2)
+    )
+
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+    # Distance in meters
+    distance = R * c
+
+    return distance
+
+    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def mark_attendance_for_student(request):
@@ -110,41 +127,43 @@ def mark_attendance_for_student(request):
             student_obj = Student.objects.filter(profile=request.user).first()
             if student_obj:
                 body = request.data
-                if 'lecture_slug' in body:
+                if 'lecture_slug' in body and 'latitude' in body and 'longitude' in body:
                     lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
-                    if lecture_obj:                
-                            print(request.META['REMOTE_ADDR'])
-                        # if ipaddress.IPv4Address(request.META['REMOTE_ADDR']) in ipaddress.IPv4Network(f'{lecture_obj.classroom.router.network_add}/{lecture_obj.classroom.router.CIDR}'):                            
-                            session_obj = Session.objects.filter(lecture=lecture_obj).first()
-                            if session_obj:
-                                if session_obj.active == 'ongoing':
-                                    attendance_obj = session_obj.attendances.filter(student=student_obj).first()
-                                    if attendance_obj:
-                                        if not attendance_obj.is_present:
-                                            attendance_obj.is_present = True
-                                            attendance_obj.marking_ip = request.META['REMOTE_ADDR']
-                                            attendance_obj.marking_time = datetime.datetime.now()
-                                            attendance_obj.save()
-                                            channel_name = session_obj.session_id
-                                            attendance_serialized = AttendanceSerializer(attendance_obj)
-                                            async_to_sync(channel_layer.group_send)(channel_name, {"type": "attendance.marked",'message':attendance_serialized.data})
-                                            data['data'] = True
-                                            data['code'] = 100
-                                            return Response(data,status=200)
-                                        else:
-                                            data['code'] = 100                                                                            
-                                            raise Exception("Your attendance has already been marked")
+                    if lecture_obj: 
+                        classroom_coords = lecture_obj.classroom.gps_coordinates                        
+                        distance_in_meters = haversine_distance_in_meters(float(classroom_coords.latt), float(classroom_coords.long), body['latitude'],body['longitude'])                        
+                        if distance_in_meters > 100:
+                            raise Exception("You're out of the predefined boundry of the premises!!")                        
+                        coordinates_obj = GPSCoordinates.objects.create(long=body['latitude'],latt=body['longitude'])
+                        session_obj = Session.objects.filter(lecture=lecture_obj).first()
+                        if session_obj:
+                            if session_obj.active == 'ongoing':
+                                attendance_obj = session_obj.attendances.filter(student=student_obj).first()
+                                if attendance_obj:
+                                    if not attendance_obj.is_present:
+                                        attendance_obj.is_present = True                                            
+                                        attendance_obj.coordinates = coordinates_obj
+                                        attendance_obj.on_premises = True
+                                        attendance_obj.marking_time = datetime.datetime.now()
+                                        attendance_obj.save()
+                                        channel_name = session_obj.session_id
+                                        attendance_serialized = AttendanceSerializer(attendance_obj)
+                                        async_to_sync(channel_layer.group_send)(channel_name, {"type": "attendance.marked",'message':attendance_serialized.data})
+                                        data['data'] = True
+                                        data['code'] = 100
+                                        return Response(data,status=200)
                                     else:
-                                            raise Exception("You're not part of this attendance session :\\")
-                                elif session_obj.active == 'post':
-                                    data['code'] = 100
-                                    raise Exception('Attendance session has been ended!!')
+                                        data['code'] = 100                                                                            
+                                        raise Exception("Your attendance has already been marked")
                                 else:
-                                    raise Exception('Attendance session has not been started yet!!')
+                                        raise Exception("You're not part of this attendance session :\\")
+                            elif session_obj.active == 'post':
+                                data['code'] = 100
+                                raise Exception('Attendance session has been ended!!')
                             else:
-                                raise Exception('Session does not exist')
-                        # else:
-                        #     raise Exception(f'Please connect to {lecture_obj.classroom.router.hostname}...then try again!!')
+                                raise Exception('Attendance session has not been started yet!!')
+                        else:
+                            raise Exception('Session does not exist')
                     else:
                         raise Exception('Lecture does not exists')
                 else:
