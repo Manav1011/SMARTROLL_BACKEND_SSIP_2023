@@ -133,8 +133,14 @@ class TimeTable(models.Model):
         return f"Division - {self.slug}"
     
 class GPSCoordinates(models.Model):
+    title = models.CharField(max_length=255,null=True,blank=True)
     long = models.CharField(max_length=255,null=True,blank=True)
     latt = models.CharField(max_length=255,null=True,blank=True)
+
+    def __str__(self) -> str:
+        return self.title if self.title else 'None'
+
+
 
 class Classroom(models.Model):
     class_name = models.CharField(max_length = 20)    

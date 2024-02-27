@@ -19,10 +19,10 @@ from threading import Thread
 
 User = get_user_model()
 
-def send_activation_email(receiver,teacher_slug):    
+def send_activation_email(receiver,teacher_slug,host):    
     sender_email = django_settings.EMAIL_HOST_USER
     sent = False
-    url = f'https://ea5b-2405-201-2024-b862-a240-d7c6-e920-c012.ngrok-free.app/teacher_activation/{teacher_slug}'
+    url = f'http://{host}/teacher_activation/{teacher_slug}'
     try:
         send_mail('Activate Your Acount',url, from_email=sender_email,recipient_list=[receiver])
         sent=True
@@ -33,7 +33,7 @@ def send_activation_email(receiver,teacher_slug):
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_object_counts(request):
+def get_object_counts(request):    
     try:        
         if request.user.role == 'admin':
             data = {'terms':0,'semesters':0,'divisons':0,'batches':0}
@@ -381,7 +381,7 @@ def add_teacher(request):
                     teacher_obj = Teacher.objects.create(profile=profile_obj)
                     branch_obj.teachers.add(teacher_obj)
                     teacher_serialized = TeacherSerializer(teacher_obj)
-                    Thread(target=send_activation_email,args=(body['email'],teacher_obj.slug)).start()
+                    Thread(target=send_activation_email,args=(body['email'],teacher_obj.slug,request.META['HTTP_HOST'])).start()
                     data['data'] = teacher_serialized.data
                     return JsonResponse(data,status=200)
                 else:

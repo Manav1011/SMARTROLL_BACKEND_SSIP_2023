@@ -793,7 +793,7 @@ HTTP response chunk for ['127.0.0.1', 37200]
 HTTP response chunk for ['127.0.0.1', 37200]
 HTTP close for ['127.0.0.1', 37200]
 HTTP response complete for ['127.0.0.1', 37200]
-[mHTTP GET /static/static/static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
+[mHTTP GET /static/static/static/static/static/images/background2.jpg 200 [0.01, 127.0.0.1:37200][0m
 HTTP b'POST' request for ['127.0.0.1', 37200]
 HTTP 200 response started for ['127.0.0.1', 37200]
 HTTP close for ['127.0.0.1', 37200]
@@ -1720,7 +1720,7 @@ HTTP b'GET' request for ['127.0.0.1', 49350]
 HTTP 304 response started for ['127.0.0.1', 49350]
 HTTP close for ['127.0.0.1', 49350]
 HTTP response complete for ['127.0.0.1', 49350]
-[36mHTTP GET /static/static/static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
+[36mHTTP GET /static/static/static/static/static/images/background2.jpg 304 [0.00, 127.0.0.1:49350][0m
 HTTP b'POST' request for ['127.0.0.1', 49350]
 HTTP 200 response started for ['127.0.0.1', 49350]
 HTTP close for ['127.0.0.1', 49350]
@@ -3055,7 +3055,7 @@ HTTP response chunk for ['127.0.0.1', 49798]
 HTTP response chunk for ['127.0.0.1', 49798]
 HTTP close for ['127.0.0.1', 49798]
 HTTP response complete for ['127.0.0.1', 49798]
-[mHTTP GET /static/static/images/background2.jpg 200 [0.01, 127.0.0.1:49798][0m
+[mHTTP GET /static/static/static/static/images/background2.jpg 200 [0.01, 127.0.0.1:49798][0m
 HTTP b'OPTIONS' request for ['127.0.0.1', 45504]
 HTTP 200 response started for ['127.0.0.1', 45504]
 HTTP close for ['127.0.0.1', 45504]
@@ -3151,7 +3151,7 @@ HTTP b'GET' request for ['127.0.0.1', 48716]
 HTTP 304 response started for ['127.0.0.1', 48716]
 HTTP close for ['127.0.0.1', 48716]
 HTTP response complete for ['127.0.0.1', 48716]
-[36mHTTP GET /static/static/images/background2.jpg 304 [0.00, 127.0.0.1:48716][0m
+[36mHTTP GET /static/static/static/static/images/background2.jpg 304 [0.00, 127.0.0.1:48716][0m
 HTTP b'GET' request for ['127.0.0.1', 48732]
 HTTP 304 response started for ['127.0.0.1', 48732]
 HTTP close for ['127.0.0.1', 48732]
@@ -4155,3 +4155,316 @@ Watching for file changes with StatReloader
 HTTP/2 support enabled
 Configuring endpoint tcp:port=8001:interface=0.0.0.0
 Listening on TCP address 0.0.0.0:8001
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET / 200 [0.02, 127.0.0.1:55512][0m
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.01, 127.0.0.1:55512][0m
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:55514][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP b'GET' request for ['127.0.0.1', 55526]
+HTTP 200 response started for ['127.0.0.1', 55526]
+HTTP close for ['127.0.0.1', 55526]
+HTTP response complete for ['127.0.0.1', 55526]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:55526][0m
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:55514][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET / 200 [0.00, 127.0.0.1:55514][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:55512][0m
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.01, 127.0.0.1:55514][0m
+HTTP b'GET' request for ['127.0.0.1', 55526]
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:55514][0m
+HTTP 200 response started for ['127.0.0.1', 55526]
+HTTP close for ['127.0.0.1', 55526]
+HTTP response complete for ['127.0.0.1', 55526]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:55526][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP b'GET' request for ['127.0.0.1', 55526]
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:55514][0m
+HTTP 200 response started for ['127.0.0.1', 55526]
+HTTP close for ['127.0.0.1', 55526]
+HTTP response complete for ['127.0.0.1', 55526]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:55526][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET / 200 [0.01, 127.0.0.1:55514][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.01, 127.0.0.1:55514][0m
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:55512][0m
+HTTP b'GET' request for ['127.0.0.1', 55526]
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP 200 response started for ['127.0.0.1', 55526]
+HTTP close for ['127.0.0.1', 55526]
+HTTP response complete for ['127.0.0.1', 55526]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:55526][0m
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:55512][0m
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET / 200 [0.01, 127.0.0.1:55512][0m
+HTTP b'GET' request for ['127.0.0.1', 55512]
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP 200 response started for ['127.0.0.1', 55512]
+HTTP close for ['127.0.0.1', 55512]
+HTTP response complete for ['127.0.0.1', 55512]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.01, 127.0.0.1:55512][0m
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:55514][0m
+HTTP b'GET' request for ['127.0.0.1', 55514]
+HTTP b'GET' request for ['127.0.0.1', 55526]
+HTTP 200 response started for ['127.0.0.1', 55526]
+HTTP close for ['127.0.0.1', 55526]
+HTTP response complete for ['127.0.0.1', 55526]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:55526][0m
+HTTP 200 response started for ['127.0.0.1', 55514]
+HTTP close for ['127.0.0.1', 55514]
+HTTP response complete for ['127.0.0.1', 55514]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:55514][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Starting server at tcp:port=8001:interface=0.0.0.0
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34124]
+HTTP 200 response started for ['127.0.0.1', 34124]
+HTTP close for ['127.0.0.1', 34124]
+HTTP response complete for ['127.0.0.1', 34124]
+HTTP b'GET' request for ['127.0.0.1', 34124]
+HTTP 200 response started for ['127.0.0.1', 34124]
+HTTP close for ['127.0.0.1', 34124]
+HTTP response complete for ['127.0.0.1', 34124]
+HTTP b'GET' request for ['127.0.0.1', 34124]
+HTTP 200 response started for ['127.0.0.1', 34124]
+HTTP close for ['127.0.0.1', 34124]
+HTTP response complete for ['127.0.0.1', 34124]
+HTTP b'GET' request for ['127.0.0.1', 34124]
+HTTP 200 response started for ['127.0.0.1', 34124]
+HTTP close for ['127.0.0.1', 34124]
+HTTP response complete for ['127.0.0.1', 34124]
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34110]
+HTTP 200 response started for ['127.0.0.1', 34110]
+HTTP close for ['127.0.0.1', 34110]
+HTTP response complete for ['127.0.0.1', 34110]
+HTTP b'GET' request for ['127.0.0.1', 34124]
+HTTP 200 response started for ['127.0.0.1', 34124]
+HTTP close for ['127.0.0.1', 34124]
+HTTP response complete for ['127.0.0.1', 34124]
+HTTP b'GET' request for ['127.0.0.1', 34124]
+HTTP 200 response started for ['127.0.0.1', 34124]
+HTTP close for ['127.0.0.1', 34124]
+HTTP response complete for ['127.0.0.1', 34124]
+Killed 0 pending application instances
+Starting server at tcp:port=8001:interface=0.0.0.0
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+HTTP b'GET' request for ['127.0.0.1', 44470]
+HTTP 200 response started for ['127.0.0.1', 44470]
+HTTP close for ['127.0.0.1', 44470]
+HTTP response complete for ['127.0.0.1', 44470]
+HTTP b'GET' request for ['127.0.0.1', 44470]
+HTTP b'GET' request for ['127.0.0.1', 44480]
+HTTP 200 response started for ['127.0.0.1', 44480]
+HTTP close for ['127.0.0.1', 44480]
+HTTP response complete for ['127.0.0.1', 44480]
+HTTP 200 response started for ['127.0.0.1', 44470]
+HTTP close for ['127.0.0.1', 44470]
+HTTP response complete for ['127.0.0.1', 44470]
+HTTP b'GET' request for ['127.0.0.1', 44492]
+HTTP 200 response started for ['127.0.0.1', 44492]
+HTTP close for ['127.0.0.1', 44492]
+HTTP response complete for ['127.0.0.1', 44492]
+Killed 0 pending application instances
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8001:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8001
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET / 200 [0.02, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.02, 127.0.0.1:43000][0m
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.02, 127.0.0.1:43004][0m
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP b'GET' request for ['127.0.0.1', 43016]
+HTTP 200 response started for ['127.0.0.1', 43016]
+HTTP close for ['127.0.0.1', 43016]
+HTTP response complete for ['127.0.0.1', 43016]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:43016][0m
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:43004][0m
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP b'GET' request for ['127.0.0.1', 43016]
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:43004][0m
+HTTP 200 response started for ['127.0.0.1', 43016]
+HTTP close for ['127.0.0.1', 43016]
+HTTP response complete for ['127.0.0.1', 43016]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:43016][0m
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET / 200 [0.01, 127.0.0.1:43004][0m
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.01, 127.0.0.1:43004][0m
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP b'GET' request for ['127.0.0.1', 43016]
+HTTP 200 response started for ['127.0.0.1', 43016]
+HTTP close for ['127.0.0.1', 43016]
+HTTP response complete for ['127.0.0.1', 43016]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:43016][0m
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET / 200 [0.01, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:43004][0m
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.01, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43016]
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:43000][0m
+HTTP 200 response started for ['127.0.0.1', 43016]
+HTTP close for ['127.0.0.1', 43016]
+HTTP response complete for ['127.0.0.1', 43016]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:43016][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET / 200 [0.01, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP b'GET' request for ['127.0.0.1', 43004]
+HTTP 200 response started for ['127.0.0.1', 43004]
+HTTP close for ['127.0.0.1', 43004]
+HTTP response complete for ['127.0.0.1', 43004]
+[mHTTP GET /static/css/main.9f3693ac.css 200 [0.01, 127.0.0.1:43004][0m
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/js/main.009a2a6d.js 200 [0.02, 127.0.0.1:43000][0m
+HTTP b'GET' request for ['127.0.0.1', 43000]
+HTTP b'GET' request for ['127.0.0.1', 43016]
+HTTP 200 response started for ['127.0.0.1', 43016]
+HTTP close for ['127.0.0.1', 43016]
+HTTP response complete for ['127.0.0.1', 43016]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:43016][0m
+HTTP 200 response started for ['127.0.0.1', 43000]
+HTTP close for ['127.0.0.1', 43000]
+HTTP response complete for ['127.0.0.1', 43000]
+[mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:43000][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.

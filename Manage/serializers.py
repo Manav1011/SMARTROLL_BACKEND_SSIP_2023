@@ -108,9 +108,8 @@ class TimeTableSerializerForStudent(serializers.ModelSerializer):
         self.student = student
         self.batches = batches
 
-    def get_schedules(self,obj):
-        from datetime import timedelta
-        current_datetime = datetime.now() - timedelta(days=1)
+    def get_schedules(self,obj):        
+        current_datetime = datetime.now()
         current_day_name = current_datetime.strftime('%A')
         schedules = obj.schedule_set.filter(day=current_day_name.lower())
         # schedules = obj.schedule_set.filter(day='saturday')
@@ -129,9 +128,8 @@ class TimeTableSerializerForTeacher(serializers.ModelSerializer):
         super(TimeTableSerializerForTeacher, self).__init__(*args, **kwargs)
         self.teacher = teacher
 
-    def get_schedules(self,obj):
-        from datetime import timedelta
-        current_datetime = datetime.now() - timedelta(days=1)
+    def get_schedules(self,obj):        
+        current_datetime = datetime.now()
         current_day_name = current_datetime.strftime('%A')
         schedules = obj.schedule_set.filter(day=current_day_name.lower())
         # schedules = obj.schedule_set.filter(day='saturday')

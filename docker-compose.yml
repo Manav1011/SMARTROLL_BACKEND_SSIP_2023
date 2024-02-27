@@ -11,12 +11,25 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    environment:
+      - DJANGO_DEBUG=False
+      - DJANGO_SETTINGS_MODULE=SMARTROLL.settings
+      - SECRET=django-insecure-%2%pce8*3&4x-plp)vyxlk^lfuwcq=%88=pzxx8dwsnv%y+_9j
+      - DB_NAME=smartroll
+      - DB_USER=manav1011
+      - DB_PASS=Manav@1011
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - REDIS_HOST=redis      
+      - NGROK_PROXY=https://1f5b-2405-201-2024-b862-12de-5cd1-63ac-e79f.ngrok-free.app
     command: >
       bash -c "
+        apt-get update && apt-get install -y cron &&
+        pip install -r requirements.txt &&
         python manage.py makemigrations &&
         python manage.py migrate &&
         python manage.py flush --noinput &&
-        python manage.py loaddata datadump.json &&
+        python manage.py loaddata dumpdata.json &&
         python manage.py collectstatic --noinput &&
         python manage.py crontab remove &&
         python manage.py crontab remove &&

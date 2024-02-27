@@ -25,11 +25,11 @@ SSL_KEY_PATH = os.path.join(BASE_DIR, "localhost.key")
 TIME_ZONE =  'Asia/Kolkata'
 USE_TZ = True
 
-from django.utils import timezone
+# from django.utils import timezone
 import pytz
 
-timezone.activate(pytz.timezone("Asia/Kolkata"))
-timezone.localtime(timezone.now())
+# timezone.activate(pytz.timezone("Asia/Kolkata"))
+# timezone.localtime(timezone.now())
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -37,12 +37,12 @@ timezone.localtime(timezone.now())
 SECRET_KEY = os.environ.get('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['10.0.5.9','192.168.29.18','localhost','smartroll.ldce.mnv-dev.live','192.168.17.106','007b-2405-201-2024-b862-952b-977c-96ee-8dc7.ngrok-free.app']
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","http://localhost:8000"]
+CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","http://localhost:8000",os.environ.get('NGROK_PROXY')]
 
 
 # Application definition
@@ -97,7 +97,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -179,6 +179,12 @@ else:
             },
         },
     }
+    CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': f"redis://{os.environ.get('REDIS_HOST', 'localhost')}:6379/1",  # Assuming Redis database 1
+    },
+}
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -201,8 +207,6 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 USE_I18N = True
-
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)

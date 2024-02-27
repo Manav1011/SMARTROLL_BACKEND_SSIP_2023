@@ -25,7 +25,7 @@ def create_weekly_sessions():
         schedules = timetable.schedule_set.all()
         for schedule in schedules:            
             date_for_schedule = today + timedelta(days=return_day_index(schedule.day))
-            lectures = schedule.lecture_set.all()
+            lectures = schedule.lecture_set.all().filter(is_proxy=False)
             # Create sessions in each lecture
             for lecture_obj in lectures:
                 try:
