@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term,Link
 from StakeHolders.models import Admin,Teacher,Student
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory,BranchWiseTimeTableSerializer
 from Manage.models import Semester,Subject
 from Session.models import Session,Attendance
 import pandas as pd
@@ -680,12 +680,16 @@ def get_timetable_for_teacher(request):
         data = {'data':None,'error':False,'message':None}
         if request.user.role == 'teacher':
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                semesters = teacher_obj.branch_set.first().term_set.filter(status=True).first().semester_set.filter(status=True)
-                divisions = Division.objects.filter(semester__in=semesters)
-                timetables = TimeTable.objects.filter(division__in=divisions)
-                timetable_serialized = TimeTableSerializerForTeacher(instance=timetables,teacher=teacher_obj,many=True)
-                data['data'] = timetable_serialized.data
+            if teacher_obj:                                
+                branches = teacher_obj.branch_set.all()
+                timetables_serialized = BranchWiseTimeTableSerializer(instance=branches,teacher=teacher_obj,many=True)
+                # for branch in branches:                    
+                #     branch.semesters = branch.term_set.filter(status=True).first().semester_set.filter(status=True)
+                #     divisions = Division.objects.filter(semester__in=branch.semesters)
+                #     timetables = TimeTable.objects.filter(division__in=divisions)
+                #     timetable_serialized = TimeTableSerializerForTeacher(instance=timetables,teacher=teacher_obj,many=True)
+                #     timetables_list.append(timetable_serialized.data)
+                data['data'] = timetables_serialized.data
                 return JsonResponse(data,status=200)
             else:
                 raise Exception('Teacher does not exist')

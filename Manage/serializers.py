@@ -117,23 +117,22 @@ class TimeTableSerializerForStudent(serializers.ModelSerializer):
         return schedules_serialized.data    
     
 class TimeTableSerializerForTeacher(serializers.ModelSerializer):
-    schedules = serializers.SerializerMethodField()
-    division = DivisionSerializerForTeacher()
+    schedule = serializers.SerializerMethodField()    
 
     class Meta:
         model = TimeTable
-        fields = ['slug','division','schedules']
+        fields = ['slug','schedule']
     
     def __init__(self, teacher, *args, **kwargs):
         super(TimeTableSerializerForTeacher, self).__init__(*args, **kwargs)
         self.teacher = teacher
 
-    def get_schedules(self,obj):        
+    def get_schedule(self,obj):        
         current_datetime = datetime.now()
-        current_day_name = current_datetime.strftime('%A')
-        schedules = obj.schedule_set.filter(day=current_day_name.lower())
+        current_day_name = current_datetime.strftime('%A')        
+        schedule = obj.schedule_set.filter(day=current_day_name.lower()).first()
         # schedules = obj.schedule_set.filter(day='saturday')
-        schedules_serialized = ScheduleSerializerForTeacher(instance=schedules,many=True,teacher=self.teacher)
+        schedules_serialized = ScheduleSerializerForTeacher(instance=schedule,teacher=self.teacher)
         return schedules_serialized.data    
     
 class SessionSerializerForLecture(serializers.ModelSerializer):
@@ -177,6 +176,54 @@ class LectureSerializerForHistory(serializers.ModelSerializer):
         session_serialized = SessionSerializerForLecture(session_obj,many=True)
         return session_serialized.data
 
+class DivisionWiseTimeTableSerializer(serializers.ModelSerializer):
+    timetable = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Division
+        fields = ['division_name','slug','timetable']
+    
+    def __init__(self, teacher, *args, **kwargs):
+        super(DivisionWiseTimeTableSerializer, self).__init__(*args, **kwargs)
+        self.teacher = teacher
+    
+    def get_timetable(self,obj):
+        timetable = TimeTable.objects.filter(division=obj).first()
+        timetable_serialized = TimeTableSerializerForTeacher(instance=timetable,teacher=self.teacher)
+        return timetable_serialized.data
+
+class SemesterWiseTimeTableSerializer(serializers.ModelSerializer):
+    divisions = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Semester
+        fields = ['slug','no','status','divisions']
+    
+    def __init__(self, teacher, *args, **kwargs):
+        super(SemesterWiseTimeTableSerializer, self).__init__(*args, **kwargs)
+        self.teacher = teacher
+    
+    def get_divisions(self,obj):
+        divisions = Division.objects.filter(semester=obj)        
+        divisions_serialized = DivisionWiseTimeTableSerializer(instance=divisions,many=True,teacher=self.teacher)
+        return divisions_serialized.data
+
+
+class BranchWiseTimeTableSerializer(serializers.ModelSerializer):
+    semesters = serializers.SerializerMethodField()
+    class Meta:
+        model = Branch
+        fields = ['branch_name','branch_code','slug','semesters']
+    
+    def __init__(self, teacher, *args, **kwargs):
+        super(BranchWiseTimeTableSerializer, self).__init__(*args, **kwargs)
+        self.teacher = teacher
+    
+    def get_semesters(self,obj):
+        semesters = obj.term_set.filter(status=True).first().semester_set.filter(status=True)
+        semesters_serialized = SemesterWiseTimeTableSerializer(instance=semesters,many=True,teacher=self.teacher)
+        return semesters_serialized.data
+    
 class LectureSerializerForLink(serializers.ModelSerializer):
     subject = SubjectSerializer()
     class Meta:

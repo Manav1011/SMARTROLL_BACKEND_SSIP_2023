@@ -21,7 +21,7 @@ services:
       - DB_HOST=postgres
       - DB_PORT=5432
       - REDIS_HOST=redis      
-      - NGROK_PROXY=https://1f5b-2405-201-2024-b862-12de-5cd1-63ac-e79f.ngrok-free.app
+      - NGROK_PROXY=https://86e4-2405-201-2024-b862-d802-ad7e-8279-635b.ngrok-free.app
     command: >
       bash -c "
         apt-get update && apt-get install -y cron &&
