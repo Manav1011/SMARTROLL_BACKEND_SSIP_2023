@@ -11,7 +11,7 @@ class AttendanceSerializer(serializers.ModelSerializer):
         model = Attendance
         fields = ['slug','student','is_present','marking_time','batches','manual']
     def get_batches(self,obj):
-        batches = Batch.objects.filter(students=obj.student)
+        batches = obj.session_set.first().lecture.batches.filter(students=obj.student)
         batches_serialized = BatchSerializer(batches,many=True)
         return batches_serialized.data
         

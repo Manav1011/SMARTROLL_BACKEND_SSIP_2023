@@ -25,6 +25,7 @@ class Admin(models.Model):
 class Teacher(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
     slug = models.SlugField(unique=True, null=True, blank=True)
+    web_push_subscription = models.JSONField(null=True,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
