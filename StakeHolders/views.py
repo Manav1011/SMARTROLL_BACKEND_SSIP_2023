@@ -12,8 +12,29 @@ from .serializers import AdminSerializer, TeacherSerializer,StudentSerializer
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
+from django.conf import settings as django_settings
+from django.core.mail import send_mail
+from threading import Thread
+import uuid,time
 
 # Create your views here.
+
+def generate_unique_hash():    
+    random_hash = str(uuid.uuid4().int)[:6]    
+    timestamp = str(int(time.time()))    
+    unique_hash = f"{random_hash}_{timestamp}"
+    return unique_hash
+
+def send_forgot_password_mail(receiver,student_slug,host):    
+    sender_email = django_settings.EMAIL_HOST_USER
+    sent = False
+    url = f'http://{host}/forgot_password/{student_slug}'
+    try:
+        send_mail('Reset Your Password',url, from_email=sender_email,recipient_list=[receiver])
+        sent=True
+    except Exception as e:             
+        sent = False
+    return sent
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -107,6 +128,29 @@ class CustomTokenRefreshView(TokenRefreshView):
     - `If refresh token is valid `: new access token, new refresh token.
     - `If refresh token is not valid`: Response status code will be another than 200.
     """        
+
+@api_view(['POST'])
+def forgot_password(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.data
+        if 'enrollment' not in body:
+            raise Exception('Parameters missing')
+        student_obj = Student.objects.filter(enrollment=body['enrollment']).first()
+        if not student_obj:
+            raise Exception('Student does not exist')
+        recipent_email = student_obj.profile.email
+        student_obj.slug = generate_unique_hash()
+        student_obj.save()
+        Thread(target=send_forgot_password_mail,args=(recipent_email,student_obj.slug,request.META['HTTP_HOST'])).start()
+        return JsonResponse(data, status=200)
+
+    except Exception as e:
+        print(e)
+        data['error'] = True
+        data['message'] = str(e)
+        return JsonResponse(data, status=500)
+
 @api_view(['POST'])
 def student_register(request): 
     try:

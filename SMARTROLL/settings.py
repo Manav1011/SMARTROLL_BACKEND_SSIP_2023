@@ -36,8 +36,8 @@ import pytz
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET')
 
-DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH = os.path.join(os.getcwd(),"private_key.txt")
-DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH = os.path.join(os.getcwd(),"public_key.txt")
+DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH = os.path.join(BASE_DIR, "private_key.txt")
+DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH = os.path.join(BASE_DIR,"public_key.txt")
                                                        
 VAPID_PRIVATE_KEY = open(DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH, "r+").readline().strip("\n")
 VAPID_PUBLIC_KEY = open(DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH, "r+").read().strip("\n")
@@ -47,7 +47,7 @@ VAPID_CLAIMS = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost']
+ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost','192.168.29.18']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
@@ -88,7 +88,14 @@ REST_FRAMEWORK = {
 
 
 CRONJOBS = [
-    ('0 12 * * 0', 'Session.cron.create_weekly_sessions')
+    ('0 12 * * 0', 'Session.cron.create_weekly_sessions'),
+    ('30 10 * * *','Manage.NotificationCron.NotifyTeachers10_30'),
+    ('30 11 * * *','Manage.NotificationCron.NotifyTeachers11_30'),
+    ('00 13 * * *','Manage.NotificationCron.NotifyTeachers13_00'),
+    ('00 14 * * *','Manage.NotificationCron.NotifyTeachers14_00'),
+    ('15 15 * * *','Manage.NotificationCron.NotifyTeachers15_15'),
+    ('15 16 * * *','Manage.NotificationCron.NotifyTeachers16_15'),
+
 ]
 
 SIMPLE_JWT = {

@@ -193,7 +193,7 @@ def get_session_data_for_export(request,session_id):
     data = {'data':None,'error':False,'message':None}
     body = request.query_params
     try:
-        if request.user.role == 'teacher':
+        if request.user.role == 'teacher' or request.user.role == 'admin':
             if session_id:
                 session_obj = Session.objects.filter(session_id=session_id).first()
                 if session_obj:

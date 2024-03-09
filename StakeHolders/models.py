@@ -10,6 +10,9 @@ def generate_unique_hash():
     return unique_hash
 # Create your models here.
 
+class NotificationSubscriptions(models.Model):
+    subscription = models.JSONField(null=True,blank=True)
+
 class Admin(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
     slug = models.SlugField(unique=True, null=True, blank=True)
@@ -25,7 +28,7 @@ class Admin(models.Model):
 class Teacher(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
     slug = models.SlugField(unique=True, null=True, blank=True)
-    web_push_subscription = models.JSONField(null=True,blank=True)
+    web_push_subscription = models.ManyToManyField(NotificationSubscriptions,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -36,7 +39,7 @@ class Teacher(models.Model):
         return self.profile.email if self.profile.email else self.profile.name
     
 class Student(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE,null=True,blank=True)
     enrollment  = models.CharField(max_length=12,unique=True)    
     slug = models.SlugField(unique=True, null=True, blank=True)
     sr_no = models.PositiveIntegerField(null=True,blank=True)

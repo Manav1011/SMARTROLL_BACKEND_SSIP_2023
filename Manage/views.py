@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term,Link
-from StakeHolders.models import Admin,Teacher,Student
+from StakeHolders.models import Admin,Teacher,Student,NotificationSubscriptions
 from Profile.models import Profile
 from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory,BranchWiseTimeTableSerializer,BranchWiseTimeTableSerializerStudent
 from Manage.models import Semester,Subject
@@ -423,6 +423,26 @@ def activate_teacher_acount(request):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
+@api_view(['POST'])
+def set_new_password_for_student(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.data
+        if 'password' in body and 'student_slug' in body:
+            student_obj = Student.objects.filter(slug=body['student_slug']).first()            
+            if not student_obj:                
+                raise Exception('Student does not exists')
+            student_obj.profile.set_password(body['password'])               
+            data['data'] = True
+            return JsonResponse(data,status=200)
+        else:
+            raise Exception('Parameters missing')
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -643,8 +663,12 @@ def upload_students_data(request):
                                 gender = row[4]                                
                                 batch_obj = divison_obj.batch_set.filter(batch_name=batch).first()
                                 if batch_obj:
-                                    profile_obj,created = Profile.objects.get_or_create_by_name(name=name,role='student')
-                                    student_obj,student_created = Student.objects.get_or_create(profile=profile_obj,enrollment=enrollment)
+                                    student_obj,student_created = Student.objects.get_or_create(enrollment=enrollment)
+                                    if student_created:
+                                        profile_obj,created = Profile.objects.get_or_create_by_name(name=name,role='student')
+                                        print(profile_obj)
+                                        student_obj.profile = profile_obj
+                                        student_obj.save()
                                     if not batch_obj.students.contains(student_obj) : batch_obj.students.add(student_obj)
                                     if not branch_obj.students.contains(student_obj) : branch_obj.students.add(student_obj)
                                     data['data']['register_count'] += 1
@@ -720,7 +744,36 @@ def get_timetable_for_student(request):
         data['message'] = str(e)
         data['error'] = True        
         return JsonResponse(data,status=500)
-    
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_subjects_of_teacher_by_admin(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.query_params        
+        if request.user.role == 'admin':
+            if 'teacher_slug' not in body:
+                raise Exception('Parameters missing')
+            teacher_obj = Teacher.objects.filter(slug=body['teacher_slug']).first()
+            if teacher_obj:
+                lectures = Lecture.objects.filter(teacher=teacher_obj)
+                if not lectures:
+                    raise Exception(f"No sessions are yet conducted by {teacher_obj.profile.name}")
+                subjects = list({lecture.subject for lecture in lectures})
+                subjects_serialized = SubjectSerializer(subjects,many=True)
+                data['data'] = subjects_serialized.data
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+        
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_subjects_of_teacher(request):
@@ -753,6 +806,39 @@ def get_lecture_sessions_for_teacher(request):
         body = request.query_params
         if request.user.role == 'teacher':
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                if 'subject_slug' in body:
+                        subject_obj = Subject.objects.filter(slug=body['subject_slug']).first()
+                        if subject_obj:
+                            lectures = subject_obj.lecture_set.filter(teacher=teacher_obj,session__active='post')
+                            lectures_serialized = LectureSerializerForHistory(lectures,many=True)
+                            data['data'] = lectures_serialized.data
+                            return JsonResponse(data,status=200)                            
+                        else:
+                            raise Exception('Subject does not exists')
+                else:
+                    raise Exception('Parameters Missing')
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_lecture_sessions_for_teacher_by_admin(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        body = request.query_params
+        if request.user.role == 'admin':
+            if 'teacher_slug' not in body:
+                raise Exception("Parameters missing")
+            teacher_obj = Teacher.objects.filter(slug=body['teacher_slug']).first()
             if teacher_obj:
                 if 'subject_slug' in body:
                         subject_obj = Subject.objects.filter(slug=body['subject_slug']).first()
@@ -809,9 +895,13 @@ def save_web_push_subscription(request):
             if teacher_obj:
                 if 'subscription' in body:
                     subscription_json = json.dumps(body['subscription'])
-                    teacher_obj.web_push_subscription = body['subscription']
-                    teacher_obj.save()                    
-                    return JsonResponse(data,status=200)
+                    notification_object,notification_object_created = NotificationSubscriptions.objects.get_or_create(subscription=subscription_json)
+                    if notification_object_created:
+                        teacher_obj.web_push_subscription.add(notification_object)
+                        data['data'] = True
+                        return JsonResponse(data,status=200)
+                    else:
+                        raise Exception("You've already subscribed")
                 else:
                     raise Exception("Parameters Missing!!")    
             else:
