@@ -206,4 +206,4 @@ class Link(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
-        super(Link, self).save(*args, **kwargs)      
+        super(Link, self).save(*args, **kwargs)

@@ -46,12 +46,12 @@ VAPID_CLAIMS = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost','192.168.29.18']
+DEBUG = True
+ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost','192.168.29.18','192.168.115.106','192.168.157.106']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["http://localhost:8000",'https://smartroll.ldce.mnv-dev.live']
+CSRF_TRUSTED_ORIGINS = ["http://192.168.157.106:8000",'http://192.168.157.106:8000']
 
 
 # Application definition
@@ -160,14 +160,11 @@ ASGI_APPLICATION = "SMARTROLL.asgi.application"
 
 
 if DEBUG:
+    DATABASE_DIR = os.path.join(BASE_DIR, 'db.sqlite3')
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME'),
-            'USER': os.environ.get('DB_USER'),
-            'PASSWORD': os.environ.get('DB_PASS'),
-            'HOST': os.environ.get('DB_HOST'),
-            'PORT': os.environ.get('DB_PORT')
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': DATABASE_DIR,
         }
     }
 else:

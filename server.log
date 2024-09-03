@@ -7824,3 +7824,1498 @@ HTTP close for ['127.0.0.1', 41748]
 HTTP response complete for ['127.0.0.1', 41748]
 [mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:41748][0m
 /home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'OPTIONS' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.01, 127.0.0.1:42880][0m
+HTTP b'GET' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:42880][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.00, 127.0.0.1:42880][0m
+HTTP b'GET' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:42880][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP OPTIONS /auth/api/login/ 200 [0.00, 127.0.0.1:42880][0m
+HTTP b'POST' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP POST /auth/api/login/ 200 [0.48, 127.0.0.1:42880][0m
+HTTP b'GET' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:42880][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.00, 127.0.0.1:42880][0m
+HTTP b'GET' request for ['127.0.0.1', 42880]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:42880][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 42880]
+HTTP b'OPTIONS' request for ['127.0.0.1', 52312]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:42880][0m
+HTTP 200 response started for ['127.0.0.1', 52312]
+HTTP close for ['127.0.0.1', 52312]
+HTTP response complete for ['127.0.0.1', 52312]
+[mHTTP OPTIONS /manage/get_object_counts 200 [0.01, 127.0.0.1:52312][0m
+HTTP b'GET' request for ['127.0.0.1', 42880]
+HTTP b'GET' request for ['127.0.0.1', 52312]
+HTTP 200 response started for ['127.0.0.1', 42880]
+HTTP close for ['127.0.0.1', 42880]
+HTTP response complete for ['127.0.0.1', 42880]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:42880][0m
+HTTP 200 response started for ['127.0.0.1', 52312]
+HTTP close for ['127.0.0.1', 52312]
+HTTP response complete for ['127.0.0.1', 52312]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:52312][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP b'GET' request for ['127.0.0.1', 48464]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /manage/get_terms 200 [0.06, 127.0.0.1:48460][0m
+HTTP 200 response started for ['127.0.0.1', 48464]
+HTTP close for ['127.0.0.1', 48464]
+HTTP response complete for ['127.0.0.1', 48464]
+[mHTTP GET /manage/get_object_counts 200 [0.06, 127.0.0.1:48464][0m
+HTTP b'GET' request for ['127.0.0.1', 48464]
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_subject 200 [0.01, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48464]
+HTTP close for ['127.0.0.1', 48464]
+HTTP response complete for ['127.0.0.1', 48464]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:48464][0m
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /manage/get_subject 200 [0.05, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_teacher 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /manage/get_teacher 200 [0.04, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.01, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.01, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.01, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 38636]
+HTTP 200 response started for ['127.0.0.1', 38636]
+HTTP close for ['127.0.0.1', 38636]
+HTTP response complete for ['127.0.0.1', 38636]
+[mHTTP OPTIONS /manage/get_object_counts 200 [0.00, 127.0.0.1:38636][0m
+HTTP b'GET' request for ['127.0.0.1', 38636]
+HTTP b'GET' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 38636]
+HTTP close for ['127.0.0.1', 38636]
+HTTP response complete for ['127.0.0.1', 38636]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:38636][0m
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:48460][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 48460]
+HTTP 200 response started for ['127.0.0.1', 48460]
+HTTP close for ['127.0.0.1', 48460]
+HTTP response complete for ['127.0.0.1', 48460]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:48460][0m
+HTTP b'GET' request for ['127.0.0.1', 54286]
+HTTP 200 response started for ['127.0.0.1', 54286]
+HTTP close for ['127.0.0.1', 54286]
+HTTP response complete for ['127.0.0.1', 54286]
+[mHTTP GET / 200 [0.30, 127.0.0.1:54286][0m
+HTTP b'GET' request for ['127.0.0.1', 54286]
+HTTP b'GET' request for ['127.0.0.1', 54302]
+HTTP 200 response started for ['127.0.0.1', 54286]
+HTTP close for ['127.0.0.1', 54286]
+HTTP response complete for ['127.0.0.1', 54286]
+[mHTTP GET /static/js/main.5ec6ad9d.js 200 [0.02, 127.0.0.1:54286][0m
+HTTP 200 response started for ['127.0.0.1', 54302]
+HTTP close for ['127.0.0.1', 54302]
+HTTP response complete for ['127.0.0.1', 54302]
+[mHTTP GET /static/css/main.4df779af.css 200 [0.02, 127.0.0.1:54302][0m
+HTTP b'GET' request for ['127.0.0.1', 41796]
+HTTP b'GET' request for ['127.0.0.1', 54302]
+HTTP 200 response started for ['127.0.0.1', 54302]
+HTTP close for ['127.0.0.1', 54302]
+HTTP response complete for ['127.0.0.1', 54302]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:54302][0m
+HTTP 200 response started for ['127.0.0.1', 41796]
+HTTP close for ['127.0.0.1', 41796]
+HTTP response complete for ['127.0.0.1', 41796]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:41796][0m
+HTTP b'GET' request for ['127.0.0.1', 45352]
+HTTP 200 response started for ['127.0.0.1', 45352]
+HTTP close for ['127.0.0.1', 45352]
+HTTP response complete for ['127.0.0.1', 45352]
+[mHTTP GET / 200 [0.01, 127.0.0.1:45352][0m
+HTTP b'GET' request for ['127.0.0.1', 45352]
+HTTP b'GET' request for ['127.0.0.1', 45368]
+HTTP 200 response started for ['127.0.0.1', 45368]
+HTTP close for ['127.0.0.1', 45368]
+HTTP response complete for ['127.0.0.1', 45368]
+[mHTTP GET /static/css/main.4df779af.css 200 [0.01, 127.0.0.1:45368][0m
+HTTP 200 response started for ['127.0.0.1', 45352]
+HTTP close for ['127.0.0.1', 45352]
+HTTP response complete for ['127.0.0.1', 45352]
+[mHTTP GET /static/js/main.5ec6ad9d.js 200 [0.01, 127.0.0.1:45352][0m
+HTTP b'GET' request for ['127.0.0.1', 45352]
+HTTP b'GET' request for ['127.0.0.1', 45382]
+HTTP 200 response started for ['127.0.0.1', 45382]
+HTTP close for ['127.0.0.1', 45382]
+HTTP response complete for ['127.0.0.1', 45382]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:45382][0m
+HTTP 200 response started for ['127.0.0.1', 45352]
+HTTP close for ['127.0.0.1', 45352]
+HTTP response complete for ['127.0.0.1', 45352]
+[mHTTP GET /static/favicon.ico 200 [0.02, 127.0.0.1:45352][0m
+HTTP b'GET' request for ['127.0.0.1', 45352]
+HTTP 200 response started for ['127.0.0.1', 45352]
+HTTP close for ['127.0.0.1', 45352]
+HTTP response complete for ['127.0.0.1', 45352]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:45352][0m
+HTTP b'GET' request for ['127.0.0.1', 56974]
+HTTP 200 response started for ['127.0.0.1', 56974]
+HTTP close for ['127.0.0.1', 56974]
+HTTP response complete for ['127.0.0.1', 56974]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:56974][0m
+HTTP b'POST' request for ['127.0.0.1', 59808]
+HTTP 200 response started for ['127.0.0.1', 59808]
+HTTP close for ['127.0.0.1', 59808]
+HTTP response complete for ['127.0.0.1', 59808]
+[mHTTP POST /auth/api/login/ 200 [0.48, 127.0.0.1:59808][0m
+HTTP b'GET' request for ['127.0.0.1', 59808]
+HTTP 200 response started for ['127.0.0.1', 59808]
+HTTP close for ['127.0.0.1', 59808]
+HTTP response complete for ['127.0.0.1', 59808]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:59808][0m
+HTTP b'GET' request for ['127.0.0.1', 59808]
+HTTP 200 response started for ['127.0.0.1', 59808]
+HTTP close for ['127.0.0.1', 59808]
+HTTP response complete for ['127.0.0.1', 59808]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:59808][0m
+HTTP b'GET' request for ['127.0.0.1', 59808]
+HTTP b'GET' request for ['127.0.0.1', 59822]
+HTTP 200 response started for ['127.0.0.1', 59808]
+HTTP close for ['127.0.0.1', 59808]
+HTTP response complete for ['127.0.0.1', 59808]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:59808][0m
+HTTP 200 response started for ['127.0.0.1', 59822]
+HTTP close for ['127.0.0.1', 59822]
+HTTP response complete for ['127.0.0.1', 59822]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:59822][0m
+HTTP b'GET' request for ['127.0.0.1', 59822]
+HTTP 200 response started for ['127.0.0.1', 59822]
+HTTP close for ['127.0.0.1', 59822]
+HTTP response complete for ['127.0.0.1', 59822]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:59822][0m
+HTTP b'GET' request for ['127.0.0.1', 59822]
+HTTP 200 response started for ['127.0.0.1', 59822]
+HTTP close for ['127.0.0.1', 59822]
+HTTP response complete for ['127.0.0.1', 59822]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:59822][0m
+HTTP b'GET' request for ['127.0.0.1', 59822]
+HTTP 200 response started for ['127.0.0.1', 59822]
+HTTP close for ['127.0.0.1', 59822]
+HTTP response complete for ['127.0.0.1', 59822]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:59822][0m
+HTTP b'GET' request for ['127.0.0.1', 59822]
+HTTP 200 response started for ['127.0.0.1', 59822]
+HTTP close for ['127.0.0.1', 59822]
+HTTP response complete for ['127.0.0.1', 59822]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:59822][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_semesters?term_slug=128047_1708928677 200 [0.04, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_divisions?semester_slug=449836_1708928686 200 [0.05, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:42760][0m
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_subject 200 [0.05, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:42762][0m
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_object_counts 200 [0.06, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:42762][0m
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_terms 200 [0.06, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:42760][0m
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_subject 200 [0.05, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_teacher 200 [0.04, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_teacher 200 [0.05, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_semesters?term_slug=128047_1708928677 200 [0.04, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_divisions?semester_slug=449836_1708928686 200 [0.04, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_timetable?division_slug=994624_1708928700 200 [0.14, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:42762][0m
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:42760][0m
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:42762][0m
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_object_counts 200 [0.06, 127.0.0.1:42760][0m
+HTTP b'GET' request for ['127.0.0.1', 42760]
+HTTP b'GET' request for ['127.0.0.1', 42762]
+HTTP 200 response started for ['127.0.0.1', 42760]
+HTTP close for ['127.0.0.1', 42760]
+HTTP response complete for ['127.0.0.1', 42760]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:42760][0m
+HTTP 200 response started for ['127.0.0.1', 42762]
+HTTP close for ['127.0.0.1', 42762]
+HTTP response complete for ['127.0.0.1', 42762]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:42762][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_terms 200 [0.06, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_semesters?term_slug=128047_1708928677 200 [0.04, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_divisions?semester_slug=449836_1708928686 200 [0.04, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_timetable?division_slug=252849_1708928696 200 [0.15, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=285451_1708928696 200 [0.06, 127.0.0.1:51684][0m
+HTTP b'POST' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP POST /manage/add_lecture_as_proxy/ 200 [0.72, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=285451_1708928696 200 [0.07, 127.0.0.1:51684][0m
+HTTP b'POST' request for ['127.0.0.1', 51684]
+Internal Server Error: /manage/add_lecture_as_proxy/
+HTTP 500 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[35;1mHTTP POST /manage/add_lecture_as_proxy/ 500 [0.04, 127.0.0.1:51684][0m
+HTTP b'POST' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP POST /manage/add_lecture_as_proxy/ 200 [0.49, 127.0.0.1:51684][0m
+HTTP b'POST' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP POST /auth/api/login/ 200 [0.47, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:51684][0m
+HTTP b'GET' request for ['127.0.0.1', 51684]
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 51684]
+HTTP close for ['127.0.0.1', 51684]
+HTTP response complete for ['127.0.0.1', 51684]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:51684][0m
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_teacher 200 [0.06, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_terms 200 [0.05, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_semesters?term_slug=734979_1708936518 200 [0.04, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_divisions?semester_slug=337247_1708936525 200 [0.05, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_timetable?division_slug=222925_1708936540 200 [0.05, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_timetable?division_slug=124282_1708936544 200 [0.08, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=115692_1708936544 200 [0.08, 127.0.0.1:39934][0m
+HTTP b'POST' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP POST /manage/add_lecture_to_schedule/ 200 [0.69, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=255474_1708936544 200 [0.08, 127.0.0.1:39934][0m
+HTTP b'POST' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP POST /manage/add_lecture_as_proxy/ 200 [0.63, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 45670]
+HTTP 200 response started for ['127.0.0.1', 45670]
+HTTP close for ['127.0.0.1', 45670]
+HTTP response complete for ['127.0.0.1', 45670]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:45670][0m
+HTTP b'POST' request for ['127.0.0.1', 45670]
+HTTP 200 response started for ['127.0.0.1', 45670]
+HTTP close for ['127.0.0.1', 45670]
+HTTP response complete for ['127.0.0.1', 45670]
+[mHTTP POST /auth/api/login/ 200 [0.48, 127.0.0.1:45670][0m
+HTTP b'GET' request for ['127.0.0.1', 45670]
+HTTP 200 response started for ['127.0.0.1', 45670]
+HTTP close for ['127.0.0.1', 45670]
+HTTP response complete for ['127.0.0.1', 45670]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:45670][0m
+HTTP b'GET' request for ['127.0.0.1', 45670]
+HTTP 200 response started for ['127.0.0.1', 45670]
+HTTP close for ['127.0.0.1', 45670]
+HTTP response complete for ['127.0.0.1', 45670]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:45670][0m
+HTTP b'GET' request for ['127.0.0.1', 45670]
+HTTP 200 response started for ['127.0.0.1', 45670]
+HTTP close for ['127.0.0.1', 45670]
+HTTP response complete for ['127.0.0.1', 45670]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.17, 127.0.0.1:45670][0m
+HTTP b'GET' request for ['127.0.0.1', 45670]
+HTTP 200 response started for ['127.0.0.1', 45670]
+HTTP close for ['127.0.0.1', 45670]
+HTTP response complete for ['127.0.0.1', 45670]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.14, 127.0.0.1:45670][0m
+HTTP b'POST' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP POST /auth/api/login/ 200 [0.47, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.14, 127.0.0.1:39934][0m
+HTTP b'POST' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP POST /auth/api/login/ 200 [0.46, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:39934][0m
+HTTP b'GET' request for ['127.0.0.1', 39934]
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 39934]
+HTTP close for ['127.0.0.1', 39934]
+HTTP response complete for ['127.0.0.1', 39934]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:39934][0m
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_object_counts 200 [0.05, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_semesters?term_slug=734979_1708936518 200 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_divisions?semester_slug=337247_1708936525 200 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable?division_slug=222925_1708936540 200 [0.06, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable?division_slug=124282_1708936544 200 [0.13, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable?division_slug=222925_1708936540 200 [0.06, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable?division_slug=124282_1708936544 200 [0.13, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_terms 200 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_semesters?term_slug=734979_1708936518 200 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_divisions?semester_slug=337247_1708936525 200 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable?division_slug=124282_1708936544 200 [0.14, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:50960][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:50960][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.15, 127.0.0.1:50960][0m
+HTTP b'GET' request for ['127.0.0.1', 50970]
+HTTP 200 response started for ['127.0.0.1', 50970]
+HTTP close for ['127.0.0.1', 50970]
+HTTP response complete for ['127.0.0.1', 50970]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.12, 127.0.0.1:50970][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=115692_1708936544 200 [0.08, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_lecture_configs?schedule_slug=115692_1708936544 200 [0.10, 127.0.0.1:45192][0m
+HTTP b'POST' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP POST /manage/add_lecture_as_proxy/ 200 [0.64, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 50970]
+HTTP 200 response started for ['127.0.0.1', 50970]
+HTTP close for ['127.0.0.1', 50970]
+HTTP response complete for ['127.0.0.1', 50970]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:50970][0m
+HTTP b'GET' request for ['127.0.0.1', 50970]
+HTTP 200 response started for ['127.0.0.1', 50970]
+HTTP close for ['127.0.0.1', 50970]
+HTTP response complete for ['127.0.0.1', 50970]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:50970][0m
+HTTP b'GET' request for ['127.0.0.1', 50970]
+HTTP 200 response started for ['127.0.0.1', 50970]
+HTTP close for ['127.0.0.1', 50970]
+HTTP response complete for ['127.0.0.1', 50970]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.15, 127.0.0.1:50970][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.15, 127.0.0.1:50960][0m
+HTTP b'POST' request for ['127.0.0.1', 50960]
+Internal Server Error: /manage/session/mark_attendance_for_student/
+HTTP 500 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[35;1mHTTP POST /manage/session/mark_attendance_for_student/ 500 [0.06, 127.0.0.1:50960][0m
+HTTP b'POST' request for ['127.0.0.1', 50960]
+Internal Server Error: /manage/session/mark_attendance_for_student/
+HTTP 500 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[35;1mHTTP POST /manage/session/mark_attendance_for_student/ 500 [0.03, 127.0.0.1:50960][0m
+HTTP b'POST' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP POST /auth/api/login/ 200 [0.47, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.17, 127.0.0.1:45192][0m
+HTTP b'POST' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP POST /manage/session/create_lecture_session/ 200 [0.08, 127.0.0.1:45192][0m
+WebSocket HANDSHAKING /ws/attendance_session/bdcd04b36b45d331019bf00e617fbbc9d0823f6ca4fa876f5f990e4ad4ff4758/ [127.0.0.1:55098]
+Upgraded connection ['127.0.0.1', 55098] to WebSocket
+WebSocket ['127.0.0.1', 55098] open and established
+WebSocket CONNECT /ws/attendance_session/bdcd04b36b45d331019bf00e617fbbc9d0823f6ca4fa876f5f990e4ad4ff4758/ [127.0.0.1:55098]
+WebSocket ['127.0.0.1', 55098] accepted by application
+HTTP b'POST' request for ['127.0.0.1', 50960]
+Internal Server Error: /manage/session/mark_attendance_for_student/
+HTTP 500 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[35;1mHTTP POST /manage/session/mark_attendance_for_student/ 500 [0.04, 127.0.0.1:50960][0m
+WebSocket incoming frame on ['127.0.0.1', 55098]
+Sent WebSocket packet to client for ['127.0.0.1', 55098]
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.17, 127.0.0.1:45192][0m
+WebSocket closed for ['127.0.0.1', 55098]
+WebSocket DISCONNECT /ws/attendance_session/bdcd04b36b45d331019bf00e617fbbc9d0823f6ca4fa876f5f990e4ad4ff4758/ [127.0.0.1:55098]
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.17, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:50960][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:50960][0m
+HTTP b'GET' request for ['127.0.0.1', 50960]
+HTTP 200 response started for ['127.0.0.1', 50960]
+HTTP close for ['127.0.0.1', 50960]
+HTTP response complete for ['127.0.0.1', 50960]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.17, 127.0.0.1:50960][0m
+HTTP b'GET' request for ['127.0.0.1', 55974]
+HTTP 200 response started for ['127.0.0.1', 55974]
+HTTP close for ['127.0.0.1', 55974]
+HTTP response complete for ['127.0.0.1', 55974]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.15, 127.0.0.1:55974][0m
+HTTP b'POST' request for ['127.0.0.1', 45192]
+Internal Server Error: /manage/session/create_lecture_session/
+HTTP 500 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[35;1mHTTP POST /manage/session/create_lecture_session/ 500 [0.04, 127.0.0.1:45192][0m
+HTTP b'GET' request for ['127.0.0.1', 45192]
+HTTP 200 response started for ['127.0.0.1', 45192]
+HTTP close for ['127.0.0.1', 45192]
+HTTP response complete for ['127.0.0.1', 45192]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.16, 127.0.0.1:45192][0m
+HTTP b'POST' request for ['127.0.0.1', 36260]
+HTTP 200 response started for ['127.0.0.1', 36260]
+HTTP close for ['127.0.0.1', 36260]
+HTTP response complete for ['127.0.0.1', 36260]
+[mHTTP POST /auth/api/login/ 200 [0.48, 127.0.0.1:36260][0m
+HTTP b'GET' request for ['127.0.0.1', 36260]
+HTTP 200 response started for ['127.0.0.1', 36260]
+HTTP close for ['127.0.0.1', 36260]
+HTTP response complete for ['127.0.0.1', 36260]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:36260][0m
+HTTP b'GET' request for ['127.0.0.1', 36260]
+HTTP 200 response started for ['127.0.0.1', 36260]
+HTTP close for ['127.0.0.1', 36260]
+HTTP response complete for ['127.0.0.1', 36260]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:36260][0m
+HTTP b'GET' request for ['127.0.0.1', 36260]
+HTTP b'GET' request for ['127.0.0.1', 36270]
+HTTP 200 response started for ['127.0.0.1', 36260]
+HTTP close for ['127.0.0.1', 36260]
+HTTP response complete for ['127.0.0.1', 36260]
+[mHTTP GET /manage/get_terms 200 [0.06, 127.0.0.1:36260][0m
+HTTP 200 response started for ['127.0.0.1', 36270]
+HTTP close for ['127.0.0.1', 36270]
+HTTP response complete for ['127.0.0.1', 36270]
+[mHTTP GET /manage/get_object_counts 200 [0.07, 127.0.0.1:36270][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.18, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50106]
+HTTP 200 response started for ['127.0.0.1', 50106]
+HTTP close for ['127.0.0.1', 50106]
+HTTP response complete for ['127.0.0.1', 50106]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.15, 127.0.0.1:50106][0m
+HTTP b'GET' request for ['127.0.0.1', 50106]
+HTTP 200 response started for ['127.0.0.1', 50106]
+HTTP close for ['127.0.0.1', 50106]
+HTTP response complete for ['127.0.0.1', 50106]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:50106][0m
+HTTP b'GET' request for ['127.0.0.1', 50106]
+HTTP 200 response started for ['127.0.0.1', 50106]
+HTTP close for ['127.0.0.1', 50106]
+HTTP response complete for ['127.0.0.1', 50106]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:50106][0m
+HTTP b'GET' request for ['127.0.0.1', 50106]
+HTTP 200 response started for ['127.0.0.1', 50106]
+HTTP close for ['127.0.0.1', 50106]
+HTTP response complete for ['127.0.0.1', 50106]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.21, 127.0.0.1:50106][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.20, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50096]
+HTTP 200 response started for ['127.0.0.1', 50096]
+HTTP close for ['127.0.0.1', 50096]
+HTTP response complete for ['127.0.0.1', 50096]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.22, 127.0.0.1:50096][0m
+HTTP b'GET' request for ['127.0.0.1', 50106]
+HTTP 200 response started for ['127.0.0.1', 50106]
+HTTP close for ['127.0.0.1', 50106]
+HTTP response complete for ['127.0.0.1', 50106]
+[mHTTP GET /manage/get_timetable_for_student 200 [0.17, 127.0.0.1:50106][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/serializers.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/Manage/serializers.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'POST' request for ['127.0.0.1', 53196]
+HTTP 200 response started for ['127.0.0.1', 53196]
+HTTP close for ['127.0.0.1', 53196]
+HTTP response complete for ['127.0.0.1', 53196]
+[mHTTP POST /auth/api/login/ 200 [0.47, 127.0.0.1:53196][0m
+HTTP b'GET' request for ['127.0.0.1', 53196]
+HTTP 200 response started for ['127.0.0.1', 53196]
+HTTP close for ['127.0.0.1', 53196]
+HTTP response complete for ['127.0.0.1', 53196]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:53196][0m
+HTTP b'GET' request for ['127.0.0.1', 53196]
+HTTP 200 response started for ['127.0.0.1', 53196]
+HTTP close for ['127.0.0.1', 53196]
+HTTP response complete for ['127.0.0.1', 53196]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:53196][0m
+HTTP b'GET' request for ['127.0.0.1', 53196]
+HTTP 200 response started for ['127.0.0.1', 53196]
+HTTP close for ['127.0.0.1', 53196]
+HTTP response complete for ['127.0.0.1', 53196]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.17, 127.0.0.1:53196][0m
+HTTP b'GET' request for ['127.0.0.1', 38464]
+HTTP 200 response started for ['127.0.0.1', 38464]
+HTTP close for ['127.0.0.1', 38464]
+HTTP response complete for ['127.0.0.1', 38464]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:38464][0m
+HTTP b'GET' request for ['127.0.0.1', 38464]
+HTTP 200 response started for ['127.0.0.1', 38464]
+HTTP close for ['127.0.0.1', 38464]
+HTTP response complete for ['127.0.0.1', 38464]
+[mHTTP GET /check_token_authenticity/ 200 [0.06, 127.0.0.1:38464][0m
+HTTP b'GET' request for ['127.0.0.1', 38464]
+HTTP 200 response started for ['127.0.0.1', 38464]
+HTTP close for ['127.0.0.1', 38464]
+HTTP response complete for ['127.0.0.1', 38464]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.15, 127.0.0.1:38464][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_token_authenticity/ 200 [0.06, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.21, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_token_authenticity/ 200 [0.04, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.17, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.16, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_server_avaibility/ 200 [0.00, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.15, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET / 200 [0.02, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /static/js/main.5ec6ad9d.js 200 [0.01, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 60746]
+HTTP 200 response started for ['127.0.0.1', 60746]
+HTTP close for ['127.0.0.1', 60746]
+HTTP response complete for ['127.0.0.1', 60746]
+[mHTTP GET /static/css/main.4df779af.css 200 [0.01, 127.0.0.1:60746][0m
+HTTP b'GET' request for ['127.0.0.1', 60746]
+HTTP 200 response started for ['127.0.0.1', 60746]
+HTTP close for ['127.0.0.1', 60746]
+HTTP response complete for ['127.0.0.1', 60746]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:60746][0m
+HTTP b'GET' request for ['127.0.0.1', 60746]
+HTTP b'GET' request for ['127.0.0.1', 60754]
+HTTP 200 response started for ['127.0.0.1', 60746]
+HTTP close for ['127.0.0.1', 60746]
+HTTP response complete for ['127.0.0.1', 60746]
+[mHTTP GET /static/css/main.4df779af.css 200 [0.01, 127.0.0.1:60746][0m
+HTTP 200 response started for ['127.0.0.1', 60754]
+HTTP close for ['127.0.0.1', 60754]
+HTTP response complete for ['127.0.0.1', 60754]
+[mHTTP GET /static/manifest.json 200 [0.01, 127.0.0.1:60754][0m
+HTTP b'GET' request for ['127.0.0.1', 60746]
+HTTP 200 response started for ['127.0.0.1', 60746]
+HTTP close for ['127.0.0.1', 60746]
+HTTP response complete for ['127.0.0.1', 60746]
+[mHTTP GET / 200 [0.01, 127.0.0.1:60746][0m
+HTTP b'GET' request for ['127.0.0.1', 60746]
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 60746]
+HTTP close for ['127.0.0.1', 60746]
+HTTP response complete for ['127.0.0.1', 60746]
+[mHTTP GET /static/js/main.5ec6ad9d.js 200 [0.01, 127.0.0.1:60746][0m
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /static/css/main.4df779af.css 200 [0.01, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /static/favicon.ico 200 [0.01, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /check_token_authenticity/ 200 [0.02, 127.0.0.1:37724][0m
+HTTP b'GET' request for ['127.0.0.1', 37724]
+HTTP 200 response started for ['127.0.0.1', 37724]
+HTTP close for ['127.0.0.1', 37724]
+HTTP response complete for ['127.0.0.1', 37724]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.17, 127.0.0.1:37724][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_token_authenticity/ 200 [0.08, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.23, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/login/ 200 [0.48, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.16, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.09, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.23, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.11, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /manage/get_timetable_for_teacher
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /manage/get_timetable_for_teacher 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/,%20%7B%20refresh:%20eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTczMzA2NzkzOCwiaWF0IjoxNzI1MjkxOTM4LCJqdGkiOiI1OGMxYTc3ZGI1OTg0MTM0OGQ2Y2UwYjQ2ODljNjBiOSIsInVzZXJfaWQiOjM0NSwib2JqIjp7InNsdWciOiIyMzAxMDZfMTcwOTU3MjMwMiIsInByb2ZpbGUiOnsibmFtZSI6Ik1hbmF2IFNoYWgiLCJlbWFpbCI6Im1hbmF2LnRlYWNoZXIudGVzdEBnbWFpbC5jb20iLCJyb2xlIjoidGVhY2hlciJ9LCJicmFuY2giOnsiYnJhbmNoX25hbWUiOiJDb21wdXRlciBFbmdpbmVlcmluZyAtIEJFIiwiYnJhbmNoX2NvZGUiOiI3Iiwic2x1ZyI6IjExOTE0N18xNzA4OTM1ODk3IiwiY29sbGVnZSI6eyJjb2xsZWdlX25hbWUiOiJMLkQuIGNvbGxlZ2Ugb2YgZW5naW5lZXJpbmciLCJzbHVnIjoiNzcxODg2XzE3MDg5MjgzNTkifX19fQ.bCQFG4lv2vIqU3El4QUA6yKlA2is1-oHAZ10Vwb3r5w%20%7D,%20%7B%20headers:%20header%20%7D 200 [0.01, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.02, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.09, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.23, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.09, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.20, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.11, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.19, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.15, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.32, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:49862][0m
+HTTP b'POST' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.11, 127.0.0.1:49862][0m
+HTTP b'GET' request for ['127.0.0.1', 49862]
+HTTP 200 response started for ['127.0.0.1', 49862]
+HTTP close for ['127.0.0.1', 49862]
+HTTP response complete for ['127.0.0.1', 49862]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.20, 127.0.0.1:49862][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'GET' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP GET /check_server_avaibility/ 200 [0.02, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 58394]
+Unauthorized: /check_token_authenticity/
+HTTP 401 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[31;1mHTTP GET /check_token_authenticity/ 401 [0.01, 127.0.0.1:58394][0m
+HTTP b'POST' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP POST /auth/api/token/refresh/ 200 [0.06, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.40, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 58394]
+HTTP 200 response started for ['127.0.0.1', 58394]
+HTTP close for ['127.0.0.1', 58394]
+HTTP response complete for ['127.0.0.1', 58394]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.22, 127.0.0.1:58394][0m
+HTTP b'GET' request for ['127.0.0.1', 59214]
+HTTP 200 response started for ['127.0.0.1', 59214]
+HTTP close for ['127.0.0.1', 59214]
+HTTP response complete for ['127.0.0.1', 59214]
+[mHTTP GET /manage/get_subjects_of_teacher 200 [0.12, 127.0.0.1:59214][0m
+HTTP b'GET' request for ['127.0.0.1', 59214]
+HTTP 200 response started for ['127.0.0.1', 59214]
+HTTP close for ['127.0.0.1', 59214]
+HTTP response complete for ['127.0.0.1', 59214]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.23, 127.0.0.1:59214][0m
+HTTP b'GET' request for ['127.0.0.1', 59214]
+HTTP 200 response started for ['127.0.0.1', 59214]
+HTTP close for ['127.0.0.1', 59214]
+HTTP response complete for ['127.0.0.1', 59214]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.24, 127.0.0.1:59214][0m
+HTTP b'POST' request for ['127.0.0.1', 59214]
+Internal Server Error: /manage/session/create_lecture_session/
+HTTP 500 response started for ['127.0.0.1', 59214]
+HTTP close for ['127.0.0.1', 59214]
+HTTP response complete for ['127.0.0.1', 59214]
+[35;1mHTTP POST /manage/session/create_lecture_session/ 500 [0.06, 127.0.0.1:59214][0m
+HTTP b'GET' request for ['127.0.0.1', 59214]
+HTTP 200 response started for ['127.0.0.1', 59214]
+HTTP close for ['127.0.0.1', 59214]
+HTTP response complete for ['127.0.0.1', 59214]
+[mHTTP GET /manage/get_timetable_for_teacher 200 [0.23, 127.0.0.1:59214][0m
+Watching for file changes with StatReloader
+HTTP/2 support enabled
+Configuring endpoint tcp:port=8000:interface=0.0.0.0
+Listening on TCP address 0.0.0.0:8000
+HTTP b'OPTIONS' request for ['127.0.0.1', 42030]
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP OPTIONS /check_server_avaibility/ 200 [0.01, 127.0.0.1:42030][0m
+HTTP b'GET' request for ['127.0.0.1', 42030]
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP GET /check_server_avaibility/ 200 [0.01, 127.0.0.1:42030][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 42030]
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP OPTIONS /check_token_authenticity/ 200 [0.00, 127.0.0.1:42030][0m
+HTTP b'GET' request for ['127.0.0.1', 42030]
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP GET /check_token_authenticity/ 200 [0.03, 127.0.0.1:42030][0m
+HTTP b'OPTIONS' request for ['127.0.0.1', 42030]
+HTTP b'OPTIONS' request for ['127.0.0.1', 42042]
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP OPTIONS /manage/get_terms 200 [0.00, 127.0.0.1:42030][0m
+HTTP 200 response started for ['127.0.0.1', 42042]
+HTTP close for ['127.0.0.1', 42042]
+HTTP response complete for ['127.0.0.1', 42042]
+[mHTTP OPTIONS /manage/get_object_counts 200 [0.00, 127.0.0.1:42042][0m
+HTTP b'GET' request for ['127.0.0.1', 42042]
+HTTP b'GET' request for ['127.0.0.1', 42030]
+HTTP 200 response started for ['127.0.0.1', 42042]
+HTTP close for ['127.0.0.1', 42042]
+HTTP response complete for ['127.0.0.1', 42042]
+[mHTTP GET /manage/get_terms 200 [0.76, 127.0.0.1:42042][0m
+HTTP 200 response started for ['127.0.0.1', 42030]
+HTTP close for ['127.0.0.1', 42030]
+HTTP response complete for ['127.0.0.1', 42030]
+[mHTTP GET /manage/get_object_counts 200 [1.17, 127.0.0.1:42030][0m
+/home/manav1011/Documents/SMARTROLL_SSIP_2023/SMARTROLL/SMARTROLL/settings.py changed, reloading.

@@ -89,7 +89,7 @@ class ScheduleSerializerForStudent(serializers.ModelSerializer):
         self.batches = batches
         self.student = student
     
-    def get_lectures(self,obj):        
+    def get_lectures(self,obj):
         lectures = obj.lecture_set.filter(batches__in=self.batches,is_active=True)
         lectures_serialized = LectureSerializerForStudent(instance=lectures,student=self.student,many=True)
         return lectures_serialized.data        
@@ -266,10 +266,11 @@ class LectureSerializer(serializers.ModelSerializer):
     classroom = ClassRoomSerializer()
     batches = BatchSerializer(many=True)
     link = serializers.SerializerMethodField()
+    survey = serializers.SerializerMethodField()
 
     class Meta:
         model = Lecture
-        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link']
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link','survey']
     
     def get_link(self,obj):
         link = obj.to_links.all().filter(to_lecture=obj).first()
@@ -287,6 +288,12 @@ class LectureSerializer(serializers.ModelSerializer):
         session_obj = obj.session_set.filter(day=today).first()
         session_serialized = SessionSerializerForLecture(session_obj)
         return session_serialized.data
+    
+    def get_survey(self,obj):
+        survey = obj.survey_set.all()        
+        from Session.serializers import SurveySerializer
+        survey_serialized = SurveySerializer(survey,many=True)
+        return survey_serialized.data
 
 
 class LectureSerializerForStudent(serializers.ModelSerializer):
@@ -296,6 +303,7 @@ class LectureSerializerForStudent(serializers.ModelSerializer):
     classroom = ClassRoomSerializer()
     batches = BatchSerializer(many=True)
     link = serializers.SerializerMethodField()
+    survey = serializers.SerializerMethodField()
 
     def get_link(self,obj):
         link = obj.to_links.all().filter(to_lecture=obj).first()
@@ -307,7 +315,7 @@ class LectureSerializerForStudent(serializers.ModelSerializer):
         
     class Meta:
         model = Lecture
-        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link']
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link','survey']
     
     def __init__(self,student=None,*args, **kwargs):
         super(LectureSerializerForStudent, self).__init__(*args, **kwargs)
@@ -321,6 +329,12 @@ class LectureSerializerForStudent(serializers.ModelSerializer):
         session_obj = obj.session_set.filter(day=today).first()
         session_serialized = SessionSerializerForLectureForStudent(instance=session_obj,student=self.student)
         return session_serialized.data
+    
+    def get_survey(self,obj):
+        survey = obj.survey_set.all()        
+        from Session.serializers import SurveySerializer
+        survey_serialized = SurveySerializer(survey,many=True)
+        return survey_serialized.data
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
