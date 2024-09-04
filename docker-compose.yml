@@ -23,18 +23,16 @@ services:
       - REDIS_HOST=redis      
       - NGROK_PROXY=https://86e4-2405-201-2024-b862-d802-ad7e-8279-635b.ngrok-free.app
     command: >
-      bash -c "
-        apt-get update && apt-get install -y cron &&
+      bash -c "        
         pip install -r requirements.txt &&
         python manage.py makemigrations &&
         python manage.py migrate &&
         python manage.py flush --noinput &&
         python manage.py loaddata dumpdata.json &&
-        python manage.py collectstatic --noinput &&
-        python manage.py crontab remove &&
-        python manage.py crontab remove &&
-        python manage.py crontab add && 
-        python manage.py crontab show && 
+        python manage.py collectstatic --noinput &&        
+        openssl ecparam -name prime256v1 -genkey -noout -out vapid_private.pem &&
+        openssl ec -in ./vapid_private.pem -outform DER|tail -c +8|head -c 32|base64|tr -d '=' |tr '/+' '_-' > private_key.txt &&
+        openssl ec -in ./vapid_private.pem -pubout -outform DER|tail -c 65|base64|tr -d '=' |tr '/+' '_-' > public_key.txt &&
         daphne -b 0.0.0.0 -p 8000 SMARTROLL.asgi:application
       "
 

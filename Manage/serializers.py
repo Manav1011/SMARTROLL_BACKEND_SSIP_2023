@@ -89,32 +89,34 @@ class ScheduleSerializerForStudent(serializers.ModelSerializer):
         self.batches = batches
         self.student = student
     
-    def get_lectures(self,obj):        
+    def get_lectures(self,obj):
         lectures = obj.lecture_set.filter(batches__in=self.batches,is_active=True)
         lectures_serialized = LectureSerializerForStudent(instance=lectures,student=self.student,many=True)
         return lectures_serialized.data        
 
 
 class TimeTableSerializerForStudent(serializers.ModelSerializer):
-    schedules = serializers.SerializerMethodField()
+    schedule = serializers.SerializerMethodField()
     division = DivisionSerializerForTeacher()
 
     class Meta:
         model = TimeTable
-        fields = ['slug','division','schedules']
+        fields = ['slug','division','schedule']
     
     def __init__(self, batches,student=None,*args, **kwargs):
         super(TimeTableSerializerForStudent, self).__init__(*args, **kwargs)
         self.student = student
         self.batches = batches
 
-    def get_schedules(self,obj):        
+    def get_schedule(self,obj):        
         current_datetime = datetime.now()
         current_day_name = current_datetime.strftime('%A')
-        schedules = obj.schedule_set.filter(day=current_day_name.lower())
-        # schedules = obj.schedule_set.filter(day='saturday')
-        schedules_serialized = ScheduleSerializerForStudent(instance=schedules,student=self.student,many=True,batches=self.batches)
-        return schedules_serialized.data    
+        schedule = obj.schedule_set.filter(day=current_day_name.lower()).first()
+        if schedule:
+            schedules_serialized = ScheduleSerializerForStudent(instance=schedule,student=self.student,batches=self.batches)
+            return schedules_serialized.data    
+        else:
+            return None
     
 class TimeTableSerializerForTeacher(serializers.ModelSerializer):
     schedule = serializers.SerializerMethodField()    
@@ -129,11 +131,14 @@ class TimeTableSerializerForTeacher(serializers.ModelSerializer):
 
     def get_schedule(self,obj):        
         current_datetime = datetime.now()
-        current_day_name = current_datetime.strftime('%A')        
+        current_day_name = current_datetime.strftime('%A')
         schedule = obj.schedule_set.filter(day=current_day_name.lower()).first()
-        # schedules = obj.schedule_set.filter(day='saturday')
-        schedules_serialized = ScheduleSerializerForTeacher(instance=schedule,teacher=self.teacher)
-        return schedules_serialized.data    
+        # schedule = obj.schedule_set.filter(day='sunday')
+        if schedule:
+            schedules_serialized = ScheduleSerializerForTeacher(instance=schedule,teacher=self.teacher)
+            return schedules_serialized.data    
+        else:
+            return None
     
 class SessionSerializerForLecture(serializers.ModelSerializer):
     class Meta:
@@ -165,7 +170,7 @@ class LectureSerializerForHistory(serializers.ModelSerializer):
     classroom = serializers.SerializerMethodField()
     class Meta:
         model = Lecture
-        fields = ['type','classroom','slug','session','is_active','is_proxy']
+        fields = ['type','classroom','slug','session','is_active','is_proxy','start_time','end_time']
     
     def get_classroom(self,obj):
         return obj.classroom.class_name
@@ -223,6 +228,23 @@ class BranchWiseTimeTableSerializer(serializers.ModelSerializer):
         semesters = obj.term_set.filter(status=True).first().semester_set.filter(status=True)
         semesters_serialized = SemesterWiseTimeTableSerializer(instance=semesters,many=True,teacher=self.teacher)
         return semesters_serialized.data
+
+class BranchWiseTimeTableSerializerStudent(serializers.ModelSerializer):
+    timetables = serializers.SerializerMethodField()
+    class Meta:
+        model = Branch
+        fields = ['branch_name','branch_code','slug','timetables']
+    
+    def __init__(self, student, *args, **kwargs):
+        super(BranchWiseTimeTableSerializerStudent, self).__init__(*args, **kwargs)
+        self.student = student
+
+    def get_timetables(self,obj):
+        batches = Batch.objects.filter(students=self.student,division__semester__term__branch=obj)    
+        division = Division.objects.filter(batch__students=self.student, batch__in=batches).first()        
+        timetables = TimeTable.objects.filter(division=division)    
+        timetable_serialized = TimeTableSerializerForStudent(instance=timetables,student=self.student,batches=batches,many=True)
+        return timetable_serialized.data
     
 class LectureSerializerForLink(serializers.ModelSerializer):
     subject = SubjectSerializer()
@@ -244,6 +266,7 @@ class LectureSerializer(serializers.ModelSerializer):
     classroom = ClassRoomSerializer()
     batches = BatchSerializer(many=True)
     link = serializers.SerializerMethodField()
+    # survey = serializers.SerializerMethodField()
 
     class Meta:
         model = Lecture
@@ -265,6 +288,12 @@ class LectureSerializer(serializers.ModelSerializer):
         session_obj = obj.session_set.filter(day=today).first()
         session_serialized = SessionSerializerForLecture(session_obj)
         return session_serialized.data
+    
+    # def get_survey(self,obj):
+    #     survey = obj.survey_set.all()        
+    #     from Session.serializers import SurveySerializer
+    #     survey_serialized = SurveySerializer(survey,many=True)
+    #     return survey_serialized.data
 
 
 class LectureSerializerForStudent(serializers.ModelSerializer):
@@ -274,6 +303,7 @@ class LectureSerializerForStudent(serializers.ModelSerializer):
     classroom = ClassRoomSerializer()
     batches = BatchSerializer(many=True)
     link = serializers.SerializerMethodField()
+    survey = serializers.SerializerMethodField()
 
     def get_link(self,obj):
         link = obj.to_links.all().filter(to_lecture=obj).first()
@@ -285,7 +315,7 @@ class LectureSerializerForStudent(serializers.ModelSerializer):
         
     class Meta:
         model = Lecture
-        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link']
+        fields = ['start_time','end_time','type','subject','teacher','classroom','batches','slug','session','is_active','is_proxy','link','survey']
     
     def __init__(self,student=None,*args, **kwargs):
         super(LectureSerializerForStudent, self).__init__(*args, **kwargs)
@@ -299,6 +329,13 @@ class LectureSerializerForStudent(serializers.ModelSerializer):
         session_obj = obj.session_set.filter(day=today).first()
         session_serialized = SessionSerializerForLectureForStudent(instance=session_obj,student=self.student)
         return session_serialized.data
+    
+    def get_survey(self,obj):
+        survey = obj.survey_set.filter(active=True).first()
+        if not survey: return None
+        from Session.serializers import SurveySerializer
+        survey_serialized = SurveySerializer(survey)
+        return survey_serialized.data
 
 
 class ScheduleSerializer(serializers.ModelSerializer):

@@ -36,13 +36,22 @@ import pytz
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET')
 
+DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH = os.path.join(BASE_DIR, "private_key.txt")
+DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH = os.path.join(BASE_DIR,"public_key.txt")
+                                                       
+VAPID_PRIVATE_KEY = open(DER_BASE64_ENCODED_PRIVATE_KEY_FILE_PATH, "r+").readline().strip("\n")
+VAPID_PUBLIC_KEY = open(DER_BASE64_ENCODED_PUBLIC_KEY_FILE_PATH, "r+").read().strip("\n")
+VAPID_CLAIMS = {
+    "sub": "mailto:manavshah1011.ms@gmail.com"
+}
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-ALLOWED_HOSTS = ['*']
+DEBUG = True
+ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost','192.168.29.18','192.168.115.106','192.168.157.106','192.168.131.106']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["https://submit.jotform.com","http://localhost:8000",os.environ.get('NGROK_PROXY')]
+CSRF_TRUSTED_ORIGINS = ["http://192.168.157.106:8000",'http://192.168.157.106:8000','http://localhost:3000']
 
 
 # Application definition
@@ -66,7 +75,7 @@ INSTALLED_APPS = [
     'Profile',
     'StakeHolders',    
     'Manage',    
-    'Session'
+    'Session',    
 ]
 SSL_CERTIFICATE = SSL_CERTIFICATE_PATH
 SSL_KEY = SSL_KEY_PATH
@@ -79,7 +88,14 @@ REST_FRAMEWORK = {
 
 
 CRONJOBS = [
-    ('0 12 * * 0', 'Session.cron.create_weekly_sessions')
+    ('0 12 * * 0', 'Session.cron.create_weekly_sessions'),
+    ('30 10 * * *','Manage.NotificationCron.NotifyTeachers10_30'),
+    ('30 11 * * *','Manage.NotificationCron.NotifyTeachers11_30'),
+    ('00 13 * * *','Manage.NotificationCron.NotifyTeachers13_00'),
+    ('00 14 * * *','Manage.NotificationCron.NotifyTeachers14_00'),
+    ('15 15 * * *','Manage.NotificationCron.NotifyTeachers15_15'),
+    ('15 16 * * *','Manage.NotificationCron.NotifyTeachers16_15'),
+
 ]
 
 SIMPLE_JWT = {
@@ -103,6 +119,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'SMARTROLL.requestMiddleware.globalRequestMiddleWare',
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_HEADERS = [
@@ -116,6 +133,7 @@ CORS_ALLOW_HEADERS = [
 CORS_ALLOW_CREDENTIALS=True
 
 ROOT_URLCONF = 'SMARTROLL.urls'
+
 
 TEMPLATES = [
     {
@@ -142,14 +160,11 @@ ASGI_APPLICATION = "SMARTROLL.asgi.application"
 
 
 if DEBUG:
+    DATABASE_DIR = os.path.join(BASE_DIR, 'db.sqlite3')
     DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('DB_NAME'),
-            'USER': os.environ.get('DB_USER'),
-            'PASSWORD': os.environ.get('DB_PASS'),
-            'HOST': os.environ.get('DB_HOST'),
-            'PORT': os.environ.get('DB_PORT')
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': DATABASE_DIR,
         }
     }
 else:

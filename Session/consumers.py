@@ -60,8 +60,9 @@ class AttendanceSessionConsumer(AsyncWebsocketConsumer):
         session_obj = Session.objects.filter(session_id=self.session_id).first()
         if session_obj and session_obj.active in ['pre','ongoing']:
             session_obj.active = 'post'
-            session_obj.lecture.is_active = False
-            session_obj.lecture.save()
+            if session_obj.lecture.is_proxy: 
+                session_obj.lecture.is_active = False
+                session_obj.lecture.save()
             session_serialized = SessionSerializerHistory(session_obj)
             session_obj.save()         
             return True,session_serialized.data

@@ -19,3 +19,23 @@ HTTP GET /static/jot/smoothscroll.min.js 200 [0.00, 127.0.0.1:45604]
 HTTP GET /static/jot/errorNavigation.js 200 [0.00, 127.0.0.1:45552]
 Not Found: /student_registration/saved_resource
 HTTP GET /student_registration/saved_resource 404 [0.02, 127.0.0.1:45542]
+[49314:49314:0902/204749.879270:ERROR:object_proxy.cc(576)] Failed to call method: org.freedesktop.ScreenSaver.GetActive: object_path= /org/freedesktop/ScreenSaver: org.freedesktop.DBus.Error.NotSupported: This method is not part of the idle inhibition specification: https://specifications.freedesktop.org/idle-inhibit-spec/latest/
+Created TensorFlow Lite XNNPACK delegate for CPU.
+[49375:49375:0902/204800.048220:ERROR:gl_surface_presentation_helper.cc(260)] GetVSyncParametersIfAvailable() failed for 1 times!
+[49314:49314:0902/204805.634218:ERROR:zygote_communication_linux.cc(297)] Failed to send GetTerminationStatus message to zygote
+[49314:49314:0902/204805.636912:ERROR:zygote_communication_linux.cc(297)] Failed to send GetTerminationStatus message to zygote
+[49314:49314:0902/204805.648753:ERROR:network_service_instance_impl.cc(600)] Network service crashed, restarting service.
+[49314:49314:0902/204805.675701:ERROR:zygote_communication_linux.cc(297)] Failed to send GetTerminationStatus message to zygote
+[49314:49314:0902/204805.680819:ERROR:zygote_communication_linux.cc(297)] Failed to send GetTerminationStatus message to zygote
+[49314:49314:0902/204805.700727:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.721872:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.727414:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.731748:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.734959:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.738556:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.741153:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.743997:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.747222:ERROR:gpu_process_host.cc(1001)] GPU process launch failed: error_code=1002
+[49314:49314:0902/204805.747259:FATAL:gpu_data_manager_impl_private.cc(454)] GPU process isn't usable. Goodbye.
+[0902/204805.768849:ERROR:elf_dynamic_array_reader.h(64)] tag not found
+[0902/204805.794151:ERROR:directory_reader_posix.cc(43)] opendir /home/manav1011/.config/google-chrome/Crash Reports/attachments/d65da107-3626-48a8-a8fc-211238a161db: No such file or directory (2)

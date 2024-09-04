@@ -19,7 +19,7 @@ from django.urls import path,include,re_path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-from .views import check_server_avaibility,check_token_authenticity,handle404,TeacherActivation
+from .views import check_server_avaibility,check_token_authenticity,handle404,TeacherActivation,ForgotPasswordPage
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -43,6 +43,7 @@ urlpatterns = [
     # path('', TemplateView.as_view(template_name='index.html'), name='home'),
     # path('__debug__/', include('debug_toolbar.urls')),
     path('teacher_activation/<str:slug>',TeacherActivation),
+    path('forgot_password/<str:slug>',ForgotPasswordPage),
     path('',TemplateView.as_view(template_name='index.html')),
     path('scatter',TemplateView.as_view(template_name='scatter.html')),
     path('smartroll@admin.private/', admin.site.urls),
@@ -51,7 +52,7 @@ urlpatterns = [
     path('auth/',include('StakeHolders.urls')),
     path('manage/',include('Manage.urls')),        
     re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
-    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
+    re_path(r"^static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),    
     # path('api_endpoints/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
 ]
 

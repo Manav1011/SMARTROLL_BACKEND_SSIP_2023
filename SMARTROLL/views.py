@@ -26,6 +26,8 @@ def handle404(request,exception):
     return render(request,template_name='404.html')
 
 
-def TeacherActivation(request,slug):
-    print(slug)    
+def TeacherActivation(request,slug):    
     return render(request,'TeacherActivation.html')
+
+def ForgotPasswordPage(request,slug):    
+    return render(request,'forgotpassword.html')

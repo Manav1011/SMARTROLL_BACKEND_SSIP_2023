@@ -30,12 +30,12 @@ class College(models.Model):
     
 class Branch(models.Model):
     branch_name = models.CharField(max_length=255)    
-    branch_code = models.IntegerField(unique=True)
+    branch_code = models.CharField(unique=True,null=True,blank=True,max_length=3)
     slug = models.SlugField(unique=True,null=True,blank=True)
     college = models.ForeignKey(College,on_delete=models.CASCADE)
     admins = models.ManyToManyField(Admin,blank=True)
     teachers = models.ManyToManyField(Teacher,blank=True)
-    students = models.ManyToManyField(Student,blank=True)
+    students = models.ManyToManyField(Student,blank=True)    
 
 
     def save(self, *args, **kwargs):
@@ -45,6 +45,7 @@ class Branch(models.Model):
 
     def __str__(self) -> str:
         return self.branch_name
+
 
 class Term(models.Model):
     start_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
@@ -77,7 +78,7 @@ class Semester(models.Model):
     
 class Subject(models.Model):
     subject_name = models.CharField(max_length=255)
-    code = models.IntegerField(unique=True)
+    code = models.CharField(unique=True,max_length=20,null=True,blank=True)
     credit = models.IntegerField()
     slug = models.SlugField(unique=True,null=True,blank=True)    
     semester = models.ForeignKey(Semester,on_delete=models.CASCADE,blank=True,null=True)
@@ -205,4 +206,4 @@ class Link(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
-        super(Link, self).save(*args, **kwargs)      
+        super(Link, self).save(*args, **kwargs)

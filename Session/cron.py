@@ -17,7 +17,6 @@ def return_day_index(day):
     return day_mapping[day]
 
 def create_weekly_sessions():
-    os.system("ping -c 1 " + '10.0.5.9')
     # today= datetime.now().date() - timedelta(days =5)
     today= datetime.now().date()
     timetables = TimeTable.objects.all()

@@ -1,11 +1,12 @@
 from django.urls import path,include
-from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount,add_lecture_as_proxy
+from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount,add_lecture_as_proxy,set_web_push_subscription,save_web_push_subscription,set_new_password_for_student,get_subjects_of_teacher_by_admin,get_lecture_sessions_for_teacher_by_admin
 urlpatterns = [        
     path('get_object_counts',get_object_counts,name='get_object_counts'),    
     path('add_term/',add_term,name='add_term'),
     path('get_terms',get_terms,name='get_terms'),
     path('add_semester/',add_semester,name='add_semester'),
     path('activate_teacher_acount/',activate_teacher_acount,name='activate_teacher_acount'),
+    path('set_new_password_for_student/',set_new_password_for_student,name='set_new_password_for_student'),
     path('get_semesters',get_semesters,name='get_semesters'),
     path('add_division/',add_division,name='add_division'),
     path('get_subject',get_subjects,name='get_subjects'),
@@ -23,6 +24,10 @@ urlpatterns = [
     path('get_timetable_for_teacher',get_timetable_for_teacher,name='get_timetable_for_teacher'),
     path('get_timetable_for_student',get_timetable_for_student,name='get_timetable_for_student'),
     path('get_subjects_of_teacher',get_subjects_of_teacher,name='get_subjects_of_teacher'),
+    path('get_subjects_of_teacher_by_admin',get_subjects_of_teacher_by_admin,name='get_subjects_of_teacher_by_admin'),
     path('get_lecture_sessions_for_teacher',get_lecture_sessions_for_teacher,name='get_lecture_sessions_for_teacher'),
+    path('get_lecture_sessions_for_teacher_by_admin',get_lecture_sessions_for_teacher_by_admin,name='get_lecture_sessions_for_teacher_by_admin'),
+    path('set_web_push_subscription',set_web_push_subscription,name='set_web_push_subscription'),
+    path('save_web_push_subscription/',save_web_push_subscription,name='save_web_push_subscription'),
     path('session/',include('Session.urls'),name='session_management'),
 ]
