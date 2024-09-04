@@ -47,11 +47,11 @@ VAPID_CLAIMS = {
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost','192.168.29.18','192.168.115.106','192.168.157.106']
+ALLOWED_HOSTS = ['smartroll.ldce.mnv-dev.live','localhost','192.168.29.18','192.168.115.106','192.168.157.106','192.168.131.106']
 
 CSRF_COOKIE_SECURE = False
 CSRF_USE_SESSIONS = False
-CSRF_TRUSTED_ORIGINS = ["http://192.168.157.106:8000",'http://192.168.157.106:8000']
+CSRF_TRUSTED_ORIGINS = ["http://192.168.157.106:8000",'http://192.168.157.106:8000','http://localhost:3000']
 
 
 # Application definition
