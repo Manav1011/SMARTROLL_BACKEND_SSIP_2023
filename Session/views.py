@@ -1,13 +1,10 @@
 from rest_framework.decorators import permission_classes,api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .serializers import SessionSerializer,AttendanceSerializer,SessionSerializerHistory,SurveySerializer
-from .models import Session,Attendance,Survey,SurveyOption
+from .serializers import SessionSerializer,AttendanceSerializer,SessionSerializerHistory
+from .models import Session,Attendance
 from Manage.models import Lecture,GPSCoordinates
-from django.utils import timezone
-import ipaddress
 from StakeHolders.models import Student,Teacher
-import os
 import datetime
 from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
@@ -190,8 +187,7 @@ def mark_attendance_for_student(request):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_session_data_for_export(request,session_id):
-    data = {'data':None,'error':False,'message':None}
-    body = request.query_params
+    data = {'data':None,'error':False,'message':None}    
     try:
         if request.user.role == 'teacher' or request.user.role == 'admin':
             if session_id:
@@ -206,143 +202,6 @@ def get_session_data_for_export(request,session_id):
                 raise Exception("Parameters missing")
         else:
             raise Exception("You're not allowed to perform this action")
-    except Exception as e:
-        print(e)
-        data['message'] = str(e)
-        data['error'] = True     
-        return Response(data,status=500)   
-    
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def generate_survey_for_a_lecture(request):
-    data = {'data':None,'error':False,'message':None,"code":None}
-    try:
-        if request.user.role == 'teacher':
-            teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                body = request.data                
-                if 'survey_title' in body and 'type' in body and 'allowd_choices' in body and 'lecture_slug' in body and 'options' in body:
-                    lecture_obj = Lecture.objects.filter(slug=body['lecture_slug']).first()
-                    if lecture_obj:
-                        active_survey = lecture_obj.survey_set.filter(active=True).first()
-                        if active_survey:
-                            raise Exception('There is already an active survey for the lecture, Please make it inactive to add another survey!!')                        
-                        survey_obj = Survey.objects.create(title=body['survey_title'],type=body['type'],allowd_choices=body['allowd_choices'],lecture=lecture_obj)
-                        # set the survey options
-                        for option in body['options']:
-                            option_obj = SurveyOption.objects.create(option=option)
-                            survey_obj.options.add(option_obj)
-                        # Add the students who are allowed to mark the survey
-                        for batch in lecture_obj.batches.all():
-                            students = batch.students.all()
-                            survey_obj.allowed_students.add(*students)
-                        survey_obj.save()
-                        survey_serialized = SurveySerializer(survey_obj)
-                        data['data'] = survey_serialized.data
-                        return Response(data,status=200)
-                    else:
-                        raise Exception("Lecture does not exist")
-                else:
-                    raise Exception("Parameters missing")
-            else:
-                raise Exception('Teacher does not exists')
-    except Exception as e:
-         print(e)
-         data['error'] = True
-         data['message'] = str(e)
-         return Response(data,status=500)
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def submit_survey(request):
-    data = {'data':None,'error':False,'message':None,"code":None}
-    try:
-        if request.user.role == 'student':
-            student_obj = Student.objects.filter(profile=request.user).first()
-            if student_obj:
-                body = request.data
-                if 'survey_slug' in body and 'marked_option_slug' in body:
-                    survey_obj = Survey.objects.filter(slug=body['survey_slug']).first()
-                    if survey_obj:
-                        # Check if student is eligible for marking the survey
-                        if survey_obj.allowed_students.contains(student_obj):
-                            marked_option_obj = survey_obj.options.filter(slug=body['marked_option_slug']).first()
-                            if marked_option_obj:
-                                if survey_obj.allowd_choices == 'single':
-                                    rest_of_the_options = survey_obj.options.all().exclude(id=marked_option_obj.id)
-                                    for option in rest_of_the_options:
-                                        if option.student.contains(student_obj):
-                                            # option.student.remove(student_obj)
-                                            raise Exception("You've already marked your choice!!")  
-                                    marked_option_obj.student.add(student_obj)
-                                    data['message'] = "You're submission has been successfully marked!!"
-                                    return Response(data,status=200)
-                            else:
-                                raise Exception("Marked option does not exist")
-                        else:
-                            raise Exception("You're not eligible for marking this survey")
-                    else:
-                        raise Exception('Survey does not exist')
-            else:
-                raise Exception('Student does not exist')
-    except Exception as e:
-         print(e)
-         data['error'] = True
-         data['message'] = str(e)
-         return Response(data,status=500)
-    
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_survey_details(request,lecture_slug):
-    data = {'data':None,'error':False,'message':None}    
-    try:
-        if request.user.role == 'teacher':
-            if lecture_slug:
-                lecture_obj = Lecture.objects.filter(slug=lecture_slug).first()
-                if lecture_obj:                    
-                    survey = lecture_obj.survey_set.all()
-                    survey_serialized = SurveySerializer(survey,many=True)
-                    data['data'] = survey_serialized.data
-                    return Response(data,status=200)
-                else:
-                    raise Exception('Lecture does not exists')
-            else:
-                raise Exception("Parameters missing")
-        else:
-            raise Exception("You're not allowed to perform this action")
-    except Exception as e:
-        print(e)
-        data['message'] = str(e)
-        data['error'] = True     
-        return Response(data,status=500)   
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def end_survey(request):
-    data = {'data':None,'error':False,'message':None,"code":None}
-    try:
-        if request.user.role == 'teacher':
-            teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                body = request.data                
-                if 'survey_slug' in body:
-                    survey_obj = Survey.objects.filter(slug=body['survey_slug']).first()
-                    if survey_obj:
-                        if survey_obj.active == False:
-                            raise Exception('Survey is already inactived')    
-                        survey_obj.active = False
-                        survey_obj.save()
-                        data['message'] = "The survey has been inactivated successfully!!"
-                        return Response(data,status=200)
-                    else:
-                        raise Exception('Survey does not exist')
-                else:
-                    raise Exception("Parameters missing")
-            else:
-                raise Exception("You're not allowed to perform this action")
-        else:
-            raise Exception("You're not allowed to perform this action")
-    
     except Exception as e:
         print(e)
         data['message'] = str(e)

@@ -46,11 +46,17 @@ class Branch(models.Model):
     def __str__(self) -> str:
         return self.branch_name
 
+TERM_TYPE = [
+    ('even','Even'),
+    ('odd','Odd'),    
+]
+
 
 class Term(models.Model):
     start_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
     end_year = models.PositiveIntegerField(validators = [MinValueValidator(1900),MaxValueValidator(2100)],null=True,blank=True)
     slug = models.SlugField(unique=True,null=True,blank=True)
+    type = models.CharField(max_length=4,choices = TERM_TYPE,null=True,blank=True)
     branch = models.ForeignKey(Branch,on_delete=models.CASCADE,blank=True,null=True)
     status = models.BooleanField(default=False)
 
@@ -75,22 +81,6 @@ class Semester(models.Model):
         
     def __str__(self) -> str:
         return f"Semester - {self.no}"
-    
-class Subject(models.Model):
-    subject_name = models.CharField(max_length=255)
-    code = models.CharField(unique=True,max_length=20,null=True,blank=True)
-    credit = models.IntegerField()
-    slug = models.SlugField(unique=True,null=True,blank=True)    
-    semester = models.ForeignKey(Semester,on_delete=models.CASCADE,blank=True,null=True)
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = generate_unique_hash()                                
-        super(Subject, self).save(*args, **kwargs)
-    
-
-    def __str__(self) -> str:
-        return self.subject_name
     
 class Division(models.Model):
     division_name = models.CharField(max_length=2)
@@ -120,7 +110,23 @@ class Batch(models.Model):
     def __str__(self) -> str:
         return f"Division - {self.division.division_name} | {self.batch_name}"
     
+class Subject(models.Model):
+    subject_name = models.CharField(max_length=255)
+    code = models.CharField(unique=True,max_length=20,null=True,blank=True)
+    credit = models.IntegerField()
+    semester = models.ForeignKey(Semester,on_delete=models.CASCADE,blank=True,null=True)    
+    included_batches = models.ManyToManyField(Batch,blank=True)
+    slug = models.SlugField(unique=True,null=True,blank=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()                                
+        super(Subject, self).save(*args, **kwargs)
+    
+
+    def __str__(self) -> str:
+        return self.subject_name
+    
 class TimeTable(models.Model):
     division = models.ForeignKey(Division,on_delete=models.CASCADE)
     slug = models.SlugField(unique=True,null=True,blank=True)

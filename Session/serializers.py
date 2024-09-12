@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Attendance,Session,Survey,SurveyOption
+from .models import Attendance,Session
 from Manage.models import Batch
 from Manage.serializers import LectureSerializer,BatchSerializer
 from StakeHolders.serializers import StudentSerializer
@@ -47,28 +47,4 @@ class SessionSerializerHistory(serializers.ModelSerializer):
         attendances_marked = obj.attendances.all()
         attendances_serialized = AttendanceSerializer(attendances_marked,many=True)
         return attendances_serialized.data
-
-class SurveyOptionSerializer(serializers.ModelSerializer):
-    student_count = serializers.SerializerMethodField()
-    submission_percentage = serializers.SerializerMethodField()
-
-    class Meta:
-        model = SurveyOption
-        fields  = ['option','student_count','slug','submission_percentage']
-
-    def get_submission_percentage(self,obj):
-        allowed_students = len(obj.survey_set.first().allowed_students.all())
-        marked_students = len(obj.student.all())
-        submission_percentage = (marked_students * 100) / allowed_students
-        return submission_percentage
-    
-    def get_student_count(self,obj):
-        return len(obj.student.all())
-
-class SurveySerializer(serializers.ModelSerializer):
-    options = SurveyOptionSerializer(many=True)
-
-    class Meta:
-        model = Survey
-        fields  = ['title','type','allowd_choices','options','created_at','active','slug']
         

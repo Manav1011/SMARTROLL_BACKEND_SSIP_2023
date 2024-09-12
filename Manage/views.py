@@ -5,8 +5,8 @@ from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term,Link
 from StakeHolders.models import Admin,Teacher,Student,NotificationSubscriptions
 from Profile.models import Profile
-from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory,BranchWiseTimeTableSerializer,BranchWiseTimeTableSerializerStudent
-from Manage.models import Semester,Subject
+from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory,BranchWiseTimeTableSerializer,BranchWiseTimeTableSerializerStudent,BranchSerializer
+from Manage.models import Semester,Subject,Branch
 from Session.models import Session,Attendance
 import pandas as pd
 from django.contrib.auth import get_user_model
@@ -78,15 +78,20 @@ def add_term(request):
         data = {'data':None,'error':False,'message':None}
         if request.user.role == 'admin':  
             body = request.data
-            if 'start_year' in body and 'end_year' in body:
+            if 'start_year' in body and 'end_year' in body and 'type' in body:
                 admin_obj = Admin.objects.get(profile=request.user)
                 # We'll have to get the counts of semester, divisions, batches
                 branch_obj = admin_obj.branch_set.first()
                 if branch_obj:
-                    term_obj,created = Term.objects.get_or_create(start_year=body['start_year'],end_year=body['end_year'],branch=branch_obj)
+                    term_obj,created = Term.objects.get_or_create(start_year=body['start_year'],end_year=body['end_year'],branch=branch_obj,type=body['type'])
                     if created:
-                        term_obj.start_year =body['start_year']
-                        term_obj.end_year = body['end_year']
+                        # Deactivate all the previous terms
+                        old_terms = branch_obj.term_set.all().exclude(id=term_obj.id)
+                        for term in old_terms:
+                            term.status = False
+                            term.save()
+                        # Now activate the current term                        
+                        term_obj.status=True
                         term_obj.save()
                         term_serialized = TermSerializer(term_obj)
                         data['data'] = term_serialized.data
@@ -800,6 +805,30 @@ def get_subjects_of_teacher(request):
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
+def get_subjects_of_student(request):
+    try:
+        data = {'data':None,'error':False,'message':None}
+        if request.user.role == 'student':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                lectures = Lecture.objects.filter(teacher=teacher_obj)
+                subjects = list({lecture.subject for lecture in lectures})
+                subjects_serialized = SubjectSerializer(subjects,many=True)
+                data['data'] = subjects_serialized.data
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_lecture_sessions_for_teacher(request):
     try:
         data = {'data':None,'error':False,'message':None}
@@ -915,3 +944,53 @@ def save_web_push_subscription(request):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_branches_of_teacher(request):
+    try:
+        data = {'data':None,'error':False,'message':None}        
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                branches = teacher_obj.branch_set.all()
+                branches_serialized = BranchSerializer(branches,many=True)
+                data['data'] = branches_serialized.data
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_semesters_from_branch(request,branch_slug):
+    try:
+        data = {'data':None,'error':False,'message':None}        
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                branch_obj = Branch.objects.filter(slug=branch_slug).first()
+                if branch_obj:
+                    active_term = branch_obj.term_set.filter(status=True).first()
+                    semesters = active_term.semester_set.all()
+                    semesters_serialized = SemesterSerializer(semesters,many=True)
+                    data['data'] = semesters_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Branch does not exists')
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
