@@ -1,4 +1,4 @@
-from .models import Survey,SurveyOption,StudyMaterial
+from .models import Survey,SurveyOption,StudyMaterial,StudyMaterial_Link
 from rest_framework import serializers
 from Manage.serializers import SubjectSerializer
 
@@ -27,8 +27,15 @@ class SurveySerializer(serializers.ModelSerializer):
     class Meta:
         model = Survey
         fields  = ['title','type','options','created_at','active','slug']
-        
+   
+class StudyMaterialLinkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudyMaterial_Link
+        fields = ['link','slug']
+     
 class StudyMaterialSerializer(serializers.ModelSerializer):
+    links = StudyMaterialLinkSerializer(many=True)
+    
     class Meta:
         model = StudyMaterial
-        fields = ['title','link','slug']
+        fields = ['title','slug','links']
