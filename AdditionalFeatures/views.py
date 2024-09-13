@@ -188,13 +188,14 @@ def upload_study_material(request):
   
 @api_view(['GET'])    
 @permission_classes([IsAuthenticated])
-def get_study_material_for_teachers(request):
+def get_study_material_for_teachers(request,subject_slug):
     data = {'data':None,'error':False,'message':None,"code":None}
     try:
         if request.user.role == 'teacher':
             teacher_obj = Teacher.objects.filter(profile=request.user).first()            
             if teacher_obj:
-                study_materials = StudyMaterial.objects.filter(owner=teacher_obj)
+                subject_obj = Subject.objects.filter(slug=subject_slug).first()
+                study_materials = StudyMaterial.objects.filter(owner=teacher_obj, subject=subject_obj)
                 study_material_serialized = StudyMaterialSerializer(study_materials,many=True)
                 data['data'] = study_material_serialized.data
                 return Response(data,status=200)
@@ -210,13 +211,14 @@ def get_study_material_for_teachers(request):
      
 @api_view(['GET'])    
 @permission_classes([IsAuthenticated])
-def get_study_material_for_students(request):
+def get_study_material_for_students(request,subject_slug):
     data = {'data':None,'error':False,'message':None,"code":None}
     try:
         if request.user.role == 'student':
             student_obj = Student.objects.filter(profile=request.user).first()            
             if student_obj:
-                study_materials = StudyMaterial.objects.filter(subject__semester__division__batch__students=student_obj)
+                subject_obj = Subject.objects.filter(slug=subject_slug).first()
+                study_materials = StudyMaterial.objects.filter(subject=subject_obj)
                 study_material_serialized = StudyMaterialSerializer(study_materials,many=True)
                 data['data'] = study_material_serialized.data
                 return Response(data,status=200)

@@ -5,6 +5,6 @@ urlpatterns = [
     path('get_surveys_of_the_teacher',get_surveys_of_the_teacher,name='get_surveys_of_the_teacher'),
     path('get_surveys_of_the_student',get_surveys_of_the_student,name='get_surveys_of_the_student'),
     path('upload_study_material/',upload_study_material,name='upload_study_material'),
-    path('get_study_material_for_students',get_study_material_for_students,name='get_study_material_for_students'),
-    path('get_study_material_for_teachers',get_study_material_for_teachers,name='get_study_material_for_teachers'),
+    path('get_study_material_for_students/<str:subject_slug>',get_study_material_for_students,name='get_study_material_for_students'),
+    path('get_study_material_for_teachers/<str:subject_slug>',get_study_material_for_teachers,name='get_study_material_for_teachers'),
 ]

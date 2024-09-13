@@ -29,7 +29,6 @@ class SurveySerializer(serializers.ModelSerializer):
         fields  = ['title','type','options','created_at','active','slug']
         
 class StudyMaterialSerializer(serializers.ModelSerializer):
-    subject = SubjectSerializer()
     class Meta:
         model = StudyMaterial
-        fields = ['title','link','slug','subject']
+        fields = ['title','link','slug']
