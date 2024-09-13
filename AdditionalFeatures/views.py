@@ -185,6 +185,28 @@ def upload_study_material(request):
          data['error'] = True
          data['message'] = str(e)
          return Response(data,status=500)
+  
+@api_view(['GET'])    
+@permission_classes([IsAuthenticated])
+def get_study_material_for_teachers(request):
+    data = {'data':None,'error':False,'message':None,"code":None}
+    try:
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()            
+            if teacher_obj:
+                study_materials = StudyMaterial.objects.filter(owner=teacher_obj)
+                study_material_serialized = StudyMaterialSerializer(study_materials,many=True)
+                data['data'] = study_material_serialized.data
+                return Response(data,status=200)
+            else:
+                raise Exception('Teacher does not exist')
+        else:
+            raise Exception("You're not allowed to perform this action!!")
+    except Exception as e:
+        print(e)
+        data['error'] = True
+        data['message'] = str(e)
+        return Response(data,status=500)  
      
 @api_view(['GET'])    
 @permission_classes([IsAuthenticated])
