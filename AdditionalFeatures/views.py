@@ -154,6 +154,42 @@ def submit_survey(request):
          data['message'] = str(e)
          return Response(data,status=500)
 
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def end_survey(request):
+    data = {'data':None,'error':False,'message':None,"code":None}
+    try:
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                body = request.data                
+                if 'survey_slug' in body:
+                    survey_obj = Survey.objects.filter(slug=body['survey_slug']).first()
+                    if survey_obj:
+                        if survey_obj.active == False:
+                            raise Exception('Survey is already inactived')    
+                        survey_obj.active = False
+                        survey_obj.save()
+                        data['message'] = "The survey has been inactivated successfully!!"
+                        return Response(data,status=200)
+                    else:
+                        raise Exception('Survey does not exist')
+                else:
+                    raise Exception("Parameters missing")
+            else:
+                raise Exception("You're not allowed to perform this action")
+        else:
+            raise Exception("You're not allowed to perform this action")
+    
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True     
+        return Response(data,status=500)   
+    
+# Study material APIs
+    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def upload_study_material(request):
@@ -210,39 +246,6 @@ def get_study_material_for_teachers(request,subject_slug):
         data['message'] = str(e)
         return Response(data,status=500)  
      
-
-@api_view(['POST'])
-@permission_classes([IsAuthenticated])
-def end_survey(request):
-    data = {'data':None,'error':False,'message':None,"code":None}
-    try:
-        if request.user.role == 'teacher':
-            teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                body = request.data                
-                if 'survey_slug' in body:
-                    survey_obj = Survey.objects.filter(slug=body['survey_slug']).first()
-                    if survey_obj:
-                        if survey_obj.active == False:
-                            raise Exception('Survey is already inactived')    
-                        survey_obj.active = False
-                        survey_obj.save()
-                        data['message'] = "The survey has been inactivated successfully!!"
-                        return Response(data,status=200)
-                    else:
-                        raise Exception('Survey does not exist')
-                else:
-                    raise Exception("Parameters missing")
-            else:
-                raise Exception("You're not allowed to perform this action")
-        else:
-            raise Exception("You're not allowed to perform this action")
-    
-    except Exception as e:
-        print(e)
-        data['message'] = str(e)
-        data['error'] = True     
-        return Response(data,status=500)   
 
 @api_view(['GET'])    
 @permission_classes([IsAuthenticated])
