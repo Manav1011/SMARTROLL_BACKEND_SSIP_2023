@@ -1025,7 +1025,7 @@ def get_divisons_from_semesters(request,semester_slug):
     
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_batchs_from_divison(request,divison_slug):
+def get_batches_from_divison(request,divison_slug):
     try:
         data = {'data':None,'error':False,'message':None}        
         if request.user.role == 'teacher':
@@ -1033,8 +1033,8 @@ def get_batchs_from_divison(request,divison_slug):
             if teacher_obj:
                 divison_obj = Division.objects.filter(slug=divison_slug).first()
                 if divison_obj:
-                    batchs = Batch.objects.filter(division = divison_obj)
-                    batch_serialized = BatchSerializer(batchs,many=True)
+                    batches = Batch.objects.filter(division = divison_obj)
+                    batch_serialized = BatchSerializer(batches,many=True)
                     data['data'] = batch_serialized.data
                     return JsonResponse(data,status=200)
                 else:
