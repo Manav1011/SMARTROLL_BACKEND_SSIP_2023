@@ -98,7 +98,7 @@ def get_surveys_of_the_student(request):
         if request.user.role == 'student':
             student_obj = Student.objects.filter(profile=request.user).first()            
             if student_obj:
-                surveys = Survey.objects.filter(allowed_students=student_obj)
+                surveys = Survey.objects.filter(allowed_students=student_obj,active=True)
                 survey_serialized = SurveySerializer(surveys,many=True)
                 data['data'] = survey_serialized.data
                 return Response(data,status=200)
@@ -129,7 +129,7 @@ def submit_survey(request):
                         if survey_obj.allowed_students.contains(student_obj):
                             marked_option_obj = survey_obj.options.filter(slug=body['marked_option_slug']).first()
                             if marked_option_obj:                                
-                                rest_of_the_options = survey_obj.options.all().exclude(id=marked_option_obj.id)
+                                rest_of_the_options = survey_obj.options.all()
                                 for option in rest_of_the_options:
                                     if option.student.contains(student_obj):
                                         # option.student.remove(student_obj)
@@ -143,6 +143,8 @@ def submit_survey(request):
                             raise Exception("You're not eligible for marking this survey")
                     else:
                         raise Exception('Survey does not exist')
+                else:
+                        raise Exception('Parameters Missing!!')
             else:
                 raise Exception('Student does not exist')
     except Exception as e:
@@ -150,3 +152,36 @@ def submit_survey(request):
          data['error'] = True
          data['message'] = str(e)
          return Response(data,status=500)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def end_survey(request):
+    data = {'data':None,'error':False,'message':None,"code":None}
+    try:
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                body = request.data                
+                if 'survey_slug' in body:
+                    survey_obj = Survey.objects.filter(slug=body['survey_slug']).first()
+                    if survey_obj:
+                        if survey_obj.active == False:
+                            raise Exception('Survey is already inactived')    
+                        survey_obj.active = False
+                        survey_obj.save()
+                        data['message'] = "The survey has been inactivated successfully!!"
+                        return Response(data,status=200)
+                    else:
+                        raise Exception('Survey does not exist')
+                else:
+                    raise Exception("Parameters missing")
+            else:
+                raise Exception("You're not allowed to perform this action")
+        else:
+            raise Exception("You're not allowed to perform this action")
+    
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True     
+        return Response(data,status=500)   

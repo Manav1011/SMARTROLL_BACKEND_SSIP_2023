@@ -1006,7 +1006,7 @@ def get_divisons_from_semesters(request,semester_slug):
             if teacher_obj:
                 semester_obj = Semester.objects.filter(slug=semester_slug).first()
                 if semester_obj:
-                    divisions = Division.objects.filter(semester = semester_obj)
+                    divisions = Division.objects.filter(semester=semester_obj)
                     divison_serialized = DivisionSerializer(divisions,many=True)
                     data['data'] = divison_serialized.data
                     return JsonResponse(data,status=200)
