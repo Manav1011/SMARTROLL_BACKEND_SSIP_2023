@@ -1,5 +1,6 @@
-from .models import Survey,SurveyOption
+from .models import Survey,SurveyOption,StudyMaterial
 from rest_framework import serializers
+from Manage.serializers import SubjectSerializer
 
 class SurveyOptionSerializer(serializers.ModelSerializer):
     student_count = serializers.SerializerMethodField()
@@ -26,3 +27,8 @@ class SurveySerializer(serializers.ModelSerializer):
     class Meta:
         model = Survey
         fields  = ['title','type','options','created_at','active','slug']
+        
+class StudyMaterialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudyMaterial
+        fields = ['title','link','slug']
