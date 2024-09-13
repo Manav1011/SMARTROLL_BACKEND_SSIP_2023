@@ -1023,3 +1023,29 @@ def get_divisons_from_semesters(request,semester_slug):
         data['error'] = True        
         return JsonResponse(data,status=500)
     
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_batchs_from_divison(request,divison_slug):
+    try:
+        data = {'data':None,'error':False,'message':None}        
+        if request.user.role == 'teacher':
+            teacher_obj = Teacher.objects.filter(profile=request.user).first()
+            if teacher_obj:
+                divison_obj = Division.objects.filter(slug=divison_slug).first()
+                if divison_obj:
+                    batchs = Batch.objects.filter(division = divison_obj)
+                    batch_serialized = BatchSerializer(batchs,many=True)
+                    data['data'] = batch_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Divison does not exists')
+            else:
+                raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)

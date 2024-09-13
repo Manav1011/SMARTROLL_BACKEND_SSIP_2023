@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount,add_lecture_as_proxy,set_web_push_subscription,save_web_push_subscription,set_new_password_for_student,get_subjects_of_teacher_by_admin,get_lecture_sessions_for_teacher_by_admin,get_branches_of_teacher,get_semesters_from_branch,get_divisons_from_semesters
+from .views import get_object_counts,add_semester,get_semesters,add_division,add_batch,get_batches,get_divisions,add_teacher,get_teachers,get_subjects,add_subject,get_timetable,get_lecture_configs,add_lecture_to_schedule,upload_students_data,get_terms,add_term,get_timetable_for_teacher,get_timetable_for_student,get_subjects_of_teacher,get_lecture_sessions_for_teacher,activate_teacher_acount,add_lecture_as_proxy,set_web_push_subscription,save_web_push_subscription,set_new_password_for_student,get_subjects_of_teacher_by_admin,get_lecture_sessions_for_teacher_by_admin,get_branches_of_teacher,get_semesters_from_branch,get_divisons_from_semesters,get_batchs_from_divison
 urlpatterns = [        
     path('get_object_counts',get_object_counts,name='get_object_counts'),    
     path('add_term/',add_term,name='add_term'),
@@ -32,6 +32,7 @@ urlpatterns = [
     path('get_branches_of_teacher',get_branches_of_teacher,name='get_branches_of_teacher'),
     path('get_semesters_from_branch/<str:branch_slug>',get_semesters_from_branch,name='get_semesters_from_branch'),
     path('get_divisons_from_semester/<str:semester_slug>',get_divisons_from_semesters,name='get_divisons_from_semester'),
+    path('get_batchs_from_divison/<str:divison_slug>',get_batchs_from_divison,name='get_batchs_from_divison'),
     path('session/',include('Session.urls'),name='session_management'),    
     path('additional_features/',include('AdditionalFeatures.urls'),name='AdditionalFeatures'),    
     
