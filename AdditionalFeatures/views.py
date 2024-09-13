@@ -4,7 +4,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from .models import Survey,SurveyOption, StudyMaterial
 from StakeHolders.models import Teacher,Student
-from Manage.models import Branch,Semester,Division,Batch,Subject
+from Manage.models import Branch,Semester,Division,Batch,Subject,Lecture
 from .serializers import SurveySerializer,StudyMaterialSerializer
 
 # Create your views here.
@@ -165,12 +165,15 @@ def upload_study_material(request):
                 if 'material_title' in body and 'material_link' in body and 'subject_slug' in body:
                     subject_obj = Subject.objects.filter(slug=body['subject_slug']).first()
                     if subject_obj:
-                        study_material_obj = StudyMaterial.objects.create(title=body['material_title'],link=body['material_link'],subject=subject_obj,owner=teacher_obj)
-                        study_material_serialized = StudyMaterialSerializer(study_material_obj)
-                        data['data'] = study_material_serialized.data
-                        return Response(data,status=200)
+                        if subject_obj.lecture_set.filter(teacher=teacher_obj).exists():
+                            study_material_obj = StudyMaterial.objects.create(title=body['material_title'],link=body['material_link'],subject=subject_obj,owner=teacher_obj)
+                            study_material_serialized = StudyMaterialSerializer(study_material_obj)
+                            data['data'] = study_material_serialized.data
+                            return Response(data,status=200)
+                        else:
+                            raise Exception("It's not taken by you for now!!")
                     else:
-                        raise Exception('Subject does not exist')   
+                        raise Exception("Subject does not exist ")   
                 else:
                     raise Exception('Parameters Missing')     
             else:
@@ -182,3 +185,25 @@ def upload_study_material(request):
          data['error'] = True
          data['message'] = str(e)
          return Response(data,status=500)
+     
+@api_view(['GET'])    
+@permission_classes([IsAuthenticated])
+def get_study_material_for_students(request):
+    data = {'data':None,'error':False,'message':None,"code":None}
+    try:
+        if request.user.role == 'student':
+            student_obj = Student.objects.filter(profile=request.user).first()            
+            if student_obj:
+                study_materials = StudyMaterial.objects.filter(subject__semester__division__batch__students=student_obj)
+                study_material_serialized = StudyMaterialSerializer(study_materials,many=True)
+                data['data'] = study_material_serialized.data
+                return Response(data,status=200)
+            else:
+                raise Exception('Student does not exist')
+        else:
+            raise Exception("You're not allowed to perform this action!!")
+    except Exception as e:
+        print(e)
+        data['error'] = True
+        data['message'] = str(e)
+        return Response(data,status=500)
