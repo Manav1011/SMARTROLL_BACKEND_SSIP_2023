@@ -198,13 +198,13 @@ def upload_study_material(request):
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
             if teacher_obj:
                 body = request.data  
-                if 'material_title' in body and 'material_links' in body and 'subject_slug' in body:
+                if 'material_title' in body and 'materials' in body and 'subject_slug' in body:
                     subject_obj = Subject.objects.filter(slug=body['subject_slug']).first()
                     if subject_obj:
                         if subject_obj.lecture_set.filter(teacher=teacher_obj).exists():
                             study_material_obj = StudyMaterial.objects.create(title=body['material_title'],subject=subject_obj,owner=teacher_obj)
-                            for link in body['material_links']:
-                                studymaterial_link_obj = StudyMaterial_Link.objects.create(link=link)
+                            for material in body['materials']:
+                                studymaterial_link_obj = StudyMaterial_Link.objects.create(link=material['link'],filename=material['file_name'])
                                 study_material_obj.links.add(studymaterial_link_obj)
                             study_material_serialized = StudyMaterialSerializer(study_material_obj)
                             data['data'] = study_material_serialized.data
@@ -227,14 +227,13 @@ def upload_study_material(request):
   
 @api_view(['GET'])    
 @permission_classes([IsAuthenticated])
-def get_study_material_for_teachers(request,subject_slug):
+def get_study_material_for_teachers(request):
     data = {'data':None,'error':False,'message':None,"code":None}
     try:
         if request.user.role == 'teacher':
             teacher_obj = Teacher.objects.filter(profile=request.user).first()            
             if teacher_obj:
-                subject_obj = Subject.objects.filter(slug=subject_slug).first()
-                study_materials = StudyMaterial.objects.filter(owner=teacher_obj, subject=subject_obj)
+                study_materials = StudyMaterial.objects.filter(owner=teacher_obj)
                 study_material_serialized = StudyMaterialSerializer(study_materials,many=True)
                 data['data'] = study_material_serialized.data
                 return Response(data,status=200)

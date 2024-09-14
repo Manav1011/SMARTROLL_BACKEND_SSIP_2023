@@ -31,11 +31,18 @@ class SurveySerializer(serializers.ModelSerializer):
 class StudyMaterialLinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudyMaterial_Link
-        fields = ['link','slug']
+        fields = ['filename','link','slug']
      
 class StudyMaterialSerializer(serializers.ModelSerializer):
     links = StudyMaterialLinkSerializer(many=True)
+    subject = SubjectSerializer()
     
     class Meta:
         model = StudyMaterial
-        fields = ['title','slug','links']
+        fields = ['title','slug','links','subject']
+        
+    def __init__(self, *args, **kwargs):
+        super(StudyMaterialSerializer, self).__init__(*args, **kwargs)
+        # removed unneccessary fields of nested serializer
+        self.fields['subject'].fields.pop('semester') 
+        self.fields['subject'].fields.pop('included_batches')
