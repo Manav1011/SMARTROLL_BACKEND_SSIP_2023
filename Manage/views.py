@@ -3,10 +3,10 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
 from Manage.models import Division, Semester,Batch,TimeTable,Schedule,Classroom,Lecture,Term,Link
-from StakeHolders.models import Admin,Teacher,Student,NotificationSubscriptions
+from StakeHolders.models import Admin,Teacher,Student,NotificationSubscriptions,SuperAdmin
 from Profile.models import Profile
 from .serializers import SemesterSerializer,DivisionSerializer,BatchSerializer,SubjectSerializer,TimeTableSerializer,ClassRoomSerializer,LectureSerializer,TermSerializer,TimeTableSerializerForTeacher,TimeTableSerializerForStudent,LectureSerializerForHistory,BranchWiseTimeTableSerializer,BranchWiseTimeTableSerializerStudent,BranchSerializer
-from Manage.models import Semester,Subject,Branch
+from Manage.models import Semester,Subject,Branch,College
 from Session.models import Session,Attendance
 import pandas as pd
 from django.contrib.auth import get_user_model
@@ -31,6 +31,28 @@ def send_activation_email(receiver,teacher_slug,host):
         sent = False
     return sent
 
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_active_branches_for_superadmin(request):
+    try:        
+        if request.user.role == 'superadmin':
+            data = {'data':None,'error':False,'message':None}
+            superadmin_obj = SuperAdmin.objects.filter(profile=request.user).first()
+            if superadmin_obj:
+                # Get the branches controlled by superadmin                
+                branches = Branch.objects.filter(college__super_admins=superadmin_obj)
+                branches_serialized = BranchSerializer(branches,many=True)
+                data['data'] = branches_serialized.data                
+                return JsonResponse(data,status=200)
+            else:
+                raise Exception("Superadmin does not exists!!")
+
+            
+    except Exception as e:
+        print(e)
+        data = {"data":str(e)}
+        return JsonResponse(data,status=500)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -786,8 +808,7 @@ def get_subjects_of_teacher(request):
         if request.user.role == 'teacher':
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
             if teacher_obj:
-                lectures = Lecture.objects.filter(teacher=teacher_obj)
-                subjects = list({lecture.subject for lecture in lectures})
+                subjects = Subject.objects.filter(lecture__teacher=teacher_obj).distinct()
                 subjects_serialized = SubjectSerializer(subjects,many=True)
                 data['data'] = subjects_serialized.data
                 return JsonResponse(data,status=200)

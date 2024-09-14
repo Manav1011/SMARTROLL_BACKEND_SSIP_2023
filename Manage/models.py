@@ -107,7 +107,7 @@ class Batch(models.Model):
         super(Batch, self).save(*args, **kwargs)
         
     def __str__(self) -> str:
-        return f"Division - {self.division.division_name} | {self.batch_name}"
+        return f"Branch - {self.division.semester.term.branch.branch_name} | Semester - {self.division.semester.no} | Division - {self.division.division_name} | {self.batch_name}"
     
 class Subject(models.Model):
     subject_name = models.CharField(max_length=255)
