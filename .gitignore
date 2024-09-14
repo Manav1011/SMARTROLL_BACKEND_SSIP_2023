@@ -1,0 +1,10 @@
+*.pyc
+*.pyo
+.env
+attendance.xlsx
+db.sqlite3
+docker-compose.yml
+localhost.key
+localhost.csr
+private_key.txt
+public_key.txt
