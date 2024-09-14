@@ -328,11 +328,13 @@ def add_subject(request):
         if request.user.role == 'admin':  
             body = request.data
             admin_obj = Admin.objects.get(profile=request.user)       
-            if 'code' in body and 'subject_name' in body and 'credit' in body and 'semester_slug' in body:
+            if 'code' in body and 'subject_name' in body and 'credit' in body and 'semester_slug' in body and 'batches' in body:
                 semester_obj = Semester.objects.filter(slug= body['semester_slug']).first()
                 if semester_obj and semester_obj.term.branch.admins.contains(admin_obj):
                     subject_obj,created = Subject.objects.get_or_create(code=body['code'],subject_name = body['subject_name'], credit = body['credit'],semester = semester_obj)
-                    if created:
+                    if created:                        
+                        batches = Batch.objects.filter(slug__in=body['batches'])
+                        subject_obj.included_batches.add(*batches)
                         subject_serialized = SubjectSerializer(subject_obj)
                         data['data'] = subject_serialized.data
                         return JsonResponse(data,status=200)
@@ -510,17 +512,14 @@ def get_lecture_configs(request):
                 semester_obj = division_obj.semester
                 if division_obj and semester_obj and schedule_obj: 
                     teachers = branch_obj.teachers.all()
-                    classrooms = branch_obj.classroom_set.all()
-                    batches = Batch.objects.filter(division=division_obj)
+                    classrooms = branch_obj.classroom_set.all()                    
                     subjects = Subject.objects.filter(semester = semester_obj)
                     teachers_serialized = TeacherSerializer(teachers,many=True)
-                    classrooms_serialized = ClassRoomSerializer(classrooms,many=True)
-                    batches_serialized = BatchSerializer(batches,many=True)        
+                    classrooms_serialized = ClassRoomSerializer(classrooms,many=True)                    
                     subjects_serialized = SubjectSerializer(subjects,many=True)
                     data['data'] = {}
                     data['data']['teachers'] = teachers_serialized.data
-                    data['data']['classrooms'] = classrooms_serialized.data
-                    data['data']['batches'] = batches_serialized.data
+                    data['data']['classrooms'] = classrooms_serialized.data                    
                     data['data']['subjects'] = subjects_serialized.data
                     return JsonResponse(data,status=200)
                 else:
@@ -1041,6 +1040,60 @@ def get_batches_from_divison(request,divison_slug):
                     raise Exception('Divison does not exists')
             else:
                 raise Exception("Teacher does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_batches_from_semester(request,semester_slug):
+    try:
+        data = {'data':None,'error':False,'message':None}        
+        if request.user.role == 'admin':
+            admin_obj = Admin.objects.filter(profile=request.user).first()
+            if admin_obj:
+                semester_obj = Semester.objects.filter(slug=semester_slug).first()
+                if semester_obj:
+                    batches = Batch.objects.filter(division__semester=semester_obj)
+                    batch_serialized = BatchSerializer(batches,many=True)
+                    data['data'] = batch_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Semester does not exists')
+            else:
+                raise Exception("Admin does not exist")
+        else:
+            raise Exception("You're not allowed to perform this action")
+
+    except Exception as e:
+        print(e)
+        data['message'] = str(e)
+        data['error'] = True        
+        return JsonResponse(data,status=500)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_batches_from_subject(request,subject_slug):
+    try:
+        data = {'data':None,'error':False,'message':None}        
+        if request.user.role == 'admin':
+            admin_obj = Admin.objects.filter(profile=request.user).first()
+            if admin_obj:
+                subject_obj = Subject.objects.filter(slug=subject_slug).first()
+                if subject_obj:
+                    batches = subject_obj.included_batches.all()
+                    batch_serialized = BatchSerializer(batches,many=True)
+                    data['data'] = batch_serialized.data
+                    return JsonResponse(data,status=200)
+                else:
+                    raise Exception('Subject does not exists')
+            else:
+                raise Exception("Admin does not exist")
         else:
             raise Exception("You're not allowed to perform this action")
 
