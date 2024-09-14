@@ -14,6 +14,7 @@ class Profile(AbstractUser):
         ('teacher', 'Teacher'),
         ('student', 'Student'),
         ('technician', 'Technician'),
+        ('superadmin', 'Super Admin'),
     ]
     GENDER_CHOICES = [
         ('M', 'Male'),

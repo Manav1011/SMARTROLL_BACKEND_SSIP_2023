@@ -13,6 +13,19 @@ def generate_unique_hash():
 class NotificationSubscriptions(models.Model):
     subscription = models.JSONField(null=True,blank=True)
 
+
+class SuperAdmin(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
+    slug = models.SlugField(unique=True, null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()
+        super(SuperAdmin, self).save(*args, **kwargs)
+
+    def __str__(self) -> str:
+        return self.profile.email
+    
 class Admin(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
     slug = models.SlugField(unique=True, null=True, blank=True)

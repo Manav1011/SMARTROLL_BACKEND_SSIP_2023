@@ -3,7 +3,7 @@ import time
 import uuid
 from datetime import datetime
 from django.core.validators import MinValueValidator, MaxValueValidator
-from StakeHolders.models import Teacher,Student,Admin
+from StakeHolders.models import Teacher,Student,Admin,SuperAdmin
 
 # Create your models here.
 
@@ -17,13 +17,12 @@ def generate_unique_hash():
 class College(models.Model):
     college_name = models.CharField(max_length=255)    
     slug = models.SlugField(unique=True,null=True,blank=True)
+    super_admins = models.ManyToManyField(SuperAdmin,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
-        super(College, self).save(*args, **kwargs)                    
-            
-    
+        super(College, self).save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.college_name

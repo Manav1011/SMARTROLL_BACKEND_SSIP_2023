@@ -7,8 +7,8 @@ from rest_framework_simplejwt.views import (
 )
 from Profile.models import Profile
 from rest_framework.decorators import api_view
-from .models import Admin,Teacher,Student
-from .serializers import AdminSerializer, TeacherSerializer,StudentSerializer
+from .models import Admin,Teacher,Student,SuperAdmin
+from .serializers import AdminSerializer, TeacherSerializer,StudentSerializer,SuperAdminSerializer
 from rest_framework.decorators import permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
@@ -40,7 +40,12 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):        
         token = super().get_token(user)
-        if user:            
+        if user:                        
+            if user.role == 'superadmin':                
+                admin_obj = SuperAdmin.objects.get(profile=user)
+                admin_serializer = SuperAdminSerializer(admin_obj,many=False)
+                token['obj'] = admin_serializer.data  
+
             if user.role == 'admin':                
                 admin_obj = Admin.objects.get(profile=user)
                 admin_serializer = AdminSerializer(admin_obj,many=False)

@@ -1,4 +1,4 @@
-from .models import Admin,Teacher,Student
+from .models import Admin,Teacher,Student,SuperAdmin
 from rest_framework import serializers
 from Manage.serializers import BranchSerializer
 from Profile.models import Profile
@@ -9,6 +9,12 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = ['name','email','role']
 
+
+class SuperAdminSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer()     
+    class Meta:
+        model = SuperAdmin
+        fields = ['id','profile']
 
 class AdminSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer() 
