@@ -1,7 +1,7 @@
 from rest_framework.decorators import permission_classes,api_view
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .models import Survey,SurveyOption, StudyMaterial
+from .models import StudyMaterial_Link, Survey,SurveyOption, StudyMaterial
 from StakeHolders.models import Teacher,Student
 from Manage.models import Branch,Semester,Division,Batch,Subject,Lecture
 from .serializers import SurveySerializer,StudyMaterialSerializer
@@ -198,11 +198,14 @@ def upload_study_material(request):
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
             if teacher_obj:
                 body = request.data  
-                if 'material_title' in body and 'material_link' in body and 'subject_slug' in body:
+                if 'material_title' in body and 'material_links' in body and 'subject_slug' in body:
                     subject_obj = Subject.objects.filter(slug=body['subject_slug']).first()
                     if subject_obj:
                         if subject_obj.lecture_set.filter(teacher=teacher_obj).exists():
-                            study_material_obj = StudyMaterial.objects.create(title=body['material_title'],link=body['material_link'],subject=subject_obj,owner=teacher_obj)
+                            study_material_obj = StudyMaterial.objects.create(title=body['material_title'],subject=subject_obj,owner=teacher_obj)
+                            for link in body['material_links']:
+                                studymaterial_link_obj = StudyMaterial_Link.objects.create(link=link)
+                                study_material_obj.links.add(studymaterial_link_obj)
                             study_material_serialized = StudyMaterialSerializer(study_material_obj)
                             data['data'] = study_material_serialized.data
                             return Response(data,status=200)

@@ -53,9 +53,18 @@ def pre_delete_session(sender, instance, **kwargs):
     instance.options.all().delete()
 
 
+class StudyMaterial_Link(models.Model):
+    link = models.URLField()
+    slug = models.SlugField(unique=True, null=True, blank=True)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = generate_unique_hash()
+        super(StudyMaterial_Link, self).save(*args, **kwargs)
+
 class StudyMaterial(models.Model):
     title = models.TextField()
-    link = models.URLField()
+    links = models.ManyToManyField(StudyMaterial_Link,blank=True)
     subject = models.ForeignKey(Subject,on_delete=models.DO_NOTHING)
     owner = models.ForeignKey(Teacher,on_delete=models.DO_NOTHING)
     slug = models.SlugField(unique=True, null=True, blank=True)
