@@ -49,7 +49,7 @@ class DivisionSerializerForTeacher(serializers.ModelSerializer):
 class TermSerializer(serializers.ModelSerializer):    
     class Meta:
         model = Term
-        fields = ['slug','start_year','end_year']
+        fields = ['slug','start_year','end_year','type','status']
 
 class SemesterSerializerStudentCred(serializers.ModelSerializer):
     subjects = SubjectSerializer(many=True)
