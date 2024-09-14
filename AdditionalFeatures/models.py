@@ -55,6 +55,7 @@ def pre_delete_session(sender, instance, **kwargs):
 
 class StudyMaterial_Link(models.Model):
     link = models.URLField()
+    filename = models.TextField(blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
     
     def save(self, *args, **kwargs):
