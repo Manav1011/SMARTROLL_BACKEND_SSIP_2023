@@ -40,5 +40,6 @@ urlpatterns = [
     path('session/',include('Session.urls'),name='session_management'),    
     path('additional_features/',include('AdditionalFeatures.urls'),name='AdditionalFeatures'),    
     path('notifications/',include('Notifications.urls'),name='Notifications'),    
+    path('chatbot/',include('Chatbot.urls'),name='Chatbot'),    
     
 ]
