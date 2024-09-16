@@ -58,6 +58,9 @@ class StudyMaterial_Link(models.Model):
     filename = models.TextField(blank=True)
     slug = models.SlugField(unique=True, null=True, blank=True)
     
+    def __str__(self):
+        return f"{self.filename}"
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = generate_unique_hash()
