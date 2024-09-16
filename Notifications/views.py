@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from rest_framework.decorators import permission_classes,api_view
 from rest_framework.permissions import IsAuthenticated
+from pywebpush import webpush, WebPushException
 from .serializers import EventSerializer
 from rest_framework.response import Response
 from .models import Event,Result
 from rest_framework.parsers import MultiPartParser, FormParser
 from Manage.models import Branch,Subject
-from StakeHolders.models import Teacher,Student
+from django.conf import settings
+from StakeHolders.models import Teacher,Student,NotificationSubscriptions
 import pandas as pd
+import json
 
 # Create your views here.
 
@@ -114,6 +117,30 @@ def upload_results(request):
                 raise Exception("Teacher does not exists!!")
         else:
             raise Exception("You're not allowed to perform this action!!")
+    except Exception as e:
+        print(e)
+        data['error'] = True
+        data['message'] = str(e)
+        return Response(data,status=500)
+    
+@api_view(['POST'])
+def notify_users_about_emergency(request):
+    data = {'data':None,'error':False,'message':None,"code":None}
+    try:
+        body = request.data
+        if 'event' not in body or 'cause' not in body or 'location' not in body:
+            raise Exception("Parameters Missing!!")
+        
+        # Get the user's subscriptions who have subscribed for the alerts
+        subscriptions = NotificationSubscriptions.objects.filter(subscription_type='alerts')
+        for subscription in subscriptions:
+            print(subscription)
+            notification_body = f"🚨 EMERGENCY ALERT! 🚨\n {body['cause'].upper()} has been detected at {body['location']}! Please take immediate action and ensure your safety."
+            try:
+                webpush(subscription_info=json.loads(subscription.subscription),data=notification_body,vapid_private_key=settings.VAPID_PRIVATE_KEY,vapid_claims=settings.VAPID_CLAIMS)
+            except WebPushException as e:
+                print(e)
+        return Response(data,status=200)
     except Exception as e:
         print(e)
         data['error'] = True

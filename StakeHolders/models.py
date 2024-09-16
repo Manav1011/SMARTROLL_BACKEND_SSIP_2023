@@ -10,9 +10,14 @@ def generate_unique_hash():
     return unique_hash
 # Create your models here.
 
+SUBSCRIPTION_TYPES = [
+    ('lectures','Lectures'),
+    ('alerts','Alerts')    
+]
+
 class NotificationSubscriptions(models.Model):
     subscription = models.JSONField(null=True,blank=True)
-
+    subscription_type = models.CharField(max_length=10,choices = SUBSCRIPTION_TYPES ,null=True,blank=True)
 
 class SuperAdmin(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
@@ -29,6 +34,7 @@ class SuperAdmin(models.Model):
 class Admin(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)    
     slug = models.SlugField(unique=True, null=True, blank=True)
+    web_push_subscription = models.ManyToManyField(NotificationSubscriptions,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -56,6 +62,7 @@ class Student(models.Model):
     enrollment  = models.CharField(max_length=12,unique=True)    
     slug = models.SlugField(unique=True, null=True, blank=True)
     sr_no = models.PositiveIntegerField(null=True,blank=True)
+    web_push_subscription = models.ManyToManyField(NotificationSubscriptions,blank=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:

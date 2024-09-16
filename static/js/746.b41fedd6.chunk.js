@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk_coreui_coreui_free_react_admin_template=self.webpackChunk_coreui_coreui_free_react_admin_template||[]).push([[746],{9746:(e,t,a)=>{a.r(t),a.d(t,{default:()=>o});var l=a(2791),c=a(7689),r=a(2585);const o=()=>{const{state:e,dispatch:t}=(0,l.useContext)(r.y),{accessToken:a,refreshToken:o,profileDetails:s,objectCount:u}=e,n=(0,c.s0)();return t({type:"ACCESS_TOKEN",payload:null}),t({type:"REFRESH_TOKEN",payload:null}),(0,l.useEffect)((()=>{localStorage.clear(),n("/login")}),[]),null}}}]);
-//# sourceMappingURL=746.b41fedd6.chunk.js.map

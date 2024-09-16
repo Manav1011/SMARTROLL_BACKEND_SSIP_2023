@@ -916,14 +916,10 @@ def get_lecture_sessions_for_teacher_by_admin(request):
 def set_web_push_subscription(request):
     try:
         data = {'data':None,'error':False,'message':None}        
-        if request.user.role == 'teacher':
-            teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                VAPID_PUBLIC_KEY = django_settings.VAPID_PUBLIC_KEY
-                data['VAPID_PUBLIC_KEY'] = VAPID_PUBLIC_KEY
-                return JsonResponse(data,status=200)
-            else:
-                raise Exception("Teacher does not exist")
+        if request.user.role == 'teacher' or request.user.role == 'student' or request.user.role == 'admin':                        
+            VAPID_PUBLIC_KEY = django_settings.VAPID_PUBLIC_KEY
+            data['VAPID_PUBLIC_KEY'] = VAPID_PUBLIC_KEY
+            return JsonResponse(data,status=200)
         else:
             raise Exception("You're not allowed to perform this action")
 
@@ -939,14 +935,21 @@ def save_web_push_subscription(request):
     try:
         data = {'data':None,'error':False,'message':None}
         body = request.data
-        if request.user.role == 'teacher':
-            teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                if 'subscription' in body:
+        user_obj=None
+        if request.user.role == 'teacher' or request.user.role == 'admin' or request.user.role == 'student':
+            if request.user.role == 'teacher':
+                user_obj = Teacher.objects.filter(profile=request.user).first()
+            if request.user.role == 'admin':
+                user_obj = Admin.objects.filter(profile=request.user).first()
+            if request.user.role == 'student':
+                user_obj = Student.objects.filter(profile=request.user).first()
+            if user_obj:
+                if 'subscription' in body and 'type' in body:
                     subscription_json = json.dumps(body['subscription'])
-                    notification_object,notification_object_created = NotificationSubscriptions.objects.get_or_create(subscription=subscription_json)
+                    type = body.get('type')
+                    notification_object,notification_object_created = NotificationSubscriptions.objects.get_or_create(subscription=subscription_json,subscription_type=type)
                     if notification_object_created:
-                        teacher_obj.web_push_subscription.add(notification_object)
+                        user_obj.web_push_subscription.add(notification_object)
                         data['data'] = True
                         return JsonResponse(data,status=200)
                     else:
@@ -954,7 +957,7 @@ def save_web_push_subscription(request):
                 else:
                     raise Exception("Parameters Missing!!")    
             else:
-                raise Exception("Teacher does not exist")
+                raise Exception("User does not exist")
         else:
             raise Exception("You're not allowed to perform this action")
 

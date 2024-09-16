@@ -16,7 +16,7 @@ def send_notification_async(time):
                 subscriptions = lecture.teacher.web_push_subscription.all()
                 for subscription in subscriptions:
                     try:
-                        notification_body=f"You have a session scheduled at {lecture.start_time} for {lecture.subject.subject_name} | Semester - {lecture.subject.semester.no} at {lecture.classroom.class_name}"                        
+                        notification_body=f"You have a session scheduled at {lecture.start_time} for {lecture.subject.subject_name} | Semester - {lecture.subject.semester.no} at {lecture.classroom.class_name}"
                         webpush(subscription_info=json.loads(subscription.subscription),data=notification_body,vapid_private_key=settings.VAPID_PRIVATE_KEY,vapid_claims=settings.VAPID_CLAIMS)
                     except WebPushException as e:
                         print(e)
