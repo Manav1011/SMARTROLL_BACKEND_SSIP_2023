@@ -3,8 +3,9 @@ import hashlib
 import secrets
 from Manage.models import Lecture,GPSCoordinates
 from StakeHolders.models import Student
-from django.db.models.signals import pre_delete
+from django.db.models.signals import pre_delete,pre_save,m2m_changed
 from django.dispatch import receiver
+from django.core.exceptions import ValidationError
 import uuid,time
 
 def generate_unique_hash():    
@@ -67,6 +68,24 @@ class Session(models.Model):
             self.session_id = generate_random_unique_hash()
         super(Session, self).save(*args, **kwargs)    
 
+@receiver(pre_save,sender=Session)
+def pre_save_session(sender,instance, **kwargs):
+    if instance.pk is None and Session.objects.filter(day=instance.day,lecture=instance.lecture).exists():          
+        raise ValidationError("A session with this day and lecture already exists.")    
+
 @receiver(pre_delete, sender=Session)
 def pre_delete_session(sender, instance, **kwargs):    
     instance.attendances.all().delete()
+
+@receiver(m2m_changed, sender=Session.attendances.through)
+def attendances_changed(sender,instance,action,pk_set,**kwargs):
+    if action == 'pre_add':    
+        if len(pk_set) > 0:
+            attendances =  attendances = Attendance.objects.filter(pk__in=pk_set)
+            for attendance in attendances:
+                if Session.objects.filter(attendances=attendance):
+                    print(f'{attendance} object is already references by another session object')
+                    pk_set.remove(attendance.pk)
+            
+        
+

@@ -579,7 +579,7 @@ def add_lecture_to_schedule(request):
                     lecture_obj.save()
                     batches = Batch.objects.filter(slug__in=body['batches'])
                     lecture_obj.batches.add(*batches)
-                    # Need to create lecture sessions for this particular lecture till the next sunday...after that the cronjob will take care of it
+                    # Need to create lecture sessions for this particular lecture...after that the cronjob will take care of it
                     today = datetime.datetime.now().date()                    
                     if lecture_obj:
                             batches = lecture_obj.batches.all()
@@ -809,30 +809,6 @@ def get_subjects_of_teacher(request):
             teacher_obj = Teacher.objects.filter(profile=request.user).first()
             if teacher_obj:
                 subjects = Subject.objects.filter(lecture__teacher=teacher_obj).distinct()
-                subjects_serialized = SubjectSerializer(subjects,many=True)
-                data['data'] = subjects_serialized.data
-                return JsonResponse(data,status=200)
-            else:
-                raise Exception("Teacher does not exist")
-        else:
-            raise Exception("You're not allowed to perform this action")
-
-    except Exception as e:
-        print(e)
-        data['message'] = str(e)
-        data['error'] = True        
-        return JsonResponse(data,status=500)
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_subjects_of_student(request):
-    try:
-        data = {'data':None,'error':False,'message':None}
-        if request.user.role == 'student':
-            teacher_obj = Teacher.objects.filter(profile=request.user).first()
-            if teacher_obj:
-                lectures = Lecture.objects.filter(teacher=teacher_obj)
-                subjects = list({lecture.subject for lecture in lectures})
                 subjects_serialized = SubjectSerializer(subjects,many=True)
                 data['data'] = subjects_serialized.data
                 return JsonResponse(data,status=200)

@@ -29,21 +29,22 @@ def create_lecture_session(request):
                         batches = lecture_obj.batches.all()                        
                         current_time = datetime.datetime.now().time()
                         if current_time >= lecture_obj.start_time and current_time <= lecture_obj.end_time:
+                            # For failsafe if the session wasn't created when adding the lecture
                             lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=datetime.datetime.today().date())
-                            if created:           
-                                students = Student.objects.filter(batch__in=batches)
-                                for student in students:
-                                    attendance_obj = Attendance.objects.create(student=student)
-                                    lecture_session.attendances.add(attendance_obj)
-                                    lecture_session_serialized = SessionSerializer(lecture_session)
-                                    data['data'] = lecture_session_serialized.data                        
-                            if created:
-                                print('newely creted')
-                                pass
-                            else:
-                                if lecture_session.active == 'pre':
-                                    lecture_session.active = 'ongoing'
-                                    lecture_session.save()
+                            # if created:           
+                            #     students = Student.objects.filter(batch__in=batches)
+                            #     for student in students:
+                            #         attendance_obj = Attendance.objects.create(student=student)
+                            #         lecture_session.attendances.add(attendance_obj)
+                            #         lecture_session_serialized = SessionSerializer(lecture_session)
+                            #         data['data'] = lecture_session_serialized.data                        
+                            # if created:
+                            #     print('newely creted')
+                            #     pass
+                            # else:
+                            if lecture_session.active == 'pre':
+                                lecture_session.active = 'ongoing'
+                                lecture_session.save()
                             lecture_session_serialized = SessionSerializer(lecture_session)
                             data['data'] = lecture_session_serialized.data
                             return Response(data,status=200)

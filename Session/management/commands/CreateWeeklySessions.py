@@ -20,7 +20,7 @@ class Command(BaseCommand):
     help = 'Cronjob'
 
     def handle(self, *args, **options):
-        today= datetime.now().date()
+        today= datetime.now().date() - timedelta(days=2)
         timetables = TimeTable.objects.all()
         for timetable in timetables:
             schedules = timetable.schedule_set.all()
@@ -33,13 +33,13 @@ class Command(BaseCommand):
                         if lecture_obj:
                                 batches = lecture_obj.batches.all()
                                 lecture_session,created = Session.objects.get_or_create(lecture=lecture_obj,day=date_for_schedule,active='pre')
-                                if created:                            
+                                if created:                       
                                     students = Student.objects.filter(batch__in=batches)
                                     for student in students:
                                         attendance_obj = Attendance.objects.create(student=student)
                                         lecture_session.attendances.add(attendance_obj)                                
                                 else:
-                                    pass                        
+                                    print("Already exist")                      
                         else:
                             raise Exception('Lecture does not exists')
                     except Exception as e:
